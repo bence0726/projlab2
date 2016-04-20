@@ -29,7 +29,7 @@ public class Elem implements Interakcio {
     /**
      * 
      */
-    private Terulet pos;
+    protected Terulet pos;
 
     public void setPos(Vektor dir) {
 		pos.setKezd(dir);
@@ -67,24 +67,11 @@ public class Elem implements Interakcio {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
-    public void steppedoff() {
-        // TODO implement here
-    }
-
+    
     /**
      * 
      */
     public void kill() {
-        // TODO implement here
-    }
-
-    /**
-     * @param bullet
-     */
-    public void shot(Elem bullet) {
         // TODO implement here
     }
 
@@ -101,4 +88,18 @@ public class Elem implements Interakcio {
     public void picked(Karakter k) {
         // TODO implement here
     }
+
+
+	@Override
+	public void shot(Golyo bullet) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void steppedoff(Elem e) {
+		// TODO Auto-generated method stub
+		
+	}
 }

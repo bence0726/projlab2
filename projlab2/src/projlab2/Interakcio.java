@@ -9,7 +9,7 @@ public interface Interakcio {
     /**
      * @param bullet
      */
-    public void shot(Elem bullet);
+    public void shot(Golyo bullet);
 
     /**
      * @param e
@@ -19,11 +19,12 @@ public interface Interakcio {
     /**
      * 
      */
-    public void picked();
+    public void picked(Karakter k);
 
     /**
      * 
      */
-    public void steppedoff();
+    public void steppedoff(Elem e);
 
+    public void kill();
 }

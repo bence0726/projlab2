@@ -4,9 +4,20 @@ import java.util.*;
 /**
  * 
  */
-public interface Moveable {
-    /**
+public abstract class Moveable extends Elem{
+    protected Vektor moveDir;
+	
+	public Moveable(Terulet pos) {
+		super(pos);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * @param dir
      */
-    public void move(Vektor dir);
+    public void move() {
+	}
+    
+    public void step(){
+    }
 }

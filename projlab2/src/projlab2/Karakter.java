@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public class Karakter implements Moveable {
+public class Karakter extends Elem implements Moveable {
     /**
      * 
      */
@@ -100,7 +100,8 @@ public class Karakter implements Moveable {
      * @param dir
      */
     public void move(Vektor dir) {
-        // TODO implement here
+        ///TODO: vázlatos!!
+    	lab.WhatsThere(pos.setdir);
     }
 
 }
