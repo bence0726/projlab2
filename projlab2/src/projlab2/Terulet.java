@@ -9,12 +9,14 @@ public class Terulet {
     /**
      * Default constructor
      */
+	
     public Terulet() {
     }
 
     /**
      * 
      */
+    
     private Vektor kezd;
 
     /**
@@ -65,6 +67,7 @@ public class Terulet {
     public Vektor getVeg() {
         return new Vektor(veg.getVx(),veg.getVy());
     }
+    
     /**
      * TODO: meg kell valósítani!
      */
