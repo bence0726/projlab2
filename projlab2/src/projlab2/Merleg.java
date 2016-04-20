@@ -7,7 +7,7 @@ import java.util.*;
 public class Merleg extends Elem {
 
     /**
-     * Default constructor
+     * Ezt itt ki kéne törölni
      */
     public Merleg() {
     }
