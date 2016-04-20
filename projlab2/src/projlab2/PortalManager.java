@@ -35,12 +35,22 @@ public class PortalManager {
     }
 
     /**
-     * @param sp 
-     * @return
-     */
+     * @param sp - megadjuk, hogy melyik portálnak keressük a másik felét.
+     * @return - a paraméterül kapott portál másik végét adja vissza
+     */ 
     public SpecFal getOtherSide(SpecFal sp) {
-        // TODO implement here
-        return null;
+       Szin colour = sp.getSzin();
+       switch (colour) {
+       case Kek:
+   		return SargaP;
+       case Sarga:
+   		return KekP;
+       case Zold:
+   		return PirosP;
+       case Piros:
+   		return ZoldP;
+   		default:return null;
+       }
     }
 
 }

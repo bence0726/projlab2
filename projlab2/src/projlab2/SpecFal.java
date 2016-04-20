@@ -16,7 +16,14 @@ public class SpecFal extends Elem {
      */
     private Szin szin;
 
-    /**
+    public Szin getSzin() {
+		return szin;
+	}
+
+	public void setSzin(Szin szin) {
+		this.szin = szin;
+	}
+	/**
      * Megadja, hogy hol kell kirakni a karaktert, ha ide teleportál.
      */
     private Vektor irany;
@@ -61,9 +68,10 @@ public class SpecFal extends Elem {
         // TODO implement here
     }
     /**
-     * 
+     * Az irany attribútum által kijelölt pontra állítjuk
+     * az elem új helyét. Ez legyen valahol a portál előtt!
      */
     public void teleport(Elem e){
-    	e.
+    	e.setPos(irany);
     }
 }
