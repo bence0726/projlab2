@@ -1,4 +1,4 @@
-
+package projlab2;
 import java.util.*;
 
 /**
@@ -15,7 +15,7 @@ public class Merleg extends Elem {
     /**
      * 
      */
-    private bool aktív;
+    private boolean aktiv;
 
     /**
      * 
@@ -32,7 +32,7 @@ public class Merleg extends Elem {
      * @param E 
      * @param ajto
      */
-    public void Merleg(Elem E, void ajto) {
+    public Merleg(Elem ajto) {
         // TODO implement here
     }
 

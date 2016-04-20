@@ -1,4 +1,5 @@
-
+package projlab2;
+import java.io.File;
 import java.util.*;
 
 /**
@@ -31,16 +32,16 @@ public class Elem implements Interakcio {
     /**
      * @param val
      */
-    public void setReachable(bool val) {
+    public void setReachable(boolean val) {
         // TODO implement here
     }
 
     /**
      * @return
      */
-    public bool getReachable() {
+    public boolean getReachable() {
         // TODO implement here
-        return null;
+        return false;
     }
 
     /**
@@ -107,33 +108,4 @@ public class Elem implements Interakcio {
     public void picked() {
         // TODO implement here
     }
-
-    /**
-     * @param bullet
-     */
-    public void shot(Elem bullet) {
-        // TODO implement here
-    }
-
-    /**
-     * @param e
-     */
-    public void steppedon(Elem e) {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void picked() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
-    public void steppedoff() {
-        // TODO implement here
-    }
-
 }

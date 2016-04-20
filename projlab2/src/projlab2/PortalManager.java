@@ -1,4 +1,4 @@
-
+package projlab2;
 import java.util.*;
 
 /**
@@ -37,7 +37,7 @@ public class PortalManager {
     /**
      * @param sp
      */
-    public void open(Specfal sp) {
+    public void open(SpecFal sp) {
         // TODO implement here
     }
 

@@ -1,4 +1,4 @@
-
+package projlab2;
 import java.util.*;
 
 /**
@@ -15,7 +15,7 @@ public class SpecFal extends Elem {
     /**
      * 
      */
-    private bool reachable;
+    private boolean reachable;
 
     /**
      * 

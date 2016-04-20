@@ -1,17 +1,11 @@
-
+package projlab2;
+import java.io.File;
 import java.util.*;
 
 /**
  * 
  */
-public class Karakter extends Karakter implements Moveable {
-
-    /**
-     * Default constructor
-     */
-    public Karakter() {
-    }
-
+public class Karakter implements Moveable {
     /**
      * 
      */
@@ -46,7 +40,7 @@ public class Karakter extends Karakter implements Moveable {
      * @param lab 
      * @param img
      */
-    public void Karakter(Labirintus lab, File img) {
+    public Karakter(Labirintus lab, File img) {
         // TODO implement here
     }
 
@@ -75,13 +69,6 @@ public class Karakter extends Karakter implements Moveable {
     /**
      * @param dir
      */
-    public void Move(Vektor dir) {
-        // TODO implement here
-    }
-
-    /**
-     * @param dir
-     */
     public void Pick(Vektor dir) {
         // TODO implement here
     }
@@ -103,7 +90,7 @@ public class Karakter extends Karakter implements Moveable {
     /**
      * @param double Szog
      */
-    public void changeFegyverirany(void double Szog) {
+    public void changeFegyverirany(double Szog) {
         // TODO implement here
     }
 

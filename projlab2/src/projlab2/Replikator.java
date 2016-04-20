@@ -1,4 +1,4 @@
-
+package projlab2;
 import java.util.*;
 
 /**
@@ -32,12 +32,4 @@ public class Replikator extends Elem implements Moveable {
     public void kill() {
         // TODO implement here
     }
-
-    /**
-     * @param dir
-     */
-    public void move(Vektor dir) {
-        // TODO implement here
-    }
-
 }
