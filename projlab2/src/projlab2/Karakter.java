@@ -85,6 +85,7 @@ public class Karakter implements Moveable {
      */
     public void Fire(Szin szin) {
         // TODO implement here
+    	lab.addMoveable(new Golyo());
     }
 
     /**

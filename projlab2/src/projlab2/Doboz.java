@@ -9,7 +9,8 @@ public class Doboz extends Elem {
     /**
      * Default constructor
      */
-    public Doboz() {
+    public Doboz(Terulet area) {
+    	super(area);
     }
 
     /**

@@ -9,7 +9,8 @@ public class Merleg extends Elem {
     /**
      * Ezt itt ki kéne törölni
      */
-    public Merleg() {
+    public Merleg(Terulet area) {
+    	super(area);
     }
 
     /**
@@ -32,8 +33,8 @@ public class Merleg extends Elem {
      * @param E 
      * @param ajto
      */
-    public Merleg(Elem ajto) {
-        // TODO implement here
+    public Merleg(Elem ajto,Terulet area) {
+        super(area);
     }
 
     /**

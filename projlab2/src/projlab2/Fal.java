@@ -9,7 +9,8 @@ public class Fal extends Elem {
     /**
      * Default constructor
      */
-    public Fal() {
+    public Fal(Terulet area) {
+    	super(area);
     }
 
     /**
