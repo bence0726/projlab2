@@ -9,7 +9,8 @@ public class Szakadek extends Elem {
     /**
      * Default constructor
      */
-    public Szakadek() {
+    public Szakadek(Terulet area) {
+    	super(area);
     }
 
     /**

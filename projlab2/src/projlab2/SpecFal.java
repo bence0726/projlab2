@@ -6,6 +6,9 @@ import java.util.*;
  */
 public class SpecFal extends Elem {
 
+	public SpecFal(Terulet area){
+		super(area);
+	}
      /**
      * Megadja, hogy a SpecFal elemre rá lehet-e lépni.
      */
