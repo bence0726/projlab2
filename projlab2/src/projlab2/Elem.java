@@ -29,7 +29,11 @@ public class Elem implements Interakcio {
      */
     private Terulet pos;
 
-    /**
+    public void setPos(Terulet pos) {
+		this.pos = pos;
+	}
+
+	/**
      * @param val
      */
     public void setReachable(boolean val) {

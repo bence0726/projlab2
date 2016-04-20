@@ -5,13 +5,6 @@ import java.util.*;
  * 
  */
 public class PortalManager {
-
-    /**
-     * Default constructor
-     */
-    public PortalManager() {
-    }
-
     /**
      * 
      */
