@@ -9,7 +9,8 @@ public class Replikator extends Elem implements Moveable {
     /**
      * Default constructor
      */
-    public Replikator() {
+    public Replikator(Terulet area) {
+    	super(area);
     }
 
     /**
