@@ -9,22 +9,22 @@ public class Karakter implements Moveable {
     /**
      * 
      */
-    private int ZPM;
+    protected int ZPM;
 
     /**
      * 
      */
-    private int PickRange;
+    protected int PickRange;
 
     /**
      * 
      */
-    private Elem box;
+    protected Elem box;
 
     /**
      * 
      */
-    private Vektor fegyverirany;
+    protected Vektor fegyverirany;
 
 
 

@@ -4,13 +4,11 @@ import java.util.*;
 /**
  * 
  */
-public abstract class Moveable {
+public interface Moveable {
 
 
     /**
      * @param dir
      */
-    public void move(Vektor dir) {
-	}
-
+    public void move(Vektor dir);
 }

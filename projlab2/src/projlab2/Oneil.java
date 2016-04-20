@@ -17,15 +17,15 @@ public class Oneil extends Karakter {
      */
     public void addZPM() {
         ZPM++;
+
+        Terulet T = new Terulet();
+        T.randomArea(6);
         
-        double randomX1 = Math.random();
-        double randomY1 = Math.random();
-        
-        
-        Terulet T = new Terulet(new Vektor(randomX1,randomY1));
-        
-        while(lab.whatsThere() == null)
-        labb.addElem(new ZPM)
+        //amíg nem sorsol olyan területet, 
+        //ahol nincs semmi, addig hívogatjuk.
+        while(lab.whatsThere(T) != null) 
+        	T.randomArea(6);
+        lab.addElem(new ZPM(T)); //hozzáadjuk a labirintushoz
     }
 
 }
