@@ -9,7 +9,8 @@ public class ZPM extends Elem {
     /**
      * Default constructor
      */
-    public ZPM() {
+    public ZPM(Terulet area) {
+    	super(area);
     }
 
     /**

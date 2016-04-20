@@ -25,7 +25,7 @@ public class JatekMotor {
     /**
      * 
      */
-    public Moveable mozgatandok;
+    public ArrayList<Moveable> mozgatandok;
 
     /**
      * 
