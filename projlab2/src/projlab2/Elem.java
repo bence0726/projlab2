@@ -10,7 +10,9 @@ public class Elem implements Interakcio {
     /**
      * Default constructor
      */
-    public Elem() {
+    public Elem(Terulet pos) {
+    	this.pos.setKezd(pos.getKezd());
+    	this.pos.setVeg(pos.getVeg());
     }
 
     /**
@@ -29,31 +31,18 @@ public class Elem implements Interakcio {
      */
     private Terulet pos;
 
-    public void setPos(Terulet pos) {
-		this.pos = pos;
+    public void setPos(Vektor dir) {
+		pos.setKezd(dir);
+		pos.setVeg(dir);
 	}
 
-	/**
-     * @param val
-     */
-    public void setReachable(boolean val) {
-        // TODO implement here
-    }
-
-    /**
-     * @return
-     */
-    public boolean getReachable() {
-        // TODO implement here
-        return false;
-    }
 
     /**
      * @return
      */
     public Terulet getPos() {
         // TODO implement here
-        return null;
+        return pos;
     }
 
     /**

@@ -32,8 +32,13 @@ public class Labirintus {
     /**
      * 
      */
-    private Set<Elem> list;
-
+    private ArrayList<Elem> list;
+    
+    /**
+     * 
+     */
+    private ArrayList<Moveable> moveableList;
+    
     /**
      * 
      */
@@ -93,6 +98,10 @@ public class Labirintus {
     public Vektor getKezdoPont() {
         // TODO implement here
         return null;
+    }
+    
+    public void addMoveable(Moveable x) {
+    	moveableList.add(x);
     }
 
 }

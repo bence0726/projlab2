@@ -9,7 +9,8 @@ public class VegeElem extends Elem {
     /**
      * Default constructor
      */
-    public VegeElem() {
+    public VegeElem(Terulet area) {
+    	super(area);
     }
 
     /**
