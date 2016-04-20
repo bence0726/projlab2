@@ -25,10 +25,12 @@ public class Terulet {
 
 
     /**
+     * TODO: új terület létrehozásakor nem lenne elég
+     * egy kezdőpozíció? A 
      * @param k 
      * @param v
      */
-    public void Terulet(Vektor k, Vektor v) {
+    public Terulet(Vektor k, Vektor v) {
         // TODO implement here
     }
 
@@ -61,5 +63,10 @@ public class Terulet {
         // TODO implement here
         return null;
     }
-
+    /**
+     * TODO: meg kell valósítani!
+     */
+    public Terulet randomArea(int size){
+    	return new Terulet();
+    }
 }

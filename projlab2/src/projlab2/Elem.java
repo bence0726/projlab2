@@ -109,7 +109,7 @@ public class Elem implements Interakcio {
     /**
      * 
      */
-    public void picked() {
+    public void picked(Karakter k) {
         // TODO implement here
     }
 }

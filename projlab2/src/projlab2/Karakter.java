@@ -45,10 +45,11 @@ public class Karakter implements Moveable {
     }
 
     /**
-     * 
+     * Amikor felveszünk egy ZPM-et, a ZPM ezt a metódust hívja meg.
+     * Növeli a karakter ZPM-számlálóját.
      */
     public void addZPM() {
-        // TODO implement here
+        ZPM++;
     }
 
     /**

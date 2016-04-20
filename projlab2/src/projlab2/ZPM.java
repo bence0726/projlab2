@@ -15,8 +15,9 @@ public class ZPM extends Elem {
     /**
      * @param e
      */
-    public void steppedon(Elem e) {
-        // TODO implement here
+    public void picked(Karakter k) {
+        k.addZPM();
+        this.kill();        
     }
 
 }

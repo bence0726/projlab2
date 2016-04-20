@@ -15,9 +15,17 @@ public class Oneil extends Karakter {
 	/**
      * 
      */
-    public int getZPM() {
-        // TODO implement here
-    	return 0;
+    public void addZPM() {
+        ZPM++;
+        
+        double randomX1 = Math.random();
+        double randomY1 = Math.random();
+        
+        
+        Terulet T = new Terulet(new Vektor(randomX1,randomY1));
+        
+        while(lab.whatsThere() == null)
+        labb.addElem(new ZPM)
     }
 
 }
