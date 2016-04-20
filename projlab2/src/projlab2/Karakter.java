@@ -24,7 +24,7 @@ public class Karakter extends Elem implements Moveable {
     /**
      * 
      */
-    protected Vektor fegyverirany;
+    protected Vektor gundir;
 
 
 
@@ -86,7 +86,7 @@ public class Karakter extends Elem implements Moveable {
      */
     public void Fire(Szin szin) {
         // TODO implement here
-    	lab.addMoveable(new Golyo());
+    	lab.addMoveable(new Golyo(dir,pos ));
     }
 
     /**
