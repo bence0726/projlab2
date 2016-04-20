@@ -32,41 +32,43 @@ public class Terulet {
      */
     public Terulet(Vektor k, Vektor v) {
         // TODO implement here
+    	kezd = k;
+    	veg = v;
     }
 
     /**
      * @param val
      */
     public void setKezd(Vektor val) {
-        // TODO implement here
+    	kezd.setVx(kezd.getVx()+val.getVx());
+    	kezd.setVy(kezd.getVy()+val.getVy());
     }
 
     /**
      * @return
      */
     public Vektor getKezd() {
-        // TODO implement here
-        return null;
+        return new Vektor(kezd.getVx(),kezd.getVy());
     }
 
     /**
      * @param val
      */
     public void setVeg(Vektor val) {
-        // TODO implement here
+    	veg.setVx(veg.getVx()+val.getVx());
+    	veg.setVy(veg.getVy()+val.getVy());
     }
 
     /**
      * @return
      */
     public Vektor getVeg() {
-        // TODO implement here
-        return null;
+        return new Vektor(veg.getVx(),veg.getVy());
     }
     /**
      * TODO: meg kell valósítani!
      */
-    public Terulet randomArea(int size){
+    public Terulet randomArea(Vektor size){
     	return new Terulet();
     }
 }

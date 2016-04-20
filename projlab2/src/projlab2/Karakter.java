@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public class Karakter implements Moveable {
+public class Karakter extends Elem implements Moveable {
     /**
      * 
      */
@@ -24,7 +24,7 @@ public class Karakter implements Moveable {
     /**
      * 
      */
-    protected Vektor fegyverirany;
+    protected Vektor gundir;
 
 
 
@@ -86,7 +86,7 @@ public class Karakter implements Moveable {
      */
     public void Fire(Szin szin) {
         // TODO implement here
-    	lab.addMoveable(new Golyo());
+    	lab.addMoveable(new Golyo(dir,pos ));
     }
 
     /**
