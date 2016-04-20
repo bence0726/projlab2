@@ -1,0 +1,53 @@
+
+import java.util.*;
+
+/**
+ * 
+ */
+public class PortalManager {
+
+    /**
+     * Default constructor
+     */
+    public PortalManager() {
+    }
+
+    /**
+     * 
+     */
+    private SpecFal KekP;
+
+    /**
+     * 
+     */
+    private SpecFal SargaP;
+
+    /**
+     * 
+     */
+    public SpecFal PirosP;
+
+    /**
+     * 
+     */
+    public SpecFal ZoldP;
+
+
+
+    /**
+     * @param sp
+     */
+    public void open(Specfal sp) {
+        // TODO implement here
+    }
+
+    /**
+     * @param sp 
+     * @return
+     */
+    public SpecFal getOtherSide(SpecFal sp) {
+        // TODO implement here
+        return null;
+    }
+
+}
