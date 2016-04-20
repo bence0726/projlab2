@@ -50,7 +50,7 @@ public class SpecFal extends Elem {
         SpecFal otherSide = pm.getOtherSide(this);
         if(otherSide == null)			//ennek nem kéne teljesülnie, de ha mégis, visszatérünk
         	return;
-        otherSide.teleport(elem);		//a rálépett elemet teleportáljuk       
+        otherSide.teleport(elem);		//a rálépett elemet teleportáljuk      
         	
     }
 
