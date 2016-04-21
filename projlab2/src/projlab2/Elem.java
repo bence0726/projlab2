@@ -103,7 +103,7 @@ public class Elem implements Interakcio {
 
 
 	@Override
-	public void steppedoff(Elem e) {
+	public void steppedoff(Moveable x) {
 		// TODO Auto-generated method stub
 		
 	}

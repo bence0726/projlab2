@@ -76,4 +76,5 @@ public class Terulet {
     public Terulet randomArea(Vektor size){
     	return new Terulet();
     }
+    
 }

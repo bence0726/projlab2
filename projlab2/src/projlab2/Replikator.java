@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Replikator extends Elem implements Moveable {
+public class Replikator extends Moveable {
 
     /**
      * Default constructor

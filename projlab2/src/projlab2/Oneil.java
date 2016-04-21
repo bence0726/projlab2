@@ -7,8 +7,8 @@ import java.util.*;
  */
 public class Oneil extends Karakter {
     
-	public Oneil(Labirintus lab, File img) {
-		super(lab, img);
+	public Oneil(Labirintus lab, File img,Terulet pos) {
+		super(lab, img,pos);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -19,12 +19,12 @@ public class Oneil extends Karakter {
         ZPM++;
 
         Terulet T = new Terulet();
-        T.randomArea(6,6);
+        T.randomArea(new Vektor(6,6));
         
         //amíg nem sorsol olyan területet, 
         //ahol nincs semmi, addig hívogatjuk.
         while(lab.whatsThere(T) != null) 
-        	T.randomArea(6,6);
+        	T.randomArea(new Vektor(6,6));
         lab.addElem(new ZPM(T)); //hozzáadjuk a labirintushoz
     }
 

@@ -26,21 +26,16 @@ public class Karakter extends Moveable{
      */
     protected Vektor gundir;
 
-
-
-
-
-
     /**
      * 
      */
-    private Labirintus lab;
 
     /**
      * @param lab 
      * @param img
      */
-    public Karakter(Labirintus lab, File img) {
+    public Karakter(Labirintus lab, File img,Terulet pos) {
+    	super(pos);
         // TODO implement here
     }
 
@@ -86,7 +81,7 @@ public class Karakter extends Moveable{
      */
     public void Fire(Szin szin) {
         // TODO implement here
-    	lab.addMoveable(new Golyo(dir,pos ));
+    	lab.addMoveable(new Golyo(gundir,pos ));
     }
 
     /**
@@ -102,11 +97,18 @@ public class Karakter extends Moveable{
      */
     public void move(Vektor dir) {
         ///TODO: vázlatos!!
+    	/*
+    	 * MEgnézzük, hogy ahol állunk ott mi van. (Set A)
+    	 * Utána megnézzük,hogy ahova menni akarunk ott mi van. (Set B)
+    	 * Azokra az elemekre hivjuk a steppedon-t ahová lépni fogunk
+    	 * Miután ezek léptettek(avagy nem) , megint megnézzük, hogy hol vagyunk (Set C)
+    	 * Ezután összehasonlítjuk A-t és C-t , ami nincs benn C-ben arra hívjuk a steppedoff-ot.
+    	 */
     	Terulet t = new Terulet(pos.getKezd(),pos.getVeg());
     	t.setKezd(dir);
     	t.setVeg(dir);
-    	Elem elemThere = lab.WhatsThere(t);
-    	Elem elemHere = lab.WhatsThere(pos);
+    	Elem elemThere = lab.whatsThere(t);
+    	Elem elemHere = lab.whatsThere(pos);
     	
     	
     	

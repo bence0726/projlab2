@@ -42,28 +42,28 @@ public class Labirintus {
     /**
      * 
      */
-    public void Labirintus() {
+    public void labirintus() {
         // TODO implement here
     }
 
     /**
      * @param kar
      */
-    public void AddKar(Karakter kar) {
+    public void addKar(Karakter kar) {
         // TODO implement here
     }
 
     /**
      * @param param
      */
-    public void AddElem(Elem param) {
+    public void addElem(Elem param) {
         // TODO implement here
     }
 
     /**
      * @param param
      */
-    public void RemoveElem(Elem param) {
+    public void removeElem(Elem param) {
         // TODO implement here
     }
 
@@ -71,7 +71,7 @@ public class Labirintus {
      * @param ter 
      * @return
      */
-    public Elem WhatsThere(Terulet ter) {
+    public Elem whatsThere(Terulet ter) {
         // TODO térjen vissza SET-tel!
         return null;
     }
