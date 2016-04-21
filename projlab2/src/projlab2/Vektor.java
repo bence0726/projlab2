@@ -54,5 +54,10 @@ public class Vektor {
     public int getVy() {
         return vy;
     }
-
+    
+    public Vektor addDirVec(Vektor dirVec){
+    	int x=0;
+    	int y=0;
+    	return new Vektor(x,y);
+    }
 }
