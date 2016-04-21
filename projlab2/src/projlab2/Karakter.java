@@ -110,7 +110,7 @@ public class Karakter extends Moveable{
     	Elem elemThere = lab.whatsThere(t);
     	Elem elemHere = lab.whatsThere(pos);
     	
-    	
+    		
     	
     	if(elemThere != elemHere)
     	if(elemThere == null){				//ha nincs ott semmi, odalépünk

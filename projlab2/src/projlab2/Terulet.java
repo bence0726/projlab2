@@ -77,4 +77,8 @@ public class Terulet {
     	return new Terulet();
     }
     
+    public boolean isCoveredBy(Terulet t){
+    	return true;
+    }
+    
 }
