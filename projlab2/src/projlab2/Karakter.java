@@ -96,33 +96,50 @@ public class Karakter extends Moveable{
      * @param dir
      */
     public void move(Vektor dir) {
-        ///TODO: vázlatos!!
     	/*
+    	 * Magyarázat
     	 * MEgnézzük, hogy ahol állunk ott mi van. (Set A)
     	 * Utána megnézzük,hogy ahova menni akarunk ott mi van. (Set B)
     	 * Azokra az elemekre hivjuk a steppedon-t ahová lépni fogunk
     	 * Miután ezek léptettek(avagy nem) , megint megnézzük, hogy hol vagyunk (Set C)
     	 * Ezután összehasonlítjuk A-t és C-t , ami nincs benn C-ben arra hívjuk a steppedoff-ot.
     	 */
-    	Terulet t = new Terulet(pos.getKezd(),pos.getVeg());
+    	Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
     	t.setKezd(dir);
     	t.setVeg(dir);
-    	Elem elemThere = lab.whatsThere(t);
-    	Elem elemHere = lab.whatsThere(pos);
+    	    	
+    	Set<Elem> itemsHere = lab.whatsThere(this.pos); //lépés előtt itt állunk
+    	Set<Elem> itemsThere = lab.whatsThere(t);		//ahová lépünk, ott ezek vannak
     	
+    	Iterator<Elem> iteratorHere = itemsHere.iterator();
+    	
+    	if(itemsThere.size() == 0){						//ha nincs ott semmi...
+    		step();										//lépés
     		
-    	
-    	if(elemThere != elemHere)
-    	if(elemThere == null){				//ha nincs ott semmi, odalépünk
-    		step();
+    		if(itemsHere.size() != 0){
+    			Set<Elem> itemsNewPlace = lab.whatsThere(this.pos);//megnézzük, kimindenkin vagyunk rajta most    			
+    			while(iteratorHere.hasNext()){
+    	    		Elem temp = iteratorHere.next();
+    	    		if(!itemsNewPlace.contains(temp))
+    	    			temp.steppedoff(this);					//ami nincs benne, arról leléptünk
+    	    	}
+    		}
     		return;
     	}
     	
+    	Iterator<Elem> iteratorThere = itemsThere.iterator();
     	
+    	while(iteratorThere.hasNext()){
+    		iteratorThere.next().steppedon(this);
+    	}
     	
+    	Set<Elem> itemsNewPlace = lab.whatsThere(this.pos);
     	
-    	
-    	elemThere.steppedon(this); 			//ha van ott valami, steppedon-t hívjuk
+    	while(iteratorHere.hasNext()){
+    		Elem temp = iteratorHere.next();
+    		if(!itemsNewPlace.contains(temp))
+    			temp.steppedoff(this);					//ami nincs benne, arról leléptünk
+    	}    	
     }
 
 }

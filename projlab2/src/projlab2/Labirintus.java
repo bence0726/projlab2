@@ -32,7 +32,7 @@ public class Labirintus {
     /**
      * 
      */
-    private ArrayList<Elem> list;
+    private ArrayList<Elem> list = new ArrayList<>();
     
     /**
      * 
@@ -68,13 +68,20 @@ public class Labirintus {
     }
 
     /**
-     * @param ter 
-     * @return
+     * Ad egy halmazt azokról az elemekről, amelyek 
+     * az adott területen találhatóak.
+     * @param ter - a terület, amire kíváncsiak vagyunk.
+     * @return - egy halmaz az ott levő elemekről
      */
     public Set<Elem> whatsThere(Terulet ter) {
-        Set<Elem> elemek = new HashSet<Elem>();
+        Set<Elem> items = new HashSet<Elem>();
         
-        return null;
+        for(int i = 0; i < list.size(); i++){
+        	Elem temp = list.get(i);
+        	if(temp.getPos().isCoveredBy(ter))	//ha takarják egymást,
+        		items.add(temp);				//hozzáadjuk a halmazhoz
+        }
+        return items;
     }
 
     /**
