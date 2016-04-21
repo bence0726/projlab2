@@ -63,8 +63,14 @@ public class Labirintus {
     /**
      * @param param
      */
-    public void removeElem(Elem param) {
-        // TODO implement here
+    private void removeElem(Elem param) {
+    	Iterator<Elem> iterator = list.iterator();
+		while(iterator.hasNext()){
+			Elem temp = iterator.next();
+			if(!temp.isAlive()){
+				list.remove(temp);
+			}
+		}
     }
 
     /**
@@ -117,8 +123,14 @@ public class Labirintus {
      *  a kapott moveable objektumot.
      * @param moveable - a törlendő objektum referenciája
      */
-	public void removeMoveable(Moveable moveable) {
-		moveableList.remove(moveable);		
+	private void removeMoveable(Moveable moveable) {
+		Iterator<Moveable> iterator = moveableList.iterator();
+		while(iterator.hasNext()){
+			Moveable temp =  iterator.next();
+			if(!temp.isAlive()){
+				moveableList.remove(temp);
+			}
+		}			
 	}
 
 }

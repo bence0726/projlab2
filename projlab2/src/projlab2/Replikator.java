@@ -28,9 +28,22 @@ public class Replikator extends Moveable {
     }
 
     /**
-     * 
+     * Ha megölik a replikátort, akkor csak szakadékba
+     * léphetett. Ekkor megkeressük a mapon a rá mutató
+     * referenciát és kinyírjuk őt is.
      */
     public void kill() {
-        // TODO implement here
+        alive = false;
+        Set<Elem> items = lab.whatsThere(pos);
+        
+        Iterator<Elem> iterator = items.iterator();
+        while(iterator.hasNext()){
+        	Elem temp = iterator.next();
+        	if(temp != this){
+        		temp.kill();
+        		return;
+        	}
+        		
+        }
     }
 }

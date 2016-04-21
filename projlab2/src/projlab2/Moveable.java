@@ -76,13 +76,5 @@ public abstract class Moveable extends Elem{
     public void setDir(Vektor dir){
     	moveDir = dir;
     }
-    /**
-     * Leszedi az objektumot a mapról.
-     * Ehhez le kell szedni a moveableListről
-     * és az elemek listájáról is.
-     */
-    public void kill(){
-    	lab.removeElem(this);
-    	lab.removeMoveable(this);
-    }
+    
 }

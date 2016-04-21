@@ -2,6 +2,8 @@ package projlab2;
 import java.io.File;
 import java.util.*;
 
+import javafx.scene.control.Alert;
+
 /**
  * 
  */
@@ -16,14 +18,18 @@ public class Elem implements Interakcio {
     }
 
     /**
+     * Él az elem? Ha igen, true, egyébként false.
+     */
+    protected boolean alive = true;
+    /**
      * 
      */
-    private File image;
+    protected File image;
 
     /**
      * 
      */
-    private int suly;
+    protected int suly;
 
 
     /**
@@ -74,9 +80,10 @@ public class Elem implements Interakcio {
 
     
     /**
-     * 
+     * Elegánsan false-ra állítja az alive flag-jét.
      */
-    public void kill() {
+    public void kill(){
+    	alive = false;
     }
 
     /**
@@ -105,5 +112,8 @@ public class Elem implements Interakcio {
 	public void steppedoff(Moveable x) {
 		// TODO Auto-generated method stub
 		
+	}
+	public boolean isAlive(){
+		return alive;
 	}
 }
