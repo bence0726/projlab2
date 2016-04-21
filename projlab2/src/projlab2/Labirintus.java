@@ -71,8 +71,9 @@ public class Labirintus {
      * @param ter 
      * @return
      */
-    public Elem whatsThere(Terulet ter) {
-        // TODO térjen vissza SET-tel!
+    public Set<Elem> whatsThere(Terulet ter) {
+        Set<Elem> elemek = new HashSet<Elem>();
+        
         return null;
     }
 
