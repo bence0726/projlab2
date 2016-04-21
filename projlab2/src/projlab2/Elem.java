@@ -77,7 +77,6 @@ public class Elem implements Interakcio {
      * 
      */
     public void kill() {
-        // TODO implement here
     }
 
     /**

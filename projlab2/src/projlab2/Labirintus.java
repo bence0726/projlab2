@@ -112,4 +112,13 @@ public class Labirintus {
     	moveableList.add(x);
     }
 
+    /**
+     * A mozgó elemek listájáról leszedi
+     *  a kapott moveable objektumot.
+     * @param moveable - a törlendő objektum referenciája
+     */
+	public void removeMoveable(Moveable moveable) {
+		moveableList.remove(moveable);		
+	}
+
 }
