@@ -39,6 +39,8 @@ public class Terulet {
     }
 
     /**
+     * A kezdőponthoz hozzáadja a kapott vektort.
+     * TODO: Biztos jó ez?
      * @param val
      */
     public void setKezd(Vektor val) {

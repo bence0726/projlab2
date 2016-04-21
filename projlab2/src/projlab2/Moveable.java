@@ -18,6 +18,18 @@ public abstract class Moveable extends Elem{
     public void move() {
 	}
     
+    /**
+     * Továbblépés.
+     */
     public void step(){
+    	addDirToArea(moveDir);
+    }
+    
+    /**
+     * TODO: a dir-ből csináljon irányvektort!!
+     * @param dir
+     */
+    public void setDir(Vektor dir){
+    	moveDir = dir;
     }
 }

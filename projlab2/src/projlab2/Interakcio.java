@@ -14,7 +14,7 @@ public interface Interakcio {
     /**
      * @param e
      */
-    public void steppedon(Elem e);
+    public void steppedon(Moveable x);
 
     /**
      * 
@@ -24,7 +24,7 @@ public interface Interakcio {
     /**
      * 
      */
-    public void steppedoff(Elem e);
+    public void steppedoff(Moveable x);
 
     public void kill();
 }

@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Golyo extends Elem implements Moveable {
+public class Golyo extends Moveable {
 
     /**
      * Default constructor

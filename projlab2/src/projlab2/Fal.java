@@ -28,8 +28,10 @@ public class Fal extends Elem {
     /**
      * @param e
      */
-    public void steppedon(Elem e) {
-        // TODO implement here
+    public void steppedon(Moveable X) {
+        if(!reachable)
+        	return;
+        X.step();
     }
 
 }

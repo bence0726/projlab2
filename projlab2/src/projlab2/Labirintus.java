@@ -72,7 +72,7 @@ public class Labirintus {
      * @return
      */
     public Elem WhatsThere(Terulet ter) {
-        // TODO implement here
+        // TODO térjen vissza SET-tel!
         return null;
     }
 

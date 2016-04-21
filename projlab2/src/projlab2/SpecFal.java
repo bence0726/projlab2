@@ -75,6 +75,6 @@ public class SpecFal extends Elem {
      * az elem új helyét. Ez legyen valahol a portál előtt!
      */
     public void teleport(Elem e){
-    	e.setPos(irany);
+    	e.addDirToArea(irany);
     }
 }

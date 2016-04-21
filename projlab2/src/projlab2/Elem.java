@@ -31,7 +31,12 @@ public class Elem implements Interakcio {
      */
     protected Terulet pos;
 
-    public void setPos(Vektor dir) {
+    /**
+     * Az elemet a megadott vektorral eltolja.
+     * TODO: have a fresh look!
+     * @param dir
+     */
+    public void addDirToArea(Vektor dir) {
 		pos.setKezd(dir);
 		pos.setVeg(dir);
 	}
@@ -63,8 +68,8 @@ public class Elem implements Interakcio {
     /**
      * @param e
      */
-    public void steppedon(Elem e) {
-        // TODO implement here
+    public void steppedon(Moveable x) {
+       //return egyből, nem lépünk ide.
     }
 
     

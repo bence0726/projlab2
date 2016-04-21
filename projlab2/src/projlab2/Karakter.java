@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public class Karakter extends Elem implements Moveable {
+public class Karakter extends Moveable{
     /**
      * 
      */
@@ -97,11 +97,30 @@ public class Karakter extends Elem implements Moveable {
     }
 
     /**
+     * 
      * @param dir
      */
     public void move(Vektor dir) {
         ///TODO: vázlatos!!
-    	lab.WhatsThere(pos.setdir);
+    	Terulet t = new Terulet(pos.getKezd(),pos.getVeg());
+    	t.setKezd(dir);
+    	t.setVeg(dir);
+    	Elem elemThere = lab.WhatsThere(t);
+    	Elem elemHere = lab.WhatsThere(pos);
+    	
+    	
+    	
+    	if(elemThere != elemHere)
+    	if(elemThere == null){				//ha nincs ott semmi, odalépünk
+    		step();
+    		return;
+    	}
+    	
+    	
+    	
+    	
+    	
+    	elemThere.steppedon(this); 			//ha van ott valami, steppedon-t hívjuk
     }
 
 }
