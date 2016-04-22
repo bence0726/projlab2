@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Doboz extends Elem {
+public class Doboz extends Moveable {
 
     /**
      * Default constructor
@@ -21,10 +21,11 @@ public class Doboz extends Elem {
     }
 
     /**
-     * 
+     * Ha a karakter felveszi, hozzáadja
+     * magát a karakterhez.
      */
-    public void picked() {
-        // TODO implement here
+    public void picked(Karakter k) {
+        k.addBox(this);
     }
 
 }
