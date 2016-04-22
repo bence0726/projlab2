@@ -20,17 +20,24 @@ public class Vektor {
      * @param x 
      * @param y
      */
+    
+    public Vektor(){}
     public Vektor(int x, int y) {
         // TODO implement here
     	vx=x;
     	vy=y;
     }
 
-    /**
+    public Vektor(Vektor vec) {
+		vx = vec.getVx();
+		vy = vec.getVy();
+	}
+
+	/**
      * @param val
      */
     public void setVx(int val) {
-    	vx=val;
+    	vx=val; 
     }
 
     /**
@@ -54,10 +61,38 @@ public class Vektor {
     public int getVy() {
         return vy;
     }
-    
-    public Vektor addDirVec(Vektor dirVec){
-    	int x=0;
-    	int y=0;
-    	return new Vektor(x,y);
+    /**
+     * Hozzáadja a paraméterként kapott vektort(A)
+     * ahhoz a vektorhoz ami hívja a függvényt.
+     * @param dirVec
+     * @return
+     */
+    public Vektor addVec(Vektor vec){
+    	this.vx=this.vx+vec.getVx();
+    	this.vy=this.vy+vec.getVy();
+    	return this;
+    }
+    /**
+     * Kivonja a paraméterül kapott vektort(B) abból
+     * ami hívja a függvényt(A).Így az eredményvektor
+     * az A vektor végébe fog mutatni.
+     * @param vec
+     * @return
+     */
+    public Vektor subVec(Vektor vec){
+    	this.vx=this.vx-vec.getVx();
+    	this.vy=this.vy-vec.getVy();
+    	return this;
+    }
+    /**
+     * A paraméterül kapott vektorral teszi egyenlővé
+     * azt a vektort ami meghívja ezt a függvényt.
+     * @param vec
+     * @return
+     */
+    public Vektor beEqual(Vektor vec){
+    	this.vx = vec.getVx();
+    	this.vy = vec.getVy();
+    	return this;
     }
 }

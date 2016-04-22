@@ -66,7 +66,7 @@ public abstract class Moveable extends Elem{
      * Továbblépés.
      */
     public void step(){
-    	addDirToArea(moveDir);
+    	elemShiftWithVec(moveDir);
     }
     
     /**
