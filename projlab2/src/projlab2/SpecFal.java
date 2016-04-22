@@ -40,7 +40,8 @@ public class SpecFal extends Elem {
      * @param bullet
      */
     public void shot(Golyo bullet) {
-        // TODO implement here
+    	bullet.g
+        pm.
     }
 
     /**

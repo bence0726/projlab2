@@ -26,7 +26,11 @@ public class Merleg extends Elem {
     /**
      * 
      */
-    public int sulyRajta;
+    public int massOnTheScale;
+    /**
+     * A limit ami felett az ajtó kinyílik.
+     */
+    private int massLimit= 100;
 
 
     /**
@@ -45,10 +49,22 @@ public class Merleg extends Elem {
     }
 
     /**
-     * @param e
+     * Rélépés a mérlegre.
+     * @param m :Moveable
      */
-    public void steppedon(Elem e) {
-        // TODO implement here
+    public void steppedon(Moveable m) {
+    	massOnTheScale+=m.getSuly();
+    	if (massOnTheScale >= massLimit)
+    		ajto.setReachable(true);
+    }
+    /**
+     * Lelépés a mérlegről
+     * @param m :Moveable
+     */
+    public void steppedoff(Moveable m){
+    	massOnTheScale-=m.getSuly();
+    	if (massOnTheScale < massLimit)
+    		ajto.setReachable(false);
     }
 
 }

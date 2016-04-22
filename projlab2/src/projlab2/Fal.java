@@ -34,4 +34,11 @@ public class Fal extends Elem {
         X.step();
     }
 
+
+	public void setReachable(boolean reachable) {
+		this.reachable = reachable;
+	}
+    
+    
+
 }

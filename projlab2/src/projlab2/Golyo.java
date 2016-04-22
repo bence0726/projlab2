@@ -11,9 +11,10 @@ public class Golyo extends Moveable {
      */
 	
 	Vektor dir;
-    public Golyo(Vektor dir,Terulet area) {
+    public Golyo(Vektor dir,Terulet area,Szin szin) {
     	super(area);
     	this.dir = dir;
+    	this.szin = szin;
     }
 
     /**
@@ -21,7 +22,11 @@ public class Golyo extends Moveable {
      */
     private Szin szin;
 
-    /**
+    public Szin getSzin() {
+		return szin;
+	}
+
+	/**
      * @param dir
      */
     public void move(Vektor dir) {
@@ -33,7 +38,7 @@ public class Golyo extends Moveable {
     	 * meghívjuk a shot függvényt.
     	 */
     	Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
-    	t.setKezd(moveDir);
+    	t.setKezd(moveDir); 
     	t.setVeg(moveDir);
     	    	
     	
