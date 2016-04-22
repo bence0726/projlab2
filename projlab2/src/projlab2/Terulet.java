@@ -66,12 +66,22 @@ public class Terulet {
     			
     	return false;
     }
+    
+    /**
+     * Visszatér a Terulet átlójával.
+     * Ami a bal felső sarokból mutat a jobb alsóba.
+     * @return
+     */
     private Vektor getDiagonal(){
     	Vektor temp = new Vektor(veg);
     	temp.subVec(kezd);
     	return temp;
     }
     
+    /**
+     * Visszatér egy helyvektorral mely a Terület középpontjába mutat.
+     * @return
+     */
     public Vektor getMiddleOfArea(){
     	Vektor temp = new Vektor(this.getDiagonal()); //lekérdezzük a terület átlóját
     	temp.setVx(temp.getVx()/2);  //elfelezzük
@@ -90,9 +100,30 @@ public class Terulet {
     	this.kezd.addVec(dirVec);
     	this.veg.addVec(dirVec);
 	}
-    
-    public Terulet setNewCornerLocation(Vektor vec){
-    	this.
+    /**
+     * A paraméterül kapott vektorhoz illeszti a terület
+     * bal felső sarkát.
+     * @param vec
+     */
+    public void setNewCornerLocation(Vektor vec){
+    	Vektor temp=this.getDiagonal(); //Lekérdezzük az átlóját
+    	kezd = vec; // a bal felső sarkat beallitjuk oda ahova mutatunk
+    	temp.addVec(kezd); //összeadjuk a kezdopont helyvektrát az átlóval
+    	veg=temp; //ezt a vektort beállítjuk a jobb also saroknak.
+    }
+    /**
+     * A paraméterül kapott vektorhoz illeszti a terület
+     * közepét
+     * @param vec
+     */
+    public void setNewMiddleLocation(Vektor middle){
+    	Vektor temp = new Vektor(this.getDiagonal()); //lekérdezzük at átlóját
+    	temp.setVx(temp.getVx()/2);  //elfelezzük
+    	temp.setVy(temp.getVy()/2);
+    	veg = veg.addVecToVec(middle, temp); //összadjuk a közép vektort és az átló felét
+    	temp.inverseVec(); //megforditjuk az átló felét hogy a középpontból a bal felső sarokba mutasson
+    	kezd = kezd.addVecToVec(middle, temp); //összeadjuk(az inverz miatt lényegében kivonjuk) a
+    										   //középből az átló felének forditottját
     }
 
     
