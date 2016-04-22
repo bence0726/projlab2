@@ -20,6 +20,8 @@ public class Vektor {
      * @param x 
      * @param y
      */
+    
+    public Vektor(){}
     public Vektor(int x, int y) {
         // TODO implement here
     	vx=x;
@@ -61,7 +63,7 @@ public class Vektor {
     }
     /**
      * Hozzáadja a paraméterként kapott vektort(A)
-     * ahhoz a vektorhoz amin hívtuk a függvényt.
+     * ahhoz a vektorhoz ami hívja a függvényt.
      * @param dirVec
      * @return
      */
@@ -72,7 +74,7 @@ public class Vektor {
     }
     /**
      * Kivonja a paraméterül kapott vektort(B) abból
-     * amin hívjuk a függvényt(A).Így az eredményvektor
+     * ami hívja a függvényt(A).Így az eredményvektor
      * az A vektor végébe fog mutatni.
      * @param vec
      * @return
@@ -81,7 +83,13 @@ public class Vektor {
     	this.vx=this.vx-vec.getVx();
     	this.vy=this.vy-vec.getVy();
     	return this;
-    }	
+    }
+    /**
+     * A paraméterül kapott vektorral teszi egyenlővé
+     * azt a vektort ami meghívja ezt a függvényt.
+     * @param vec
+     * @return
+     */
     public Vektor beEqual(Vektor vec){
     	this.vx = vec.getVx();
     	this.vy = vec.getVy();

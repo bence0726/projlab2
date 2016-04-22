@@ -27,8 +27,7 @@ public class Terulet {
 
 
     /**
-     * TODO: új terület létrehozásakor nem lenne elég
-     * egy kezdőpozíció? A 
+     * 
      * @param vecKezd :A terület bal felső sarka 
      * @param vecVeg :A terület jobb also sarka
      */
@@ -39,15 +38,15 @@ public class Terulet {
     }
     
     /**
-     * A megadott mapon belülre véletlenszerű helyre lerak
-     * egy objektuom a megadott mérettel.
+     * A megadott mapon belülre véletlenszerű helyre generál
+     * egy területet a megadott mérettel.
      * @param size :size of the object
      * @param mapsize : size of the map
      */
     public Terulet randomArea(Vektor size,int mapsize){
     	Random rand = new Random();
-    	Vektor vecKezd = new Vektor(rand.nextInt(mapsize-1)+1,rand.nextInt(mapsize-1)+1) ;
-    	Vektor vecVeg = new Vektor(vecKezd);
+    	Vektor vecKezd = new Vektor(rand.nextInt(mapsize-1)+1,rand.nextInt(mapsize-1)+1) ; //bal felső sarok random helyre
+    	Vektor vecVeg = new Vektor(vecKezd); // A jobb also sarok 
     	vecVeg.addVec(size);
     	Terulet t = new Terulet(vecKezd,vecVeg); 
     	while (this.isCoveredBy(t)) {
@@ -72,6 +71,10 @@ public class Terulet {
     		return true;
     			
     	return false;
+    }
+    
+    public Vektor getMiddleOfArea(Terulet t){
+    	return new Vektor();
     }
 
     

@@ -19,12 +19,12 @@ public class Oneil extends Karakter {
         ZPM++;
 
         Terulet T = new Terulet();
-        T.randomArea(new Vektor(6,6));
+        T.randomArea(new Vektor(6,6),100);
         
         //amíg nem sorsol olyan területet, 
         //ahol nincs semmi, addig hívogatjuk.
         while(lab.whatsThere(T) != null) 
-        	T.randomArea(new Vektor(6,6));
+        	T.randomArea(new Vektor(6,6),100);
         lab.addElem(new ZPM(T)); //hozzáadjuk a labirintushoz
     }
 
