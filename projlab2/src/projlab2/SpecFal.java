@@ -40,8 +40,8 @@ public class SpecFal extends Elem {
      * @param bullet
      */
     public void shot(Golyo bullet) {
-    	bullet.g
-        pm.
+    	Szin color = bullet.getSzin();
+    	pm.open(this, color);
     }
 
     /**

@@ -27,11 +27,20 @@ public class PortalManager {
 
 
 
-    /**
+	/**
      * @param sp
      */
-    public void open(SpecFal sp) {
-        // TODO implement here
+    public void open(SpecFal sp,Szin color) {
+    	switch (color) {
+		case Kek: KekP=sp;
+		return;
+		case Sarga:SargaP=sp;
+		return ;
+		case Zold:ZoldP=sp;
+		return ;
+		case Piros:PirosP=sp;
+		return ;
+	}
     }
 
     /**
@@ -52,5 +61,39 @@ public class PortalManager {
    		default:return null;
        }
     }
+    
+
+
+    public SpecFal getKekP() {
+		return KekP;
+	}
+
+	public void setKekP(SpecFal kekP) {
+		KekP = kekP;
+	}
+
+	public SpecFal getSargaP() {
+		return SargaP;
+	}
+
+	public void setSargaP(SpecFal sargaP) {
+		SargaP = sargaP;
+	}
+
+	public SpecFal getPirosP() {
+		return PirosP;
+	}
+
+	public void setPirosP(SpecFal pirosP) {
+		PirosP = pirosP;
+	}
+
+	public SpecFal getZoldP() {
+		return ZoldP;
+	}
+
+	public void setZoldP(SpecFal zoldP) {
+		ZoldP = zoldP;
+	}
 
 }

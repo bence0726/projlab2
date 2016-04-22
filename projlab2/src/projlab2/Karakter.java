@@ -83,7 +83,7 @@ public class Karakter extends Moveable{
     public void Drop() {
         if(box == null) 			//ha nincs nálunk doboz, nincs feladat
         	return;
-        box.changeLoc(this.pos.getKezd());//TODO: elkészült ez a függvény a Terulet osztályban? jó a paraméterezés?
+        box.pos.setNewCornerLocation(this.pos.getKezd());//TODO: elkészült ez a függvény a Terulet osztályban? jó a paraméterezés?
         lab.addElem(box);			//hozzáadjuk a dobozt a listához
         box.setDir(this.gundir);	//beállítjuk a doboz "lépési irányát"
         box.move();					//ezzel letesszük a dobozt.
