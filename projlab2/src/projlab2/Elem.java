@@ -29,7 +29,7 @@ public class Elem implements Interakcio {
     /**
      * 
      */
-    protected int suly;
+    protected int suly = 0;
 
 
     /**
@@ -51,7 +51,6 @@ public class Elem implements Interakcio {
      * @return
      */
     public Terulet getPos() {
-        // TODO implement here
         return pos;
     }
 
@@ -66,8 +65,7 @@ public class Elem implements Interakcio {
      * @return
      */
     public File getImage() {
-        // TODO implement here
-        return null;
+        return image;
     }
 
     /**
@@ -88,29 +86,30 @@ public class Elem implements Interakcio {
     /**
      * 
      */
-    public void getSuly() {
-        // TODO implement here
+    public int getSuly() {
+    	return suly;
     }
 
     /**
      * 
      */
     public void picked(Karakter k) {
-        // TODO implement here
     }
 
 
-	@Override
-	public void shot(Golyo bullet) {
-		// TODO Auto-generated method stub
-		
+    /**
+     * Default implementációjában továbbengedi a golyót.
+     * 
+     */
+    public void shot(Golyo bullet) {
+		bullet.step();
 	}
 
-
-	@Override
-	public void steppedoff(Moveable x) {
-		// TODO Auto-generated method stub
-		
+    /**
+     * Alap implementációjában nem csinál semmit.
+     * Ha igen, alosztályban specifikáljuk.
+     */
+    public void steppedoff(Moveable x) {
 	}
 	public boolean isAlive(){
 		return alive;
