@@ -29,8 +29,8 @@ public class Terulet {
     /**
      * TODO: új terület létrehozásakor nem lenne elég
      * egy kezdőpozíció? A 
-     * @param k 
-     * @param v
+     * @param vecKezd :A terület bal felső sarka 
+     * @param vecVeg :A terület jobb also sarka
      */
     public Terulet(Vektor vecKezd, Vektor vecVeg) {
         // TODO implement here
@@ -40,7 +40,7 @@ public class Terulet {
     
     /**
      * A megadott mapon belülre véletlenszerű helyre lerak
-     * egy 
+     * egy objektuom a megadott mérettel.
      * @param size :size of the object
      * @param mapsize : size of the map
      */
@@ -61,7 +61,7 @@ public class Terulet {
     /**
      * Megnézi, hogy a kapott terület (T2) fedésben van-e
      * azzal a területtel(T1) ami hívta a függvényt.
-     * @param t
+     * @param t : A terulet amivel a fedést vizsgáljuk
      * @return
      */
     public boolean isCoveredBy(Terulet t){
@@ -78,7 +78,7 @@ public class Terulet {
     /**
      * A kezdő és végponthoz hozzáadja a kapott irányvektort,
      * így eltolva azt a vektor irányába.
-     * @param dirVec
+     * @param dirVec : A vektor amivel eltoljuk a területet
      */
     public void addDirToArea(Vektor dirVec) {
     	this.kezd.addVec(dirVec);
