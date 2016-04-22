@@ -62,37 +62,64 @@ public class Vektor {
         return vy;
     }
     /**
-     * Hozzáadja a paraméterként kapott vektort(A)
-     * ahhoz a vektorhoz ami hívja a függvényt.
+     * Hozzáadja a vektorhoz(A) paraméterként kapott vektort(B).
      * @param dirVec
      * @return
      */
-    public Vektor addVec(Vektor vec){
+    public void addVec(Vektor vec){
     	this.vx=this.vx+vec.getVx();
     	this.vy=this.vy+vec.getVy();
-    	return this;
+    	//return this;
     }
     /**
-     * Kivonja a paraméterül kapott vektort(B) abból
-     * ami hívja a függvényt(A).Így az eredményvektor
+     * Kivonja a vektorból(A) a paraméterül kapott vektort(B).Így az eredményvektor
      * az A vektor végébe fog mutatni.
      * @param vec
      * @return
      */
-    public Vektor subVec(Vektor vec){
+    public void subVec(Vektor vec){
     	this.vx=this.vx-vec.getVx();
     	this.vy=this.vy-vec.getVy();
-    	return this;
+    	//return this;
     }
     /**
-     * A paraméterül kapott vektorral teszi egyenlővé
-     * azt a vektort ami meghívja ezt a függvényt.
+     * A vektort egyenlővé teszi a paraméterül kapott vektorral.
      * @param vec
      * @return
      */
-    public Vektor beEqual(Vektor vec){
+    public void beEqualWith(Vektor vec){
     	this.vx = vec.getVx();
     	this.vy = vec.getVy();
-    	return this;
+    }
+    /**
+     * Összeadja a 2 paraméterül kapott vektort és visszatér
+     * az eredménnyel anélkül hogy 2 paraméterül kapott vektoron
+     * vagy azon ami hívja a függvényt változtatna.
+     * @param vec1
+     * @param vec2
+     * @return newvec
+     */
+    public Vektor addVecToVec(Vektor vec1,Vektor vec2){
+    	Vektor newvec = new Vektor(vec1);
+    	newvec.addVec(vec2);
+    	return newvec;
+    }
+   /**
+    * Visszaadja a paraméterül kapott vektor inverzét.
+    * @param vec
+    * @return newvec
+    */
+    public Vektor getInverseVec(){
+    	Vektor newvec = new Vektor(this);
+    	newvec.setVx(newvec.getVx()*-1);
+    	newvec.setVy(newvec.getVy()*-1);
+    	return newvec;
+    }
+    /**
+     * Invertálja a vektort.
+     */
+    public void inverseVec(){
+    	this.vx=this.vx*-1;
+    	this.vy=this.vy*-1;
     }
 }
