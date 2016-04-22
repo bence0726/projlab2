@@ -36,9 +36,8 @@ public class Elem implements Interakcio {
      * TODO: have a fresh look!
      * @param dir
      */
-    public void addDirToArea(Vektor dir) {
-		pos.setKezd(dir);
-		pos.setVeg(dir);
+    public void elemShiftWithVec(Vektor dirVec) {
+    	pos.addDirToArea(dirVec);
 	}
 
 
