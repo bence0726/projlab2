@@ -66,9 +66,18 @@ public class Terulet {
     			
     	return false;
     }
+    private Vektor getDiagonal(){
+    	Vektor temp = new Vektor(veg);
+    	temp.subVec(kezd);
+    	return temp;
+    }
     
-    public Vektor getMiddleOfArea(Terulet t){
-    	return new Vektor();
+    public Vektor getMiddleOfArea(){
+    	Vektor temp = new Vektor(this.getDiagonal()); //lekérdezzük a terület átlóját
+    	temp.setVx(temp.getVx()/2);  //elfelezzük
+    	temp.setVy(temp.getVy()/2);
+    	temp.addVec(kezd); //hozzáadjuka  kezdőhöz
+    	return temp;
     }
 
     
@@ -81,6 +90,10 @@ public class Terulet {
     	this.kezd.addVec(dirVec);
     	this.veg.addVec(dirVec);
 	}
+    
+    public Terulet setNewCornerLocation(Vektor vec){
+    	this.
+    }
 
     
     /**
