@@ -14,12 +14,7 @@ public class Karakter extends Moveable{
     /**
      * 
      */
-    protected int PickRange;
-
-    /**
-     * 
-     */
-    protected Elem box;
+    protected Doboz box;
 
     /**
      * 
@@ -63,17 +58,39 @@ public class Karakter extends Moveable{
     }
 
     /**
-     * @param dir
+     * Amerre a puskacső áll, arról vesz fel
+     * valamit, ha van ott valami
      */
-    public void Pick(Vektor dir) {
-        // TODO implement here
+    public void Pick() {
+    	if(box != null) //ha már van nálunk doboz, semmi dolgunk!
+    		return;    	
+    	Terulet T = new Terulet(pos.getMiddleOfArea(),gundir);
+        Set<Elem> items = lab.whatsThere(T);
+        
+        Iterator<Elem> iterator = items.iterator();
+        
+        while(iterator.hasNext()){
+        	iterator.next().picked(this);
+        	if(box != null) //ha felvettünk valamit, visszatérünk.
+        		return;
+        }
     }
 
     /**
-     * @param dir
+     * Amerre a puskacső áll, arra 
+     * fogja letenni a dobozt.
      */
-    public void Drop(Vektor dir) {
-        // TODO implement here
+    public void Drop() {
+        if(box == null) 			//ha nincs nálunk doboz, nincs feladat
+        	return;
+        box.changeLoc(this.pos.getKezd());//TODO: elkészült ez a függvény a Terulet osztályban? jó a paraméterezés?
+        lab.addElem(box);			//hozzáadjuk a dobozt a listához
+        box.setDir(this.gundir);	//beállítjuk a doboz "lépési irányát"
+        box.move();					//ezzel letesszük a dobozt.
+        							//ha van ott valami, ahova lépne, és nem 
+        							//léphet oda, az objektumok lerendezik, 
+        							//max marad a karakter pozíciójában.
+        
     }
 
     /**
@@ -89,5 +106,13 @@ public class Karakter extends Moveable{
      */
     public void changeFegyverirany(double Szog) {
         // TODO implement here
+    }
+    /**
+     * Ezzel a függvénnyel a doboz hozzá tudja magát adni
+     * a karakterhez fájdalommentesen.
+     * @param Box
+     */
+    public void addBox(Doboz Box){
+    	this.box = Box;
     }
 }

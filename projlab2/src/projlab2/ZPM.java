@@ -14,7 +14,9 @@ public class ZPM extends Elem {
     }
 
     /**
-     * @param e
+     * Növeli egyel a karakter ZPM számlálóját,
+     * majd megöli magát.
+     * @param k - a karakter, aki felveszi
      */
     public void picked(Karakter k) {
         k.addZPM();

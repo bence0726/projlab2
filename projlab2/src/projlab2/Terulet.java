@@ -73,7 +73,7 @@ public class Terulet {
     	return false;
     }
     
-    public Vektor getMiddleOfArea(Terulet t){
+    public Vektor getMiddleOfArea(){
     	return new Vektor();
     }
 
