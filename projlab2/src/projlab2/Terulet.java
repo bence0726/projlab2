@@ -46,16 +46,10 @@ public class Terulet {
     public Terulet randomArea(Vektor size,int mapsize){
     	Random rand = new Random();
     	Vektor vecKezd = new Vektor(rand.nextInt(mapsize-1)+1,rand.nextInt(mapsize-1)+1) ; //bal felső sarok random helyre
-    	Vektor vecVeg = new Vektor(vecKezd); // A jobb also sarok 
-    	vecVeg.addVec(size);
-    	Terulet t = new Terulet(vecKezd,vecVeg); 
-    	while (this.isCoveredBy(t)) {
-    		vecKezd.setVx(rand.nextInt(mapsize-1)+1);
-    		vecKezd.setVy(rand.nextInt(mapsize-1)+1);
-    		vecVeg.beEqual(vecKezd);
-    		vecVeg.addVec(size);
-    	}
-    	return t;
+    	Vektor vecVeg = new Vektor(vecKezd); // A jobb also sarok létrehozasa vecKezd koordinatakkal
+    	vecVeg.addVec(size); // hozzáadjuk a méretét , átló vektor
+    	Terulet t = new Terulet(vecKezd,vecVeg); //létrehozzuk a 2 vektorból a területet
+    	return t; //visszatérünk vele.
     }
     /**
      * Megnézi, hogy a kapott terület (T2) fedésben van-e
