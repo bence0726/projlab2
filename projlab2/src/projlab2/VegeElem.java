@@ -16,8 +16,8 @@ public class VegeElem extends Elem {
     /**
      * @param e
      */
-    public void steppedon(Elem e) {
-        // TODO implement here
+    public void steppedon(Moveable m) {
+        m.lab.
     }
 
 }
