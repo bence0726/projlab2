@@ -29,7 +29,8 @@ public class PortalManager {
 
 	/**
 	 * A paraméterben kapott specfalból kiolvassa a színét és
-	 * a megfelelő kapuhoz rendeli a specfalat.
+	 * a megfelelő kapuhoz rendeli a specfalat. Továbbá beállítja a
+	 * specfal színét.
      * @param sp
      */
     public void open(SpecFal sp,Szin colour) {
@@ -104,39 +105,4 @@ public class PortalManager {
    		default:return null;
        }
     }
-    
-
-
-    public SpecFal getKekP() {
-		return KekP;
-	}
-
-	public void setKekP(SpecFal kekP) {
-		KekP = kekP;
-	}
-
-	public SpecFal getSargaP() {
-		return SargaP;
-	}
-
-	public void setSargaP(SpecFal sargaP) {
-		SargaP = sargaP;
-	}
-
-	public SpecFal getPirosP() {
-		return PirosP;
-	}
-
-	public void setPirosP(SpecFal pirosP) {
-		PirosP = pirosP;
-	}
-
-	public SpecFal getZoldP() {
-		return ZoldP;
-	}
-
-	public void setZoldP(SpecFal zoldP) {
-		ZoldP = zoldP;
-	}
-
-}
+}   

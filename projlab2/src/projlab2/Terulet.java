@@ -113,7 +113,7 @@ public class Terulet {
     }
     /**
      * A paraméterül kapott vektorhoz illeszti a terület
-     * közepét
+     * közepét.
      * @param vec
      */
     public void setNewMiddleLocation(Vektor middle){
@@ -128,7 +128,7 @@ public class Terulet {
 
     
     /**
-     * Beállítja a terület kezdopontjába mutató vektort.
+     * Beállítja a terület kezdopontjába mutató helyvektort.
      * @param val
      */
     public void setKezd(Vektor vec) { 
@@ -137,7 +137,7 @@ public class Terulet {
     
     
     /**
-     * Beállítja a terület végpontjába mutató vektort.
+     * Beállítja a terület végpontjába mutató helyvektort.
      * @param vec
      */
     public void setVeg(Vektor vec) {

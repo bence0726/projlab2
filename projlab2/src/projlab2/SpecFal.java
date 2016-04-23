@@ -81,10 +81,10 @@ public class SpecFal extends Elem {
     }
     
     public Szin getSzin() {
-		return szin;
+		return colour;
 	}
 
-	public void setSzin(Szin szin) {
-		this.szin = szin;
+	public void setSzin(Szin colour) {
+		this.colour = colour;
 	}
 }
