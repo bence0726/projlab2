@@ -14,17 +14,14 @@ public class Doboz extends Moveable {
     }
 
     /**
-     * 
-     */
-    public void shot() {
-        // ide nem kerül semmi, hacsaknem a doboz megállítja a lövedéket
-    }
-
-    /**
      * Ha a karakter felveszi, hozzáadja
      * magát a karakterhez.
      */
     public void picked(Karakter k) {
+    				  //EZ A KILL HIÁNYZOTT INNEN
+    	this.kill();  //szerintem ezt itt meg kell ölni, hogy  alabirintusbol kikerüljön
+    				  //és igy ne rajzolja fel a pályára
+    	//lab.removeElem(this);
         k.addBox(this);
     }
 

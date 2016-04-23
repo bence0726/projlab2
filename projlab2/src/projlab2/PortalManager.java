@@ -91,7 +91,11 @@ public class PortalManager {
    		default:return null;
        }
     }
-    
+    /**
+     * Visszatér a színhez tartozó portállal.
+     * @param colour
+     * @return
+     */
     public SpecFal getPortalOfThisColor(Szin colour){
     	switch (colour) {
        	case Kek:

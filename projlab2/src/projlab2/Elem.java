@@ -29,7 +29,7 @@ public class Elem implements Interakcio {
     /**
      * 
      */
-    protected int suly = 0;
+    protected int suly;
 
 
     /**

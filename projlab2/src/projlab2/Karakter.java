@@ -15,7 +15,7 @@ public class Karakter extends Moveable{
     /**
      * 
      */
-    protected Doboz box;
+    protected Doboz box; 
 
     /**
      * 
@@ -74,6 +74,7 @@ public class Karakter extends Moveable{
         	iterator.next().picked(this);
         	if(box != null) //ha felvettünk valamit, visszatérünk.
         		return;
+        	
         }
     }
 

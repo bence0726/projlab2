@@ -27,8 +27,9 @@ public abstract class Moveable extends Elem{
     	 * Ezután összehasonlítjuk A-t és C-t , ami nincs benn C-ben arra hívjuk a steppedoff-ot.
     	 */
     	Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
-    	t.setKezd(moveDir);
-    	t.setVeg(moveDir);
+//    	t.setKezd(moveDir);
+//    	t.setVeg(moveDir);
+    	t.addDirToArea(moveDir); //Szerintem ide ez a jó.
     	    	
     	Set<Elem> itemsHere = lab.whatsThere(this.pos); //lépés előtt itt állunk
     	Set<Elem> itemsThere = lab.whatsThere(t);		//ahová lépünk, ott ezek vannak
@@ -37,7 +38,6 @@ public abstract class Moveable extends Elem{
     	
     	if(itemsThere.size() == 0){						//ha nincs ott semmi...
     		step();										//lépés
-    		
     		if(itemsHere.size() != 0){
     			Set<Elem> itemsNewPlace = lab.whatsThere(this.pos);//megnézzük, kimindenkin vagyunk rajta most    			
     			while(iteratorHere.hasNext()){
@@ -60,7 +60,10 @@ public abstract class Moveable extends Elem{
     		Elem temp = iteratorHere.next();
     		if(!itemsNewPlace.contains(temp))
     			temp.steppedoff(this);					//ami nincs benne, arról leléptünk
-    	}    	
+    	}    
+    	
+    	//ide még annyit , hogy ha a portál a másik oldalon mérlegre dob rá azt ott
+    	//megintcsak aktiválni kell... Szóval a newPlace-re kell még egy steppedon-t hívni
 	}
     
     /**
@@ -71,7 +74,8 @@ public abstract class Moveable extends Elem{
     }
     
     /**
-     * TODO: a dir-ből csináljon irányvektort!!
+     * Beallítja, hogy merre mozogjon a az objektum.
+     * Irányvektort kap.
      * @param dir
      */
     public void setDir(Vektor dir){

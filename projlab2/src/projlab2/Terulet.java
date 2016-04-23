@@ -45,7 +45,7 @@ public class Terulet {
      */
     public Terulet randomArea(Vektor size,int mapsize){
     	Random rand = new Random();
-    	Vektor vecKezd = new Vektor(rand.nextInt(mapsize-1)+1,rand.nextInt(mapsize-1)+1) ; //bal felső sarok random helyre
+    	Vektor vecKezd = new Vektor(rand.nextInt(mapsize+1),rand.nextInt(mapsize+1)) ; //bal felső sarok random helyre
     	Vektor vecVeg = new Vektor(vecKezd); // A jobb also sarok létrehozasa vecKezd koordinatakkal
     	vecVeg.addVec(size); // hozzáadjuk a méretét , átló vektor
     	Terulet t = new Terulet(vecKezd,vecVeg); //létrehozzuk a 2 vektorból a területet
@@ -100,6 +100,8 @@ public class Terulet {
     	this.kezd.addVec(dirVec);
     	this.veg.addVec(dirVec);
 	}
+    
+    
     /**
      * A paraméterül kapott vektorhoz illeszti a terület
      * bal felső sarkát.
@@ -111,6 +113,8 @@ public class Terulet {
     	temp.addVec(kezd); //összeadjuk a kezdopont helyvektrát az átlóval
     	veg=temp; //ezt a vektort beállítjuk a jobb also saroknak.
     }
+    
+    
     /**
      * A paraméterül kapott vektorhoz illeszti a terület
      * közepét.
