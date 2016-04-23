@@ -122,4 +122,14 @@ public class Vektor {
     	this.vx=this.vx*-1;
     	this.vy=this.vy*-1;
     }
+    
+    public static Vektor randomDir(boolean justFourDir){
+    	Random rand = new Random();
+    	Vektor temp = null;
+    	if (!justFourDir)
+    		temp = new Vektor(rand.nextInt(20)-10,rand.nextInt(10)-10);
+    	else
+    		temp = new Vektor((rand.nextInt(2)-1)*10,(rand.nextInt(2)-1)*10);
+    	return temp;
+    }
 }

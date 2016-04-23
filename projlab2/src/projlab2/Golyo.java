@@ -27,9 +27,10 @@ public class Golyo extends Moveable {
 	}
 
 	/**
+	 * 
      * @param dir
      */
-    public void move(Vektor dir) {
+    public void move() {
     	/*
     	 * Magyarázat
     	 * Kicsit egyszerűbb, mint a karakter és a replikátor mozgása.
@@ -38,8 +39,9 @@ public class Golyo extends Moveable {
     	 * meghívjuk a shot függvényt.
     	 */
     	Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
-    	t.setKezd(moveDir); 
-    	t.setVeg(moveDir);
+//    	t.setKezd(moveDir); 
+//    	t.setVeg(moveDir);
+    	t.addDirToArea(moveDir); //SZERITEM IDE EZ A JÓ
     	    	
     	
     	Set<Elem> itemsThere = lab.whatsThere(t);		//ahová lépünk, ott ezek vannak
