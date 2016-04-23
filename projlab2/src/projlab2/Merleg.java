@@ -16,11 +16,6 @@ public class Merleg extends Elem {
     /**
      * 
      */
-    private boolean aktiv;        //Szerintem ez nem kell
-
-    /**
-     * 
-     */
     private Fal ajto;
 
     /**

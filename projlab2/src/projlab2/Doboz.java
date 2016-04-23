@@ -21,11 +21,4 @@ public class Doboz extends Moveable {
     	this.kill();  //meg kell ölni, hogy  alabirintusbol kikerüljön és igy ne rajzolja fel a pályára
         k.addBox(this);
     }
-    
-    /**
-     * A doboz mozgatásával nem törődünk, üres függvénnyel felülírom az eredetit.
-     */
-    public void move(){    	
-    }
-
 }
