@@ -7,11 +7,11 @@ import java.util.*;
 public abstract class Moveable extends Elem{
     protected Vektor moveDir;
     protected Labirintus lab ;
+    protected int suly;
     
 	public Moveable(Terulet pos) {
 		super(pos);
-		
-		// TODO Auto-generated constructor stub
+		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
 	}
 
 	/**
@@ -95,4 +95,7 @@ public abstract class Moveable extends Elem{
     	this.alive = false;
     	lab.refreshList();
     }    
+    public int getSuly() {
+		return suly;
+	}
 }

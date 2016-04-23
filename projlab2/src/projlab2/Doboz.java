@@ -9,8 +9,10 @@ public class Doboz extends Moveable {
     /**
      * Default constructor
      */
-    public Doboz(Terulet area) {
+    public Doboz(Terulet area, int mass) {
     	super(area);
+    	suly = mass;
+    	
     }
 
     /**
