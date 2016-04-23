@@ -21,8 +21,8 @@ public class Fal extends Elem {
     /**
      * 
      */
-    public void shot() {
-        // TODO implement here
+    public void shot(Golyo bullet ) {
+        bullet.kill();
     }
 
     /**

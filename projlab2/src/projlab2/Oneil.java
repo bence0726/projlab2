@@ -13,7 +13,8 @@ public class Oneil extends Karakter {
 	}
 
 	/**
-     * 
+     *  Növeli az ezredes ZPM számlálóját, továbbá
+     *  Valahol máshol generálódik egy új ZPM.
      */
     public void addZPM() {
         ZPM++;

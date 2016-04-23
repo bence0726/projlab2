@@ -1,6 +1,7 @@
 package projlab2;
 import java.io.File;
 import java.util.*;
+import java.util.function.ToIntFunction;
 
 /**
  * 
@@ -51,10 +52,10 @@ public class Karakter extends Moveable{
     }
 
     /**
-     * 
+     *  Szerintem ez nem kell.
      */
     public void changeBoxVal() {
-        // TODO implement here
+        // Szerintem ez nem kell.
     }
 
     /**
@@ -102,10 +103,17 @@ public class Karakter extends Moveable{
     }
 
     /**
-     * @param double Szog
+     * A megadott szöggel elforgatja a 
+     * @param double Szog //fokban
      */
-    public void changeFegyverirany(double Szog) {
-        // TODO implement here
+    public void changeFegyverirany(double addAngle) {
+        double currentAngle = Math.asin(gundir.getVy()/gundir.getVx()); //szöggel szemközti per átfogó arkuszszinusza. az érték radiánban
+        addAngle = addAngle*Math.PI / 180; //fokokat lenormáljuk radiánná
+        currentAngle+=addAngle; //összeadjuk a 2 szöget.
+        gundir.setVx((int)(Math.round(Math.cos(currentAngle))*100));
+        gundir.setVy((int)(Math.round(Math.sin(currentAngle))*100));
+        //ALERT a vektorok parametereit floatban kellett volna tarolni nem int... most mindenhol átkéne irni.
+        
     }
     /**
      * Ezzel a függvénnyel a doboz hozzá tudja magát adni

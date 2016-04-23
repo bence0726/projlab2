@@ -50,14 +50,14 @@ public class Labirintus {
      * @param kar
      */
     public void addKar(Karakter kar) {
-        // TODO implement here
+        
     }
 
     /**
      * @param param
      */
     public void addElem(Elem param) {
-        // TODO implement here
+    	list.add(param);
     }
 
     /**
@@ -94,28 +94,25 @@ public class Labirintus {
      * @return
      */
     public int getZPM() {
-        // TODO implement here
-        return 0;
+        return osszZPM;
     }
 
     /**
      * @return
      */
     public Elem getVegeElem() {
-        // TODO implement here
-        return null;
+        return VegeElem;
     }
 
     /**
      * @return
      */
     public Vektor getKezdoPont() {
-        // TODO implement here
-        return null;
+        return KezdoPont;
     }
     
-    public void addMoveable(Moveable x) {
-    	moveableList.add(x);
+    public void addMoveable(Moveable m) {
+    	moveableList.add(m);
     }
 
     /**

@@ -10,6 +10,7 @@ public abstract class Moveable extends Elem{
     
 	public Moveable(Terulet pos) {
 		super(pos);
+		
 		// TODO Auto-generated constructor stub
 	}
 

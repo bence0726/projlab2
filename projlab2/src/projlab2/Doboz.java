@@ -17,7 +17,7 @@ public class Doboz extends Moveable {
      * 
      */
     public void shot() {
-        // TODO implement here
+        // ide nem kerül semmi, hacsaknem a doboz megállítja a lövedéket
     }
 
     /**

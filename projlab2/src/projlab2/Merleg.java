@@ -16,7 +16,7 @@ public class Merleg extends Elem {
     /**
      * 
      */
-    private boolean aktiv;
+    private boolean aktiv;        //Szerintem ez nem kell
 
     /**
      * 
@@ -24,12 +24,14 @@ public class Merleg extends Elem {
     private Fal ajto;
 
     /**
-     * 
+     * A mérlegen lévő súly.
      */
+    
     public int massOnTheScale;
     /**
      * A limit ami felett az ajtó kinyílik.
      */
+    
     private int massLimit= 100;
 
 
@@ -37,14 +39,15 @@ public class Merleg extends Elem {
      * @param E 
      * @param ajto
      */
-    public Merleg(Elem ajto,Terulet area) {
+    public Merleg(Fal ajto,Terulet area) {
         super(area);
+        this.ajto = ajto;
     }
 
     /**
-     * 
+     * Szerintem ez már nem kell.
      */
-    public void deActivate() {
+    public void deActivate() {     //Szerintem ez nem kell
         // TODO implement here
     }
 

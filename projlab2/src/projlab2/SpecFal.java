@@ -18,8 +18,6 @@ public class SpecFal extends Elem {
      * A SpecFalon nyitott portál színét tárolja
      */
     private Szin colour;
-
-    
 	
 	/**
      * Megadja, hogy hol kell kirakni a karaktert, ha ide teleportál.
@@ -55,14 +53,14 @@ public class SpecFal extends Elem {
     }
 
     /**
-     * 
+     *  A falat elérhetetlenné teszi.
      */
     public void bezar() {
     	reachable = false;
     }
 
     /**
-     * 
+     * A falat elérhetővé teszi és beállítja a színét.
      */
     public void kinyit(Szin colour) {
         reachable = true;

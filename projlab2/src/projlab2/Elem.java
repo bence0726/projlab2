@@ -45,6 +45,23 @@ public class Elem implements Interakcio {
     public void elemShiftWithVec(Vektor dirVec) {
     	pos.addDirToArea(dirVec);
 	}
+    /**
+     * A paraméterül kapott vektorhoz illeszti az elem
+     * bal felső sarkát.
+     * @param locUpLeftCorner
+     */
+    public void newLocationByCorner(Vektor locUpLeftCorner){
+    	pos.setNewCornerLocation(locUpLeftCorner);
+    }
+    
+    /**
+     * A paraméterül kapott vektorhoz illeszti az elem
+     * közepét.
+     * @param locUpLeftCorner
+     */
+    public void newLocationByMiddle(Vektor locMiddleofArea){
+    	pos.setNewCornerLocation(locMiddleofArea);
+    }
 
 
     /**
