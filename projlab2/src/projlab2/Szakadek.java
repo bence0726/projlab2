@@ -14,17 +14,12 @@ public class Szakadek extends Elem {
     }
 
     /**
+     * Megöli az elemet ami rálép.
      * @param e
      */
-    public void steppedon(Elem e) {
-        // TODO implement here
+    public void steppedon(Moveable m) {
+        m.kill();
     }
-
-    /**
-     * 
-     */
-    public void kill() {
-        // TODO implement here
-    }
+    
 
 }

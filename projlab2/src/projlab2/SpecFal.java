@@ -34,6 +34,8 @@ public class SpecFal extends Elem {
      */
     public void shot(Golyo bullet) {
     	Szin colour = bullet.getSzin();
+    	if(this == pm.getPortalOfThisColor(this.colour))
+    		pm.close(this.colour);
     	pm.close(colour);
     	pm.open(this,colour);
     	bullet.kill();

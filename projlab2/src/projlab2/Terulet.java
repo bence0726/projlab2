@@ -124,10 +124,14 @@ public class Terulet {
     	Vektor temp = new Vektor(this.getDiagonal()); //lekérdezzük at átlóját
     	temp.setVx(temp.getVx()/2);  //elfelezzük
     	temp.setVy(temp.getVy()/2);
-    	veg = veg.addVecToVec(middle, temp); //összadjuk a közép vektort és az átló felét
-    	temp.inverseVec(); //megforditjuk az átló felét hogy a középpontból a bal felső sarokba mutasson
-    	kezd = kezd.addVecToVec(middle, temp); //összeadjuk(az inverz miatt lényegében kivonjuk) a
+    	veg = Vektor.addVecToVec(middle, temp); //összadjuk a közép vektort és az átló felét
+    	temp.invertThisVec(); //megforditjuk az átló felét hogy a középpontból a bal felső sarokba mutasson
+    	kezd = Vektor.addVecToVec(middle, temp); //összeadjuk(az inverz miatt lényegében kivonjuk) a
     										   //középből az átló felének forditottját
+    }
+    
+    public boolean isEqualTo(Terulet t){
+    	return ((this.kezd.isEqualTo(t.getKezd())) && (this.veg.isEqualTo(t.getVeg())));	
     }
 
     

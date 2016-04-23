@@ -119,5 +119,7 @@ public class Labirintus {
 		moveableList.remove(moveable);
 		removeElem(moveable);
 	}
+	
+	public 
 
 }

@@ -9,12 +9,12 @@ public class Vektor {
     /**
      * 
      */
-    private int vx;
+    private double vx;
 
     /**
      * 
      */
-    private int vy;
+    private double vy;
 
     /**
      * @param x 
@@ -22,7 +22,7 @@ public class Vektor {
      */
     
     public Vektor(){}
-    public Vektor(int x, int y) {
+    public Vektor(double x, double y) {
         // TODO implement here
     	vx=x;
     	vy=y;
@@ -36,14 +36,14 @@ public class Vektor {
 	/**
      * @param val
      */
-    public void setVx(int val) {
+    public void setVx(double val) {
     	vx=val; 
     }
 
     /**
      * @param val
      */
-    public void setVy(int val) {
+    public void setVy(double val) {
         vy =val;
     	
     }
@@ -51,14 +51,14 @@ public class Vektor {
     /**
      * @return
      */
-    public int getVx() {
+    public double getVx() {
         return vx;
     }
 
     /**
      * @return
      */
-    public int getVy() {
+    public double getVy() {
         return vy;
     }
     /**
@@ -99,13 +99,13 @@ public class Vektor {
      * @param vec2
      * @return newvec
      */
-    public Vektor addVecToVec(Vektor vec1,Vektor vec2){
+    public static Vektor addVecToVec(Vektor vec1,Vektor vec2){
     	Vektor newvec = new Vektor(vec1);
     	newvec.addVec(vec2);
     	return newvec;
     }
    /**
-    * Visszaadja a paraméterül kapott vektor inverzét.
+    * Visszaadja a vektor inverzét.
     * @param vec
     * @return newvec
     */
@@ -118,18 +118,32 @@ public class Vektor {
     /**
      * Invertálja a vektort.
      */
-    public void inverseVec(){
+    public void invertThisVec(){
     	this.vx=this.vx*-1;
     	this.vy=this.vy*-1;
     }
-    
+    /**
+     * Visszatér egy Random vektorral.
+     * @param justFourDir :True-Csak 4 irány ; False-bármennyi irány.
+     * @return
+     */
     public static Vektor randomDir(boolean justFourDir){
     	Random rand = new Random();
     	Vektor temp = null;
     	if (!justFourDir)
-    		temp = new Vektor(rand.nextInt(20)-10,rand.nextInt(10)-10);
+    		//randomizálunk egy double 0 és 1 között majd megszorozzunk egy random számmal -1 és 1 között hogy
+    		//mind a 4 irányba randomizáljon
+    		temp = new Vektor(rand.nextDouble()*(double)rand.nextInt(2)-1,rand.nextDouble()*(double)rand.nextInt(2)-1);
     	else
-    		temp = new Vektor((rand.nextInt(2)-1)*10,(rand.nextInt(2)-1)*10);
+    		temp = new Vektor((double)rand.nextInt(2)-1,(double)rand.nextInt(2)-1);
     	return temp;
+    }
+    
+    public boolean isEqualTo(Vektor v){
+    	Double d1= new Double(this.vx);
+    	Double d2= new Double(this.vy);
+    	Double d3= new Double(v.getVx());
+    	Double d4= new Double(v.getVy());
+    	return ((d1.compareTo(d3)==0) && (d2.compareTo(d4)==0));
     }
 }

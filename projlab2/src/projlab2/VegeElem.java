@@ -17,7 +17,8 @@ public class VegeElem extends Elem {
      * @param e
      */
     public void steppedon(Moveable m) {
-        m.lab.
+    	if
+    		m.lab.decideIfGameEnd;
     }
 
 }
