@@ -17,19 +17,14 @@ public class SpecFal extends Elem {
     /**
      * A SpecFalon nyitott portál színét tárolja
      */
-    private Szin szin;
+    private Szin colour;
 
-    public Szin getSzin() {
-		return szin;
-	}
-
-	public void setSzin(Szin szin) {
-		this.szin = szin;
-	}
+    
+	
 	/**
      * Megadja, hogy hol kell kirakni a karaktert, ha ide teleportál.
      */
-    private Vektor irany;
+    private Vektor direction;
     
     /**
      * Ugyanarra a PM-re lesz beállítva az összes SpecFal.
@@ -40,42 +35,56 @@ public class SpecFal extends Elem {
      * @param bullet
      */
     public void shot(Golyo bullet) {
-    	Szin color = bullet.getSzin();
-    	pm.open(this, color);
+    	Szin colour = bullet.getSzin();
+    	pm.close(colour);
+    	pm.open(this,colour);
+    	bullet.kill();
     }
 
     /**
      * 
      * @param elem
      */
-    public void steppedon(Elem elem) {
+    public void steppedon(Moveable m) {
         if(reachable == false)
         	return;
         SpecFal otherSide = pm.getOtherSide(this);
         if(otherSide == null)			//ennek nem kéne teljesülnie, de ha mégis, visszatérünk
         	return;
-        otherSide.teleport(elem);		//a rálépett elemet teleportáljuk      
-        	
+        otherSide.teleport(m);		//a rálépett elemet teleportáljuk      
     }
 
     /**
      * 
      */
     public void bezar() {
-        // TODO implement here
+    	reachable = false;
     }
 
     /**
      * 
      */
-    public void kinyit() {
-        // TODO implement here
+    public void kinyit(Szin colour) {
+        reachable = true;
+        this.colour=colour;
+        
     }
     /**
      * Az irany attribútum által kijelölt pontra állítjuk
      * az elem új helyét. Ez legyen valahol a portál előtt!
      */
-    public void teleport(Elem e){
-    	e.elemShiftWithVec(irany);
+    public void teleport(Moveable m){
+    	// a teleportálando elemet középpontját a másik kapu középpontjára illeszti
+    	m.pos.setNewMiddleLocation(this.pos.getMiddleOfArea());
+    	//eztuán az elemet kitolja a kapubol a megadott irányban
+    	m.elemShiftWithVec(direction);
     }
+    
+    public Szin getSzin() {
+		return szin;
+	}
+
+	public void setSzin(Szin szin) {
+		this.szin = szin;
+	}
 }

@@ -8,39 +8,68 @@ public class PortalManager {
     /**
      * 
      */
-    private SpecFal KekP;
+    private SpecFal KekP=null;
 
     /**
      * 
      */
-    private SpecFal SargaP;
+    private SpecFal SargaP =null;
 
     /**
      * 
      */
-    public SpecFal PirosP;
+    private SpecFal PirosP=null;
 
     /**
      * 
      */
-    public SpecFal ZoldP;
+    private SpecFal ZoldP=null;
 
 
 
 	/**
+	 * A paraméterben kapott specfalból kiolvassa a színét és
+	 * a megfelelő kapuhoz rendeli a specfalat.
      * @param sp
      */
-    public void open(SpecFal sp,Szin color) {
-    	switch (color) {
-		case Kek: KekP=sp;
-		return;
-		case Sarga:SargaP=sp;
-		return ;
-		case Zold:ZoldP=sp;
-		return ;
-		case Piros:PirosP=sp;
-		return ;
-	}
+    public void open(SpecFal sp,Szin colour) {
+    	switch (colour) {
+			case Kek: KekP=sp;
+					  sp.kinyit(colour);
+						break;
+			case Sarga:SargaP=sp;
+						sp.kinyit(colour);
+						break ;
+			case Zold:ZoldP=sp;
+						sp.kinyit(colour);
+						break ;
+			case Piros:PirosP=sp;
+						sp.kinyit(colour);
+						break ;
+			default: return;	
+    	}
+    }
+    /**
+     * A paraméterben kapott specfalból kiolvassa a színét és
+     * nullba állítja a hozzá tartozó portált.
+     * @param sp
+     */
+    public void close(Szin color){
+    	switch (color){
+    		case Kek: KekP.bezar(); 
+    				  KekP=null;
+    				  break;
+    		case Sarga: SargaP.bezar();
+    					SargaP=null;
+    					break ;
+    		case Zold: ZoldP.bezar();
+    				   ZoldP=null;
+    				   break ;
+    		case Piros: PirosP.bezar();
+    					PirosP=null;
+    					break;
+    		default: return;
+    	}
     }
 
     /**
@@ -50,14 +79,28 @@ public class PortalManager {
     public SpecFal getOtherSide(SpecFal sp) {
        Szin colour = sp.getSzin();
        switch (colour) {
-       case Kek:
-   		return SargaP;
-       case Sarga:
-   		return KekP;
-       case Zold:
-   		return PirosP;
-       case Piros:
-   		return ZoldP;
+       	case Kek:
+       		return SargaP;
+       	case Sarga:
+       		return KekP;
+       	case Zold:
+       		return PirosP;
+       	case Piros:
+       		return ZoldP;
+   		default:return null;
+       }
+    }
+    
+    public SpecFal getPortalOfThisColor(Szin colour){
+    	switch (colour) {
+       	case Kek:
+       		return KekP;
+       	case Sarga:
+       		return SargaP;
+       	case Zold:
+       		return ZoldP;
+       	case Piros:
+       		return PirosP;
    		default:return null;
        }
     }
