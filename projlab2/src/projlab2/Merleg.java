@@ -45,13 +45,6 @@ public class Merleg extends Elem {
     }
 
     /**
-     * Szerintem ez már nem kell.
-     */
-    public void deActivate() {     //Szerintem ez nem kell
-        // TODO implement here
-    }
-
-    /**
      * Rélépés a mérlegre.
      * @param m :Moveable
      */
