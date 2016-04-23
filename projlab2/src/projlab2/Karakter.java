@@ -29,8 +29,7 @@ public class Karakter extends Moveable{
      * @param lab 
      * @param img
      */
-    public Karakter(Labirintus lab, File img,Terulet pos) {
-    	super(pos);
+    public Karakter(Labirintus lab,Vektor kezdoPont) {
         // TODO implement here
     }
 

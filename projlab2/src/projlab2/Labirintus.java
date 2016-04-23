@@ -1,4 +1,5 @@
 package projlab2;
+import java.io.File;
 import java.util.*;
 
 /**
@@ -26,8 +27,16 @@ public class Labirintus {
      * 
      */
     private Elem VegeElem;
-
-
+    /**
+     * 
+     */
+    
+    private Karakter jaffa;
+    /**
+     * 
+     */
+    
+    private Oneil oneil;
 
     /**
      * 
@@ -42,8 +51,9 @@ public class Labirintus {
     /**
      * 
      */
-    public void labirintus() {
+    public void labirintus(Vektor KezdoPont) {
         // TODO implement here
+    	oneil = new Oneil(this, )
     }
 
     /**

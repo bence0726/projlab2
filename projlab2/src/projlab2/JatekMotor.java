@@ -32,7 +32,7 @@ public class JatekMotor {
      * 
      */
     public void JatekMotor() {
-        // TODO implement here
+        
     }
 
     /**
@@ -52,8 +52,13 @@ public class JatekMotor {
     /**
      * 
      */
-    public void EndGame() {
+    public boolean isEndGame() {
         // TODO implement here
+    	lab.getZPM()
+    	Elem e=lab.getVegeElem();
+    	Terulet t = e.getPos();
+    	if ()
     }
+    
 
 }
