@@ -18,11 +18,14 @@ public class Doboz extends Moveable {
      * magát a karakterhez.
      */
     public void picked(Karakter k) {
-    				  //EZ A KILL HIÁNYZOTT INNEN
-    	this.kill();  //szerintem ezt itt meg kell ölni, hogy  alabirintusbol kikerüljön
-    				  //és igy ne rajzolja fel a pályára
-    	//lab.removeElem(this);
+    	this.kill();  //meg kell ölni, hogy  alabirintusbol kikerüljön és igy ne rajzolja fel a pályára
         k.addBox(this);
+    }
+    
+    /**
+     * A doboz mozgatásával nem törődünk, üres függvénnyel felülírom az eredetit.
+     */
+    public void move(){    	
     }
 
 }
