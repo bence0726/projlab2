@@ -54,24 +54,16 @@ public class Karakter extends Moveable{
      * valamit, ha van ott valami
      */
     public void Pick() {
-    	if(box != null) //ha már van nálunk doboz, semmi dolgunk!
-    		return;    	
     	Terulet T = new Terulet(pos.getMiddleOfArea(),gundir);
         Set<Elem> items = lab.whatsThere(T);
         
         Iterator<Elem> iterator = items.iterator();
         
         while(iterator.hasNext()){
-        	iterator.next().picked(this);
-        	if(box != null){			//ha felvettünk valamit,
-        		Set<Elem> temp = lab.whatsThere(box.getPos());
-        		
-        		
-        		steppedoff(box);		
-        		return;
+        	if(iterator.next().picked(this)){
+        		lab.refreshList();			//frissítjük a labirintus listáját
+        		return;        	
         	}
-        		
-        	
         }
     }
 
@@ -83,13 +75,14 @@ public class Karakter extends Moveable{
         if(box == null) 			//ha nincs nálunk doboz, nincs feladat
         	return;
         box.pos.setNewCornerLocation(this.pos.getKezd());//TODO: elkészült ez a függvény a Terulet osztályban? jó a paraméterezés?
+        box.alive = true;			//felélesztjük. :D
         lab.addElem(box);			//hozzáadjuk a dobozt a listához
         box.setDir(this.gundir);	//beállítjuk a doboz "lépési irányát"
         box.move();					//ezzel letesszük a dobozt.
         							//ha van ott valami, ahova lépne, és nem 
         							//léphet oda, az objektumok lerendezik, 
         							//max marad a karakter pozíciójában.
-        
+        box = null;					//nincs nálunk doboz, legyen null az értéke.
     }
 
     /**
@@ -119,6 +112,9 @@ public class Karakter extends Moveable{
      * @param Box
      */
     public void addBox(Doboz Box){
+    	if(box != null){
+    		Drop(); 		//ha van nálunk doboz, lerakjuk, mielőtt felvennénk egy másikat
+    	}
     	this.box = Box;
     }
 }

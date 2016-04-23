@@ -108,9 +108,11 @@ public class Elem implements Interakcio {
     }
 
     /**
-     * 
+     * Alap implementációban nem történik semmi, ha fel akarjuk venni,
+     * így false értéket ad vissza (nem történt felvétel)
      */
-    public void picked(Karakter k) {
+    public boolean picked(Karakter k) {
+    	return false;
     }
 
 
@@ -128,6 +130,7 @@ public class Elem implements Interakcio {
      */
     public void steppedoff(Moveable x) {
 	}
+    
 	public boolean isAlive(){
 		return alive;
 	}

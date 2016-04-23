@@ -44,7 +44,7 @@ public class SpecFal extends Elem {
      * @param elem
      */
     public void steppedon(Moveable m) {
-        if(!reachable || (m.getSuly() == 0))
+        if(!reachable || (m.getSuly() == 0))//ha 0 a súlya, nem teleportál. így replikátor nem tud teleportálni.
         	return;
         
         SpecFal otherSide = pm.getOtherSide(this);

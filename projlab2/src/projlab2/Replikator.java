@@ -19,7 +19,7 @@ public class Replikator extends Moveable {
     public void shot(Golyo bullet) {
     	bullet.kill();
         this.alive=false;
-        //lab.removeElem(this);
+        lab.refreshList();
     }
 
     /**
@@ -61,6 +61,7 @@ public class Replikator extends Moveable {
         	Elem temp = iterator.next();
         	if(temp != this){
         		temp.kill();
+        		lab.refreshList();
         		return;
         	}
         		

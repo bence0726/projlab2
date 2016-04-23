@@ -2,6 +2,7 @@ package projlab2;
 import java.util.*;
 
 /**
+ * Nyerés feltételei: nincs több ZPM a labirintusban ÉS annál a karakternél van több ZPM, aki a VégeElemre lép
  * 
  */
 public class JatekMotor {
