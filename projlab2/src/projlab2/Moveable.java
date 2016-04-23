@@ -60,8 +60,13 @@ public abstract class Moveable extends Elem{
     			temp.steppedoff(this);					//ami nincs benne, arról leléptünk
     	}    
     	
-    	//megnézzük, hogy a másik oldalon mire léptünk rá. Ezeken steppedon()-t hívjuk
+    	//megnézzük, hogy van-e különbség aközött, hogy hová szerettünk volna
+    	//lépni és aközött, hogy most hol vagyunk (magyarán volt-e teleportálás)
+    	if(this.getPos().equals(t))	
+    		return;										//ha megegyezik, nincs további teendő.
     	
+    	//ha még itt járunk, volt teleportálás.
+    	//megnézzük, hogy a másik oldalon mire léptünk rá. Ezeken steppedon()-t hívjuk    	
     	Iterator<Elem> iteratorItemsNewPlace = itemsNewPlace.iterator();
     	
     	while(iteratorItemsNewPlace.hasNext()){
