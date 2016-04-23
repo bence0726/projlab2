@@ -91,11 +91,7 @@ public class Elem implements Interakcio {
     public void steppedon(Moveable x) {
        //return egyből, nem lépünk ide.
     }
-
-    
-    /**
-     * Elegánsan false-ra állítja az alive flag-jét.
-     */
+  
     public void kill(){
     	alive = false;
     }

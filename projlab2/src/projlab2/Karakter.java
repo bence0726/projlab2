@@ -86,10 +86,10 @@ public class Karakter extends Moveable{
     }
 
     /**
+     * A paraméterül kapott színnel elindít egy golyót.
      * @param szin
      */
     public void Fire(Szin szin) {
-        // TODO implement here
     	lab.addMoveable(new Golyo(gundir,pos,szin));
     }
 
@@ -108,13 +108,14 @@ public class Karakter extends Moveable{
     }
     /**
      * Ezzel a függvénnyel a doboz hozzá tudja magát adni
-     * a karakterhez fájdalommentesen.
-     * @param Box
+     * a karakterhez. Ha már van a karakternél doboz, akkor
+     * a nála lévőt leteszi.
+     * @param newBox - a doboz, amit fel akarunk venni.
      */
-    public void addBox(Doboz Box){
+    public void addBox(Doboz newBox){
     	if(box != null){
     		Drop(); 		//ha van nálunk doboz, lerakjuk, mielőtt felvennénk egy másikat
     	}
-    	this.box = Box;
+    	this.box = newBox;
     }
 }
