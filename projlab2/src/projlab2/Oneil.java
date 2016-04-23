@@ -9,7 +9,7 @@ public class Oneil extends Karakter {
     
 	public Oneil(Labirintus lab, File img,Terulet pos) {
 		super(lab, img,pos);
-		// TODO Auto-generated constructor stub
+		image = "oneil.jpg";
 	}
 
 	/**

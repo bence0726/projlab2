@@ -66,7 +66,6 @@ public class Labirintus {
      * @param ter - a terület, amire kíváncsiak vagyunk.
      * @return - egy halmaz az ott levő elemekről
      */
-    //NEM VESZI FIGYELEMBE HOGY AZ ADOTT ELEM ÉL-E MÉG
     public Set<Elem> whatsThere(Terulet ter) {
         Set<Elem> items = new HashSet<Elem>();
         for(int i = 0; i < list.size(); i++){

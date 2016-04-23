@@ -24,13 +24,7 @@ public class Elem implements Interakcio {
     /**
      * 
      */
-    protected File image;
-
-    /**
-     * 
-     */
-    protected int suly;
-
+    protected String image = "";
 
     /**
      * 
@@ -65,7 +59,7 @@ public class Elem implements Interakcio {
 
 
     /**
-     * @return
+     * @return pos - az a terület, amelyet az objektum lefed.
      */
     public Terulet getPos() {
         return pos;
@@ -94,13 +88,6 @@ public class Elem implements Interakcio {
   
     public void kill(){
     	alive = false;
-    }
-
-    /**
-     * 
-     */
-    public int getSuly() {
-    	return suly;
     }
 
     /**
