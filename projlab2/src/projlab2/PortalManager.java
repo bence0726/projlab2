@@ -2,7 +2,9 @@ package projlab2;
 import java.util.*;
 
 /**
- * 
+ * Ez az osztály tartja nyilván a pályán lévő portálokat. Segítségével
+ * adott színű portált nyithatunk, zárhatunk, vagy akár adott portál
+ * másik végét is elkérhetjük.
  */
 public class PortalManager {
     /**

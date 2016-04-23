@@ -16,9 +16,18 @@ public class Doboz extends Moveable {
     /**
      * Ha a karakter felveszi, hozzáadja
      * magát a karakterhez.
+     * @return true - mert történt felvétel
      */
-    public void picked(Karakter k) {
-    	this.kill();  //meg kell ölni, hogy  alabirintusbol kikerüljön és igy ne rajzolja fel a pályára
+    public boolean picked(Karakter k) {
+    	this.kill();  //meg kell ölni, hogy  a labirintusbol kikerüljön és igy ne rajzolja fel a pályára
         k.addBox(this);
+        
+        Set<Elem> here = lab.whatsThere(this.getPos()); 
+        Iterator<Elem> itElem = here.iterator();
+        while(itElem.hasNext()){ //ha volt alatta valami, akkor azokról leléptetjük a dobozt
+        	Elem temp = itElem.next();
+        	temp.steppedoff(this);
+        }	
+        return true;
     }
 }

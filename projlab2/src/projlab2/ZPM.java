@@ -17,10 +17,12 @@ public class ZPM extends Elem {
      * Növeli egyel a karakter ZPM számlálóját,
      * majd megöli magát.
      * @param k - a karakter, aki felveszi
+     * @return true - mert történt felvétel
      */
-    public void picked(Karakter k) {
+    public boolean picked(Karakter k) {
         k.addZPM();
-        this.kill();        
+        this.kill();
+        return true;
     }
 
 }

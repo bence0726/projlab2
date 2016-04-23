@@ -61,14 +61,6 @@ public class Labirintus {
     }
 
     /**
-     * A paraméterként kapott objektumot letörli a listáról.
-     * @param param
-     */
-    private void removeElem(Elem param) {
-				list.remove(param);
-    }
-
-    /**
      * Ad egy halmazt azokról az elemekről, amelyek 
      * az adott területen találhatóak.
      * @param ter - a terület, amire kíváncsiak vagyunk.
@@ -83,6 +75,27 @@ public class Labirintus {
         		items.add(temp);				//hozzáadjuk a halmazhoz
         }
         return items;
+    }
+    
+    /**
+     * Végigmegy a labirintus listáin és megvizsgálja, hogy az elemek élnek-e.
+     * Amelyik nem él, törli a listáról.
+     */
+    public void refreshList(){
+    	Iterator<Moveable> itMoveable = moveableList.iterator();
+    	while(itMoveable.hasNext()){
+    		Moveable temp = itMoveable.next();
+    		if(!temp.isAlive())
+    			moveableList.remove(temp);	//töröljük a moveable listáról
+    			list.remove(temp);			//és az elemek listájáról is.
+    	}
+    	
+    	Iterator<Elem> iteratorElemek = list.iterator(); //végigmegyünk az elemek listáján is
+    	while(iteratorElemek.hasNext()){
+    		Elem temp = iteratorElemek.next();
+    		if(!temp.isAlive())
+    			list.remove(temp);
+    	}
     }
 
     /**
@@ -109,17 +122,5 @@ public class Labirintus {
     public void addMoveable(Moveable m) {
     	moveableList.add(m);
     }
-
-    /**
-     * A paraméterként kapott objektumot letörli a moveable elemek és 
-     * a "sima" elemek listájáról is.
-     * @param moveable - a törlendő objektum referenciája
-     */
-	private void removeMoveable(Moveable moveable) {
-		moveableList.remove(moveable);
-		removeElem(moveable);
-	}
-	
-	public 
-
+    
 }

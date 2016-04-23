@@ -22,7 +22,10 @@ public class Fal extends Elem {
      * 
      */
     public void shot(Golyo bullet ) {
-        bullet.kill();
+    	if(reachable)
+    		bullet.step(); //ha rá lehet lépni, akkor a golyó elmegy felette
+    	else
+    		bullet.kill(); //egyébként beleütközik.
     }
 
     /**
@@ -33,7 +36,6 @@ public class Fal extends Elem {
         	return;
         X.step();
     }
-
 
 	public void setReachable(boolean reachable) {
 		this.reachable = reachable;

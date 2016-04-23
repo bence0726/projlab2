@@ -89,6 +89,10 @@ public abstract class Moveable extends Elem{
      */
     public void setDir(Vektor dir){
     	moveDir = dir;
-    }
-    
+    }    
+
+    public void kill(){
+    	this.alive = false;
+    	lab.refreshList();
+    }    
 }
