@@ -44,8 +44,9 @@ public class SpecFal extends Elem {
      * @param elem
      */
     public void steppedon(Moveable m) {
-        if(reachable == false)
+        if(!reachable || (m.getSuly() == 0))
         	return;
+        
         SpecFal otherSide = pm.getOtherSide(this);
         if(otherSide == null)			//ennek nem kéne teljesülnie, de ha mégis, visszatérünk
         	return;

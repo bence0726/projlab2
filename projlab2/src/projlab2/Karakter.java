@@ -1,7 +1,6 @@
 package projlab2;
 import java.io.File;
 import java.util.*;
-import java.util.function.ToIntFunction;
 
 /**
  * 
@@ -47,15 +46,7 @@ public class Karakter extends Moveable{
      * @return
      */
     public int getZPM() {
-        // TODO implement here
-        return 0;
-    }
-
-    /**
-     *  Szerintem ez nem kell.
-     */
-    public void changeBoxVal() {
-        // Szerintem ez nem kell.
+        return ZPM;
     }
 
     /**
@@ -72,8 +63,14 @@ public class Karakter extends Moveable{
         
         while(iterator.hasNext()){
         	iterator.next().picked(this);
-        	if(box != null) //ha felvettünk valamit, visszatérünk.
+        	if(box != null){			//ha felvettünk valamit,
+        		Set<Elem> temp = lab.whatsThere(box.getPos());
+        		
+        		
+        		steppedoff(box);		
         		return;
+        	}
+        		
         	
         }
     }

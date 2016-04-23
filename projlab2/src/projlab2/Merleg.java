@@ -16,11 +16,6 @@ public class Merleg extends Elem {
     /**
      * 
      */
-    private boolean aktiv;        //Szerintem ez nem kell
-
-    /**
-     * 
-     */
     private Fal ajto;
 
     /**
@@ -42,13 +37,6 @@ public class Merleg extends Elem {
     public Merleg(Fal ajto,Terulet area) {
         super(area);
         this.ajto = ajto;
-    }
-
-    /**
-     * Szerintem ez már nem kell.
-     */
-    public void deActivate() {     //Szerintem ez nem kell
-        // TODO implement here
     }
 
     /**

@@ -27,9 +27,7 @@ public abstract class Moveable extends Elem{
     	 * Ezután összehasonlítjuk A-t és C-t , ami nincs benn C-ben arra hívjuk a steppedoff-ot.
     	 */
     	Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
-//    	t.setKezd(moveDir);
-//    	t.setVeg(moveDir);
-    	t.addDirToArea(moveDir); //Szerintem ide ez a jó.
+    	t.addDirToArea(moveDir); 
     	    	
     	Set<Elem> itemsHere = lab.whatsThere(this.pos); //lépés előtt itt állunk
     	Set<Elem> itemsThere = lab.whatsThere(t);		//ahová lépünk, ott ezek vannak
@@ -62,8 +60,14 @@ public abstract class Moveable extends Elem{
     			temp.steppedoff(this);					//ami nincs benne, arról leléptünk
     	}    
     	
-    	//ide még annyit , hogy ha a portál a másik oldalon mérlegre dob rá azt ott
-    	//megintcsak aktiválni kell... Szóval a newPlace-re kell még egy steppedon-t hívni
+    	//megnézzük, hogy a másik oldalon mire léptünk rá. Ezeken steppedon()-t hívjuk
+    	
+    	Iterator<Elem> iteratorItemsNewPlace = itemsNewPlace.iterator();
+    	
+    	while(iteratorItemsNewPlace.hasNext()){
+    		Elem temp = iteratorItemsNewPlace.next();
+    		temp.steppedon(this);
+    	}
 	}
     
     /**

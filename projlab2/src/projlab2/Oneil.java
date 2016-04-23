@@ -18,7 +18,8 @@ public class Oneil extends Karakter {
      */
     public void addZPM() {
         ZPM++;
-
+        if((ZPM % 2) != 0) //csak minden másodikra kell random ZPM-et generálni.
+        	return;
         Terulet T = new Terulet();
         T.randomArea(new Vektor(6,6),100);
         //amíg nem sorsol olyan területet, 

@@ -61,20 +61,11 @@ public class Labirintus {
     }
 
     /**
-     * NEM TUDOM MIÉRT ÍGY IRTAD MEG HA ALPBÓL MEGKAPJA PARAMÉTERKÉNT HOGY MELYIK
-     * ELEMET KELL TÖRÖLNI.
-     * 
-     * SZERINTEM MÁSHOGY KELL HASZNÁLNI
+     * A paraméterként kapott objektumot letörli a listáról.
      * @param param
      */
     private void removeElem(Elem param) {
-    	Iterator<Elem> iterator = list.iterator();
-		while(iterator.hasNext()){
-			Elem temp = iterator.next();
-			if(!temp.isAlive()){
-				list.remove(temp);
-			}
-		}
+				list.remove(param);
     }
 
     /**
@@ -120,18 +111,13 @@ public class Labirintus {
     }
 
     /**
-     * A mozgó elemek listájáról leszedi
-     *  a kapott moveable objektumot.
+     * A paraméterként kapott objektumot letörli a moveable elemek és 
+     * a "sima" elemek listájáról is.
      * @param moveable - a törlendő objektum referenciája
      */
 	private void removeMoveable(Moveable moveable) {
-		Iterator<Moveable> iterator = moveableList.iterator();
-		while(iterator.hasNext()){
-			Moveable temp =  iterator.next();
-			if(!temp.isAlive()){
-				moveableList.remove(temp);
-			}
-		}			
+		moveableList.remove(moveable);
+		removeElem(moveable);
 	}
 
 }
