@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class TestManager {	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Test test = new Test();
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
@@ -31,7 +31,7 @@ public class TestManager {
          }
 	}
 	
-	public static void runCommand(String command, Test test){
+	public static void runCommand(String command, Test test) throws IOException{
 		ArrayList<String> args = new ArrayList<String>();
         
 		StringTokenizer st = new StringTokenizer(command," ");
@@ -62,7 +62,7 @@ public class TestManager {
 	    			int i = 0;
 	    			while(param.hasMoreTokens())
 	    				cord[i++] = Integer.parseInt(param.nextToken());
-	    			test.addDoboz(cord[0], cord[1], cord[2], cord[3], suly);
+	    			test.addDoboz(cord[0], cord[1], cord[2]);
 	    		break;		    
 	    		case "MERLEG":
 	    			//TODO
@@ -100,7 +100,7 @@ public class TestManager {
 	    	}
 	    break; 
 	    case "MAKE":
-	    	System.out.println("0. MAKE");
+	    	makeTest("testtest");
 	    	//TODO MAKE NEW TEST
 	    break;
 	    case "DO":
@@ -175,22 +175,23 @@ public class TestManager {
 		String str = null;		
 		
 		System.out.println("Enter commands, end to quit.");
+		out = new FileOutputStream("input"+testname+".txt");
 		
 		try {
-			do {
-				out = new FileOutputStream("input"+testname+".txt");
-				
+			do {			
 				//TODO saját teszeset kreálása
 				//Biztos vagyok benne, hogy ennél egyszerűbben is lehet bemenetről soronként fileba menteni...
 				str = br.readLine();
 				byte[] contentInBytes = str.getBytes();
 				
 				out.write(contentInBytes);
+				out.write(System.getProperty("line.separator").getBytes());
+				out.flush();
 				
 			} while (!str.equalsIgnoreCase("end"));			
 		} catch (IOException e) {
 			e.printStackTrace();
-			//TODO saj�t teszeset kre�l�sa 
+			//TODO saját teszeset kreálása 
 		}finally {
 		}
 			if (out != null) {
