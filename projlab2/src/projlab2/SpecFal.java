@@ -6,9 +6,11 @@ import java.util.*;
  */
 public class SpecFal extends Elem {
 
-	public SpecFal(Terulet area){
+	public SpecFal(Terulet area, PortalManager portalmanager){
 		super(area);
 		image = "specfal.jpg";
+		pm = portalmanager;
+		
 	}
      /**
      * Megadja, hogy a SpecFal elemre rá lehet-e lépni.

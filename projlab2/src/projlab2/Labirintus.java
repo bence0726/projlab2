@@ -8,9 +8,13 @@ import java.util.*;
 public class Labirintus {
 
     /**
-     * Default constructor
+     * Default constructor. Csak inicializál, értékeket később 
+     * kapnak az attribútumai.
      */
     public Labirintus() {
+    	objectsOnMap = new ArrayList<Elem>();
+    	moveableList = new ArrayList<Moveable>();
+    	osszZPM = 0;
     }
 
     /**
@@ -37,36 +41,32 @@ public class Labirintus {
      * 
      */
     
-    private Oneil oneil;
+    private Karakter oneil;
 
     /**
-     * 
+     * Ebben a listában vannak azok az elemek, amelyek
+     * megjelennek a pályán. Szóval a karakterek, replikátorok,
+     * stb-k is bekerülnek ide.
      */
-    private ArrayList<Elem> list = new ArrayList<Elem>();
+    private ArrayList<Elem> objectsOnMap;
     
     /**
-     * 
+     * Ebben a listában vannak azok az elemek, amelyek mozgásra képesek
+     * (karakterek, golyók, replikátorok, dobozok)
      */
-    private ArrayList<Moveable> moveableList = new ArrayList<Moveable>();
+    private ArrayList<Moveable> moveableList;
     
-    /**
-     * 
-     */
-    public void labirintus() {
-        // TODO implement here
-    }
-
     /**
      * Ad egy halmazt azokról az elemekről, amelyek 
      * az adott területen találhatóak.
-     * @param ter - a terület, amire kíváncsiak vagyunk.
+     * @param area - a terület, amire kíváncsiak vagyunk.
      * @return - egy halmaz az ott levő elemekről
      */
-    public Set<Elem> whatsThere(Terulet ter) {
+    public Set<Elem> whatsThere(Terulet area) {
         Set<Elem> items = new HashSet<Elem>();
-        for(int i = 0; i < list.size(); i++){
-        	Elem temp = list.get(i);
-        	if(temp.getPos().isCoveredBy(ter))	//ha takarják egymást,
+        for(int i = 0; i < objectsOnMap.size(); i++){
+        	Elem temp = objectsOnMap.get(i);
+        	if(temp.getPos().isCoveredBy(area))	//ha takarják egymást,
         		items.add(temp);				//hozzáadjuk a halmazhoz
         }
         return items;
@@ -82,14 +82,14 @@ public class Labirintus {
     		Moveable temp = itMoveable.next();
     		if(!temp.isAlive())
     			moveableList.remove(temp);	//töröljük a moveable listáról
-    			list.remove(temp);			//és az elemek listájáról is.
+    			objectsOnMap.remove(temp);			//és az elemek listájáról is.
     	}
     	
-    	Iterator<Elem> iteratorElemek = list.iterator(); //végigmegyünk az elemek listáján is
+    	Iterator<Elem> iteratorElemek = objectsOnMap.iterator(); //végigmegyünk az elemek listáján is
     	while(iteratorElemek.hasNext()){
     		Elem temp = iteratorElemek.next();
     		if(!temp.isAlive())
-    			list.remove(temp);
+    			objectsOnMap.remove(temp);
     	}
     }
 
@@ -103,7 +103,7 @@ public class Labirintus {
      * @param elem
      */
     public void addElem(Elem elem) {
-    	list.add(elem);
+    	objectsOnMap.add(elem);
     }
     /**
      * Hozzáadja a labirintushoz a kezdőelemet.
@@ -156,12 +156,12 @@ public class Labirintus {
 		return jaffa;
 	}
 
-	public Oneil getOneil() {
+	public Karakter getOneil() {
 		return oneil;
 	}
 
 	public ArrayList<Elem> getList() {
-		return list;
+		return objectsOnMap;
 	}
 	
     public Elem getEndElem() {

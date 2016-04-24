@@ -12,12 +12,17 @@ public class JatekMotor {
      */
     public JatekMotor() {
     	lab = new Labirintus();
+    	pm = new PortalManager();
+    	
     }
     /**
      * 
      */
     private Labirintus lab;
-    
+    /**
+     * 
+     */
+    private PortalManager pm;
    /**
     * A labirintus moveable listáján lévő objektumokat
     * megmozgatja mind. 
@@ -79,17 +84,17 @@ public class JatekMotor {
 	}
     /**
      * Lövés Jaffával a paraméterül kapott színnel.
-     * @param szin - ilyen színűt fogunk lőni.
+     * @param colour - ilyen színűt fogunk lőni.
      */
-    public void jaffaFire(Szin szin){
-    	lab.getJaffa().Fire(szin);
+    public void jaffaFire(Szin colour){
+    	lab.getJaffa().Fire(colour);
     }
     /**
     * Lövés Oneillel a paraméterül kapott színnel.
-    * @param szin - ilyen színűt fogunk lőni.
+    * @param colour - ilyen színűt fogunk lőni.
     */
-   public void OneilFire(Szin szin){
-	   lab.getOneil().Fire(szin);
+   public void OneilFire(Szin colour){
+	   lab.getOneil().Fire(colour);
    }
    /**
     * Tárgy felvétele Jaffával.
@@ -125,4 +130,7 @@ public class JatekMotor {
     public Labirintus getLab(){
     	return lab;
     }
+    /**
+     * Specfal létrehozásakor ezt kell hívni
+     */
 }
