@@ -9,7 +9,7 @@ public class SpecFal extends Elem {
 	 * A megadott területre létrejön egy SpecFal elem.
 	 * Minden SpecFal elemnek ugyanazt a PortalManagert kell megkapnia.
 	 * @param area
-	 * @param pm
+	 * @param portalmanager
 	 */
 	public SpecFal(Terulet area, PortalManager portalmanager){
 		super(area);
