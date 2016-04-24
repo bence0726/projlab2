@@ -54,7 +54,7 @@ public class JatekMotor {
      */
     public boolean isEndGame() {
         // TODO implement here
-    	lab.getZPM()
+    	lab.getZPM();
     	Elem e=lab.getVegeElem();
     	Terulet t = e.getPos();
     	if ()

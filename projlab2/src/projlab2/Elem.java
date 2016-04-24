@@ -75,7 +75,7 @@ public class Elem implements Interakcio {
     /**
      * @return
      */
-    public File getImage() {
+    public String getImage() {
         return image;
     }
 

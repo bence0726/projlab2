@@ -9,7 +9,7 @@ public abstract class Moveable extends Elem{
     protected Labirintus lab ;
     protected int suly;
     
-	public Moveable(Terulet pos) {
+	public Moveable(Labirintus lab,Vektor kezdLocVec) {
 		super(pos);
 		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
 	}
