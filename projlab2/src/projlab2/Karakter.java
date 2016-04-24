@@ -100,7 +100,6 @@ public class Karakter extends Moveable{
         gundir.setVx((Math.round(Math.cos(currentAngle))*100));
         gundir.setVy((Math.round(Math.sin(currentAngle))*100));
         //ALERT a vektorok parametereit floatban kellett volna tarolni nem int... most mindenhol átkéne irni.
-        
     }
     /**
      * Ezzel a függvénnyel a doboz hozzá tudja magát adni

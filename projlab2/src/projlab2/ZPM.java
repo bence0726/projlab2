@@ -7,11 +7,22 @@ import java.util.*;
 public class ZPM extends Elem {
 
     /**
-     * Default constructor
+     * A megadott területre létrejön egy ZPM elem.
      */
     public ZPM(Terulet area) {
     	super(area);
-    	image = "ZPM";
+    	image = "zpm";
+    }
+    
+    /**
+     * Létrehoz egy ZPM-t, a bal felső sarkát locUpLeftCorner
+     * vektorra illesztve. A második paraméter az elem mérete.
+     * @param locUpLeftCorner
+     * @param diagonal
+     */
+    public ZPM(Vektor locUpLeftCorner,Vektor diagonal) {
+    	super(locUpLeftCorner,diagonal);
+    	image = "zpm.jpg";
     }
 
     /**

@@ -5,13 +5,35 @@ import java.util.*;
  * 
  */
 public class SpecFal extends Elem {
+	/**
+	 * A megadott területre létrejön egy SpecFal elem.
+	 * Minden SpecFal elemnek ugyanazt a PortalManagert kell megkapnia.
+	 * @param area
+	 * @param pm
+	 */
 
 	public SpecFal(Terulet area, PortalManager portalmanager){
 		super(area);
+		reachable =false;
 		image = "specfal.jpg";
 		pm = portalmanager;
 		
 	}
+	
+	/**
+     * Létrehoz egy Specfalat, a bal felső sarkát locUpLeftCorner
+     * vektorra illesztve. A második paraméter az elem mérete.
+     * @param locUpLeftCorner
+     * @param diagonal
+     * @param pm
+     */
+    public SpecFal(Vektor locUpLeftCorner,Vektor diagonal,PortalManager pm) {
+    	super(locUpLeftCorner,diagonal);
+    	reachable =false;
+		this.pm=pm;
+    	image = "specfal.jpg";
+    }
+    
      /**
      * Megadja, hogy a SpecFal elemre rá lehet-e lépni.
      */

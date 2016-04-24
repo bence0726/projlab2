@@ -7,13 +7,24 @@ import java.util.*;
 public class Fal extends Elem {
 
     /**
-     * Default constructor
+     * A megadott területre létrejön egy fal elem.
      */
     public Fal(Terulet area) {
     	super(area);
-    	image = "Fal.jpg";
+    	image = "fal.jpg";
     }
 
+    /**
+     * Létrehoz egy falat, a bal felső sarkát locUpLeftCorner
+     * vektorra illesztve. A második paraméter az elem mérete.
+     * @param locUpLeftCorner
+     * @param diagonal
+     */
+    public Fal(Vektor locUpLeftCorner,Vektor diagonal) {
+    	super(locUpLeftCorner,diagonal);
+    	image = "fal.jpg";
+    }
+    
     /**
      * 
      */
