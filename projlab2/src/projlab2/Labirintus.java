@@ -158,4 +158,7 @@ public class Labirintus {
     public void addElem(Elem param) {
     	list.add(param);
     }
+    public ArrayList<Moveable>getMoveableList(){
+    	return moveableList;
+    }
 }

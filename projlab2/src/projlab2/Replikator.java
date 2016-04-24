@@ -43,6 +43,8 @@ public class Replikator extends Moveable {
         	temp.steppedon(this);
         	}
         }
+        //szerintem itt kéne új moveDir-t beállítani a további mozgáshoz:
+        setDir(Vektor.randomDir(false)); //így a következő lépésnél random irányba megy tovább
     }
 
     /**

@@ -8,9 +8,10 @@ import java.util.*;
 public class JatekMotor {
 
     /**
-     * Default constructor
+     * JM konstruktor. Létrehoz egy labirintust.
      */
     public JatekMotor() {
+    	lab = new Labirintus();
     }
 
 
@@ -19,28 +20,16 @@ public class JatekMotor {
      * 
      */
     private Labirintus lab;
-
-
-
-
-    /**
-     * 
-     */
-    public ArrayList<Moveable> mozgatandok;
-
-    /**
-     * A játék indításakor hívjuk. Új labirintus objektumot hoz létre.
-     */    
-    public void startGame() {
-        lab = new Labirintus();        
-    }
-
-    /**
-     * 
-     */
-    public void Reset() {
-        // TODO implement here
-    }
+    
+   /**
+    * A labirintus moveable listáján lévő objektumokat
+    * megmozgatja mind. 
+    */
+   public void MoveEverything(){
+	   Iterator<Moveable> iterator = lab.getMoveableList().iterator();
+	   while(iterator.hasNext())
+		   iterator.next().move();
+   }
 
     /**
      * 
