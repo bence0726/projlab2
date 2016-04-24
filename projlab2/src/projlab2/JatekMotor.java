@@ -50,8 +50,12 @@ public class JatekMotor {
     	lab.getZPM();
     	Elem e=lab.getVegeElem();
     	Terulet t = e.getPos();
+<<<<<<< HEAD
 //    	if ()
     	return false; //TODO FIXME folytatni
+=======
+    	if e.
+>>>>>>> branch 'master' of https://github.com/bence0726/projlab2
     }
     
     public void setJaffaMoveDir(){
