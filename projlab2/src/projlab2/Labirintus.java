@@ -10,12 +10,14 @@ public class Labirintus {
      * Default constructor. Csak inicializál, értékeket később 
      * kapnak az attribútumai.
      */
-    public Labirintus() {
+    public Labirintus(PortalManager pm) {
     	objectsOnMap = new ArrayList<Elem>();
     	moveableList = new ArrayList<Moveable>();
     	osszZPM = 0;
+    	this.pm=pm;
     }
 
+    public PortalManager pm;
     /**
      * 
      */

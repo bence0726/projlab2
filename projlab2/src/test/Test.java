@@ -63,7 +63,7 @@ public class Test {
 	 * konstruktorát és hozzáadja a Labirintushoz.
 	 * 
 	 */
-	private void addFal(int x1, int y1, int x2, int y2)
+	public void addFal(int x1, int y1, int x2, int y2)
 	{
 		
 		lab.addElem(new Fal(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2))));
@@ -76,9 +76,9 @@ public class Test {
 	 *  és hozzáadja a Labirintushoz.
 	 * 
 	 */
-	private void addSpecFal(int x1, int y1, int x2, int y2)
+	public void addSpecFal(int x1, int y1, int x2, int y2)
 	{
-		
+		lab.addElem(new SpecFal(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2)), lab.pm));
 	}
 	
 	
@@ -86,9 +86,9 @@ public class Test {
 	 * a kapott paraméterekkel meghívja a ZPM
 	 *  konstruktorát és hozzáadja a Labirintushoz.
 	 */
-	private void addZPM(int x1, int y1, int x2, int y2)
+	public void addZPM(int x1, int y1, int x2, int y2)
 	{
-		
+		lab.addElem(new ZPM(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2))));
 	}
 	
 	
@@ -97,9 +97,9 @@ public class Test {
 	 * a kapott paraméterekkel meghívja a VegeElem konstruktorát
 	 *  és hozzáadja a Labirintushoz.
 	 */
-	private void addVegeElem(int x1, int y1, int x2, int y2)
+	public void addVegeElem(int x1, int y1, int x2, int y2)
 	{
-		
+		//lab.addElem(new ZPM(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2))));
 	}
 	
 	
@@ -108,9 +108,9 @@ public class Test {
 	 * a kapott paraméterekkel meghívja a Szakadek konstruktorát
 	 *  és hozzáadja a Labirintushoz.
 	 */
-	private void addSzakadek(int x1, int y1, int x2, int y2)
+	public void addSzakadek(int x1, int y1, int x2, int y2)
 	{
-		
+		lab.addElem(new Szakadek(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2))));
 	}
 	
 	
@@ -120,9 +120,9 @@ public class Test {
 	 * a Labirintushoz. 
 	 * A Merleg konstruktora a kapott paraméterekkel a hozzá tartozó ajtót is létrehozza.
 	 */
-	private void AddMerleg(int mx1, int my1, int mx2, int my2, int ax1, int ay1, int ax2, int ay2)
+	public void AddMerleg(int mx1, int my1, int mx2, int my2, int ax1, int ay1, int ax2, int ay2)
 	{
-		
+		//lab.addElem(new Merleg(new Terulet(new Vektor(mx1,my1), new Vektor(mx2,my2))));
 	}
 	
 	
@@ -130,18 +130,18 @@ public class Test {
 	/*
 	 * a kapott paraméterekkel meghívja a Doboz konstruktorát és hozzáadja a Labirintushoz.
 	 */
-	private void addDoboz(int x1, int y1, int x2, int y2, int suly)
+	public void addDoboz(int x1, int y1, int x2, int y2, int suly)
 	{
-		
+		//lab.addElem(new ZPM(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2))));
 	}
 	
 	
 	/*
 	 * a kapott paraméterekkel meghívja a KezdoPont konstruktorát és hozzáadja a Labirintushoz.
 	 */
-	private void addKezdoPont(int x, int y)
+	public void addKezdoPont(int x, int y)
 	{
-		
+		//lab.addElem(new ZPM(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2))));
 	}
 
 	
@@ -149,9 +149,9 @@ public class Test {
 	 *a kapott paraméterekkel meghívja a Replikator konstruktorát,
 	 * hozzáadja a Labirintushoz és a mozgatandok listához is.
 	 */
-	private void addReplikator(int x1, int y1, int x2, int y2)
+	public void addReplikator(int x1, int y1, int x2, int y2)
 	{
-		
+		//lab.addElem(new ZPM(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2))));
 	}
 	
 	
