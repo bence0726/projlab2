@@ -12,7 +12,7 @@ public class Golyo extends Moveable {
 	
 	Vektor dir;
     public Golyo(Vektor dir,Terulet area,Szin szin) {
-    	super(area);
+    	this.pos =area;
     	this.dir = dir;
     	this.szin = szin;
     	image = "golyo.jpg";

@@ -13,7 +13,7 @@ public class Elem implements Interakcio {
     	this.pos.setKezd(pos.getKezd());
     	this.pos.setVeg(pos.getVeg());
     }
-
+    public Elem(){}
     /**
      * Él az elem? Ha igen, true, egyébként false.
      */

@@ -9,8 +9,8 @@ public class Replikator extends Moveable {
     /**
      * Default constructor
      */
-    public Replikator(Terulet area) {
-    	super(area);
+    public Replikator(Labirintus lab,Vektor kezdLocVec) {
+    	super(lab,kezdLocVec);
     	image = "replikator.jpg";
     }
 

@@ -11,11 +11,11 @@ public abstract class Moveable extends Elem{
     protected Vektor size = new Vektor(10,10);
     
 	public Moveable(Labirintus lab,Vektor kezdLocVec) {
-		size = new Vektor(10,10);
-		Terulet pos =new Terulet (kezdLocVec,Vektor.addVecToVec(kezdLocVec, size));
-		super(pos);
+		super (new Terulet (kezdLocVec,Vektor.addVecToVec(kezdLocVec, new Vektor(10,10))));
 		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
 	}
+	
+	public Moveable(){}
 
 	/**
      * @param dir

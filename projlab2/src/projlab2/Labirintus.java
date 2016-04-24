@@ -21,7 +21,7 @@ public class Labirintus {
     /**
      * 
      */
-    private Vektor KezdoPont;
+    private Vektor kezdoPont;
 
     /**
      * 
@@ -51,9 +51,11 @@ public class Labirintus {
     /**
      * 
      */
-    public void labirintus(Vektor KezdoPont) {
+    public void labirintus(Vektor startLocVec) {
         // TODO implement here
-    	oneil = new Oneil(this, )
+    	this.kezdoPont = startLocVec;
+    	oneil = new Oneil(this,startLocVec);
+    	jaffa = new Karakter(this,startLocVec);
     }
 
     /**
@@ -125,7 +127,7 @@ public class Labirintus {
      * @return
      */
     public Vektor getKezdoPont() {
-        return KezdoPont;
+        return kezdoPont;
     }
     
     public void addMoveable(Moveable m) {
