@@ -11,13 +11,11 @@ public class SpecFal extends Elem {
 	 * @param area
 	 * @param pm
 	 */
-
 	public SpecFal(Terulet area, PortalManager portalmanager){
 		super(area);
 		reachable =false;
 		image = "specfal.jpg";
-		pm = portalmanager;
-		
+		pm = portalmanager;		
 	}
 	
 	/**
