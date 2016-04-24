@@ -10,14 +10,14 @@ public class Labirintus {
      * Default constructor. Csak inicializál, értékeket később 
      * kapnak az attribútumai.
      */
-    public Labirintus(PortalManager pm) {
+    public Labirintus() {
     	objectsOnMap = new ArrayList<Elem>();
     	moveableList = new ArrayList<Moveable>();
     	osszZPM = 0;
-    	this.pm=pm;
+    	
     }
 
-    public PortalManager pm;
+    
     /**
      * 
      */
@@ -49,7 +49,7 @@ public class Labirintus {
      * megjelennek a pályán. Szóval a karakterek, replikátorok,
      * stb-k is bekerülnek ide.
      */
-    private ArrayList<Elem> objectsOnMap;
+    private ArrayList<Elem> objectsOnMap;	
     
     /**
      * Ebben a listában vannak azok az elemek, amelyek mozgásra képesek
@@ -176,5 +176,9 @@ public class Labirintus {
 
     public Elem getstartElem() {
         return startElem;
+    }
+    public int size()
+    {
+    	return objectsOnMap.size();
     }
 }

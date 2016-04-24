@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class JatekMotor {
     private Labirintus lab;    
-    private PortalManager pm;
+    public PortalManager pm;
     
     /**
      * JM konstruktor. Létrehoz egy labirintust.
@@ -15,7 +15,7 @@ public class JatekMotor {
     public JatekMotor() {
     	
     	pm = new PortalManager();
-    	lab = new Labirintus(pm);    	
+    	lab = new Labirintus();    	
     }
     
    /**

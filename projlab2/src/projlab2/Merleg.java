@@ -27,6 +27,7 @@ public class Merleg extends Elem {
     	super(area);
     	this.ajto = ajto;
     	image = "merleg.jpg";
+    	name="Mérleg";
     }
     
     /**
@@ -41,6 +42,7 @@ public class Merleg extends Elem {
     	super(locUpLeftCorner,diagonal);
     	this.ajto = ajto;
     	image = "merleg.jpg";
+    	name="Mérleg";
     }
 
     /**

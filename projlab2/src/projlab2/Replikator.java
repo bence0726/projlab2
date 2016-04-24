@@ -17,6 +17,7 @@ public class Replikator extends Moveable {
     public Replikator(Labirintus lab,Vektor kezdLocVec) {
     	super(lab,kezdLocVec);
     	image = "replikator.jpg";
+    	name="Replikátor";
     }
     
     /**
@@ -30,6 +31,7 @@ public class Replikator extends Moveable {
     public Replikator(Labirintus lab,Elem startElem) {
     	super(lab,startElem);
     	image = "replikator.jpg";
+    	name="Replikátor";
     }
 
     /**

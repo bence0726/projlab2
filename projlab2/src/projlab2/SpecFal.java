@@ -35,6 +35,7 @@ public class SpecFal extends Elem {
 		reachable =false;
 		image = "specfal.jpg";
 		pm = portalmanager;		
+		name="SpecFal";
 	}
 	
 	/**
@@ -49,6 +50,7 @@ public class SpecFal extends Elem {
     	reachable =false;
 		this.pm=pm;
     	image = "specfal.jpg";
+    	name="SpecFal";
     }
     
 

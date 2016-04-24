@@ -11,6 +11,7 @@ public class Szakadek extends Elem {
     public Szakadek(Terulet area) {
     	super(area);
     	image = "szakadek.jpg";
+    	name="szakadék";
     }
     
     /**
@@ -22,6 +23,7 @@ public class Szakadek extends Elem {
     public Szakadek(Vektor locUpLeftCorner,Vektor diagonal) {
     	super(locUpLeftCorner,diagonal);
     	image = "szakadek.jpg";
+    	name="szakadék";
     }
     
     /**
