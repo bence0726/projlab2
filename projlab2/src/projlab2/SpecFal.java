@@ -112,4 +112,7 @@ public class SpecFal extends Elem {
 	public void setSzin(Szin colour) {
 		this.colour = colour;
 	}
+	public void setReachable(boolean reachable) {
+		this.reachable = reachable;
+	}
 }
