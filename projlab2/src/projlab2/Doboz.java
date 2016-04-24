@@ -6,13 +6,19 @@ import java.util.*;
  */
 public class Doboz extends Moveable {
 
+    
     /**
-     * Default constructor
+     * Létrehoz egy dobozt a közepét a megadott
+     * vektorra illesztve, default mérettel.
+     * 
+     * @param lab
+     * @param kezdLocVec
+     * @param mass
      */
-    public Doboz(Terulet area, int mass) {
-    	this.pos = area;
+    public Doboz(Labirintus lab,Vektor kezdLocVec,int mass) {
+    	super(lab,kezdLocVec);
     	suly = mass;
-    	
+    	image = "doboz.jpg";
     }
 
     /**

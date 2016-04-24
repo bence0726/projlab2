@@ -52,11 +52,8 @@ public class Labirintus {
     /**
      * 
      */
-    public void labirintus(Vektor startLocVec) {
+    public void labirintus() {
         // TODO implement here
-    	this.kezdoPont = startLocVec;
-    	oneil = new Oneil(this,startLocVec);
-    	jaffa = new Karakter(this,startLocVec);
     }
 
     /**
@@ -122,25 +119,38 @@ public class Labirintus {
     }
 
     /**
-     * @param param
+     * @param elem
      */
-    public void addElem(Elem param) {
-    	list.add(param);
+    public void addElem(Elem elem) {
+    	list.add(elem);
     }
-    
+    /**
+     * Hozzáadja a labirintushoz a kezdőelemet.
+     * @param startElem
+     */
     public void addStartElem(Elem startElem){
     	this.startElem=startElem;
     }
+    /**
+     * Hozzáadja a labirintushoz a végelemet.
+     * @param endElem
+     */
     
     public void addEndElem(Elem endElem){
     	this.endElem=endElem;
     }
-    
+    /**
+     * Hozzáadja a labirintushoz a jaffát.
+     * @param jaffa
+     */
     public void addJaffa(Karakter jaffa){
     	this.jaffa=jaffa;
     	this.addMoveable(jaffa);
     }
-    
+    /**
+     * Hozzáazdja a labirintushoz oneilt.
+     * @param oneil
+     */
     public void addOneil(Oneil oneil){
     	this.oneil=oneil;
     	this.addMoveable(oneil);

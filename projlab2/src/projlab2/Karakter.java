@@ -22,23 +22,18 @@ public class Karakter extends Moveable{
     protected Vektor gundir;
 
     /**
-     * 
+     * Létrehoz egy karakter(jaffa) objektumot az elem 
+     * közepére illesztve a moveable objektumot.
+     * Default mérettel jön létre 10*10 pixel méretben.
+     * @param lab
+     * @param kezdLocVec
      */
-
-    /**
-     * @param lab 
-     * @param img
-     */
-    public Karakter(Labirintus lab,Vektor kezdLocVec) {
-    	super(lab,kezdLocVec);
+    public Karakter(Labirintus lab,Elem startElem){
+    	super(lab,startElem);
     	image = "jaffa.jpg";
-        // TODO implement here
     }
 
-    /**
-     * Amikor felveszünk egy ZPM-et, a ZPM ezt a metódust hívja meg.
-     * Növeli a karakter ZPM-számlálóját.
-     */
+    
     public void addZPM() {
         ZPM++;
     }
@@ -119,4 +114,17 @@ public class Karakter extends Moveable{
     	}
     	this.box = newBox;
     }
+    
+//  /**
+//  * Létrehoz egy Karakter objektumot(jaffa) a megadott vektorral.
+//  * A terület bal felső sarkát illeszti a vektorra.
+//  * Default mérettel jön létre 10*10 pixel méretben.
+//  * @param lab
+//  * @param kezdLocVec
+//  */
+// public Karakter(Labirintus lab,Vektor kezdLocVec) {
+// 	super(lab,kezdLocVec);
+// 	image = "jaffa.jpg";
+//     // TODO implement here
+// }
 }
