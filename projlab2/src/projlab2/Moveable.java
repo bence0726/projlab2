@@ -8,10 +8,40 @@ public abstract class Moveable extends Elem{
     protected Vektor moveDir;
     protected Labirintus lab ;
     protected int suly;
-    protected Vektor size = new Vektor(10,10);
     
-	public Moveable(Labirintus lab,Vektor kezdLocVec) {
-		super (new Terulet (kezdLocVec,Vektor.addVecToVec(kezdLocVec, new Vektor(10,10))));
+    /**
+     * Létrehoz egy moveable objektumot a közepét a 
+     * megadott vektorra illesztve.
+     * Default mérettel jön létre 10*10 pixel méretben.
+     * @param lab
+     * @param kezdLocVec
+     */
+	public Moveable(Labirintus lab,Vektor locMiddleofArea) {
+		Vektor diagonal = defaultsize ;
+    	diagonal = Vektor.getHalfOf(diagonal);
+    	pos.setKezd(Vektor.addVecToVec(locMiddleofArea, diagonal));
+    	diagonal.invertThisVec();
+    	pos.setVeg(Vektor.addVecToVec(locMiddleofArea, diagonal));
+		this.lab = lab;
+		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
+	}
+
+	
+    /**
+     * Létrehoz egy moveable objektumot az elem 
+     * közepére illesztve a moveable objektumot.
+     * Default mérettel jön létre 10*10 pixel méretben.
+     * @param lab
+     * @param startElem
+     */
+	public Moveable(Labirintus lab,Elem startElem){
+		Vektor locMiddleofArea = startElem.pos.getMiddleOfArea();
+		Vektor diagonal = defaultsize ;
+    	diagonal = Vektor.getHalfOf(diagonal);
+    	pos.setKezd(Vektor.addVecToVec(locMiddleofArea, diagonal));
+    	diagonal.invertThisVec();
+    	pos.setVeg(Vektor.addVecToVec(locMiddleofArea, diagonal));
+		this.lab = lab;
 		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
 	}
 	
@@ -101,4 +131,19 @@ public abstract class Moveable extends Elem{
     public int getSuly() {
 		return suly;
 	}
+    
+    //--------------------------------------------------------------------
+//	
+//	 /**
+//    * Létrehoz egy moveable objektumot a megadott vektorral.
+//    * A terület bal felső sarkát illeszti a vektorra.
+//    * A diagonalban megadott mérettel jön létre.
+//    * @param lab
+//    * @param kezdLocVec
+//    * @param diagonal
+//    */
+//	public Moveable(Labirintus lab,Vektor kezdLocVec,Vektor diagonal) {
+//		super(kezdLocVec,diagonal);
+//		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
+//	}
 }

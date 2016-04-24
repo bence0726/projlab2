@@ -7,10 +7,28 @@ import java.util.*;
 public class Replikator extends Moveable {
 
     /**
+     * Létrehoz egy replikátort a közepét a megadott
+     * vektorra illesztve, default mérettel.
      * Default constructor
+     * 
+     * @param lab
+     * @param kezdLocVec
      */
     public Replikator(Labirintus lab,Vektor kezdLocVec) {
     	super(lab,kezdLocVec);
+    	image = "replikator.jpg";
+    }
+    
+    /**
+     * Létrehoz egy replikátort a közepét a megadott elem
+     * középpontjára illesztve, default mérettel.
+     * Default constructor
+     * 
+     * @param lab
+     * @param startElem
+     */
+    public Replikator(Labirintus lab,Elem startElem) {
+    	super(lab,startElem);
     	image = "replikator.jpg";
     }
 

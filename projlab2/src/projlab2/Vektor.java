@@ -82,6 +82,13 @@ public class Vektor {
     	this.vy=this.vy-vec.getVy();
     	//return this;
     }
+    
+    public static Vektor getHalfOf(Vektor vec){
+    	Vektor temp = new Vektor(vec);
+    	temp.vx= temp.vx/2;
+    	temp.vy=temp.vy/2;
+    	return temp;
+    }
     /**
      * A vektort egyenlővé teszi a paraméterül kapott vektorral.
      * @param vec

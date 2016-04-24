@@ -32,13 +32,12 @@ public class JatekMotor {
      * 
      */
     public boolean isEndGame() {
-        // TODO implement here
-    	lab.getZPM();
-    	Elem e=lab.getVegeElem();
-    	Terulet t = e.getPos();
-
-//    	if ()
-    	return false; //TODO FIXME folytatni
+    	Elem e=lab.getEndElem();
+    	if (e.isCoveredByThis(lab.getOneil()) && (lab.getOneil().getZPM() > lab.getJaffa().getZPM()) && lab.getOsszZPM()==0)
+    			return true;
+    	if (e.isCoveredByThis(lab.getJaffa()) && (lab.getOneil().getZPM() < lab.getJaffa().getZPM()) && lab.getOsszZPM()==0)
+			return true;
+    	return false;
     }
     
     /**

@@ -18,47 +18,16 @@ public class Labirintus {
      */
     private int osszZPM;
 
-    public int getOsszZPM() {
-		return osszZPM;
-	}
-
-	public void setOsszZPM(int osszZPM) {
-		this.osszZPM = osszZPM;
-	}
-
-	public Karakter getJaffa() {
-		return jaffa;
-	}
-
-	public void setJaffa(Karakter jaffa) {
-		this.jaffa = jaffa;
-	}
-
-	public Oneil getOneil() {
-		return oneil;
-	}
-
-	public void setOneil(Oneil oneil) {
-		this.oneil = oneil;
-	}
-
-	public void setKezdoPont(Vektor kezdoPont) {
-		this.kezdoPont = kezdoPont;
-	}
-
-	public void setVegeElem(Elem vegeElem) {
-		VegeElem = vegeElem;
-	}
 
 	/**
      * 
      */
-    private Vektor kezdoPont;
+    private Elem startElem;
 
     /**
      * 
      */
-    private Elem VegeElem;
+    private Elem endElem;
     /**
      * 
      */
@@ -83,11 +52,8 @@ public class Labirintus {
     /**
      * 
      */
-    public void labirintus(Vektor startLocVec) {
+    public void labirintus() {
         // TODO implement here
-    	this.kezdoPont = startLocVec;
-    	oneil = new Oneil(this,startLocVec);
-    	jaffa = new Karakter(this,startLocVec);
     }
 
     /**
@@ -127,38 +93,82 @@ public class Labirintus {
     	}
     }
 
-    /**
-     * @return
-     */
-    public int getZPM() {
-        return osszZPM;
-    }
 
-    /**
-     * @return
-     */
-    public Elem getVegeElem() {
-        return VegeElem;
-    }
-
-    /**
-     * @return
-     */
-    public Vektor getKezdoPont() {
-        return kezdoPont;
-    }
     
     public void addMoveable(Moveable m) {
     	moveableList.add(m);
     }
 
     /**
-     * @param param
+     * @param elem
      */
-    public void addElem(Elem param) {
-    	list.add(param);
+    public void addElem(Elem elem) {
+    	list.add(elem);
     }
+    /**
+     * Hozzáadja a labirintushoz a kezdőelemet.
+     * @param startElem
+     */
+    public void addStartElem(Elem startElem){
+    	this.startElem=startElem;
+    }
+    /**
+     * Hozzáadja a labirintushoz a végelemet.
+     * @param endElem
+     */
+    
+    public void addEndElem(Elem endElem){
+    	this.endElem=endElem;
+    }
+    /**
+     * Hozzáadja a labirintushoz a jaffát.
+     * @param jaffa
+     */
+    public void addJaffa(Karakter jaffa){
+    	this.jaffa=jaffa;
+    	this.addMoveable(jaffa);
+    }
+    /**
+     * Hozzáazdja a labirintushoz oneilt.
+     * @param oneil
+     */
+    public void addOneil(Oneil oneil){
+    	this.oneil=oneil;
+    	this.addMoveable(oneil);
+    }
+    
+    
+    
     public ArrayList<Moveable>getMoveableList(){
     	return moveableList;
+    }
+    
+
+	public int getOsszZPM() {
+		return osszZPM;
+	}
+
+	public Elem getStartElem() {
+		return startElem;
+	}
+
+	public Karakter getJaffa() {
+		return jaffa;
+	}
+
+	public Oneil getOneil() {
+		return oneil;
+	}
+
+	public ArrayList<Elem> getList() {
+		return list;
+	}
+	
+    public Elem getEndElem() {
+        return endElem;
+    }
+
+    public Elem getstartElem() {
+        return startElem;
     }
 }

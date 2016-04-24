@@ -6,14 +6,41 @@ import java.util.*;
  */
 public class Elem implements Interakcio {
 
+	public Elem(){}
+	
     /**
-     * Default constructor
+     * Adott területen létrehoz egy elemet.
      */
     public Elem(Terulet pos) {
     	this.pos.setKezd(pos.getKezd());
     	this.pos.setVeg(pos.getVeg());
     }
-    public Elem(){}
+    
+    /**
+     * Adott helyre(bal felső sarkát illesztve), 
+     * default mérettel létrehoz egy elemet
+     * @param locUpLeftCorner
+     * @param diagonal
+     */
+    public Elem(Vektor locUpLeftCorner){
+    	Vektor diagonal = defaultsize;
+    	pos.setKezd(locUpLeftCorner);
+    	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
+    }
+    
+    
+    
+    /**
+     * Létrehoz egy elemet, a bal felső sarkát locUpLeftCorner
+     * vektorra illesztve. A második paraméter az elem mérete.
+     * @param locUpLeftCorner
+     * @param diagonal
+     */
+    public Elem(Vektor locUpLeftCorner,Vektor diagonal){
+    	pos.setKezd(locUpLeftCorner);
+    	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
+    }
+    
     /**
      * Él az elem? Ha igen, true, egyébként false.
      */
@@ -27,6 +54,8 @@ public class Elem implements Interakcio {
      * 
      */
     protected Terulet pos;
+    
+    protected Vektor defaultsize = new Vektor(10,10);
 
     /**
      * Az elemet a megadott vektorral eltolja.
@@ -52,6 +81,10 @@ public class Elem implements Interakcio {
      */
     public void newLocationByMiddle(Vektor locMiddleofArea){
     	pos.setNewCornerLocation(locMiddleofArea);
+    }
+    
+    public boolean isCoveredByThis(Elem e){
+    	return this.pos.isCoveredBy(e.pos);
     }
 
 
@@ -107,4 +140,6 @@ public class Elem implements Interakcio {
 	public boolean isAlive(){
 		return alive;
 	}
+	
+
 }
