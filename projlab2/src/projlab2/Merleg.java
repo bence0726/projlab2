@@ -7,10 +7,25 @@ import java.util.*;
 public class Merleg extends Elem {
 
     /**
-     * Ezt itt ki kéne törölni
+     * A megadott területre létrejön egy mérleg elem.
      */
-    public Merleg(Terulet area) {
+    public Merleg(Terulet area,Fal ajto) {
     	super(area);
+    	this.ajto = ajto;
+    	image = "merleg.jpg";
+    }
+    
+    /**
+     * Létrehoz egy mérleget, a bal felső sarkát locUpLeftCorner
+     * vektorra illesztve. A második paraméter az elem mérete.
+     * Kötelező összekapcsolni egy ajtóval amit nyit.
+     * @param locUpLeftCorner
+     * @param diagonal
+     * @param ajto
+     */
+    public Merleg(Vektor locUpLeftCorner,Vektor diagonal,Fal ajto) {
+    	super(locUpLeftCorner,diagonal);
+    	this.ajto = ajto;
     	image = "merleg.jpg";
     }
 
@@ -29,7 +44,6 @@ public class Merleg extends Elem {
      */
     
     private int massLimit= 100;
-
 
     /**
      * @param E 

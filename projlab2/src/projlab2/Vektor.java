@@ -45,7 +45,6 @@ public class Vektor {
      */
     public void setVy(double val) {
         vy =val;
-    	
     }
 
     /**
