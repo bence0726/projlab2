@@ -30,6 +30,8 @@ public class Karakter extends Moveable{
      * @param img
      */
     public Karakter(Labirintus lab,Vektor kezdoPont) {
+    	super(pos);
+    	image = "jaffa.jpg";
         // TODO implement here
     }
 
