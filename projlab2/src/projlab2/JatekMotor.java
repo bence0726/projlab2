@@ -30,14 +30,7 @@ public class JatekMotor {
 
     /**
      * 
-     */
-    public void JatekMotor() {
-        
-    }
-
-    /**
-     * 
-     */
+     */    
     public void startGame() {
         // TODO implement here
     }
