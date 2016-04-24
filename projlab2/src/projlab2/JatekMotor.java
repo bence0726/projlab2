@@ -13,8 +13,9 @@ public class JatekMotor {
      * JM konstruktor. Létrehoz egy labirintust.
      */
     public JatekMotor() {
-    	lab = new Labirintus();
-    	pm = new PortalManager();    	
+    	
+    	pm = new PortalManager();
+    	lab = new Labirintus(pm);    	
     }
     
    /**
