@@ -29,10 +29,10 @@ public class JatekMotor {
     public ArrayList<Moveable> mozgatandok;
 
     /**
-     * 
+     * A játék indításakor hívjuk. Új labirintus objektumot hoz létre.
      */    
     public void startGame() {
-        // TODO implement here
+        lab = new Labirintus();        
     }
 
     /**
@@ -50,8 +50,20 @@ public class JatekMotor {
     	lab.getZPM();
     	Elem e=lab.getVegeElem();
     	Terulet t = e.getPos();
-    	if ()
+//    	if ()
+    	return false; //TODO FIXME folytatni
     }
     
-
+    public void setJaffaMoveDir(){
+    	
+    }
+    public void setJaffaGunDir(){
+	
+    }
+    public void setOneilMoveDir(){
+	
+    }
+    public void setOneilGunDir(){
+	
+	}
 }
