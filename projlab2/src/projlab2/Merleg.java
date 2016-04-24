@@ -11,6 +11,7 @@ public class Merleg extends Elem {
      */
     public Merleg(Terulet area) {
     	super(area);
+    	image = "merleg.jpg";
     }
 
     /**

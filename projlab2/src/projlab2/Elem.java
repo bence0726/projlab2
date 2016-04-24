@@ -1,8 +1,5 @@
 package projlab2;
-import java.io.File;
 import java.util.*;
-
-import javafx.scene.control.Alert;
 
 /**
  * 
@@ -63,13 +60,6 @@ public class Elem implements Interakcio {
      */
     public Terulet getPos() {
         return pos;
-    }
-
-    /**
-     * @param val
-     */
-    public void setImage(File val) {
-        // TODO implement here
     }
 
     /**

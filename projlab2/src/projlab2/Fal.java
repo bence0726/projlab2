@@ -11,6 +11,7 @@ public class Fal extends Elem {
      */
     public Fal(Terulet area) {
     	super(area);
+    	image = "Fal.jpg";
     }
 
     /**
