@@ -11,6 +11,7 @@ public class ZPM extends Elem {
      */
     public ZPM(Terulet area) {
     	super(area);
+    	image = "ZPM";
     }
 
     /**

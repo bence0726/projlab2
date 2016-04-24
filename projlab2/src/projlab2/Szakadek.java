@@ -11,6 +11,7 @@ public class Szakadek extends Elem {
      */
     public Szakadek(Terulet area) {
     	super(area);
+    	image = "szakadek.jpg";
     }
 
     /**

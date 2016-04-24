@@ -31,7 +31,7 @@ public class Karakter extends Moveable{
      */
     public Karakter(Labirintus lab, File img,Terulet pos) {
     	super(pos);
-        // TODO implement here
+    	image = "jaffa.jpg";
     }
 
     /**

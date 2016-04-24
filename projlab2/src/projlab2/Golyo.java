@@ -15,6 +15,7 @@ public class Golyo extends Moveable {
     	super(area);
     	this.dir = dir;
     	this.szin = szin;
+    	image = "golyo.jpg";
     }
 
     /**

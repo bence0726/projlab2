@@ -11,6 +11,7 @@ public class Replikator extends Moveable {
      */
     public Replikator(Terulet area) {
     	super(area);
+    	image = "replikator.jpg";
     }
 
     /**

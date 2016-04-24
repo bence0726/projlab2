@@ -8,6 +8,7 @@ public class SpecFal extends Elem {
 
 	public SpecFal(Terulet area){
 		super(area);
+		image = "specfal.jpg";
 	}
      /**
      * Megadja, hogy a SpecFal elemre rá lehet-e lépni.

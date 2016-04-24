@@ -1,8 +1,5 @@
 package projlab2;
-import java.io.File;
 import java.util.*;
-
-import javafx.scene.control.Alert;
 
 /**
  * 
@@ -66,16 +63,9 @@ public class Elem implements Interakcio {
     }
 
     /**
-     * @param val
-     */
-    public void setImage(File val) {
-        // TODO implement here
-    }
-
-    /**
      * @return
      */
-    public File getImage() {
+    public String getImage() {
         return image;
     }
 
