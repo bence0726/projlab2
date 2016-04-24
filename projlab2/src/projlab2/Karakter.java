@@ -98,12 +98,12 @@ public class Karakter extends Moveable{
      * A megadott szöggel elforgatja a 
      * @param double Szog //fokban
      */
-    public void changeFegyverirany(double addAngle) {
+    public void rotateGunDir(double addAngle) {
         double currentAngle = Math.asin(gundir.getVy()/gundir.getVx()); //szöggel szemközti per átfogó arkuszszinusza. az érték radiánban
         addAngle = addAngle*Math.PI / 180; //fokokat lenormáljuk radiánná
         currentAngle+=addAngle; //összeadjuk a 2 szöget.
-        gundir.setVx((int)(Math.round(Math.cos(currentAngle))*100));
-        gundir.setVy((int)(Math.round(Math.sin(currentAngle))*100));
+        gundir.setVx((Math.round(Math.cos(currentAngle))*100));
+        gundir.setVy((Math.round(Math.sin(currentAngle))*100));
         //ALERT a vektorok parametereit floatban kellett volna tarolni nem int... most mindenhol átkéne irni.
         
     }

@@ -57,7 +57,7 @@ public class JatekMotor {
     	lab.getZPM();
     	Elem e=lab.getVegeElem();
     	Terulet t = e.getPos();
-    	if ()
+    	if e.
     }
     
 
