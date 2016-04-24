@@ -21,7 +21,7 @@ public class Vektor {
      * @param y
      */
     
-    public Vektor(){}
+//    public Vektor(){} - szerintem ez nem kell.
     public Vektor(double x, double y) {
         // TODO implement here
     	vx=x;
@@ -152,5 +152,28 @@ public class Vektor {
     	Double d3= new Double(v.getVx());
     	Double d4= new Double(v.getVy());
     	return ((d1.compareTo(d3)==0) && (d2.compareTo(d4)==0));
+    }
+    
+    /**
+     * A kapott enum értéke szerint készít egy 1 hosszú irányvektort.
+     * Ha az enum értéke Stay, helyben maradunk, 0,0 helyvektort ad át.
+     * @param direnum
+     * @return a kívánt irányvektor
+     */
+    public static Vektor EnumToDirVec(MoveDirections direnum){
+    	switch(direnum){
+    	case MoveUp:
+    		return new Vektor(0,1);
+    	case MoveDown:
+    		return new Vektor(0,-1);
+    	case MoveRight:
+    		return new Vektor(1,0);
+    	case MoveLeft:
+    		return new Vektor(-1,0);
+    	case Stay:
+    		return new Vektor(0,0);
+    	default:
+    		return new Vektor(0,0);
+    	}
     }
 }

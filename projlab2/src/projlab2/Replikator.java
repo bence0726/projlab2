@@ -47,8 +47,9 @@ public class Replikator extends Moveable {
      * @param dir
      */
     public void move() {
-        this.moveDir= new Vektor();
-        this.moveDir= Vektor.randomDir(true);
+//        this.moveDir= new Vektor();
+//        this.moveDir= Vektor.randomDir(true); ehelyett a következő kéne:
+    	this.moveDir =  Vektor.randomDir(true);
         Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
         t.addDirToArea(moveDir);
         Set<Elem> items = lab.whatsThere(t);
@@ -60,6 +61,8 @@ public class Replikator extends Moveable {
         	temp.steppedon(this);
         	}
         }
+        //szerintem itt kéne új moveDir-t beállítani a további mozgáshoz:
+        setDir(Vektor.randomDir(false)); //így a következő lépésnél random irányba megy tovább
     }
 
     /**
