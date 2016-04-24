@@ -8,9 +8,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class TestManager {
-	
+public class TestManager {	
 	public static void main(String[] args) {
+		Test test = new Test();
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         ArrayList<String> commandArray = new ArrayList<String>();
@@ -26,11 +26,11 @@ public class TestManager {
          }
          
          for(String command : commandArray){
-        	 runCommand(command);
+        	 runCommand(command,test);
          }
 	}
 	
-	public static void runCommand(String command){
+	public static void runCommand(String command, Test test){
 		ArrayList<String> args = new ArrayList<String>();
         
 		StringTokenizer st = new StringTokenizer(command," ");
@@ -52,14 +52,26 @@ public class TestManager {
 	    		System.out.println("no such command");
 	       break; //
 	    case "ADD":
-	    	if(args.get(1).equalsIgnoreCase("MERLEG") && args.size()==4)
-	    		System.out.println("TEST.ADD(merleg,coord,coord)");
+	    	if(args.size()==4){
+	    		switch(args.get(1)){
+	    		case "DOBOZ":
+	    			StringTokenizer param = new StringTokenizer(args.get(2),",");
+	    			int cord[] = new int[4];
+	    			int suly = Integer.parseInt(args.get(3));
+	    			int i = 0;
+	    			while(param.hasMoreTokens())
+	    				cord[i++] = Integer.parseInt(param.nextToken());
+	    			test.addDoboz(cord[0], cord[1], cord[2], cord[3], suly);
+	    		break;		    
+	    		case "MERLEG":
+	    			//TODO
+	    		break;
+	    		}
+	    	}
+	    		
 	    	else{
 		    	if(args.size()==3)
-		    		switch(args.get(1)){
-		    		case "DOBOZ":
-		    			//TODO
-		    		break;		    
+		    		switch(args.get(1)){	    
 		    		case "FAL":
 		    			//TODO
 		    		break;
@@ -103,7 +115,7 @@ public class TestManager {
 	    case "LISTKAR":
 	    	if(args.size()==2){
 	    		System.out.println("TEST.LISTCHAR()");
-	    		System.out.println("<listázott neve> x:<szám> y:<szám> ZPM:<szám> GOTBOX:<bool>");
+	    		System.out.println("<listï¿½zott neve> x:<szï¿½m> y:<szï¿½m> ZPM:<szï¿½m> GOTBOX:<bool>");
 	    	}
 	    	else 
 	    		System.out.println("no such command");
@@ -111,7 +123,7 @@ public class TestManager {
 	    case "LISTLAB":
 	    	if(args.size()==1){
 	    		System.out.println("TEST.LISTLAB()");
-	    		System.out.println("<sorszám> <ELEM> <x1>,<y1> <x2>,<y2>");
+	    		System.out.println("<sorszï¿½m> <ELEM> <x1>,<y1> <x2>,<y2>");
 	    	}
 	    	else 
 	    		System.out.println("no such command");
@@ -142,7 +154,7 @@ public class TestManager {
 	         in = new FileInputStream("input"+testname+".txt");
 	         out = new FileOutputStream("output"+testname+".txt");
 	         
-	        //TODO: beolvassa sorra az inputot és... valahogy tesztel
+	        //TODO: beolvassa sorra az inputot ï¿½s... valahogy tesztel
 	         
 	      }finally {
 	         if (in != null) {
@@ -160,7 +172,7 @@ public class TestManager {
 		try {
 			out = new FileOutputStream("input"+testname+".txt");
 			
-			//TODO saját teszeset kreálása 
+			//TODO sajï¿½t teszeset kreï¿½lï¿½sa 
 			
 		}finally {
 			if (out != null) {
