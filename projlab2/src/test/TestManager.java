@@ -153,7 +153,7 @@ public class TestManager {
 	        	 runCommand(line);
 	         }
 	         
-	        //TODO: beolvassa sorra az inputot �s... valahogy tesztel
+	        //TODO: beolvassa sorra az inputot �sss... valahogy tesztel
 	         
 	      }finally {
 	         if (in != null) {
@@ -178,8 +178,6 @@ public class TestManager {
 		
 		try {
 			do {			
-				//TODO saját teszeset kreálása
-				//Biztos vagyok benne, hogy ennél egyszerűbben is lehet bemenetről soronként fileba menteni...
 				str = br.readLine();
 				byte[] contentInBytes = str.getBytes();
 				
@@ -190,7 +188,6 @@ public class TestManager {
 			} while (!(str.equals("")));			
 		} catch (IOException e) {
 			e.printStackTrace();
-			//TODO saját teszeset kreálása 
 		}finally {
 		}
 			if (out != null) {
