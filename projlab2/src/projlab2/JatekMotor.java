@@ -55,16 +55,49 @@ public class JatekMotor {
     	return false; //TODO FIXME folytatni
     }
     
-    public void setJaffaMoveDir(){
-    	
+    /**
+     * Jaffa mozgás-vektorát állítja a kívánt értékre.
+     * UP: felfelé,
+     * DOWN: lefelé,
+     * RIGHT: jobbra,
+     * LEFT: balra,
+     * STAY: helyben marad.
+     */
+    public void setJaffaMoveDir(MoveDirections direction){
+    	lab.getJaffa().setDir(Vektor.EnumToDirVec(direction));
     }
-    public void setJaffaGunDir(){
-	
+    
+    /**
+     * Jaffa fegyverét forgatja a kívánt szöggel
+     * @param angle
+     */
+    public void setJaffaGunDir(double angle){
+    	lab.getJaffa().rotateGunDir(angle);
     }
-    public void setOneilMoveDir(){
-	
+    /**
+     * Oneil mozgás-vektorát állítja a kívánt értékre.
+     * UP: felfelé,
+     * DOWN: lefelé,
+     * RIGHT: jobbra,
+     * LEFT: balra,
+     * STAY: helyben marad.
+     */
+    public void setOneilMoveDir(MoveDirections direction){
+    	lab.getOneil().setDir(Vektor.EnumToDirVec(direction));
     }
-    public void setOneilGunDir(){
-	
+    /**
+     * Oneil fegyverét forgatja a kívánt szöggel
+     * @param angle
+     */
+    public void setOneilGunDir(double angle){
+    	lab.getOneil().rotateGunDir(angle);
 	}
+    /**
+     * Ahhoz kell, hogy a pályaelemeket egy másik osztály rá tudja pakolni.
+     * Így nem a JátékMotorban kell legyen a sok okosság.
+     * @return
+     */
+    public Labirintus getLab(){
+    	return lab;
+    }
 }

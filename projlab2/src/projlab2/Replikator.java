@@ -29,8 +29,9 @@ public class Replikator extends Moveable {
      * @param dir
      */
     public void move() {
-        this.moveDir= new Vektor();
-        this.moveDir= Vektor.randomDir(true);
+//        this.moveDir= new Vektor();
+//        this.moveDir= Vektor.randomDir(true); ehelyett a következő kéne:
+    	this.moveDir =  Vektor.randomDir(true);
         Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
         t.addDirToArea(moveDir);
         Set<Elem> items = lab.whatsThere(t);
