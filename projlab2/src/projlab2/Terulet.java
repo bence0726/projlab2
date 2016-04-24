@@ -63,6 +63,7 @@ public class Terulet {
     		this.kezd.getVy() < t.veg.getVy() &&
     		this.veg.getVy() > t.kezd.getVy() )
     		return true;
+    	
     			
     	return false;
     }
@@ -72,7 +73,7 @@ public class Terulet {
      * Ami a bal felső sarokból mutat a jobb alsóba.
      * @return
      */
-    private Vektor getDiagonal(){
+    public Vektor getDiagonal(){
     	Vektor temp = new Vektor(veg);
     	temp.subVec(kezd);
     	return temp;
