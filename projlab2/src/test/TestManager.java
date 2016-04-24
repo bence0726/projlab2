@@ -56,7 +56,32 @@ public class TestManager {
 	    		System.out.println("TEST.ADD(merleg,coord,coord)");
 	    	else{
 		    	if(args.size()==3)
-		    		System.out.println("TEST.ADD(valami,coord)");
+		    		switch(args.get(1)){
+		    		case "DOBOZ":
+		    			//TODO
+		    		break;		    
+		    		case "FAL":
+		    			//TODO
+		    		break;
+		    		case "KEZDOPONT":
+		    			//TODO
+		    		break;
+		    		case "REPLIKATOR":
+		    			//TODO
+		    		break;
+		    		case "SPECFAL":
+		    			//TODO
+		    		break;
+		    		case "SZAKADEK":
+		    			//TODO
+		    		break;
+		    		case "VEGEELEM":
+		    			//TODO
+		    		break;
+		    		case "ZPM":
+		    			//TODO
+		    		break;
+		    		}
 		    	else 
 		    		System.out.println("no such command");
 	    	}
