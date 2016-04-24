@@ -150,10 +150,19 @@ public class TestManager {
 	public static void runTest(String testname)throws IOException{
 		FileInputStream in = null;
 	    FileOutputStream out = null;
+	    BufferedReader reader = null;
+	    String line = null;
+	    Test test = new Test();
 	    
 	    try {
 	         in = new FileInputStream("input"+testname+".txt");
 	         out = new FileOutputStream("output"+testname+".txt");
+	         reader = new BufferedReader(new InputStreamReader(in));
+	         
+	         line = reader.readLine();
+	         while (line != null){
+	        	 runCommand(line, test);
+	         }
 	         
 	        //TODO: beolvassa sorra az inputot �s... valahogy tesztel
 	         
@@ -164,6 +173,7 @@ public class TestManager {
 	         if (out != null) {
 	            out.close();
 	         }
+	         reader.close();
 	      }
 	   }
 
@@ -188,7 +198,7 @@ public class TestManager {
 				out.write(System.getProperty("line.separator").getBytes());
 				out.flush();
 				
-			} while (!str.equalsIgnoreCase("end"));			
+			} while (!(str.equals("")));			
 		} catch (IOException e) {
 			e.printStackTrace();
 			//TODO saját teszeset kreálása 
