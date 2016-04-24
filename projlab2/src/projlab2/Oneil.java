@@ -7,8 +7,8 @@ import java.util.*;
  */
 public class Oneil extends Karakter {
     
-	public Oneil(Labirintus lab, File img,Terulet pos) {
-		super(lab, img,pos);
+	public Oneil(Labirintus lab, Terulet pos) {
+		super(lab, pos);
 		image = "oneil.jpg";
 	}
 

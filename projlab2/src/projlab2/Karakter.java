@@ -29,7 +29,7 @@ public class Karakter extends Moveable{
      * @param lab 
      * @param img
      */
-    public Karakter(Labirintus lab, File img,Terulet pos) {
+    public Karakter(Labirintus lab, Terulet pos) {
     	super(pos);
     	image = "jaffa.jpg";
     }

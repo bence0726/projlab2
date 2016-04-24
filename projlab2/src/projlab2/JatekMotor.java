@@ -31,13 +31,6 @@ public class JatekMotor {
     /**
      * 
      */
-    public void JatekMotor() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
     public void startGame() {
         // TODO implement here
     }
