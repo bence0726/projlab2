@@ -18,47 +18,16 @@ public class Labirintus {
      */
     private int osszZPM;
 
-    public int getOsszZPM() {
-		return osszZPM;
-	}
-
-	public void setOsszZPM(int osszZPM) {
-		this.osszZPM = osszZPM;
-	}
-
-	public Karakter getJaffa() {
-		return jaffa;
-	}
-
-	public void setJaffa(Karakter jaffa) {
-		this.jaffa = jaffa;
-	}
-
-	public Oneil getOneil() {
-		return oneil;
-	}
-
-	public void setOneil(Oneil oneil) {
-		this.oneil = oneil;
-	}
-
-	public void setKezdoPont(Vektor kezdoPont) {
-		this.kezdoPont = kezdoPont;
-	}
-
-	public void setVegeElem(Elem vegeElem) {
-		VegeElem = vegeElem;
-	}
 
 	/**
      * 
      */
-    private Vektor kezdoPont;
+    private Elem startElem;
 
     /**
      * 
      */
-    private Elem VegeElem;
+    private Elem endElem;
     /**
      * 
      */
@@ -137,15 +106,15 @@ public class Labirintus {
     /**
      * @return
      */
-    public Elem getVegeElem() {
-        return VegeElem;
+    public Elem getEndElem() {
+        return endElem;
     }
 
     /**
      * @return
      */
-    public Vektor getKezdoPont() {
-        return kezdoPont;
+    public Elem getstartElem() {
+        return startElem;
     }
     
     public void addMoveable(Moveable m) {
@@ -158,4 +127,24 @@ public class Labirintus {
     public void addElem(Elem param) {
     	list.add(param);
     }
+    
+    public void addStartElem(Elem startElem){
+    	this.startElem=startElem;
+    }
+    
+    public void addEndElem(Elem endElem){
+    	this.endElem=endElem;
+    }
+    
+    public void addJaffa(Karakter jaffa){
+    	this.jaffa=jaffa;
+    	this.addMoveable(jaffa);
+    }
+    
+    public void addOneil(Oneil oneil){
+    	this.oneil=oneil;
+    	this.addMoveable(oneil);
+    }
+    
+    
 }
