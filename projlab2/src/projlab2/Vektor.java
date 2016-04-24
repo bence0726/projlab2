@@ -6,22 +6,9 @@ import java.util.*;
  */
 public class Vektor {
 
-    /**
-     * 
-     */
     private double vx;
-
-    /**
-     * 
-     */
     private double vy;
 
-    /**
-     * @param x 
-     * @param y
-     */
-    
-//    public Vektor(){} - szerintem ez nem kell.
     public Vektor(double x, double y) {
         // TODO implement here
     	vx=x;
@@ -32,34 +19,7 @@ public class Vektor {
 		vx = vec.getVx();
 		vy = vec.getVy();
 	}
-
-	/**
-     * @param val
-     */
-    public void setVx(double val) {
-    	vx=val; 
-    }
-
-    /**
-     * @param val
-     */
-    public void setVy(double val) {
-        vy =val;
-    }
-
-    /**
-     * @return
-     */
-    public double getVx() {
-        return vx;
-    }
-
-    /**
-     * @return
-     */
-    public double getVy() {
-        return vy;
-    }
+    
     /**
      * Hozzáadja a vektorhoz(A) paraméterként kapott vektort(B).
      * @param dirVec
@@ -79,15 +39,8 @@ public class Vektor {
     public void subVec(Vektor vec){
     	this.vx=this.vx-vec.getVx();
     	this.vy=this.vy-vec.getVy();
-    	//return this;
-    }
+    }    
     
-    public static Vektor getHalfOf(Vektor vec){
-    	Vektor temp = new Vektor(vec);
-    	temp.vx= temp.vx/2;
-    	temp.vy=temp.vy/2;
-    	return temp;
-    }
     /**
      * A vektort egyenlővé teszi a paraméterül kapott vektorral.
      * @param vec
@@ -97,19 +50,7 @@ public class Vektor {
     	this.vx = vec.getVx();
     	this.vy = vec.getVy();
     }
-    /**
-     * Összeadja a 2 paraméterül kapott vektort és visszatér
-     * az eredménnyel anélkül hogy 2 paraméterül kapott vektoron
-     * vagy azon ami hívja a függvényt változtatna.
-     * @param vec1
-     * @param vec2
-     * @return newvec
-     */
-    public static Vektor addVecToVec(Vektor vec1,Vektor vec2){
-    	Vektor newvec = new Vektor(vec1);
-    	newvec.addVec(vec2);
-    	return newvec;
-    }
+    
    /**
     * Visszaadja a vektor inverzét.
     * @param vec
@@ -127,7 +68,47 @@ public class Vektor {
     public void invertThisVec(){
     	this.vx=this.vx*-1;
     	this.vy=this.vy*-1;
+    }    
+    
+    /**
+     * TODO FIXME írj hozzám leírást pls!
+     * @param v
+     * @return
+     */
+    public boolean isEqualTo(Vektor v){
+    	Double d1= new Double(this.vx);
+    	Double d2= new Double(this.vy);
+    	Double d3= new Double(v.getVx());
+    	Double d4= new Double(v.getVy());
+    	return ((d1.compareTo(d3)==0) && (d2.compareTo(d4)==0));
     }
+    
+    /**
+     * TODO: írj hozzám leírást pls!
+     * @param vec
+     * @return
+     */
+    public static Vektor getHalfOf(Vektor vec){
+    	Vektor temp = new Vektor(vec);
+    	temp.vx= temp.vx/2;
+    	temp.vy=temp.vy/2;
+    	return temp;
+    }
+    
+    /**
+     * Összeadja a 2 paraméterül kapott vektort és visszatér
+     * az eredménnyel anélkül hogy 2 paraméterül kapott vektoron
+     * vagy azon ami hívja a függvényt változtatna.
+     * @param vec1
+     * @param vec2
+     * @return newvec
+     */
+    public static Vektor addVecToVec(Vektor vec1,Vektor vec2){
+    	Vektor newvec = new Vektor(vec1);
+    	newvec.addVec(vec2);
+    	return newvec;
+    }
+    
     /**
      * Visszatér egy Random vektorral.
      * @param justFourDir :True-Csak 4 irány ; False-bármennyi irány.
@@ -143,14 +124,6 @@ public class Vektor {
     	else
     		temp = new Vektor((double)rand.nextInt(2)-1,(double)rand.nextInt(2)-1);
     	return temp;
-    }
-    
-    public boolean isEqualTo(Vektor v){
-    	Double d1= new Double(this.vx);
-    	Double d2= new Double(this.vy);
-    	Double d3= new Double(v.getVx());
-    	Double d4= new Double(v.getVy());
-    	return ((d1.compareTo(d3)==0) && (d2.compareTo(d4)==0));
     }
     
     /**
@@ -174,5 +147,21 @@ public class Vektor {
     	default:
     		return new Vektor(0,0);
     	}
+    }
+    //getterek, setterek:
+    public void setVx(double val) {
+    	vx=val; 
+    }
+
+    public void setVy(double val) {
+        vy =val;
+    }
+
+    public double getVx() {
+        return vx;
+    }
+
+    public double getVy() {
+        return vy;
     }
 }

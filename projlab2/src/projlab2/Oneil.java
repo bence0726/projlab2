@@ -1,6 +1,4 @@
 package projlab2;
-import java.io.File;
-import java.util.*;
 
 /**
  * 

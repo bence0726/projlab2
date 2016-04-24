@@ -1,5 +1,4 @@
 package projlab2;
-import java.io.File;
 import java.util.*;
 
 /**
@@ -94,12 +93,17 @@ public class Labirintus {
     }
 
 
-    
+    /**
+     * Mozgó elemet ad a labirintus mindkét listájához.
+     * @param m
+     */
     public void addMoveable(Moveable m) {
     	moveableList.add(m);
+    	addElem(m);
     }
 
     /**
+     * Elemet ad a labirintus objectsonmap listájához.
      * @param elem
      */
     public void addElem(Elem elem) {
@@ -132,7 +136,7 @@ public class Labirintus {
      * Hozzáazdja a labirintushoz oneilt.
      * @param oneil
      */
-    public void addOneil(Oneil oneil){
+    public void addOneil(Karakter oneil){
     	this.oneil=oneil;
     	this.addMoveable(oneil);
     }

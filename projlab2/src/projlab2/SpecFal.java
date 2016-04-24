@@ -1,10 +1,29 @@
 package projlab2;
-import java.util.*;
 
 /**
  * 
  */
 public class SpecFal extends Elem {
+	
+    /**
+    * Megadja, hogy a SpecFal elemre rá lehet-e lépni.
+    */
+   private boolean reachable;
+
+   /**
+    * A SpecFalon nyitott portál színét tárolja
+    */
+   private Szin colour;
+	
+	/**
+    * Megadja, hogy hol kell kirakni a karaktert, ha ide teleportál.
+    */
+   private Vektor direction;
+   
+   /**
+    * Ugyanarra a PM-re lesz beállítva az összes SpecFal.
+    */
+   private PortalManager pm;
 	/**
 	 * A megadott területre létrejön egy SpecFal elem.
 	 * Minden SpecFal elemnek ugyanazt a PortalManagert kell megkapnia.
@@ -32,25 +51,7 @@ public class SpecFal extends Elem {
     	image = "specfal.jpg";
     }
     
-     /**
-     * Megadja, hogy a SpecFal elemre rá lehet-e lépni.
-     */
-    private boolean reachable;
 
-    /**
-     * A SpecFalon nyitott portál színét tárolja
-     */
-    private Szin colour;
-	
-	/**
-     * Megadja, hogy hol kell kirakni a karaktert, ha ide teleportál.
-     */
-    private Vektor direction;
-    
-    /**
-     * Ugyanarra a PM-re lesz beállítva az összes SpecFal.
-     */
-    private PortalManager pm;
 
     /**
      * @param bullet

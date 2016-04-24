@@ -6,27 +6,22 @@ import java.util.*;
  */
 public class Golyo extends Moveable {
 
+	/**
+    * A golyó színe
+    */
+    private Szin colour;
+    
     /**
      * Default constructor
-     */
-	
+     */	
 	Vektor dir;
-    public Golyo(Vektor dir,Terulet area,Szin szin) {
+    public Golyo(Vektor dir,Terulet area,Szin colour) {
     	this.pos =area;
     	this.dir = dir;
-    	this.szin = szin;
+    	this.colour = colour;
     	image = "golyo.jpg";
     }
-
-    /**
-     * 
-     */
-    private Szin szin;
-
-    public Szin getSzin() {
-		return szin;
-	}
-
+    
 	/**
 	 * 
      * @param dir
@@ -58,4 +53,8 @@ public class Golyo extends Moveable {
     		}    			
     	}   	
     }    
+    
+    public Szin getSzin() {
+		return colour;
+	}
 }

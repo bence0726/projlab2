@@ -1,11 +1,25 @@
 package projlab2;
-import java.util.*;
 
 /**
  * 
  */
 public class Merleg extends Elem {
 
+	/**
+     * 
+     */
+    private Fal ajto;
+
+    /**
+     * A mérlegen lévő súly.
+     */    
+    public int massOnTheScale;
+    
+    /**
+     * A limit ami felett az ajtó kinyílik.
+     */    
+    private int massLimit= 100;
+    
     /**
      * A megadott területre létrejön egy mérleg elem.
      */
@@ -27,31 +41,6 @@ public class Merleg extends Elem {
     	super(locUpLeftCorner,diagonal);
     	this.ajto = ajto;
     	image = "merleg.jpg";
-    }
-
-    /**
-     * 
-     */
-    private Fal ajto;
-
-    /**
-     * A mérlegen lévő súly.
-     */
-    
-    public int massOnTheScale;
-    /**
-     * A limit ami felett az ajtó kinyílik.
-     */
-    
-    private int massLimit= 100;
-
-    /**
-     * @param E 
-     * @param ajto
-     */
-    public Merleg(Fal ajto,Terulet area) {
-        super(area);
-        this.ajto = ajto;
     }
 
     /**

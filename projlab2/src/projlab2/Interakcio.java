@@ -1,8 +1,9 @@
 package projlab2;
-import java.util.*;
 
 /**
- * 
+ * Interfész az alap interakciókra. Az implementáló osztálynak
+ * ezeket kell megvalósítania. A játékban a különböző eseményeket
+ * (ráléptek, leléptek róla, stb) ezeken keresztül valósítjuk meg.
  */
 public interface Interakcio {
 

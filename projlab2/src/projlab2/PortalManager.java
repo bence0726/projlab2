@@ -1,5 +1,4 @@
 package projlab2;
-import java.util.*;
 
 /**
  * Ez az osztály tartja nyilván a pályán lévő portálokat. Segítségével
@@ -8,22 +7,22 @@ import java.util.*;
  */
 public class PortalManager {
     /**
-     * 
+     * A kék színű portált tároljuk itt.
      */
     private SpecFal KekP=null;
 
     /**
-     * 
+     * A sárga színű portált tároljuk itt.
      */
     private SpecFal SargaP =null;
 
     /**
-     * 
+     * A piros színű portált tároljuk itt.
      */
     private SpecFal PirosP=null;
 
     /**
-     * 
+     * A zöld színű portált tároljuk itt.
      */
     private SpecFal ZoldP=null;
 

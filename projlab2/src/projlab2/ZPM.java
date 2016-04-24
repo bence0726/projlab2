@@ -1,5 +1,4 @@
 package projlab2;
-import java.util.*;
 
 /**
  * 

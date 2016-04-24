@@ -6,26 +6,21 @@ import java.util.*;
  */
 public class Terulet {
 
+	/**
+	 * balfelső sarka
+	 */
+	private Vektor kezd;
+	/**
+	 * jobb alsó sarka
+	 */
+    private Vektor veg;
+    
     /**
-     * Default constructor
-     */
-	
+     * Default, param nélküli constructor
+     */	
     public Terulet() {
     }
-
-    /**
-     * 
-     */
     
-    private Vektor kezd;
-
-    /**
-     * 
-     */
-    private Vektor veg;
-
-
-
     /**
      * 
      * @param vecKezd :A terület bal felső sarka 
@@ -89,7 +84,6 @@ public class Terulet {
     	temp.addVec(kezd); //hozzáadjuka  kezdőhöz
     	return temp;
     }
-
     
     /**
      * A kezdő és végponthoz hozzáadja a kapott irányvektort,
@@ -100,7 +94,6 @@ public class Terulet {
     	this.kezd.addVec(dirVec);
     	this.veg.addVec(dirVec);
 	}
-    
     
     /**
      * A paraméterül kapott vektorhoz illeszti a terület
@@ -113,7 +106,6 @@ public class Terulet {
     	temp.addVec(kezd); //összeadjuk a kezdopont helyvektrát az átlóval
     	veg=temp; //ezt a vektort beállítjuk a jobb also saroknak.
     }
-    
     
     /**
      * A paraméterül kapott vektorhoz illeszti a terület
@@ -133,7 +125,6 @@ public class Terulet {
     public boolean isEqualTo(Terulet t){
     	return ((this.kezd.isEqualTo(t.getKezd())) && (this.veg.isEqualTo(t.getVeg())));	
     }
-
     
     /**
      * Beállítja a terület kezdopontjába mutató helyvektort.
@@ -143,7 +134,6 @@ public class Terulet {
     	kezd=vec;
     }
     
-    
     /**
      * Beállítja a terület végpontjába mutató helyvektort.
      * @param vec
@@ -151,23 +141,12 @@ public class Terulet {
     public void setVeg(Vektor vec) {
     	veg=vec;
     }
-    
-    /**
-     * @return
-     */
+   
     public Vektor getKezd() {
         return kezd;
     }
     
-
-    /**
-     * @return
-     */
     public Vektor getVeg() {
         return veg;
-    }
-    
-    
-    
-    
+    }    
 }

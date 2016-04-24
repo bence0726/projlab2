@@ -1,11 +1,29 @@
 package projlab2;
-import java.util.*;
 
 /**
- * 
+ * Az összes objektum ebből a közös 
  */
-public class Elem implements Interakcio {
+public abstract class Elem implements Interakcio {
 
+	 /**
+     * Él az elem? Ha igen, true, egyébként false.
+     */
+    protected boolean alive = true;
+    /**
+     * Az elem képe ebben a fájlban lesz tárolva.
+     */
+    protected String image = "";
+
+    /**
+     * Az elem pozíciója.
+     */
+    protected Terulet pos;
+    
+    /**
+     * Az elem basic mérete.
+     */
+    protected Vektor defaultsize = new Vektor(10,10);
+	
 	public Elem(){}
 	
     /**
@@ -28,8 +46,6 @@ public class Elem implements Interakcio {
     	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
     }
     
-    
-    
     /**
      * Létrehoz egy elemet, a bal felső sarkát locUpLeftCorner
      * vektorra illesztve. A második paraméter az elem mérete.
@@ -42,22 +58,6 @@ public class Elem implements Interakcio {
     }
     
     /**
-     * Él az elem? Ha igen, true, egyébként false.
-     */
-    protected boolean alive = true;
-    /**
-     * 
-     */
-    protected String image = "";
-
-    /**
-     * 
-     */
-    protected Terulet pos;
-    
-    protected Vektor defaultsize = new Vektor(10,10);
-
-    /**
      * Az elemet a megadott vektorral eltolja.
      * TODO: have a fresh look!
      * @param dir
@@ -65,6 +65,7 @@ public class Elem implements Interakcio {
     public void elemShiftWithVec(Vektor dirVec) {
     	pos.addDirToArea(dirVec);
 	}
+    
     /**
      * A paraméterül kapott vektorhoz illeszti az elem
      * bal felső sarkát.
@@ -83,12 +84,50 @@ public class Elem implements Interakcio {
     	pos.setNewCornerLocation(locMiddleofArea);
     }
     
+    /**
+     * Megvizsgálja, hogy a paraméterül kapott objektum
+     * takarásban van-e a hívó objektummal.
+     * @param e - amivel összehasonlítjuk
+     * @return true - ha takarásban, fedésben vannak.
+     */
     public boolean isCoveredByThis(Elem e){
     	return this.pos.isCoveredBy(e.pos);
     }
+    
+    
+    public void steppedon(Moveable x) {
+    //return egyből, nem lépünk ide.
+    }
+    public void steppedoff(Moveable x) {
+	//Alap implementációjában nem csinál semmit.
+    //Ha igen, alosztályban specifikáljuk.
+    }
+  
+    public void kill(){
+    	alive = false;
+    }
 
+    public boolean picked(Karakter k) {
+    //Alap implementációban nem történik semmi ha fel akarjuk venni,
+    //így false értéket ad vissza (nem történt felvétel)
+    	return false;
+    }
+        
+    public void shot(Golyo bullet) {
+		bullet.step();//Default implementációjában továbbengedi a golyót.
+	}
 
+    
     /**
+     * Megadja, hogy az objektum él-e még.
+     * @return true - ha még él
+     * @return false - egyébként
+     */
+	public boolean isAlive(){
+		return alive;
+	}
+	
+	/**
      * @return pos - az a terület, amelyet az objektum lefed.
      */
     public Terulet getPos() {
@@ -96,50 +135,11 @@ public class Elem implements Interakcio {
     }
 
     /**
-     * @return
+     * @return image - megadja a fájl nevét, ami a grafikai 
+     * megjelenésért felel majd
      */
     public String getImage() {
         return image;
     }
-
-    /**
-     * @param e
-     */
-    public void steppedon(Moveable x) {
-       //return egyből, nem lépünk ide.
-    }
-  
-    public void kill(){
-    	alive = false;
-    }
-
-    /**
-     * Alap implementációban nem történik semmi, ha fel akarjuk venni,
-     * így false értéket ad vissza (nem történt felvétel)
-     */
-    public boolean picked(Karakter k) {
-    	return false;
-    }
-
-
-    /**
-     * Default implementációjában továbbengedi a golyót.
-     * 
-     */
-    public void shot(Golyo bullet) {
-		bullet.step();
-	}
-
-    /**
-     * Alap implementációjában nem csinál semmit.
-     * Ha igen, alosztályban specifikáljuk.
-     */
-    public void steppedoff(Moveable x) {
-	}
-    
-	public boolean isAlive(){
-		return alive;
-	}
-	
 
 }

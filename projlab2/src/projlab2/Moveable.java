@@ -6,7 +6,7 @@ import java.util.*;
  */
 public abstract class Moveable extends Elem{
     protected Vektor moveDir;
-    protected Labirintus lab ;
+    protected Labirintus lab;
     protected int suly;
     
     /**

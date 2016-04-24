@@ -1,5 +1,4 @@
 package projlab2;
-import java.io.File;
 import java.util.*;
 
 /**
@@ -34,16 +33,7 @@ public class Karakter extends Moveable{
     }
 
     
-    public void addZPM() {
-        ZPM++;
-    }
 
-    /**
-     * @return
-     */
-    public int getZPM() {
-        return ZPM;
-    }
 
     /**
      * Amerre a puskacső áll, arról vesz fel
@@ -112,6 +102,20 @@ public class Karakter extends Moveable{
     		Drop(); 		//ha van nálunk doboz, lerakjuk, mielőtt felvennénk egy másikat
     	}
     	this.box = newBox;
+    }
+    
+    /**
+     * Növeli a karakter ZPM-számlálóját.
+     */
+    public void addZPM() {
+        ZPM++;
+    }
+
+    /**
+     * @return A karakternél lévő ZPM-ek számát adja vissza.
+     */
+    public int getZPM() {
+        return ZPM;
     }
     
 //  /**

@@ -6,23 +6,17 @@ import java.util.*;
  * TODO befejezni!
  */
 public class JatekMotor {
-
+    private Labirintus lab;    
+    private PortalManager pm;
+    
     /**
      * JM konstruktor. Létrehoz egy labirintust.
      */
     public JatekMotor() {
     	lab = new Labirintus();
-    	pm = new PortalManager();
-    	
+    	pm = new PortalManager();    	
     }
-    /**
-     * 
-     */
-    private Labirintus lab;
-    /**
-     * 
-     */
-    private PortalManager pm;
+    
    /**
     * A labirintus moveable listáján lévő objektumokat
     * megmozgatja mind. 
@@ -133,4 +127,7 @@ public class JatekMotor {
     /**
      * Specfal létrehozásakor ezt kell hívni
      */
+    public PortalManager getPortalManager(){
+    	return pm;
+    }
 }

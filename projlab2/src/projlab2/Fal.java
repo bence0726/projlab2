@@ -1,11 +1,15 @@
 package projlab2;
-import java.util.*;
 
 /**
  * 
  */
 public class Fal extends Elem {
 
+	/**
+     * 
+     */
+    private boolean reachable;
+    
     /**
      * A megadott területre létrejön egy fal elem.
      */
@@ -25,14 +29,6 @@ public class Fal extends Elem {
     	image = "fal.jpg";
     }
     
-    /**
-     * 
-     */
-    private boolean reachable;
-
-    /**
-     * 
-     */
     public void shot(Golyo bullet ) {
     	if(reachable)
     		bullet.step(); //ha rá lehet lépni, akkor a golyó elmegy felette
@@ -40,9 +36,6 @@ public class Fal extends Elem {
     		bullet.kill(); //egyébként beleütközik.
     }
 
-    /**
-     * @param e
-     */
     public void steppedon(Moveable X) {
         if(!reachable)
         	return;

@@ -85,8 +85,7 @@ public class Replikator extends Moveable {
         		temp.kill();
         		lab.refreshList();
         		return;
-        	}
-        		
+        	}        		
         }
     }
 }
