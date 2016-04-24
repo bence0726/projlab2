@@ -1,6 +1,8 @@
 package test;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -106,5 +108,41 @@ public class TestManager {
 	}
      
 	}
+	
+	public static void runTest(String testname)throws IOException{
+		FileInputStream in = null;
+	    FileOutputStream out = null;
+	    
+	    try {
+	         in = new FileInputStream("input"+testname+".txt");
+	         out = new FileOutputStream("output"+testname+".txt");
+	         
+	        //TODO: beolvassa sorra az inputot és... valahogy tesztel
+	         
+	      }finally {
+	         if (in != null) {
+	            in.close();
+	         }
+	         if (out != null) {
+	            out.close();
+	         }
+	      }
+	   }
+
+	public static void makeTest(String testname) throws IOException{
+		FileOutputStream out = null;
+		
+		try {
+			out = new FileOutputStream("input"+testname+".txt");
+			
+			//TODO saját teszeset kreálása 
+			
+		}finally {
+			if (out != null) {
+	            out.close();
+	        }
+	    }
+	}
+	
 	
 }
