@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class TestManager {	
+	static Test test = new Test();
+	
 	public static void main(String[] args) throws IOException {
-		Test test = new Test();
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         ArrayList<String> commandArray = new ArrayList<String>();
@@ -27,11 +28,11 @@ public class TestManager {
          }
          
          for(String command : commandArray){
-        	 runCommand(command,test);
+        	 runCommand(command);
          }
 	}
 	
-	public static void runCommand(String command, Test test) throws IOException{
+	public static void runCommand(String command) throws IOException{
 		ArrayList<String> args = new ArrayList<String>();
         
 		StringTokenizer st = new StringTokenizer(command," ");
@@ -39,66 +40,57 @@ public class TestManager {
 		
 		switch(args.get(0).toUpperCase()){
 	    case "FIRE":
-	    	if(args.size()==4)
-	    		System.out.println("TEST.FIRE(ki,koord,tipus)");
+	    	if(args.size()==5)
+	    		test.fire(args.get(1), Integer.parseInt(args.get(2)), Integer.parseInt(args.get(3)), args.get(4));
 	    	else 
 	    		System.out.println("no such command");
 	    	break; //
 	    case "MOVE":
 	    	if(args.size()==4){
-	    		System.out.println("TEST.MOVE(ki,merre,mennyit)");
-	    		System.out.println("MOVED" + args.get(1)+ args.get(2)+ args.get(3));
+	    		test.move(args.get(1), Integer.parseInt(args.get(2)), Integer.parseInt(args.get(3)));
 	    	}
 	    	else 
 	    		System.out.println("no such command");
 	       break; //
 	    case "ADD":
-	    	if(args.size()==4){
-	    		switch(args.get(1)){
-	    		case "DOBOZ":
-	    			StringTokenizer param = new StringTokenizer(args.get(2),",");
-	    			int cord[] = new int[4];
-	    			int suly = Integer.parseInt(args.get(3));
-	    			int i = 0;
-	    			while(param.hasMoreTokens())
-	    				cord[i++] = Integer.parseInt(param.nextToken());
-	    			test.addDoboz(cord[0], cord[1], cord[2]);
-	    		break;		    
-	    		case "MERLEG":
-	    			//TODO
-	    		break;
+	    	if(args.size()==10){
+	    		test.addMerleg(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)),Integer.parseInt(args.get(6)),Integer.parseInt(args.get(7)),Integer.parseInt(args.get(8)),Integer.parseInt(args.get(9)));
+	    	}
+	    	else if(args.size()==6){
+	    		switch(args.get(1).toUpperCase()){
+	    		case "FAL":
+	    			test.addFal(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			break;
+	    		case "SPECFAL":
+	    			test.addSpecFal(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			break;
+	    		case "SZAKADEK":
+	    			test.addSzakadek(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			break;
+	    		case "VEGEELEM":
+	    			test.addVegeElem(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			break;
+	    		case "ZPM":
+	    			test.addZPM(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			break;
 	    		}
 	    	}
-	    		
-	    	else{
-		    	if(args.size()==3)
-		    		switch(args.get(1)){	    
-		    		case "FAL":
-		    			//TODO
-		    		break;
-		    		case "KEZDOPONT":
-		    			//TODO
-		    		break;
-		    		case "REPLIKATOR":
-		    			//TODO
-		    		break;
-		    		case "SPECFAL":
-		    			//TODO
-		    		break;
-		    		case "SZAKADEK":
-		    			//TODO
-		    		break;
-		    		case "VEGEELEM":
-		    			//TODO
-		    		break;
-		    		case "ZPM":
-		    			//TODO
-		    		break;
-		    		}
-		    	else 
-		    		System.out.println("no such command");
+	    	else if(args.size()==5){
+	    		test.addDoboz(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)));
 	    	}
-	    break; 
+	    	else if(args.size()==4){
+	    		switch(args.get(1).toUpperCase()){
+	    		case "KEDOPONT":
+	    			test.addKezdoPont(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)));
+	    			break;
+	    		case "REPLIKATOR":
+	    			test.addReplikator(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)));
+	    			break;
+	    		}
+	    	}
+	    	else
+	    		System.out.println("no such command");
+	    	break;
 	    case "MAKE":
 	    	makeTest("testtest");
 	    	//TODO MAKE NEW TEST
@@ -109,22 +101,20 @@ public class TestManager {
 	    break;
 	    case "GET":
 	    	if(args.get(1).equalsIgnoreCase("ZPM") && args.get(2).equalsIgnoreCase("IN") && args.get(3).equalsIgnoreCase("LAB"))
-	    		System.out.println("TEST.MENNYIZPM()");
+	    		test.getZPMinLab();
 	    	else 
 	    		System.out.println("no such command");
 	    break;
 	    case "LISTKAR":
 	    	if(args.size()==2){
-	    		System.out.println("TEST.LISTCHAR()");
-	    		System.out.println("<list�zott neve> x:<sz�m> y:<sz�m> ZPM:<sz�m> GOTBOX:<bool>");
+	    		test.listKar(args.get(1));
 	    	}
 	    	else 
 	    		System.out.println("no such command");
 	    break;
 	    case "LISTLAB":
 	    	if(args.size()==1){
-	    		System.out.println("TEST.LISTLAB()");
-	    		System.out.println("<sorsz�m> <ELEM> <x1>,<y1> <x2>,<y2>");
+	    		test.listLab();
 	    	}
 	    	else 
 	    		System.out.println("no such command");
@@ -152,7 +142,6 @@ public class TestManager {
 	    FileOutputStream out = null;
 	    BufferedReader reader = null;
 	    String line = null;
-	    Test test = new Test();
 	    
 	    try {
 	         in = new FileInputStream("input"+testname+".txt");
@@ -161,7 +150,7 @@ public class TestManager {
 	         
 	         line = reader.readLine();
 	         while (line != null){
-	        	 runCommand(line, test);
+	        	 runCommand(line);
 	         }
 	         
 	        //TODO: beolvassa sorra az inputot �s... valahogy tesztel
