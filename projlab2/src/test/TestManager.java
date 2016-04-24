@@ -16,8 +16,7 @@ public class TestManager {
          try {
               String line = null;
               while (!(line = br.readLine()).equals("")){
-            	  StringTokenizer st = new StringTokenizer(line,",");
-            	  while (st.hasMoreElements()) commandArray.add(st.nextToken()); 
+            	  commandArray.add(line); 
               }
          }
          catch(IOException e){
@@ -25,8 +24,87 @@ public class TestManager {
          }
          
          for(String command : commandArray){
-        	 System.out.print(command+"\n");
+        	 runCommand(command);
          }
 	}
-
+	
+	public static void runCommand(String command){
+		ArrayList<String> args = new ArrayList<String>();
+        
+		StringTokenizer st = new StringTokenizer(command," ");
+		while (st.hasMoreElements()) args.add(st.nextToken());
+		
+		switch(args.get(0).toUpperCase()){
+	    case "FIRE":
+	    	if(args.size()==4)
+	    		System.out.println("TEST.FIRE(ki,koord,tipus)");
+	    	else 
+	    		System.out.println("no such command");
+	    	break; //
+	    case "MOVE":
+	    	if(args.size()==4){
+	    		System.out.println("TEST.MOVE(ki,merre,mennyit)");
+	    		System.out.println("MOVED" + args.get(1)+ args.get(2)+ args.get(3));
+	    	}
+	    	else 
+	    		System.out.println("no such command");
+	       break; //
+	    case "ADD":
+	    	if(args.get(1).equalsIgnoreCase("MERLEG") && args.size()==4)
+	    		System.out.println("TEST.ADD(merleg,coord,coord)");
+	    	else{
+		    	if(args.size()==3)
+		    		System.out.println("TEST.ADD(valami,coord)");
+		    	else 
+		    		System.out.println("no such command");
+	    	}
+	    break; 
+	    case "MAKE":
+	    	System.out.println("0. MAKE");
+	    	//TODO MAKE NEW TEST
+	    break;
+	    case "DO":
+	    	System.out.println("0. DO");
+	    	//TODO DO NEW TEST(GET RESULT)
+	    break;
+	    case "GET":
+	    	if(args.get(1).equalsIgnoreCase("ZPM") && args.get(2).equalsIgnoreCase("IN") && args.get(3).equalsIgnoreCase("LAB"))
+	    		System.out.println("TEST.MENNYIZPM()");
+	    	else 
+	    		System.out.println("no such command");
+	    break;
+	    case "LISTKAR":
+	    	if(args.size()==2){
+	    		System.out.println("TEST.LISTCHAR()");
+	    		System.out.println("<listázott neve> x:<szám> y:<szám> ZPM:<szám> GOTBOX:<bool>");
+	    	}
+	    	else 
+	    		System.out.println("no such command");
+	    break;
+	    case "LISTLAB":
+	    	if(args.size()==1){
+	    		System.out.println("TEST.LISTLAB()");
+	    		System.out.println("<sorszám> <ELEM> <x1>,<y1> <x2>,<y2>");
+	    	}
+	    	else 
+	    		System.out.println("no such command");
+	    break;
+	    case "PICK":
+	    	if(args.size()==3)
+	    		System.out.println("TEST.PICK(ki,merre)");
+	    	else 
+	    		System.out.println("no such command");
+	    break;
+	    case "DROP":
+	    	if(args.size()==3)
+	    		System.out.println("TEST.DROP(ki,merre)");
+	    	else 
+	    		System.out.println("no such command");
+	    break;
+	    default :
+	    	System.out.println("Invalid command");
+	}
+     
+	}
+	
 }
