@@ -15,7 +15,6 @@ public class vektorosztalyteszt {
 		vec.addVec(vec2);
 		assertEquals(12.0, vec.getVx(),0.001);
 		assertEquals(12.0, vec.getVy(),0.001);
-		
 	}
 	@Test
 	public void testHalfofVec() {
@@ -33,7 +32,6 @@ public class vektorosztalyteszt {
 		vec2.beEqualWith(vec);
 		assertEquals(10.0, vec2.getVx(),0.001);
 		assertEquals(10.0, vec2.getVy(),0.001);
-		
 	}
 	
 	@Test

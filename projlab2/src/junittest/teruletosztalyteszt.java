@@ -72,4 +72,15 @@ public class teruletosztalyteszt {
 		assertEquals(false, tmain.isEqualTo(tmain5));
 		assertEquals(false, tmain.isEqualTo(tmain6));
 	}
+	
+	@Test
+	public void testSetNewMiddleLocation(){
+		Terulet tmain = new Terulet(new Vektor(10,10),new Vektor(20,20));
+		Vektor newLoc = new Vektor(100.0,100.0);
+		tmain.setNewMiddleLocation(newLoc);
+		assertEquals(95.0, tmain.getKezd().getVx(),0.001);
+		assertEquals(95.0, tmain.getKezd().getVy(),0.001);
+		assertEquals(105.0, tmain.getVeg().getVx(),0.001);
+		assertEquals(105.0, tmain.getVeg().getVy(),0.001);
+	}
 }
