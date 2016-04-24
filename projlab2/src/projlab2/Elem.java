@@ -82,6 +82,10 @@ public class Elem implements Interakcio {
     public void newLocationByMiddle(Vektor locMiddleofArea){
     	pos.setNewCornerLocation(locMiddleofArea);
     }
+    
+    public boolean isCoveredByThis(Elem e){
+    	return this.pos.isCoveredBy(e.pos);
+    }
 
 
     /**

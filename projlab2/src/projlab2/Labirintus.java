@@ -93,26 +93,7 @@ public class Labirintus {
     	}
     }
 
-    /**
-     * @return
-     */
-    public int getZPM() {
-        return osszZPM;
-    }
 
-    /**
-     * @return
-     */
-    public Elem getEndElem() {
-        return endElem;
-    }
-
-    /**
-     * @return
-     */
-    public Elem getstartElem() {
-        return startElem;
-    }
     
     public void addMoveable(Moveable m) {
     	moveableList.add(m);
@@ -157,4 +138,37 @@ public class Labirintus {
     }
     
     
+    
+    public ArrayList<Moveable>getMoveableList(){
+    	return moveableList;
+    }
+    
+
+	public int getOsszZPM() {
+		return osszZPM;
+	}
+
+	public Elem getStartElem() {
+		return startElem;
+	}
+
+	public Karakter getJaffa() {
+		return jaffa;
+	}
+
+	public Oneil getOneil() {
+		return oneil;
+	}
+
+	public ArrayList<Elem> getList() {
+		return list;
+	}
+	
+    public Elem getEndElem() {
+        return endElem;
+    }
+
+    public Elem getstartElem() {
+        return startElem;
+    }
 }
