@@ -47,7 +47,7 @@ public class TestManager {
 	    	break; //
 	    case "MOVE":
 	    	if(args.size()==4){
-	    		test.move(args.get(1), Integer.parseInt(args.get(2)), Integer.parseInt(args.get(3)));
+	    		test.move(args.get(1), args.get(2), Integer.parseInt(args.get(3)));
 	    	}
 	    	else 
 	    		System.out.println("no such command");
@@ -144,8 +144,8 @@ public class TestManager {
 	    String line = null;
 	    
 	    try {
-	         in = new FileInputStream("input"+testname+".txt");
-	         out = new FileOutputStream("output"+testname+".txt");
+	         in = new FileInputStream("test/input"+testname+".txt");
+	         out = new FileOutputStream("test/output"+testname+".txt");
 	         reader = new BufferedReader(new InputStreamReader(in));
 	         
 	         line = reader.readLine();
@@ -154,6 +154,11 @@ public class TestManager {
 	         }
 	         
 	        //TODO: beolvassa sorra az inputot ésss... valahogy tesztel
+	         //esetleg új parancsok felvétele TEST DO string (1 teszteset futtatása)
+	         								//TEST DO ALL (összesteset futtatása)
+	         								//TEST MAKE string (új teszteset létrehozása)
+	         								//TEST INC string (string megléte az output fájlban)
+	         								//TEST EXC string (string nem megléte az output fájlban)
 	         
 	      }finally {
 	         if (in != null) {
@@ -174,7 +179,7 @@ public class TestManager {
 		String str = null;		
 		
 		System.out.println("Enter commands, end to quit.");
-		out = new FileOutputStream("input"+testname+".txt");
+		out = new FileOutputStream("test/input"+testname+".txt");
 		
 		try {
 			do {			
