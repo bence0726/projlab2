@@ -15,7 +15,7 @@ public class Szakadek extends Elem {
     }
     
     /**
-     * Létrehoz egy Specfalat, a bal felső sarkát locUpLeftCorner
+     * Létrehoz egy szakadékot, a bal felső sarkát locUpLeftCorner
      * vektorra illesztve. A második paraméter az elem mérete.
      * @param locUpLeftCorner
      * @param diagonal
