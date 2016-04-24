@@ -131,12 +131,51 @@ public class TestManager {
 	    	else 
 	    		System.out.println("no such command");
 	    break;
+	    /*case "TEST":
+	    	if(args.size()==3) {
+	    		switch(args.get(1).toUpperCase()){
+	    		case "DO":
+	    			if(args.get(2)=="ALL"){	//minden meglévő tesztesetet lefuttat
+	    				//kérdés: mit takar a minden teszteset? minden testfile a könyvtáron belül,
+	    				//vagy egy fájlon belül több dologra akarunk tesztelni? nem igazán látom át
+	    				
+	    			}
+	    			else{		//stringet kap, az adott tesztesetet hajtjuk végre
+	    				//ugyanaz, mint feljebb, milyen teszteket nézünk?
+	    			}
+	    			break;
+	    		case "MAKE":	//string, teszteset létrehozása
+	    				//same problem
+	    			break;
+	    		case "INC":		//string megkeresése az output fájlban/labirintusban whatsthere alapján
+	    			
+	    			break;
+	    		case "EXC":		//string keresése INC-hez hasonlóan,
+	    						//akkor sikeres a teszt, ha az adott string nem létezik (pl megsemmisült doboz/karakter)
+	    			
+	    			break;
+	    		}*/
+	    	}
+	    	else
+	    		System.out.println("no such command");
+	    		
+	    break;
+	    	
 	    default :
 	    	System.out.println("Invalid command");
 	}
      
 	}
 	
+	/**
+	 * az előre megírt testfájl alapján fog futni
+	 * soronként a bemeneti nyelvnek megfelelő parancsokat vár,
+	 * runCommand kapja meg a fájl tartalmát soronként, 
+	 * üres sorig olvas
+	 * 
+	 * erősen béta, a TEST AA bb parancsokkal szeretnénk valamit kezdeni,
+	 * hogy pontosan a bemenet alapján tudjuk, hogy mire akarunk tesztelni
+	 */
 	public static void runTest(String testname)throws IOException{
 		FileInputStream in = null;
 	    FileOutputStream out = null;
@@ -151,14 +190,32 @@ public class TestManager {
 	         line = reader.readLine();
 	         while (line != null){
 	        	 runCommand(line);
+	        	 line = reader.readLine();
 	         }
 	         
-	        //TODO: beolvassa sorra az inputot �sss... valahogy tesztel
-	         //esetleg �j parancsok felv�tele TEST DO string (1 teszteset futtat�sa)
-	         								//TEST DO ALL (�sszesteset futtat�sa)
-	         								//TEST MAKE string (�j teszteset l�trehoz�sa)
-	         								//TEST INC string (string megl�te az output f�jlban)
-	         								//TEST EXC string (string nem megl�te az output f�jlban)
+	        //TODO: beolvassa sorra az inputot �sss... valahogy tesztel
+	         /*
+	          * Felmerülő kérdések és megoldandó problémák:
+	          * -a switchcase szépen fog pörögni a bemenet alapján, de
+	          * minden egyes kimenetet fájlba kell írni, nem konzolba, különben 
+	          * nem látom, hogy hogyan tudnánk összevetni az elvárt kimenetünkkel, 
+	          * amennyiben nem a consolon akarjuk ellenőrizni, hogy pl MOVED ki mit merre
+	          * ha consoleről olvassuk le, akkor manuálisan látjuk, de a program nem tudja
+	          * összevetni automatikusan, amennyiben így szeretnénk (azt írtuk, hogy valós és elvárt eredmények összehasonlítása)
+	          * 
+	          * -ha bemenet végén definiált értékeket szeretnénk a kimenettel összevetni, amennyiben
+	          * az külön fájlba kerül, akkor a runtest while(line != null) helyett kell egy elválasztó sor,
+	          * és az utána lévő sorokat kell soronként egyeztetni a kimeneti fájlunkkal
+	          * 
+	          * -ha új parancsokat akarunk, melyekket tudjuk kezelni, hogy mit akarunk
+	          * pontosan tesztelni, akkor azoknál is az output fájlt a switchcase folyamán
+	          * kell szépen feltölteni
+	          */
+	         //esetleg �j parancsok felv�tele TEST DO string (1 teszteset futtat�sa)
+	         								//TEST DO ALL (�sszesteset futtat�sa)
+	         								//TEST MAKE string (�j teszteset l�trehoz�sa)
+	         								//TEST INC string (string megl�te az output f�jlban)
+	         								//TEST EXC string (string nem megl�te az output f�jlban)
 	         
 	      }finally {
 	         if (in != null) {
@@ -170,7 +227,12 @@ public class TestManager {
 	         reader.close();
 	      }
 	   }
-
+	/**
+	 *ennek segítségével tudunk saját további teszteseteket létrehozni, 
+	 *console-on sorokat vár, amíg nem adunk meg neki üres sort, addig olvas
+	 *az új testfájl az eddig definiált bemeneti nyelv esetén fog helyesen 
+	 *működni 
+	 */
 	public static void makeTest(String testname) throws IOException{
 		FileOutputStream out = null;
 		BufferedReader br = null;
