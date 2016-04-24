@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -168,18 +169,34 @@ public class TestManager {
 
 	public static void makeTest(String testname) throws IOException{
 		FileOutputStream out = null;
+		BufferedReader br = null;
+		Reader r = new InputStreamReader(System.in);
+		br = new BufferedReader (r);
+		String str = null;		
+		
+		System.out.println("Enter commands, end to quit.");
 		
 		try {
-			out = new FileOutputStream("input"+testname+".txt");
-			
+			do {
+				out = new FileOutputStream("input"+testname+".txt");
+				
+				//TODO saját teszeset kreálása
+				//Biztos vagyok benne, hogy ennél egyszerűbben is lehet bemenetről soronként fileba menteni...
+				str = br.readLine();
+				byte[] contentInBytes = str.getBytes();
+				
+				out.write(contentInBytes);
+				
+			} while (!str.equalsIgnoreCase("end"));			
+		} catch (IOException e) {
+			e.printStackTrace();
 			//TODO saj�t teszeset kre�l�sa 
-			
 		}finally {
+		}
 			if (out != null) {
 	            out.close();
-	        }
-	    }
+			}
 	}
-	
-	
 }
+	
+	
