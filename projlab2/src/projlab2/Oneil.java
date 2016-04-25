@@ -16,6 +16,7 @@ public class Oneil extends Karakter {
     public Oneil(Labirintus lab,Elem startElem){
     	super(lab,startElem);
     	image = "oneil.jpg";
+    	name="oneil";
     }
 
 	/**

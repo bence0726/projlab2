@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class TestManager {	
+	static Test test = new Test();
+	
 	public static void main(String[] args) throws IOException {
-		Test test = new Test();
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         ArrayList<String> commandArray = new ArrayList<String>();
@@ -27,11 +28,11 @@ public class TestManager {
          }
          
          for(String command : commandArray){
-        	 runCommand(command,test);
+        	 runCommand(command);
          }
 	}
 	
-	public static void runCommand(String command, Test test) throws IOException{
+	public static void runCommand(String command) throws IOException{
 		ArrayList<String> args = new ArrayList<String>();
         
 		StringTokenizer st = new StringTokenizer(command," ");
@@ -39,66 +40,57 @@ public class TestManager {
 		
 		switch(args.get(0).toUpperCase()){
 	    case "FIRE":
-	    	if(args.size()==4)
-	    		System.out.println("TEST.FIRE(ki,koord,tipus)");
+	    	if(args.size()==5)
+	    		test.fire(args.get(1), Integer.parseInt(args.get(2)), Integer.parseInt(args.get(3)), args.get(4));
 	    	else 
 	    		System.out.println("no such command");
 	    	break; //
 	    case "MOVE":
 	    	if(args.size()==4){
-	    		System.out.println("TEST.MOVE(ki,merre,mennyit)");
-	    		System.out.println("MOVED" + args.get(1)+ args.get(2)+ args.get(3));
+	    		test.move(args.get(1), args.get(2), Integer.parseInt(args.get(3)));
 	    	}
 	    	else 
 	    		System.out.println("no such command");
 	       break; //
 	    case "ADD":
-	    	if(args.size()==4){
-	    		switch(args.get(1)){
-	    		case "DOBOZ":
-	    			StringTokenizer param = new StringTokenizer(args.get(2),",");
-	    			int cord[] = new int[4];
-	    			int suly = Integer.parseInt(args.get(3));
-	    			int i = 0;
-	    			while(param.hasMoreTokens())
-	    				cord[i++] = Integer.parseInt(param.nextToken());
-	    			test.addDoboz(cord[0], cord[1], cord[2]);
-	    		break;		    
-	    		case "MERLEG":
-	    			//TODO
-	    		break;
+	    	if(args.size()==10){
+	    		test.addMerleg(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)),Integer.parseInt(args.get(6)),Integer.parseInt(args.get(7)),Integer.parseInt(args.get(8)),Integer.parseInt(args.get(9)));
+	    	}
+	    	else if(args.size()==6){
+	    		switch(args.get(1).toUpperCase()){
+	    		case "FAL":
+	    			test.addFal(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			break;
+	    		case "SPECFAL":
+	    			test.addSpecFal(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			break;
+	    		case "SZAKADEK":
+	    			test.addSzakadek(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			break;
+	    		case "VEGEELEM":
+	    			test.addVegeElem(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			break;
+	    		case "ZPM":
+	    			test.addZPM(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			break;
 	    		}
 	    	}
-	    		
-	    	else{
-		    	if(args.size()==3)
-		    		switch(args.get(1)){	    
-		    		case "FAL":
-		    			//TODO
-		    		break;
-		    		case "KEZDOPONT":
-		    			//TODO
-		    		break;
-		    		case "REPLIKATOR":
-		    			//TODO
-		    		break;
-		    		case "SPECFAL":
-		    			//TODO
-		    		break;
-		    		case "SZAKADEK":
-		    			//TODO
-		    		break;
-		    		case "VEGEELEM":
-		    			//TODO
-		    		break;
-		    		case "ZPM":
-		    			//TODO
-		    		break;
-		    		}
-		    	else 
-		    		System.out.println("no such command");
+	    	else if(args.size()==5){
+	    		test.addDoboz(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)));
 	    	}
-	    break; 
+	    	else if(args.size()==4){
+	    		switch(args.get(1).toUpperCase()){
+	    		case "KEDOPONT":
+	    			test.addKezdoPont(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)));
+	    			break;
+	    		case "REPLIKATOR":
+	    			test.addReplikator(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)));
+	    			break;
+	    		}
+	    	}
+	    	else
+	    		System.out.println("no such command");
+	    	break;
 	    case "MAKE":
 	    	makeTest("testtest");
 	    	//TODO MAKE NEW TEST
@@ -109,22 +101,13 @@ public class TestManager {
 	    break;
 	    case "GET":
 	    	if(args.get(1).equalsIgnoreCase("ZPM") && args.get(2).equalsIgnoreCase("IN") && args.get(3).equalsIgnoreCase("LAB"))
-	    		System.out.println("TEST.MENNYIZPM()");
+	    		test.getZPMinLab();
 	    	else 
 	    		System.out.println("no such command");
 	    break;
 	    case "LISTKAR":
 	    	if(args.size()==2){
-	    		System.out.println("TEST.LISTCHAR()");
-	    		System.out.println("<list�zott neve> x:<sz�m> y:<sz�m> ZPM:<sz�m> GOTBOX:<bool>");
-	    	}
-	    	else 
-	    		System.out.println("no such command");
-	    break;
-	    case "LISTLAB":
-	    	if(args.size()==1){
-	    		System.out.println("TEST.LISTLAB()");
-	    		System.out.println("<sorsz�m> <ELEM> <x1>,<y1> <x2>,<y2>");
+	    		test.listKar(args.get(1));
 	    	}
 	    	else 
 	    		System.out.println("no such command");
@@ -141,30 +124,91 @@ public class TestManager {
 	    	else 
 	    		System.out.println("no such command");
 	    break;
+	    /*case "TEST":
+	    	if(args.size()==3) {
+	    		switch(args.get(1).toUpperCase()){
+	    		case "DO":
+	    			if(args.get(2)=="ALL"){	//minden meglévő tesztesetet lefuttat
+	    				//kérdés: mit takar a minden teszteset? minden testfile a könyvtáron belül,
+	    				//vagy egy fájlon belül több dologra akarunk tesztelni? nem igazán látom át
+	    				
+	    			}
+	    			else{		//stringet kap, az adott tesztesetet hajtjuk végre
+	    				//ugyanaz, mint feljebb, milyen teszteket nézünk?
+	    			}
+	    			break;
+	    		case "MAKE":	//string, teszteset létrehozása
+	    				//same problem
+	    			break;
+	    		case "INC":		//string megkeresése az output fájlban/labirintusban whatsthere alapján
+	    			
+	    			break;
+	    		case "EXC":		//string keresése INC-hez hasonlóan,
+	    						//akkor sikeres a teszt, ha az adott string nem létezik (pl megsemmisült doboz/karakter)
+	    			
+	    			break;
+	    		}
+	    	}
+	    	else
+	    		System.out.println("no such command");
+	    		
+	    break;*/
+	    	
 	    default :
 	    	System.out.println("Invalid command");
 	}
      
 	}
 	
+	/**
+	 * az előre megírt testfájl alapján fog futni
+	 * soronként a bemeneti nyelvnek megfelelő parancsokat vár,
+	 * runCommand kapja meg a fájl tartalmát soronként, 
+	 * üres sorig olvas
+	 * 
+	 * erősen béta, a TEST AA bb parancsokkal szeretnénk valamit kezdeni,
+	 * hogy pontosan a bemenet alapján tudjuk, hogy mire akarunk tesztelni
+	 */
 	public static void runTest(String testname)throws IOException{
 		FileInputStream in = null;
 	    FileOutputStream out = null;
 	    BufferedReader reader = null;
 	    String line = null;
-	    Test test = new Test();
 	    
 	    try {
-	         in = new FileInputStream("input"+testname+".txt");
-	         out = new FileOutputStream("output"+testname+".txt");
+	         in = new FileInputStream("test/input"+testname+".txt");
+	         out = new FileOutputStream("test/output"+testname+".txt");
 	         reader = new BufferedReader(new InputStreamReader(in));
 	         
 	         line = reader.readLine();
 	         while (line != null){
-	        	 runCommand(line, test);
+	        	 runCommand(line);
+	        	 line = reader.readLine();
 	         }
 	         
-	        //TODO: beolvassa sorra az inputot �s... valahogy tesztel
+	        //TODO: beolvassa sorra az inputot �sss... valahogy tesztel
+	         /*
+	          * Felmerülő kérdések és megoldandó problémák:
+	          * -a switchcase szépen fog pörögni a bemenet alapján, de
+	          * minden egyes kimenetet fájlba kell írni, nem konzolba, különben 
+	          * nem látom, hogy hogyan tudnánk összevetni az elvárt kimenetünkkel, 
+	          * amennyiben nem a consolon akarjuk ellenőrizni, hogy pl MOVED ki mit merre
+	          * ha consoleről olvassuk le, akkor manuálisan látjuk, de a program nem tudja
+	          * összevetni automatikusan, amennyiben így szeretnénk (azt írtuk, hogy valós és elvárt eredmények összehasonlítása)
+	          * 
+	          * -ha bemenet végén definiált értékeket szeretnénk a kimenettel összevetni, amennyiben
+	          * az külön fájlba kerül, akkor a runtest while(line != null) helyett kell egy elválasztó sor,
+	          * és az utána lévő sorokat kell soronként egyeztetni a kimeneti fájlunkkal
+	          * 
+	          * -ha új parancsokat akarunk, melyekket tudjuk kezelni, hogy mit akarunk
+	          * pontosan tesztelni, akkor azoknál is az output fájlt a switchcase folyamán
+	          * kell szépen feltölteni
+	          */
+	         //esetleg �j parancsok felv�tele TEST DO string (1 teszteset futtat�sa)
+	         								//TEST DO ALL (�sszesteset futtat�sa)
+	         								//TEST MAKE string (�j teszteset l�trehoz�sa)
+	         								//TEST INC string (string megl�te az output f�jlban)
+	         								//TEST EXC string (string nem megl�te az output f�jlban)
 	         
 	      }finally {
 	         if (in != null) {
@@ -176,7 +220,12 @@ public class TestManager {
 	         reader.close();
 	      }
 	   }
-
+	/**
+	 *ennek segítségével tudunk saját további teszteseteket létrehozni, 
+	 *console-on sorokat vár, amíg nem adunk meg neki üres sort, addig olvas
+	 *az új testfájl az eddig definiált bemeneti nyelv esetén fog helyesen 
+	 *működni 
+	 */
 	public static void makeTest(String testname) throws IOException{
 		FileOutputStream out = null;
 		BufferedReader br = null;
@@ -185,12 +234,10 @@ public class TestManager {
 		String str = null;		
 		
 		System.out.println("Enter commands, end to quit.");
-		out = new FileOutputStream("input"+testname+".txt");
+		out = new FileOutputStream("test/input"+testname+".txt");
 		
 		try {
 			do {			
-				//TODO saját teszeset kreálása
-				//Biztos vagyok benne, hogy ennél egyszerűbben is lehet bemenetről soronként fileba menteni...
 				str = br.readLine();
 				byte[] contentInBytes = str.getBytes();
 				
@@ -201,7 +248,6 @@ public class TestManager {
 			} while (!(str.equals("")));			
 		} catch (IOException e) {
 			e.printStackTrace();
-			//TODO saját teszeset kreálása 
 		}finally {
 		}
 			if (out != null) {

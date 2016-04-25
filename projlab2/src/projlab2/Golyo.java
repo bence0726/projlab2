@@ -20,6 +20,7 @@ public class Golyo extends Moveable {
     	this.dir = dir;
     	this.colour = colour;
     	image = "golyo.jpg";
+    	name="golyó";
     }
     
 	/**

@@ -8,6 +8,7 @@ public abstract class Moveable extends Elem{
     protected Vektor moveDir;
     protected Labirintus lab;
     protected int suly;
+    public String name;
     
     /**
      * Létrehoz egy moveable objektumot a közepét a 
@@ -24,6 +25,7 @@ public abstract class Moveable extends Elem{
     	pos.setVeg(Vektor.addVecToVec(locMiddleofArea, diagonal));
 		this.lab = lab;
 		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
+		
 	}
 
 	

@@ -19,6 +19,7 @@ public class Doboz extends Moveable {
     	super(lab,kezdLocVec);
     	suly = mass;
     	image = "doboz.jpg";
+    	name="Doboz";
     }
 
     /**

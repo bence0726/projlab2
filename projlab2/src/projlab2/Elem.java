@@ -23,6 +23,11 @@ public abstract class Elem implements Interakcio {
      * Az elem basic mérete.
      */
     protected Vektor defaultsize = new Vektor(10,10);
+    
+    /**
+     * 
+     */
+    public String name;
 	
 	public Elem(){}
 	

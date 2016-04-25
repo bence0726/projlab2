@@ -30,6 +30,7 @@ public class Karakter extends Moveable{
     public Karakter(Labirintus lab,Elem startElem){
     	super(lab,startElem);
     	image = "jaffa.jpg";
+    	name="jaffa";
     }
 
     
