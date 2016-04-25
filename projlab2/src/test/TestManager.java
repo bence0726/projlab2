@@ -112,13 +112,6 @@ public class TestManager {
 	    	else 
 	    		System.out.println("no such command");
 	    break;
-	    case "LISTLAB":
-	    	if(args.size()==1){
-	    		test.listLab();
-	    	}
-	    	else 
-	    		System.out.println("no such command");
-	    break;
 	    case "PICK":
 	    	if(args.size()==3)
 	    		System.out.println("TEST.PICK(ki,merre)");
@@ -154,12 +147,12 @@ public class TestManager {
 	    						//akkor sikeres a teszt, ha az adott string nem létezik (pl megsemmisült doboz/karakter)
 	    			
 	    			break;
-	    		}*/
+	    		}
 	    	}
 	    	else
 	    		System.out.println("no such command");
 	    		
-	    break;
+	    break;*/
 	    	
 	    default :
 	    	System.out.println("Invalid command");
