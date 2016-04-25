@@ -16,7 +16,13 @@ public class Labirintus {
     	osszZPM = 0;
     	this.pm=pm;
     }
-
+    
+    public Labirintus(){
+    	objectsOnMap = new ArrayList<Elem>();
+    	moveableList = new ArrayList<Moveable>();
+    	osszZPM = 0;
+    }
+    
     public PortalManager pm;
     /**
      * 
