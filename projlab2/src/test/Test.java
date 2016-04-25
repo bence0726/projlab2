@@ -134,7 +134,6 @@ public class Test {
 	}
 	
 	
-	
 	/*
 	 * a kapott paraméterekkel meghívja a Doboz konstruktorát és hozzáadja a Labirintushoz.
 	 */
@@ -255,7 +254,6 @@ public class Test {
 		if(kar.equalsIgnoreCase("oneill"))
 		{
 			
-					
 		}
 		else if(kar.equalsIgnoreCase("jaffa"))
 		{
@@ -277,7 +275,7 @@ public class Test {
 			{
 				return tmp.get(i++).name;
 			}
-		return "Hiba";
+		return "Hiba"; //ha nincs ott semmi az nyilvánvaló hiba? WUT? FIXME
 		
 	}
 	

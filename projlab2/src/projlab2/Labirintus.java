@@ -14,21 +14,8 @@ public class Labirintus {
     	objectsOnMap = new ArrayList<Elem>();
     	moveableList = new ArrayList<Moveable>();
     	osszZPM = 0;
-    	
     }
-<<<<<<< HEAD
-    
-    public Labirintus(){
-    	objectsOnMap = new ArrayList<Elem>();
-    	moveableList = new ArrayList<Moveable>();
-    	osszZPM = 0;
-    }
-    
-    public PortalManager pm;
-=======
 
-    
->>>>>>> branch 'master' of https://github.com/bence0726/projlab2.git
     /**
      * 
      */

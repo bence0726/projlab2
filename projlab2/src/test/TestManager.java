@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 public class TestManager {	
 	static Test test = new Test();
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException { //FIXME ezt az exceptiont ki kezeli leee?? a konzol?
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         ArrayList<String> commandArray = new ArrayList<String>();
