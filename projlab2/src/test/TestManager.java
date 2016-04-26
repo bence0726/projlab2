@@ -16,7 +16,7 @@ public class TestManager {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         ArrayList<String> commandArray = new ArrayList<String>();
-
+        String str = null;
          try {
               String line = null;
               while (!(line = br.readLine()).equals("")){
@@ -31,9 +31,13 @@ public class TestManager {
         	 runCommand(command);
          }
 	}
-	
-	public static void runCommand(String command) throws IOException{
+	/*
+	 * átírtam a visszatérési értékét stringre, lejjebb a runTesten belül van egy kis
+	 * magyarázat hozzá, tl;dr kimeneti fájl
+	 */
+	public static String runCommand(String command) throws IOException{
 		ArrayList<String> args = new ArrayList<String>();
+		String result = null;
         
 		StringTokenizer st = new StringTokenizer(command," ");
 		while (st.hasMoreElements()) args.add(st.nextToken());
@@ -41,13 +45,13 @@ public class TestManager {
 		switch(args.get(0).toUpperCase()){
 	    case "FIRE":
 	    	if(args.size()==5)
-	    		test.fire(args.get(1), Integer.parseInt(args.get(2)), Integer.parseInt(args.get(3)), args.get(4));
+	    		result = test.fire(args.get(1), Integer.parseInt(args.get(2)), Integer.parseInt(args.get(3)), args.get(4));
 	    	else 
-	    		System.out.println("no such command");
+	    		System.out.println("no such command");;
 	    	break; //
 	    case "MOVE":
 	    	if(args.size()==4){
-	    		test.move(args.get(1), args.get(2), Integer.parseInt(args.get(3)));
+	    		result = test.move(args.get(1), args.get(2), Integer.parseInt(args.get(3)));
 	    	}
 	    	else 
 	    		System.out.println("no such command");
@@ -80,7 +84,7 @@ public class TestManager {
 	    	}
 	    	else if(args.size()==4){
 	    		switch(args.get(1).toUpperCase()){
-	    		case "KEDOPONT":
+	    		case "KEZDOPONT":
 	    			test.addKezdoPont(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)));
 	    			break;
 	    		case "REPLIKATOR":
@@ -101,13 +105,13 @@ public class TestManager {
 	    break;
 	    case "GET":
 	    	if(args.get(1).equalsIgnoreCase("ZPM") && args.get(2).equalsIgnoreCase("IN") && args.get(3).equalsIgnoreCase("LAB"))
-	    		test.getZPMinLab();
+	    		result = test.getZPMinLab();
 	    	else 
 	    		System.out.println("no such command");
 	    break;
 	    case "LISTKAR":
 	    	if(args.size()==2){
-	    		test.listKar(args.get(1));
+	    		result = test.listKar(args.get(1));
 	    	}
 	    	else 
 	    		System.out.println("no such command");
@@ -156,7 +160,8 @@ public class TestManager {
 	    	
 	    default :
 	    	System.out.println("Invalid command");
-	}
+		}
+		return result;
      
 	}
 	
@@ -174,6 +179,7 @@ public class TestManager {
 	    FileOutputStream out = null;
 	    BufferedReader reader = null;
 	    String line = null;
+	    String testresult = null;
 	    
 	    try {
 	         in = new FileInputStream("test/input"+testname+".txt");
@@ -182,11 +188,25 @@ public class TestManager {
 	         
 	         line = reader.readLine();
 	         while (line != null){
-	        	 runCommand(line);
+	        	 testresult = runCommand(line);
 	        	 line = reader.readLine();
+	        	 if (testresult != null)
+	        	 {
+	        		 byte[] contentInBytes = testresult.getBytes();				
+	        		 out.write(contentInBytes);
+	        		 out.write(System.getProperty("line.separator").getBytes());
+	        		 out.flush();
+				 }
+	        	 
 	         }
 	         
 	        //TODO: beolvassa sorra az inputot �sss... valahogy tesztel
+	         /**
+	          * Kimenet mentése ötlet:
+	          * a legtöbb parancs a runCommandon belül stringgel tér vissza, ezeket a
+	          * stringeket a runCommandon belül (vagy akár minden egyes runCmd után az tér vissza stringgel), 
+	          * és akkor a runTest során) mentjük el egy új txt-be, így azonnal tudunk ellenőrizni
+	          */
 	         /*
 	          * Felmerülő kérdések és megoldandó problémák:
 	          * -a switchcase szépen fog pörögni a bemenet alapján, de
