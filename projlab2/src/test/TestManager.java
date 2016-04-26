@@ -128,35 +128,6 @@ public class TestManager {
 	    	else 
 	    		System.out.println("no such command");
 	    break;
-	    /*case "TEST":
-	    	if(args.size()==3) {
-	    		switch(args.get(1).toUpperCase()){
-	    		case "DO":
-	    			if(args.get(2)=="ALL"){	//minden meglévő tesztesetet lefuttat
-	    				//kérdés: mit takar a minden teszteset? minden testfile a könyvtáron belül,
-	    				//vagy egy fájlon belül több dologra akarunk tesztelni? nem igazán látom át
-	    				
-	    			}
-	    			else{		//stringet kap, az adott tesztesetet hajtjuk végre
-	    				//ugyanaz, mint feljebb, milyen teszteket nézünk?
-	    			}
-	    			break;
-	    		case "MAKE":	//string, teszteset létrehozása
-	    				//same problem
-	    			break;
-	    		case "INC":		//string megkeresése az output fájlban/labirintusban whatsthere alapján
-	    			
-	    			break;
-	    		case "EXC":		//string keresése INC-hez hasonlóan,
-	    						//akkor sikeres a teszt, ha az adott string nem létezik (pl megsemmisült doboz/karakter)
-	    			
-	    			break;
-	    		}
-	    	}
-	    	else
-	    		System.out.println("no such command");
-	    		
-	    break;*/
 	    	
 	    default :
 	    	System.out.println("Invalid command");
@@ -185,9 +156,10 @@ public class TestManager {
 	         in = new FileInputStream("test/input"+testname+".txt");
 	         out = new FileOutputStream("test/output"+testname+".txt");
 	         reader = new BufferedReader(new InputStreamReader(in));
+	         ArrayList<String> args = new ArrayList<String>();
 	         
 	         line = reader.readLine();
-	         while (line != null){
+	         while (line != "TEST"){
 	        	 testresult = runCommand(line);
 	        	 line = reader.readLine();
 	        	 if (testresult != null)
@@ -198,6 +170,43 @@ public class TestManager {
 	        		 out.flush();
 				 }
 	        	 
+	         }
+	         while (line != null){
+	        	StringTokenizer st = new StringTokenizer(line," ");
+	     		while (st.hasMoreElements()) args.add(st.nextToken());
+	     		
+	     		switch(args.get(0).toUpperCase()){
+	     			case "TEST":
+	     			if(args.size()==3) {
+	     				switch(args.get(1).toUpperCase()){
+	     				case "DO":
+	     					if(args.get(2)=="ALL"){	//minden meglévő tesztesetet lefuttat
+	 	    				//kérdés: mit takar a minden teszteset? minden testfile a könyvtáron belül,
+	 	    				//vagy egy fájlon belül több dologra akarunk tesztelni? nem igazán látom át
+	 	    				
+	     					}
+	     					else{		//stringet kap, az adott tesztesetet hajtjuk végre
+	 	    				//ugyanaz, mint feljebb, milyen teszteket nézünk?
+	     					}
+	     					break;
+	     				case "MAKE":	//string, teszteset létrehozása
+	 	    				//same problem
+	     					break;
+	     				case "INC":		//string megkeresése az output fájlban/labirintusban whatsthere alapján
+	 	    			
+	     					break;
+	     				case "EXC":		//string keresése INC-hez hasonlóan,
+	 	    						//akkor sikeres a teszt, ha az adott string nem létezik (pl megsemmisült doboz/karakter)	 	    			
+	     					break;
+	 	    		}
+	 	    	}
+	 	    	else
+	 	    		System.out.println("no such command");
+	 	    		
+	 	    break;
+	     		}
+	        	 
+	        	 line = reader.readLine();
 	         }
 	         
 	        //TODO: beolvassa sorra az inputot �sss... valahogy tesztel
