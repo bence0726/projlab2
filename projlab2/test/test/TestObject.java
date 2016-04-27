@@ -1,6 +1,7 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class TestObject {
@@ -16,7 +17,7 @@ public class TestObject {
 	 * Elvárt sorok a kimenetben. Ezeknek meg KELL jelenniük
 	 * a sorok között.
 	 */
-	List<String> exceptedResults = new ArrayList<>();
+	List<String> expectedResults = new ArrayList<>();
 	/**
 	 * olyan sorok,amelyek TILOS, hogy benne 
 	 * legyenek a kimenetben.
@@ -27,18 +28,15 @@ public class TestObject {
 	 */
 	List<String> resultrows = new ArrayList<>();
 	/**
+	 * Azokat a sorokat tesszük bele, amelyek az
+	 * expected vagy excluded sorok közt vannak, 
+	 * de a tényleges kimenetben(resultrows) nincs benne.
+	 */
+	List<String> wrongTests = new ArrayList<>();
+	/**
 	 * Teszteset neve. Lehet akár a fájlnévvel megegyező is.
 	 */
 	String testCaseName = "SampleTest";
-	
-	/**
-	 * A rossz sorok száma.
-	 */
-	int numberOfWrongLines = 0;
-	/**
-	 * A teszt összes tesztsora.
-	 */
-	int allTests = 0;
 	
 	TestObject(String name){
 		testCaseName = name;
@@ -56,8 +54,7 @@ public class TestObject {
 	 * @param excepted
 	 */
 	public void AddExceptedResultRow(String excepted){
-		exceptedResults.add(excepted);
-		allTests++;
+		expectedResults.add(excepted);
 	}
 	/**
 	 * Olyan sorokat adhatunk hozzá, amelyeknek TILOS
@@ -65,7 +62,6 @@ public class TestObject {
 	 */
 	public void AddExcludedResultRow(String excluded){
 		excludedResults.add(excluded);
-		allTests++;
 	}
 	/**
 	 * A tesztelés után kiírt sorokat adhatjuk át neki.
@@ -90,19 +86,65 @@ public class TestObject {
 	 * metódust azok kiírásához.
 	 */
 	public void checkTest(){
-		
+		testExpectedRows();
+		testExcludedRows();
+		if(getNumberOfWrongLines() == 0)
+			succeeded = true;
 	}
+	/**
+	 * Privát metódus. Megmondja, hogy az ExpectedRows elemei
+	 * Benne vannak-e a tényleges kimenetben. Ha nincsenek,
+	 * a wrongTests listába beteszi a hibás tesztsorokat.
+	 */
+	private void testExpectedRows(){
+		Iterator<String> iterator = expectedResults.iterator();
+		
+		while(iterator.hasNext()){
+			boolean included = false;
+			String expectedrow = iterator.next();
+			Iterator<String> iterator2 = resultrows.iterator();
+			while(iterator2.hasNext()){
+				String resultrow = iterator2.next();
+				if(expectedrow.equals(resultrow))
+					included = true;			
+			}
+			if(!included)
+				wrongTests.add(expectedrow);			
+		}
+	}
+	/**
+	 * Privát metódus. Megmondja, hogy az ExcludedRows elemei
+	 * Benne vannak-e a tényleges kimenetben. Ha nincsenek,
+	 * a wrongTests listába beteszi a hibás tesztsorokat.
+	 */
+	private void testExcludedRows(){
+		Iterator<String> iterator = excludedResults.iterator();
+		
+		while(iterator.hasNext()){
+			boolean excluded = true;
+			String excludedrow = iterator.next();
+			Iterator<String> iterator2 = resultrows.iterator();
+			while(iterator2.hasNext()){
+				String resultrow = iterator2.next();
+				if(excludedrow.equals(resultrow))
+					excluded = false;			
+			}
+			if(!excluded)
+				wrongTests.add(excludedrow);			
+		}
+	}
+
 	/**
 	 * Visszaadja a rossz sorok számát.
 	 */
-	public int numberOfWrongLines(){
-		return numberOfWrongLines;
+	public int getNumberOfWrongLines(){
+		return wrongTests.size();
 	}
 	/**
 	 * @return A teszt összes sorainak száma(excepted és excluded is)
 	 */
-	public int getAllTests() {
-		return allTests;
+	public int getNumberOfTests() {
+		return expectedResults.size() + excludedResults.size();
 	}
 	/**
 	 * Megadja, hogy a teszt sikeresen lefutott-e.
