@@ -16,17 +16,15 @@ public class TestManager {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         ArrayList<String> commandArray = new ArrayList<String>();
-        String str = null;
+        String line = null;
          try {
-              String line = null;
-              while (!(line = br.readLine()).equals("")){
+              while ((line = br.readLine()) != null){
             	  commandArray.add(line); 
               }
          }
          catch(IOException e){
         	 e.printStackTrace();
-         }
-         
+         }         
          for(String command : commandArray){
         	 runCommand(command);
          }
@@ -49,7 +47,7 @@ public class TestManager {
 	    	if(args.size()==5)
 	    		result = test.fire(args.get(1), Integer.parseInt(args.get(2)), Integer.parseInt(args.get(3)), args.get(4));
 	    	else 
-	    		System.out.println("no such command");;
+	    		System.out.println("no such command");
 	    	break; //
 	    case "MOVE":
 	    	if(args.size()==4){

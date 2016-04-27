@@ -234,7 +234,7 @@ public class Test {
 	 */
 	protected String fire(String karaternev, int x, int y, String szin)
 	{
-		return "Még nincs kész";
+		return "Még nincs kész";//TODO FIXME csináld meg!
 	}
 	
 	
