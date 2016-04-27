@@ -11,19 +11,51 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import model.JatekMotor;
+
 /**
  * A tesztelés főosztálya, ez tartalmazza a main metódust.
  * Konzolról nem olvas, csupán fájlból. A parancssori argumentumként
- * kapott fájlt fogja megnyitni, futtatni.
+ * kapott fájlt fogja megnyitni, futtatni. 
+ * Ha nem kap parancssori argumentumként semmit, akkor
+ * a test/testfiles mappa összes .txt fájlján végig fog menni 
+ * és azokat fogja beolvasni.
  * @author zsigatibor
  *
  */
 public class MainTesterClass {
-
+	public static File workingDirectory = new File("test/testfiles");
+	JatekMotor jm = new JatekMotor();
+	TestManager TM = new TestManeger(jm);
+	
 	public static void main(String[] args) {
+		/*
+		 * Ez az if-ág akkor fog lefutni, ha parancssori
+		 * argumentumként megadtunk fájlnevet.
+		 */
+		if(args.length != 0)			
 		try{
-				runTest(args[0]);	//TODO nem jó, a TestObject-hez át kell írni.
-									//ha hazaértem, este megírom. @author zsigatibor
+			File fp = new File(workingDirectory,args[0]);
+			BufferedReader brrrr = new BufferedReader(
+						new FileReader(fp));
+			String[] tokens = args[0].split("."); //.txt-t leválasztom róla, semmi komoly
+			TestObject TO = new TestObject(tokens[0]);//pl "test1.txt" esetén "test1" lesz a neve
+			String line;			
+			while((line = brrrr.readLine()) != null){				
+				String[] pieces = line.split(" ");
+				switch(pieces[0]){
+				case "EXPECTED":
+					TO.AddExpectedResultRow(line);
+					break;
+				case "EXCLUDED":
+					TO.AddExcludedResultRow(line);
+					break;
+				default:
+					TO.addCommandRow(line);
+					break;
+				}				
+			}
+			
 		}catch(IOException e){
 			e.printStackTrace();
 		}
@@ -32,8 +64,8 @@ public class MainTesterClass {
 		try {
 			File fp = new File("src/testfiles",args[0]);
 			BufferedReader brr = new BufferedReader(new FileReader(fp));
-			String line = brr.readLine();
-			while(line != null){
+			String line;
+			while((line = brr.readLine()) != null){
 //				String[] darabok = line.split(" ");
 				System.out.println(TestManager.runCommand(line) + "\n");
 				line = brr.readLine();

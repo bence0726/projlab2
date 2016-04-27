@@ -62,64 +62,7 @@ public class Test {
 
 	
 	
-	/*
-	 * a karaktert kikeresi neve alapján majd a kapott vektorral
-	 * eltolja azt, ha nem ütközik olyan pályaelembe, amelyre
-	 * a rálépés nem megengedett.
-	 * A parancs eredményét visszatérési értékként adja meg. (pl MOVED oneil right 42 42)
-	 */
-	protected String move(String karakternev, String irany, int mennyi)
-	{
-		if(karakternev.equals("oneil"))
-		{
-			switch(irany)
-			{
-				case "up": motor.setOneilMoveDir(MoveDirections.MoveUp);
-				break;
-				case "down": motor.setOneilMoveDir(MoveDirections.MoveDown);
-				break;
-				case "right": motor.setOneilMoveDir(MoveDirections.MoveRight);
-				break;
-				case "left": motor.setOneilMoveDir(MoveDirections.MoveLeft);
-			}
-			for(int i=0;i<mennyi;i++)
-				motor.moveEverything();
-			
-			return karakternev+" MOVED "+irany+" "+mennyi;
-			
-		}
-		else if(karakternev.equals("jaffa"))
-		{
-			switch(irany)
-			{
-				case "up": motor.setJaffaMoveDir(MoveDirections.MoveUp);
-				break;
-				case "down": motor.setJaffaMoveDir(MoveDirections.MoveDown);
-				break;
-				case "right": motor.setJaffaMoveDir(MoveDirections.MoveRight);
-				break;
-				case "left": motor.setJaffaMoveDir(MoveDirections.MoveLeft);
-			}
-			for(int i=0;i<mennyi;i++)
-				motor.moveEverything();		//ennek nem így kéne lennie szerintem, mert csk külön akarjuk mozgatni a karaktert sokszor
-			
-			return karakternev+" MOVED "+irany+" "+mennyi;
-			
-				
-		}
-		return "Hiba";
-		
-	}
 	
-	
-	/*
-	 * a karaktert neve alapján kikeresi a mozgatandok
-	 * listáról és az adott irányba adott színnel elindít egy golyót.
-	 */
-	protected String fire(String karaternev, int x, int y, String szin)
-	{
-		return "Még nincs kész";//TODO FIXME csináld meg!
-	}
 	
 	
 	/*

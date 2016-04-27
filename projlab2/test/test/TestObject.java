@@ -12,7 +12,7 @@ public class TestObject {
 	/**
 	 * Futtatandó parancsok listája.
 	 */
-	List<String[]> commandList = new ArrayList<>();
+	List<String> commandList = new ArrayList<>();
 	/**
 	 * Elvárt sorok a kimenetben. Ezeknek meg KELL jelenniük
 	 * a sorok között.
@@ -43,17 +43,16 @@ public class TestObject {
 	}
 	/**
 	 * A teszthez hozzáad egy új parancsot annak attribútumaival együtt.
-	 * A parancsot String tömbként, darabokban kéri.
 	 * @param command
 	 */
-	public void addCommandRow(String[] command){
+	public void addCommandRow(String command){
 		commandList.add(commandList.size(), command);
 	}
 	/**
 	 * Elvárt kimenetet adhatunk meg a teszt-objektumnak.
 	 * @param excepted
 	 */
-	public void AddExceptedResultRow(String excepted){
+	public void AddExpectedResultRow(String excepted){
 		expectedResults.add(excepted);
 	}
 	/**
@@ -72,9 +71,10 @@ public class TestObject {
 	}
 	/**
 	 * Az Teszt következő parancsát adja vissza.
+	 * Egyúttal törli is a listáról.
 	 * @return null, ha nincs több parancs.
 	 */
-	public String[] nextCommand(){		
+	public String nextCommand(){		
 		if (commandList.size() == 0)			
 			return null;
 		return commandList.remove(0);
