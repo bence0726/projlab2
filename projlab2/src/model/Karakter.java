@@ -29,6 +29,7 @@ public class Karakter extends Moveable{
      */
     public Karakter(Labirintus lab,Elem startElem){
     	super(lab,startElem);
+    	gundir.beEqualWith(new Vektor(0,1));
     	image = "jaffa.jpg";
     	name="jaffa";
     }
