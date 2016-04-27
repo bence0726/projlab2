@@ -133,7 +133,9 @@ public class TestObject {
 				wrongTests.add(excludedrow);			
 		}
 	}
-
+	public List<String> getWrongLines(){
+		return wrongTests;
+	}
 	/**
 	 * Visszaadja a rossz sorok számát.
 	 */
