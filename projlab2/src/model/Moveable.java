@@ -24,8 +24,7 @@ public abstract class Moveable extends Elem{
     	diagonal.invertThisVec();
     	pos.setVeg(Vektor.addVecToVec(locMiddleofArea, diagonal));
 		this.lab = lab;
-		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
-		
+		moveDir = new Vektor(0,0);
 	}
 
 	

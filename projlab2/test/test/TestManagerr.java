@@ -23,7 +23,7 @@ public class TestManagerr {
 	
 	List<TestObject> TOList = new ArrayList<>();
 	List<String> AllTestsOutput = new ArrayList<>();
-	ArrayList<String> OneTestOutput = newArrayList<>();
+	ArrayList<String> OneTestOutput = new ArrayList<>();
 	
 	public TestManagerr(JatekMotor gameEngine){
 		jm = gameEngine;
@@ -51,38 +51,158 @@ public class TestManagerr {
 	 */
 	private void run(TestObject TO){
 		String command;
+		int beforeAdd;
+		int afterAdd;
 		
 		while((command = TO.nextCommand()) != null){
+			List<Elem> list = jm.getLab().getList();
 			String[] pieces = command.split(" ");
 			switch(pieces[0]){
 			case "ADD":
 				switch (pieces[1]) {
 				case "FAL":
-					List<Elem> list = jm.getLab().getList();
-					int beforeAdd = list.size();
+					beforeAdd = list.size();
 					mb.addFal(Integer.parseInt(pieces[2]),
 							Integer.parseInt(pieces[3]),
 							Integer.parseInt(pieces[4]),
 							Integer.parseInt(pieces[5]));					
-					int afterAdd = list.size();
+					afterAdd = list.size();					
+					if(beforeAdd < afterAdd)//megvizsgáljuk, hogy nőtt-e a lista mérete
+						OneTestOutput.add("FAL ADDED");//(vagyis bekerült-e az elem)
+					else
+						OneTestOutput.add("ADDING FAL FAILED");
+					break;
+				case "SPECFAL":
+					beforeAdd = list.size();
+					mb.addSpecFal(Integer.parseInt(pieces[2]),
+							Integer.parseInt(pieces[3]),
+							Integer.parseInt(pieces[4]),
+							Integer.parseInt(pieces[5]));					
+					afterAdd = list.size();
 					if(beforeAdd < afterAdd)
-						OneTestOutput.add("")
-						
+						OneTestOutput.add("SPECFAL ADDED");
+					else
+						OneTestOutput.add("ADDING SPECFAL FAILED");
 					break;
-				case "FAL":
-	
+				case "STARTELEM":
+					beforeAdd = list.size();
+					mb.addStartElem(Integer.parseInt(pieces[2]),
+							Integer.parseInt(pieces[3]),
+							Integer.parseInt(pieces[4]),
+							Integer.parseInt(pieces[5]));					
+					afterAdd = list.size();
+					if(beforeAdd < afterAdd)
+						OneTestOutput.add("STARTELEM ADDED");	
+					else
+						OneTestOutput.add("ADDING STARTELEM FAILED");
 					break;
-				case "FAL":
-	
+				case "ENDELEM":
+					beforeAdd = list.size();
+					mb.addEndElem(Integer.parseInt(pieces[2]),
+							Integer.parseInt(pieces[3]),
+							Integer.parseInt(pieces[4]),
+							Integer.parseInt(pieces[5]));					
+					afterAdd = list.size();
+					if(beforeAdd < afterAdd)
+						OneTestOutput.add("ENDELEM ADDED");	
+					else
+						OneTestOutput.add("ADDING ENDELEM FAILED");
 					break;
-				case "FAL":
-	
+				case "SZAKADEK":
+					beforeAdd = list.size();
+					mb.addSzakadek(Integer.parseInt(pieces[2]),
+							Integer.parseInt(pieces[3]),
+							Integer.parseInt(pieces[4]),
+							Integer.parseInt(pieces[5]));					
+					afterAdd = list.size();
+					if(beforeAdd < afterAdd)
+						OneTestOutput.add("SZAKADEK ADDED");
+					else
+						OneTestOutput.add("ADDING SZAKADEK FAILED");
 					break;
-	
+				case "ZPM":
+					beforeAdd = list.size();
+					mb.addZPM(Integer.parseInt(pieces[2]),
+							Integer.parseInt(pieces[3]),
+							Integer.parseInt(pieces[4]),
+							Integer.parseInt(pieces[5]));					
+					afterAdd = list.size();
+					if(beforeAdd < afterAdd)
+						OneTestOutput.add("ZPM ADDED");
+					else
+						OneTestOutput.add("ADDING ZPM FAILED");
+					break;					
+				case "REPLIKATOR":
+					beforeAdd = list.size();
+					mb.addReplikator();					
+					afterAdd = list.size();
+					if(beforeAdd < afterAdd)
+						OneTestOutput.add("REPLIKATOR ADDED");	
+					else
+						OneTestOutput.add("ADDING REPLIKATOR FAILED");
+					break;
+				case "DOBOZ":
+					beforeAdd = list.size();
+					mb.addDoboz(Integer.parseInt(pieces[2]),
+							Integer.parseInt(pieces[3]),
+							Integer.parseInt(pieces[4]));					
+					afterAdd = list.size();
+					if(beforeAdd < afterAdd)
+						OneTestOutput.add("DOBOZ ADDED");
+					else
+						OneTestOutput.add("ADDING DOBOZ FAILED");
+					break;
+				case "MERLEG":
+					beforeAdd = list.size();
+					mb.addMerleg(Integer.parseInt(pieces[2]),
+							Integer.parseInt(pieces[3]),
+							Integer.parseInt(pieces[4]),
+							Integer.parseInt(pieces[5]),
+							Integer.parseInt(pieces[6]),
+							Integer.parseInt(pieces[7]),
+							Integer.parseInt(pieces[8]),
+							Integer.parseInt(pieces[9]));					
+					afterAdd = list.size();
+					if(beforeAdd < afterAdd)
+						OneTestOutput.add("MERLEG ADDED");
+					else
+						OneTestOutput.add("ADDING MERLEG FAILED");
+					break;
+				case "JAFFA":
+					beforeAdd = list.size();
+					mb.addJaffa();					
+					afterAdd = list.size();
+					if(beforeAdd < afterAdd)
+						OneTestOutput.add("jaffa ADDED");	
+					else
+						OneTestOutput.add("ADDING jaffa FAILED");
+					break;
+				case "ONEIL":
+					beforeAdd = list.size();
+					mb.addOneil();					
+					afterAdd = list.size();
+					if(beforeAdd < afterAdd)
+						OneTestOutput.add("oneil ADDED");	
+					else
+						OneTestOutput.add("ADDING oneil FAILED");
+					break;
+					
+				default:
+					break;
+				}//térképre elemek rátétele blokk vége.
+				//innenstől karakter mozgatása, lövése, stb
+			case "MOVE":
+				switch (pieces[2]) {
+				case "oneil":
+//					KarakterController.
+					
+					break;
 
 				default:
 					break;
 				}
+			
+				
 			}
 		}
 				

@@ -1,10 +1,13 @@
 package controller;
 
 import model.Doboz;
+import model.Elem;
 import model.Fal;
 import model.JatekMotor;
+import model.Karakter;
 import model.Labirintus;
 import model.Merleg;
+import model.Oneil;
 import model.PortalManager;
 import model.Replikator;
 import model.SpecFal;
@@ -77,7 +80,7 @@ public class MapBuilder {
 	 * a kapott paraméterekkel meghívja a VegeElem konstruktorát
 	 *  és hozzáadja a Labirintushoz.
 	 */
-	public void addVegeElem(int x1, int y1, int x2, int y2)
+	public void addEndElem(int x1, int y1, int x2, int y2)
 	{
 		Fal tmp=new Fal(new Vektor(x1,y1), new Vektor(x2,y2));
 		tmp.setReachable(true);
@@ -125,9 +128,9 @@ public class MapBuilder {
 	 * a kapott paraméterekkel a Labirintushoz Startelem attribútumát
 	 * állítja be.
 	 */
-	public void addKezdoPont(int x, int y)
+	public void addStartElem(int x1, int y1, int x2, int y2)
 	{
-		Fal tmp=new Fal(new Vektor(x,y), new Vektor(2,2));
+		Fal tmp = new Fal(new Vektor(x1,y1), new Vektor(x2,y2));
 		tmp.setReachable(true);
 		lab.addStartElem(tmp);
 	}
@@ -141,5 +144,39 @@ public class MapBuilder {
 	{
 		Replikator tmp = new Replikator(lab, new Vektor(x,y));
 		lab.addMoveable(tmp);
+	}
+	/**
+	 * Replikátort ad a labirintushoz. Paraméter nélkül megadva
+	 * a kezdőpontra teszi le.
+	 * Figyelem! A konstruktor hívása előtt a labirintus
+	 * kezdőpontja inicializálva kell legyen, különben nullptr
+	 * exception-t vált ki!
+	 */
+	public void addReplikator(){
+		Replikator tmp = new Replikator(lab, lab.getStartElem().getPos().getKezd());
+		lab.addMoveable(tmp);
+	}
+
+	/**
+	 * Beállítja Jaffát a modellben.
+	 * FIGYELEM! Először a kezdőpontot kell
+	 * beállítani a labirintusban!
+	 */
+	public void addJaffa() {
+		Elem start = lab.getstartElem();
+		Karakter jaffa = new Karakter(lab, start);
+		lab.addMoveable(jaffa);
+		lab.addJaffa(jaffa);	
+	}
+	/**
+	 * Beállítja Oneilt a modellben.
+	 * FIGYELEM! Először a kezdőpontot kell
+	 * beállítani a labirintusban!
+	 */
+	public void addOneil() {
+		Elem start = lab.getstartElem();
+		Karakter oneil = new Oneil(lab, start);
+		lab.addMoveable(oneil);
+		lab.addOneil(oneil);	
 	}
 }
