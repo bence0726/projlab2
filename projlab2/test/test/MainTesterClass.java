@@ -25,10 +25,11 @@ import model.JatekMotor;
  */
 public class MainTesterClass {
 	public static File workingDirectory = new File("test/testfiles");
-	JatekMotor jm = new JatekMotor();
-	TestManager TM = new TestManeger(jm);
+	
 	
 	public static void main(String[] args) {
+		JatekMotor jm = new JatekMotor();
+		TestManagerr TM = new TestManagerr(jm);
 		/*
 		 * Ez az if-ág akkor fog lefutni, ha parancssori
 		 * argumentumként megadtunk fájlnevet.
@@ -55,11 +56,12 @@ public class MainTesterClass {
 					break;
 				}				
 			}
-			
+			TM.addTestObject(TO);	//odaadjuk a TestObject-et a TestManagernek		
 		}catch(IOException e){
 			e.printStackTrace();
 		}
 		
+		TM.runAll();//TODO ezt majd a legeslegvégén elég meghívni 1x.
 		
 		try {
 			File fp = new File("src/testfiles",args[0]);
@@ -67,7 +69,7 @@ public class MainTesterClass {
 			String line;
 			while((line = brr.readLine()) != null){
 //				String[] darabok = line.split(" ");
-				System.out.println(TestManager.runCommand(line) + "\n");
+//				System.out.println(TestManagerr.runCommand(line) + "\n");
 				line = brr.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -105,7 +107,7 @@ public class MainTesterClass {
 	         
 	         line = reader.readLine();
 	         while (line != "TEST"){
-	        	 testresult = TestManager.runCommand(line);
+//	        	 testresult = TestManagerr.runCommand(line);
 	        	 line = reader.readLine();
 	        	 if (testresult != null)
 	        	 {
