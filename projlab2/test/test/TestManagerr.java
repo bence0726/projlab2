@@ -173,18 +173,18 @@ public class TestManagerr {
 					mb.addJaffa();					
 					afterAdd = list.size();
 					if(beforeAdd < afterAdd)
-						OneTestOutput.add("jaffa ADDED");	
+						OneTestOutput.add("JAFFA ADDED");	
 					else
-						OneTestOutput.add("ADDING jaffa FAILED");
+						OneTestOutput.add("ADDING JAFFA FAILED");
 					break;
 				case "ONEIL":
 					beforeAdd = list.size();
 					mb.addOneil();					
 					afterAdd = list.size();
 					if(beforeAdd < afterAdd)
-						OneTestOutput.add("oneil ADDED");	
+						OneTestOutput.add("ONEIL ADDED");	
 					else
-						OneTestOutput.add("ADDING oneil FAILED");
+						OneTestOutput.add("ADDING ONEIL FAILED");
 					break;
 					
 				default:
@@ -192,12 +192,23 @@ public class TestManagerr {
 				}//térképre elemek rátétele blokk vége.
 				//innenstől karakter mozgatása, lövése, stb
 			case "MOVE":
-				switch (pieces[2]) {
-				case "oneil":
-//					KarakterController.
-					
-					break;
-
+				kc.move(pieces[2], pieces[3]);
+				OneTestOutput.add(pieces[2] + " MOVED " + pieces[3]);
+				break;
+			case "FIRE":
+				kc.fire(pieces[2], pieces[3]);
+				OneTestOutput.add(pieces[2] + " FIRED");
+				break;
+			case "ROTATEGUN":
+				kc.rotateGun(pieces[2], Double.parseDouble(pieces[3]));
+				OneTestOutput.add("GUN ROTATED WITH " + pieces[3]);
+				break;
+			case "PICK":
+				kc.pick(pieces[2]);
+				OneTestOutput.add("PICKED BY  " + pieces[2]);
+			case "DROP":
+				kc.drop(pieces[2]);
+				OneTestOutput.add("BOX DROPPED BY " + pieces[2]);
 				default:
 					break;
 				}
@@ -208,7 +219,7 @@ public class TestManagerr {
 				
 		
 		
-	}
+//	}
 	/**
 	 * Visszaad egy statisztikát a futtatott tesztekről.
 	 */
