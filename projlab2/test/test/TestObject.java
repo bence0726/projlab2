@@ -31,6 +31,15 @@ public class TestObject {
 	 */
 	String testCaseName = "SampleTest";
 	
+	/**
+	 * A rossz sorok száma.
+	 */
+	int numberOfWrongLines = 0;
+	/**
+	 * A teszt összes tesztsora.
+	 */
+	int allTests = 0;
+	
 	TestObject(String name){
 		testCaseName = name;
 	}
@@ -48,6 +57,15 @@ public class TestObject {
 	 */
 	public void AddExceptedResultRow(String excepted){
 		exceptedResults.add(excepted);
+		allTests++;
+	}
+	/**
+	 * Olyan sorokat adhatunk hozzá, amelyeknek TILOS
+	 * megjelennie a kimenetben.
+	 */
+	public void AddExcludedResultRow(String excluded){
+		excludedResults.add(excluded);
+		allTests++;
 	}
 	/**
 	 * A tesztelés után kiírt sorokat adhatjuk át neki.
@@ -74,8 +92,17 @@ public class TestObject {
 	public void checkTest(){
 		
 	}
+	/**
+	 * Visszaadja a rossz sorok számát.
+	 */
 	public int numberOfWrongLines(){
-		return 
+		return numberOfWrongLines;
+	}
+	/**
+	 * @return A teszt összes sorainak száma(excepted és excluded is)
+	 */
+	public int getAllTests() {
+		return allTests;
 	}
 	/**
 	 * Megadja, hogy a teszt sikeresen lefutott-e.
