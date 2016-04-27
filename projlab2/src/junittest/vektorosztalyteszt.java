@@ -1,10 +1,10 @@
 package junittest;
 
-import projlab2.Vektor;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import model.Vektor;
 
 public class vektorosztalyteszt {
 

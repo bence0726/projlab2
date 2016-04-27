@@ -1,4 +1,4 @@
-package projlab2;
+package model;
 
 /**
  * Ez az osztály tartja nyilván a pályán lévő portálokat. Segítségével

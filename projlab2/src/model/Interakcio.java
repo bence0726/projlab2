@@ -1,4 +1,4 @@
-package projlab2;
+package model;
 
 /**
  * Interfész az alap interakciókra. Az implementáló osztálynak

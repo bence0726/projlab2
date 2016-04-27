@@ -1,4 +1,4 @@
-package projlab2;
+package model;
 import java.util.*;
 
 /**

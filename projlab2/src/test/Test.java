@@ -4,7 +4,7 @@ package test;
 
 import java.util.*;
 
-import projlab2.*;
+import model.*;
 
 public class Test {
 

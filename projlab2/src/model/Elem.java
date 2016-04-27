@@ -1,4 +1,4 @@
-package projlab2;
+package model;
 
 /**
  * Az összes objektum ebből a közös 

@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import projlab2.Karakter;
-import projlab2.Labirintus;
+import model.Karakter;
+import model.Labirintus;
 
 public class moveableosztalyteszt {
 

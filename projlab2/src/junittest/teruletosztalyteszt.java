@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import projlab2.Terulet;
-import projlab2.Vektor;
+import model.Terulet;
+import model.Vektor;
 
 public class teruletosztalyteszt {
 
