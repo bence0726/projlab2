@@ -64,12 +64,12 @@ public class Test {
 	 * konstruktorát és hozzáadja a Labirintushoz.
 	 * 
 	 */
-	protected void addFal(int x1, int y1, int x2, int y2)
+	protected String addFal(int x1, int y1, int x2, int y2)
 	{
 		Fal tmp=new Fal(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2)));
 		tmp.setReachable(false);
 		lab.addElem(tmp);
-		
+		return tmp.name + " hozzáadva.";
 	}
 	
 	
@@ -78,11 +78,12 @@ public class Test {
 	 *  és hozzáadja a Labirintushoz.
 	 * 
 	 */
-	protected void addSpecFal(int x1, int y1, int x2, int y2)
+	protected String addSpecFal(int x1, int y1, int x2, int y2)
 	{
 		SpecFal tmp=new SpecFal(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2)), motor.pm);
 		tmp.setReachable(false);
 		lab.addElem(tmp);
+		return tmp.name + " hozzáadva.";
 	}
 	
 	
@@ -90,9 +91,11 @@ public class Test {
 	 * a kapott paraméterekkel meghívja a ZPM
 	 *  konstruktorát és hozzáadja a Labirintushoz.
 	 */
-	protected void addZPM(int x1, int y1, int x2, int y2)
+	protected String addZPM(int x1, int y1, int x2, int y2)
 	{
-		lab.addElem(new ZPM(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2))));
+		ZPM tmp = new ZPM(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2)));
+		lab.addElem(tmp);
+		return tmp.name + " hozzáadva.";
 	}
 	
 	
@@ -101,11 +104,12 @@ public class Test {
 	 * a kapott paraméterekkel meghívja a VegeElem konstruktorát
 	 *  és hozzáadja a Labirintushoz.
 	 */
-	protected void addVegeElem(int x1, int y1, int x2, int y2)
+	protected String addVegeElem(int x1, int y1, int x2, int y2)
 	{
 		Fal tmp=new Fal(new Vektor(x1,y1), new Vektor(x2,y2));
 		tmp.setReachable(true);
 		lab.addEndElem(tmp);
+		return tmp.name + " hozzáadva.";
 	}
 	
 	
@@ -114,9 +118,11 @@ public class Test {
 	 * a kapott paraméterekkel meghívja a Szakadek konstruktorát
 	 *  és hozzáadja a Labirintushoz.
 	 */
-	protected void addSzakadek(int x1, int y1, int x2, int y2)
+	protected String addSzakadek(int x1, int y1, int x2, int y2)
 	{
-		lab.addElem(new Szakadek(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2))));
+		Szakadek tmp = new Szakadek(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2)));
+		lab.addElem(tmp);
+		return tmp.name + " hozzáadva.";
 	}
 	
 	
@@ -126,33 +132,36 @@ public class Test {
 	 * a Labirintushoz. 
 	 * A Merleg konstruktora a kapott paraméterekkel a hozzá tartozó ajtót is létrehozza.
 	 */
-	protected void addMerleg(int mx1, int my1, int mx2, int my2, int ax1, int ay1, int ax2, int ay2)
+	protected String addMerleg(int mx1, int my1, int mx2, int my2, int ax1, int ay1, int ax2, int ay2)
 	{
 		Fal tmp=new Fal(new Terulet(new Vektor(ax1,ay1), new Vektor(ax2,ay2)));
 		tmp.setReachable(false);
-		lab.addElem(new Merleg(new Terulet(new Vektor(mx1,my1), new Vektor(mx2,my2)), tmp));		
+		lab.addElem(new Merleg(new Terulet(new Vektor(mx1,my1), new Vektor(mx2,my2)), tmp));
+		return tmp.name + " hozzáadva.";
 	}
 	
 	
 	/*
 	 * a kapott paraméterekkel meghívja a Doboz konstruktorát és hozzáadja a Labirintushoz.
 	 */
-	protected void addDoboz(int x, int y, int suly)
+	protected String addDoboz(int x, int y, int suly)
 	{
 		Doboz tmp=new Doboz(lab, new Vektor(x,y),suly);
 		lab.addElem(tmp);
 		mozgatandok.add(tmp);
+		return tmp.name + " hozzáadva.";
 	}
 	
 	
 	/*
 	 * a kapott paraméterekkel a Labirintushoz Startelem attribútumát
 	 */
-	protected void addKezdoPont(int x, int y)
+	protected String addKezdoPont(int x, int y)
 	{
 		Fal tmp=new Fal(new Vektor(x,y), new Vektor(2,2));
 		tmp.setReachable(true);
 		lab.addStartElem(tmp);
+		return tmp.name + " hozzáadva.";
 	}
 
 	
@@ -160,11 +169,12 @@ public class Test {
 	 *a kapott paraméterekkel meghívja a Replikator konstruktorát,
 	 * hozzáadja a Labirintushoz és a mozgatandok listához is.
 	 */
-	protected void addReplikator(int x, int y)
+	protected String addReplikator(int x, int y)
 	{
 		Replikator tmp=new Replikator(lab, new Vektor(x,y));
 		lab.addElem(tmp);
 		mozgatandok.add(tmp);
+		return tmp.name + " hozzáadva.";
 	}
 	
 	
@@ -282,10 +292,10 @@ public class Test {
 	/*
 	 * visszaadja, hogy hány db ZPM van a labirintusban.
 	 */
-	protected String getZPMinLab()
+	protected int getZPMinLab()
 	{
 		
-		return ""+lab.getOsszZPM();
+		return lab.getOsszZPM();
 	}
 	
 	/*

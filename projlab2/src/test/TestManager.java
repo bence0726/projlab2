@@ -43,6 +43,8 @@ public class TestManager {
 		while (st.hasMoreElements()) args.add(st.nextToken());
 		
 		switch(args.get(0).toUpperCase()){
+		case "TEST":
+			runTest(args.get(2));
 	    case "FIRE":
 	    	if(args.size()==5)
 	    		result = test.fire(args.get(1), Integer.parseInt(args.get(2)), Integer.parseInt(args.get(3)), args.get(4));
@@ -58,37 +60,45 @@ public class TestManager {
 	       break; //
 	    case "ADD":
 	    	if(args.size()==10){
-	    		test.addMerleg(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)),Integer.parseInt(args.get(6)),Integer.parseInt(args.get(7)),Integer.parseInt(args.get(8)),Integer.parseInt(args.get(9)));
+	    		result = test.addMerleg(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)),Integer.parseInt(args.get(6)),Integer.parseInt(args.get(7)),Integer.parseInt(args.get(8)),Integer.parseInt(args.get(9)));
 	    	}
 	    	else if(args.size()==6){
 	    		switch(args.get(1).toUpperCase()){
 	    		case "FAL":
+	    			
 	    			test.addFal(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			result = "FAL hozzáadva.";
 	    			break;
 	    		case "SPECFAL":
 	    			test.addSpecFal(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			result = "SPECFAL hozzáadva.";
 	    			break;
 	    		case "SZAKADEK":
 	    			test.addSzakadek(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			result = "SZAKADÉK hozzáadva.";
 	    			break;
 	    		case "VEGEELEM":
 	    			test.addVegeElem(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			result = "VEGEELEM hozzáadva.";
 	    			break;
 	    		case "ZPM":
 	    			test.addZPM(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			result = "ZPM hozzáadva.";
 	    			break;
 	    		}
 	    	}
 	    	else if(args.size()==5){
-	    		test.addDoboz(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)));
+	    		result = test.addDoboz(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)));
 	    	}
 	    	else if(args.size()==4){
 	    		switch(args.get(1).toUpperCase()){
 	    		case "KEZDOPONT":
 	    			test.addKezdoPont(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)));
+	    			result = "KEZDOPONT hozzáadva.";
 	    			break;
 	    		case "REPLIKATOR":
 	    			test.addReplikator(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)));
+	    			result = "REPLIKATOR hozzáadva.";
 	    			break;
 	    		}
 	    	}
@@ -105,7 +115,7 @@ public class TestManager {
 	    break;
 	    case "GET":
 	    	if(args.get(1).equalsIgnoreCase("ZPM") && args.get(2).equalsIgnoreCase("IN") && args.get(3).equalsIgnoreCase("LAB"))
-	    		result = test.getZPMinLab();
+	    		result = String.valueOf(test.getZPMinLab());
 	    	else 
 	    		System.out.println("no such command");
 	    break;
@@ -132,7 +142,7 @@ public class TestManager {
 	    default :
 	    	System.out.println("Invalid command");
 		}
-		return result;
+		return result + "\n";
      
 	}
 	
@@ -153,8 +163,8 @@ public class TestManager {
 	    String testresult = null;
 	    
 	    try {
-	         in = new FileInputStream("test/input"+testname+".txt");
-	         out = new FileOutputStream("test/output"+testname+".txt");
+	         in = new FileInputStream("testfiles/"+testname+".txt");
+	         out = new FileOutputStream("testfiles/"+testname+".txt");
 	         reader = new BufferedReader(new InputStreamReader(in));
 	         ArrayList<String> args = new ArrayList<String>();
 	         

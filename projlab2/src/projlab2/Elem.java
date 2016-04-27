@@ -35,8 +35,9 @@ public abstract class Elem implements Interakcio {
      * Adott területen létrehoz egy elemet.
      */
     public Elem(Terulet pos) {
-    	this.pos.setKezd(pos.getKezd());
-    	this.pos.setVeg(pos.getVeg());
+//    	this.pos.setKezd(pos.getKezd());
+//    	this.pos.setVeg(pos.getVeg());
+    	this.pos = pos;
     }
     
     /**
@@ -58,6 +59,7 @@ public abstract class Elem implements Interakcio {
      * @param diagonal
      */
     public Elem(Vektor locUpLeftCorner,Vektor diagonal){
+    	pos = new Terulet();
     	pos.setKezd(locUpLeftCorner);
     	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
     }
