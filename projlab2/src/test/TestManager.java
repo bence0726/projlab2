@@ -76,7 +76,7 @@ public class TestManager {
 	    			result = "SZAKADÉK hozzáadva.";
 	    			break;
 	    		case "VEGEELEM":
-	    			test.addVegeElem(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
+	    			test.addEndElem(Integer.parseInt(args.get(2)),Integer.parseInt(args.get(3)),Integer.parseInt(args.get(4)),Integer.parseInt(args.get(5)));
 	    			result = "VEGEELEM hozzáadva.";
 	    			break;
 	    		case "ZPM":
