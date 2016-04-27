@@ -206,10 +206,19 @@ public class TestManagerr {
 			case "PICK":
 				kc.pick(pieces[2]);
 				OneTestOutput.add("PICKED BY  " + pieces[2]);
+				break;
 			case "DROP":
 				kc.drop(pieces[2]);
 				OneTestOutput.add("BOX DROPPED BY " + pieces[2]);
-				default:
+				break;
+			case "GETPOS":				
+				OneTestOutput.add(pieces[2] + kc.getpos(pieces[2]));
+				break;
+			case "GETZPMS":
+				OneTestOutput.add("ZPMS IN LAB " +
+						String.valueOf(jm.getLab().getOsszZPM()));
+				break;
+			default:
 					break;
 				}
 			

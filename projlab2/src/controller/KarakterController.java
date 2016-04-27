@@ -3,6 +3,7 @@ package controller;
 import model.JatekMotor;
 import model.MoveDirections;
 import model.Szin;
+import model.Vektor;
 
 public class KarakterController {
 	JatekMotor jm;
@@ -100,5 +101,20 @@ public class KarakterController {
 		}			
 		if(karakternev.equals("JAFFA"))
 			jm.jaffaDrop();
+	}
+	/**
+	 * Stringgé parsolva visszaadja a karakter koordinátáit.
+	 * @param string
+	 * @return
+	 */
+	public String getpos(String karakternev) {
+		Vektor v = new Vektor(0,0);
+		if(karakternev.equals("ONEIL"))
+			v = jm.getLab().getOneil().getPos().getKezd();
+		if(karakternev.equals("JAFFA"))
+			v = jm.getLab().getJaffa().getPos().getKezd();
+		double x = v.getVx();
+		double y = v.getVy();
+		return String.valueOf(x) + " " + String.valueOf(y);
 	}
 }

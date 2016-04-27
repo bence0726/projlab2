@@ -26,7 +26,7 @@ import model.JatekMotor;
  *
  */
 public class MainTesterClass {
-	public static File workingDirectory = new File("test/testfiles");
+	public static File workingDirectory = new File("/test/testfiles/");
 	
 	
 	public static void main(String[] args) {

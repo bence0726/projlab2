@@ -10,7 +10,8 @@ public class JatekMotor {
     public PortalManager pm;
     
     /**
-     * JM konstruktor. Létrehoz egy labirintust.
+     * JM konstruktor. Létrehoz egy labirintust
+     * és egy portalmanagert.
      */
     public JatekMotor() {
     	
