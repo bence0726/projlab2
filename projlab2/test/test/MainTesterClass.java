@@ -11,13 +11,21 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+/**
+ * A tesztelés főosztálya, ez tartalmazza a main metódust.
+ * Konzolról nem olvas, csupán fájlból. A parancssori argumentumként
+ * kapott fájlt fogja megnyitni, futtatni.
+ * @author zsigatibor
+ *
+ */
 public class MainTesterClass {
 
 	public static void main(String[] args) {
 		try{
-				runTest(args[0]);
+				runTest(args[0]);	//TODO nem jó, a TestObject-hez át kell írni.
+									//ha hazaértem, este megírom. @author zsigatibor
 		}catch(IOException e){
-			
+			e.printStackTrace();
 		}
 		
 		
