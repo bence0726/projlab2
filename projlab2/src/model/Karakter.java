@@ -33,7 +33,7 @@ public class Karakter extends Moveable{
     	image = "jaffa.jpg";
     	name="jaffa";
     }
-
+    
     
 
 
