@@ -43,8 +43,8 @@ public class MapBuilder {
 	public void addFal(int x1, int y1, int x2, int y2)
 	{
 		Fal tmp=new Fal(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2)));
-		tmp.setReachable(false);
-		lab.addElem(tmp);
+		tmp.setReachable(false);		
+		lab.addElem(tmp);		
 	}
 	
 	

@@ -163,7 +163,10 @@ public class Labirintus {
 	public Karakter getOneil() {
 		return oneil;
 	}
-
+	/**
+	 * @return a labirintus azon listáját adja vissza,
+	 * amely az összes pályán lévő objektumot tartalmazza
+	 */
 	public ArrayList<Elem> getList() {
 		return objectsOnMap;
 	}
@@ -175,8 +178,8 @@ public class Labirintus {
     public Elem getstartElem() {
         return startElem;
     }
-    public int size()
-    {
-    	return objectsOnMap.size();
-    }
+//    public int size()//FIXME ennek semmi értelme sztem
+//    {
+//    	return objectsOnMap.size();
+//    }
 }

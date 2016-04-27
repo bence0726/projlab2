@@ -6,6 +6,7 @@ import java.util.List;
 
 import controller.KarakterController;
 import controller.MapBuilder;
+import model.Elem;
 import model.JatekMotor;
 
 /**
@@ -21,6 +22,8 @@ public class TestManagerr {
 	KarakterController kc;
 	
 	List<TestObject> TOList = new ArrayList<>();
+	List<String> AllTestsOutput = new ArrayList<>();
+	ArrayList<String> OneTestOutput = newArrayList<>();
 	
 	public TestManagerr(JatekMotor gameEngine){
 		jm = gameEngine;
@@ -47,8 +50,57 @@ public class TestManagerr {
 	 * A paraméterül kapott tesztet futtatja.
 	 */
 	private void run(TestObject TO){
+		String command;
+		
+		while((command = TO.nextCommand()) != null){
+			String[] pieces = command.split(" ");
+			switch(pieces[0]){
+			case "ADD":
+				switch (pieces[1]) {
+				case "FAL":
+					List<Elem> list = jm.getLab().getList();
+					int beforeAdd = list.size();
+					mb.addFal(Integer.parseInt(pieces[2]),
+							Integer.parseInt(pieces[3]),
+							Integer.parseInt(pieces[4]),
+							Integer.parseInt(pieces[5]));					
+					int afterAdd = list.size();
+					if(beforeAdd < afterAdd)
+						OneTestOutput.add("")
+						
+					break;
+				case "FAL":
+	
+					break;
+				case "FAL":
+	
+					break;
+				case "FAL":
+	
+					break;
+	
+
+				default:
+					break;
+				}
+			}
+		}
+				
+		
+		
+	}
+	/**
+	 * Visszaad egy statisztikát a futtatott tesztekről.
+	 */
+	public List<String>getStatistics(){
+		return null;
 		
 	}
 	
-	
+	/**
+	 * visszaadja, hogy hány db ZPM van a labirintusban.
+	 */
+	protected int getZPMinLab(){
+		return jm.getLab().getOsszZPM();
+	}
 }
