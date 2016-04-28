@@ -26,7 +26,7 @@ import model.JatekMotor;
  *
  */
 public class MainTesterClass {
-	public static File workingDirectory = new File("/test/testfiles/");
+	public static File workingDirectory = new File("test/testfiles/");
 	
 	
 	public static void main(String[] args) {
@@ -39,34 +39,20 @@ public class MainTesterClass {
 		if(args.length != 0)			
 		try{
 			File fp = new File(workingDirectory,args[0]);
-			BufferedReader brrrr = new BufferedReader(
-						new FileReader(fp));
-			String[] tokens = args[0].split("."); 		//.txt-t leválasztom róla, semmi komoly
-			TestObject TO = new TestObject(tokens[0]);	//pl "test1.txt" esetén "test1" lesz a neve
-			String line;			
-			while((line = brrrr.readLine()) != null){	//beolvassuk a fájl sorait				
-				String[] pieces = line.split(" ");
-				switch(pieces[0]){
-				case "INCLUDE":						//ha elvárt kimenetet adunk meg,
-					String includeLine = pieces[1];
-					for(int i = 2; i < pieces.length; i++)
-						includeLine = includeLine +" " + pieces[i];//(darabolás visszacsinálása)
-					TO.AddExpectedResultRow(includeLine);		//akkor a megfelelő listájához adjuk hozzá a sort
-					break;
-				case "EXCLUDE":
-					String excludeLine = pieces[1];
-					for(int i = 2; i < pieces.length; i++)
-						excludeLine = excludeLine + " " + pieces[i];//(darabolás visszacsinálása)
-					TO.AddExcludedResultRow(excludeLine);		//ha olyan sort szeretnénk megadni, aminek
-					break;								//TILOS szerepelnie a kimenetben, ezt hívjuk
-				default:
-					TO.addCommandRow(line);
-					break;
-				}				
-			}
-			TM.addTestObject(TO);	//odaadjuk a TestObject-et a TestManagernek		
-		}catch(IOException e){
+			String[] name = args[0].split(".txt");
+			TM.addTestObject(readin(fp));		//odaadjuk a TestObject-et a TestManagernek
+		}			
+		catch(IOException e){
 			e.printStackTrace();
+		}
+		else{
+			try {
+				for (File file : workingDirectory.listFiles()) {//végigmegyünk a mappa tartalmán
+					TM.addTestObject(readin(file));
+				}
+			} catch (IOException e) {
+				// TODO: handle exception
+			}
 		}
 		
 		TM.runAll();//TODO ezt majd a legeslegvégén elég meghívni 1x.
@@ -74,9 +60,38 @@ public class MainTesterClass {
 		
 		Iterator<String> stat = statistics.iterator();
 		while(stat.hasNext())
-			System.out.println(stat.next()); //kiírjuk a statisztikát, a tesztek eredményét
+			System.out.println(stat.next()); 			//kiírjuk a statisztikát, a tesztek eredményét
 		
-		
+	}
+	/**
+	 * Beolvassa a fájl tartalmát és TestObjectet csinál belőle.
+	 */
+	private static TestObject readin(File fp) throws IOException{
+		BufferedReader brrrr = new BufferedReader(
+					new FileReader(fp));
+		String testName = fp.getName();
+		String[] piece = testName.split(".txt");		
+		TestObject TO = new TestObject(piece[0]);		//pl "test1.txt" esetén "test1" lesz a neve
+		String line;				
+		while((line = brrrr.readLine()) != null){		//beolvassuk a fájl sorait				
+			String[] pieces = line.split(" ");
+			switch(pieces[0]){
+			case "INCLUDE":								//ha elvárt kimenetet adunk meg,
+				String[] includeLine = line.split("INCLUDE ");
+				TO.AddExpectedResultRow(includeLine[0]);//akkor a megfelelő listájához adjuk hozzá a sort
+				break;
+			case "EXCLUDE":								//ha olyan sort szeretnénk megadni, aminek
+				String[] excludeLine = line.split("EXCLUDE ");
+				TO.AddExcludedResultRow(excludeLine[0]);
+				break;									//TILOS szerepelnie a kimenetben, ezt hívjuk
+			default:
+				TO.addCommandRow(line);	
+				break;
+			}
+		}
+		brrrr.close();									//bezárjuk a fájlt
+		return TO;
+	}
 //		try {
 //			File fp = new File("src/testfiles",args[0]);
 //			BufferedReader brr = new BufferedReader(new FileReader(fp));
@@ -209,6 +224,6 @@ public class MainTesterClass {
 //	         }
 //	         reader.close();
 //	      }
-	   }
+//	   }
 
 }
