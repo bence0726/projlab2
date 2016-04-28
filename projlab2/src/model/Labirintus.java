@@ -111,10 +111,10 @@ public class Labirintus {
     }
     /**
      * Hozzáadja a labirintushoz a kezdőelemet.
-     * @param startElem
      */
     public void addStartElem(Elem startElem){
     	this.startElem=startElem;
+    	addElem(getstartElem());
     }
     /**
      * Hozzáadja a labirintushoz a végelemet.
@@ -150,10 +150,6 @@ public class Labirintus {
 
 	public int getOsszZPM() {
 		return osszZPM;
-	}
-
-	public Elem getStartElem() {
-		return startElem;
 	}
 
 	public Karakter getJaffa() {

@@ -143,7 +143,7 @@ public class MapBuilder {
 	 * exception-t vált ki!
 	 */
 	public void addReplikator(){
-		Replikator tmp = new Replikator(lab, lab.getStartElem());
+		Replikator tmp = new Replikator(lab, lab.getstartElem().getPos().getKezd());
 		lab.addMoveable(tmp);
 	}
 
