@@ -141,9 +141,11 @@ public class MapBuilder {
 	 * Figyelem! A konstruktor hívása előtt a labirintus
 	 * kezdőpontja inicializálva kell legyen, különben nullptr
 	 * exception-t vált ki!
+	 * FIXME ez biztos hogy igy jo?
 	 */
 	public void addReplikator(){
-		Replikator tmp = new Replikator(lab, lab.getstartElem().getPos().getKezd());
+		//Replikator tmp = new Replikator(lab, lab.getstartElem().getPos().getKezd());
+		Replikator tmp = new Replikator(lab, lab.getstartElem());
 		lab.addMoveable(tmp);
 	}
 

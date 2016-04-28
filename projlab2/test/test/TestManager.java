@@ -68,7 +68,7 @@ public class TestManager {
 				TO.AddResultRow(pieces[1] + " MOVED " + pieces[2]);
 				break;
 			case "FIRE":
-				kc.fire(pieces[2], pieces[3]);
+				kc.fire(pieces[1], pieces[2]);
 				TO.AddResultRow(pieces[2] + " FIRED");
 				break;
 			case "ROTATEGUN":
