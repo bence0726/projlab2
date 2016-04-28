@@ -8,6 +8,10 @@ import controller.KarakterController;
 import controller.MapBuilder;
 import model.Elem;
 import model.JatekMotor;
+import model.SpecFal;
+import model.Szin;
+import model.Terulet;
+import model.Vektor;
 
 /**
  * Ez az osztály fogja tartalmazni a teszt-objektumokat,
@@ -229,6 +233,35 @@ public class TestManagerr {
 			case "GETNUMBEROFELEMS":
 				OneTestOutput.add(jm.getLab().getList().size()
 						+ " ELEM IN LAB");
+				break;
+			case "PORTALPOS":
+				SpecFal sp = null;
+				String specfalText = "";
+				if(pieces[1].equals("YELLOW")){
+					sp = jm.pm.getPortalOfThisColor(Szin.Sarga);
+					Vektor tempMidleOfArea = sp.getPos().getMiddleOfArea();
+					specfalText = "YELLOWPORTAL "
+							+tempMidleOfArea.getVx()
+							+" " 
+							+ tempMidleOfArea.getVy();
+				}					
+				else{
+					sp = jm.pm.getPortalOfThisColor(Szin.Kek);
+					Vektor tempMidleOfArea = sp.getPos().getMiddleOfArea();
+					specfalText = "BLUEPORTAL "
+							+tempMidleOfArea.getVx()
+							+" " 
+							+ tempMidleOfArea.getVy();
+				}
+				if(sp == null)//ha null a referencia, akkor ez a szöveg kell
+					specfalText = "NO" + pieces[1];
+				OneTestOutput.add(specfalText);
+				break;
+			case "MOVEALL":
+				jm.moveEverything();
+				break;
+			case "ISENDGAME":
+				jm.isEndGame();
 				break;
 			default:
 					break;
