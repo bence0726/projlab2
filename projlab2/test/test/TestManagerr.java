@@ -44,6 +44,9 @@ public class TestManagerr {
 		Iterator<TestObject> it = TOList.iterator();
 		while(it.hasNext()){
 			run(it.next());
+			jm = new JatekMotor();
+			mb = new MapBuilder(jm);//mindenből új példány, tiszta tesztelés
+			kc = new KarakterController(jm);
 		}
 	}
 	/**
