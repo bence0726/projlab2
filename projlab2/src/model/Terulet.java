@@ -92,8 +92,8 @@ public class Terulet {
      * @param dirVec : A vektor amivel eltoljuk a területet
      */
     public void addDirToArea(Vektor dirVec) {
-    	this.kezd.addVec(dirVec);
-    	this.veg.addVec(dirVec);
+    	kezd.addVec(dirVec);
+    	veg.addVec(dirVec);
 	}
     
     /**
