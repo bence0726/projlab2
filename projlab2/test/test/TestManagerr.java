@@ -233,8 +233,23 @@ public class TestManagerr {
 	 * Visszaad egy statisztikát a futtatott tesztekről.
 	 */
 	public List<String>getStatistics(){
-		return null;
+		ArrayList<String> text = new ArrayList<>();
+		text.add("Automatizált tesztelés\n");
+		text.add("Összegzés:");
+		int listSize = TOList.size();
+		text.add("Összes teszteset száma: " + listSize);
 		
+		Iterator<TestObject> it = TOList.iterator();
+		int counter = 0;
+		while(it.hasNext()){
+			if(it.next().succeeded)
+				counter++;
+		}
+			
+		text.add("\tEbből sikeres: " + counter);
+		text.add("\tEbből sikertelen: " + (listSize - counter));
+		
+		return text;
 	}
 	
 	/**
