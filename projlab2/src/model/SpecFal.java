@@ -16,7 +16,8 @@ public class SpecFal extends Elem {
    private Szin colour;
 	
 	/**
-    * Megadja, hogy hol kell kirakni a karaktert, ha ide teleportál.
+    * Megadja, hogy milyen irányba kell eltolni a karakter arról a portálról
+    * ahová tettük.
     */
    private Vektor direction;
    
