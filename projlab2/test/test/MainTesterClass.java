@@ -47,11 +47,11 @@ public class MainTesterClass {
 		}
 		else{
 			try {
-				for (File file : workingDirectory.listFiles()) {//végigmegyünk a mappa tartalmán
+				for (File file : workingDirectory.listFiles()) {
 					TM.addTestObject(readin(file));
 				}
 			} catch (IOException e) {
-				// TODO: handle exception
+				e.printStackTrace();
 			}
 		}
 		

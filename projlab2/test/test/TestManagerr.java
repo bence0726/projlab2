@@ -44,6 +44,9 @@ public class TestManagerr {
 		Iterator<TestObject> it = TOList.iterator();
 		while(it.hasNext()){
 			run(it.next());
+			jm = new JatekMotor();
+			mb = new MapBuilder(jm);//mindenből új példány, tiszta tesztelés
+			kc = new KarakterController(jm);
 		}
 	}
 	/**
@@ -77,7 +80,9 @@ public class TestManagerr {
 					mb.addSpecFal(Integer.parseInt(pieces[2]),
 							Integer.parseInt(pieces[3]),
 							Integer.parseInt(pieces[4]),
-							Integer.parseInt(pieces[5]));					
+							Integer.parseInt(pieces[5]),
+							Integer.parseInt(pieces[6]),
+							Integer.parseInt(pieces[7]));					
 					afterAdd = list.size();
 					if(beforeAdd < afterAdd)
 						OneTestOutput.add("SPECFAL ADDED");
@@ -145,7 +150,9 @@ public class TestManagerr {
 					beforeAdd = list.size();
 					mb.addDoboz(Integer.parseInt(pieces[2]),
 							Integer.parseInt(pieces[3]),
-							Integer.parseInt(pieces[4]));					
+							Integer.parseInt(pieces[4]),
+							Integer.parseInt(pieces[5]),
+							Integer.parseInt(pieces[6]));					
 					afterAdd = list.size();
 					if(beforeAdd < afterAdd)
 						OneTestOutput.add("DOBOZ ADDED");
@@ -161,7 +168,8 @@ public class TestManagerr {
 							Integer.parseInt(pieces[6]),
 							Integer.parseInt(pieces[7]),
 							Integer.parseInt(pieces[8]),
-							Integer.parseInt(pieces[9]));					
+							Integer.parseInt(pieces[9]),
+							Integer.parseInt(pieces[10]));					
 					afterAdd = list.size();
 					if(beforeAdd < afterAdd)
 						OneTestOutput.add("MERLEG ADDED");
@@ -218,23 +226,61 @@ public class TestManagerr {
 				OneTestOutput.add("ZPMS IN LAB " +
 						String.valueOf(jm.getLab().getOsszZPM()));
 				break;
+			case "GETNUMBEROFELEMS":
+				OneTestOutput.add(jm.getLab().getList().size()
+						+ " ELEM IN LAB");
+				break;
 			default:
 					break;
 				}
-			
-				
 			}
 		}
-				
-		
-		
 //	}
 	/**
 	 * Visszaad egy statisztikát a futtatott tesztekről.
 	 */
 	public List<String>getStatistics(){
-		return null;
+		ArrayList<String> text = new ArrayList<>();
+		text.add("Automatizált tesztelés\n");
+		text.add("Összegzés:");
+		int listSize = TOList.size();
+		text.add("Összes teszteset száma: " + listSize);
 		
+		Iterator<TestObject> it = TOList.iterator();
+		int counter = 0;
+		while(it.hasNext()){
+			TestObject TO = it.next();
+			String testName = TO.getTestCaseName();
+			if(TO.isSucceeded())
+				counter++;
+			text.add("Teszteset: " + testName);
+			
+			text.add("A teszt lefutása során létrejött kimenet:");
+				text.addAll(TO.getResultrows());
+			int wronglines = TO.getNumberOfWrongLines();
+				text.add("Hibás sorok száma: " + wronglines);
+			if(wronglines > 0){
+				text.add("A teszt során a következő elvárt kimenetek nem teljesültek:");
+				text.addAll(TO.getWrongLines());
+			}
+			int numberoftests = TO.getNumberOfTests();
+			text.add("A teszt során " + numberoftests +
+					" feltételből " + (numberoftests - wronglines) +
+					" darab feltétel teljesült.");
+			text.add(testName +" teszteset eredménye: "
+					+ (TO.isSucceeded()? "SUCCESSFUL" : "UNSUCCESSFUL"));
+			text.add("-----------------");//elválasztó
+		}
+		text.add("-----------------");//elválasztó
+		text.add("\n");
+		text.add("A teszt végleges eredménye:\n");
+		text.add("\tEbből sikeres: " + counter);
+		text.add("\tEbből sikertelen: " + (listSize - counter));
+		text.add("Tehát a teszt " + 
+				((listSize == counter)? 
+						"sikeresen lezárult.":
+							"hibával zárult le."));
+		return text;
 	}
 	
 	/**

@@ -8,35 +8,35 @@ public class TestObject {
 	/**
 	 * Ha a teszt sikeres, true-ra billentjük.
 	 */
-	boolean succeeded = false;
+	private boolean succeeded = false;
 	/**
 	 * Futtatandó parancsok listája.
 	 */
-	List<String> commandList = new ArrayList<>();
+	private List<String> commandList = new ArrayList<>();
 	/**
 	 * Elvárt sorok a kimenetben. Ezeknek meg KELL jelenniük
 	 * a sorok között.
 	 */
-	List<String> expectedResults = new ArrayList<>();
+	private List<String> expectedResults = new ArrayList<>();
 	/**
 	 * olyan sorok,amelyek TILOS, hogy benne 
 	 * legyenek a kimenetben.
 	 */
-	List<String> excludedResults = new ArrayList<>();
+	private List<String> excludedResults = new ArrayList<>();
 	/**
 	 * A tényleges eredmény sorait tároljuk benne.
 	 */
-	List<String> resultrows = new ArrayList<>();
+	private List<String> resultrows = new ArrayList<>();
 	/**
 	 * Azokat a sorokat tesszük bele, amelyek az
 	 * expected vagy excluded sorok közt vannak, 
 	 * de a tényleges kimenetben(resultrows) nincs benne.
 	 */
-	List<String> wrongTests = new ArrayList<>();
+	private List<String> wrongTests = new ArrayList<>();
 	/**
 	 * Teszteset neve. Lehet akár a fájlnévvel megegyező is.
 	 */
-	String testCaseName = "SampleTest";
+	private String testCaseName = "SampleTest";
 	
 	TestObject(String name){
 		testCaseName = name;
@@ -154,5 +154,11 @@ public class TestObject {
 	 */
 	public boolean isSucceeded(){
 		return succeeded;
+	}
+	public String getTestCaseName() {
+		return testCaseName;
+	}
+	public List<String> getResultrows() {
+		return resultrows;
 	}
 }

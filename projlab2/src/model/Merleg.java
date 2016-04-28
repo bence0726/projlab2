@@ -13,18 +13,19 @@ public class Merleg extends Elem {
     /**
      * A mérlegen lévő súly.
      */    
-    public int massOnTheScale;
+    public int massOnTheScale = 0;
     
     /**
      * A limit ami felett az ajtó kinyílik.
      */    
-    private int massLimit= 100;
+    private int massLimit = 100;
     
     /**
      * A megadott területre létrejön egy mérleg elem.
      */
-    public Merleg(Terulet area,Fal ajto) {
+    public Merleg(Terulet area,Fal ajto, int masslimit) {
     	super(area);
+    	massLimit = masslimit;
     	this.ajto = ajto;
     	image = "merleg.jpg";
     	name="Mérleg";
