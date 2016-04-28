@@ -113,7 +113,7 @@ public class KarakterController {
 		if(karakternev.equals("JAFFA"))
 			v = jm.getLab().getJaffa().getPos().getKezd();
 		double x = v.getVx();
-		double y = v.getVy();
-		return String.valueOf(x) + " " + String.valueOf(y);
+		double y = v.getVy();		
+		return String.valueOf(Math.round(x) + " " + Math.round(y));//kerekítjük, így pl 50.0 helyett 50-et ír ki
 	}
 }

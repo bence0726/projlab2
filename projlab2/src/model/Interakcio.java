@@ -21,7 +21,7 @@ public interface Interakcio {
      * és lerendezi, hogy ő hogyan reagál egy ilyen eseményre.
      * @param x - a mozgó objektum, ami rálépett
      */
-    public void steppedon(Moveable x);
+    public boolean steppedon(Moveable x);
 
     /**
      * Ha felveszünk egy objektumot, ez a függvény hívódik meg.

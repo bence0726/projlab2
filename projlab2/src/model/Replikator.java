@@ -8,12 +8,8 @@ import java.util.*;
 public class Replikator extends Moveable{
 
     /**
-     * Létrehoz egy replikátort a közepét a megadott
-     * vektorra illesztve, default mérettel.
-     * Default constructor
-     * 
-     * @param lab
-     * @param kezdLocVec
+     * Létrehoz egy replikátort, a bal felső sarkát locUpLeftCorner
+     * vektorra illesztve. A második paraméter az elem mérete.
      */
     public Replikator(Labirintus lab,Vektor leftcorner, Vektor diagonal){
     	super(lab,leftcorner,diagonal);
