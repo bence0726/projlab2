@@ -203,9 +203,9 @@ public class TestManager {
 					break;
 				}//térképre elemek rátétele blokk vége.
 				//innenstől karakter mozgatása, lövése, stb
-			case "MOVE":
-				kc.move(pieces[2], pieces[3]);
-				OneTestOutput.add(pieces[2] + " MOVED " + pieces[3]);
+			case "SETKARDIR":
+				kc.setKarDir(pieces[1], pieces[2]);
+				OneTestOutput.add(pieces[1] + " MOVED " + pieces[2]);
 				break;
 			case "FIRE":
 				kc.fire(pieces[2], pieces[3]);

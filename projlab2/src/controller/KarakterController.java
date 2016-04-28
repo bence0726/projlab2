@@ -18,7 +18,7 @@ public class KarakterController {
 	 * A kész programban külön lesz a setmovedir és a move, de
 	 * ez a teszteléshez így jobb lesz.
 	 */
-	public void move(String karakternev, String irany){
+	public void setKarDir(String karakternev, String irany){
 		if(karakternev.equals("ONEIL")){
 			switch(irany){
 				case "UP": jm.setOneilMoveDir(MoveDirections.MoveUp);

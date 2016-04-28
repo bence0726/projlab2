@@ -10,7 +10,6 @@ public class Vektor {
     private double vy;
 
     public Vektor(double x, double y) {
-        // TODO implement here
     	vx=x;
     	vy=y;
     }
@@ -28,7 +27,6 @@ public class Vektor {
     public void addVec(Vektor vec){
     	this.vx=this.vx+vec.getVx();
     	this.vy=this.vy+vec.getVy();
-    	//return this;
     }
     /**
      * Kivonja a vektorból(A) a paraméterül kapott vektort(B).Így az eredményvektor
