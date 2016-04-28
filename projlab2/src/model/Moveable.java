@@ -8,7 +8,6 @@ public abstract class Moveable extends Elem{
     protected Vektor moveDir;
     protected Labirintus lab;
     protected int suly;
-    public String name;
     
     /**
      * Létrehoz egy moveable objektumot a közepét a 
@@ -28,30 +27,28 @@ public abstract class Moveable extends Elem{
 	}
 
 	
-    /**
-     * Létrehoz egy moveable objektumot az elem 
-     * közepére illesztve a moveable objektumot.
-     * Default mérettel jön létre 10*10 pixel méretben.
-     * @param lab
-     * @param startElem
-     */
-	public Moveable(Labirintus lab,Elem startElem){
-		Vektor locMiddleofArea = startElem.pos.getMiddleOfArea();
-		Vektor diagonal = defaultsize ;
-    	diagonal = Vektor.getHalfOf(diagonal);
-    	pos = new Terulet();
-    	pos.setKezd(Vektor.addVecToVec(locMiddleofArea, diagonal));
-    	diagonal.invertThisVec();
-    	pos.setVeg(Vektor.addVecToVec(locMiddleofArea, diagonal));
-		this.lab = lab;
-		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
-	}
+//    /**
+//     * Létrehoz egy moveable objektumot az elem 
+//     * közepére illesztve a moveable objektumot.
+//     * Default mérettel jön létre 10*10 pixel méretben.
+//     * @param lab
+//     * @param startElem
+//     */
+//	public Moveable(Labirintus lab,Elem startElem){
+//		Vektor locMiddleofArea = startElem.pos.getMiddleOfArea();
+//		Vektor diagonal = defaultsize ;
+//    	diagonal = Vektor.getHalfOf(diagonal);
+//    	pos = new Terulet();
+//    	pos.setKezd(Vektor.addVecToVec(locMiddleofArea, diagonal));
+//    	diagonal.invertThisVec();
+//    	pos.setVeg(Vektor.addVecToVec(locMiddleofArea, diagonal));
+//		this.lab = lab;
+//		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
+//	}
 	
 	/**
      * Létrehoz egy Moveable elemet, a bal felső sarkát locUpLeftCorner
      * vektorra illesztve. A második paraméter az elem mérete.
-     * @param locUpLeftCorner
-     * @param diagonal
      */
     public Moveable(Labirintus lab, Vektor locUpLeftCorner,Vektor diagonal){
     	pos = new Terulet();

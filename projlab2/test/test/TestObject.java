@@ -106,10 +106,10 @@ public class TestObject {
 			while(iterator2.hasNext()){
 				String resultrow = iterator2.next();
 				if(expectedrow.equals(resultrow))
-					included = true;			
-			}
-			if(!included)
-				wrongTests.add(expectedrow);			
+					included = true;		
+				if(!included && !wrongTests.contains(expectedrow))
+					wrongTests.add(expectedrow);	
+			}					
 		}
 	}
 	/**

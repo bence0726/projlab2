@@ -1,0 +1,37 @@
+Automatizált tesztelés
+
+Teszteset: 02_karmovetest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+ONEIL ADDED
+ONEIL 60.0 60.0
+ONEIL MOVED UP
+ONEIL 60.0 62.0
+ONEIL MOVED LEFT
+ONEIL 58.0 62.0
+ONEIL MOVED DOWN
+ONEIL 58.0 60.0
+ONEIL MOVED DOWN
+ONEIL 58.0 58.0
+ONEIL MOVED DOWN
+ONEIL 58.0 56.0
+Hibás sorok száma: 7
+A teszt során a következő elvárt kimenetek nem teljesültek:
+ONEIL 50 50
+ONEIL MOVED
+ONEIL 50 49
+ONEIL 49 49
+ONEIL 49 50
+ONEIL 49 51
+ONEIL 50 51
+A teszt során 7 feltételből 0 darab feltétel teljesült.
+02_karmovetest teszteset eredménye: UNSUCCESSFUL
+-----------------
+-----------------
+
+
+Összegzés:
+Összes teszteset száma: 1
+	Ebből sikeres: 0
+	Ebből sikertelen: 1
+Tehát a teszt hibával zárult le.

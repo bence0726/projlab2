@@ -2,9 +2,10 @@ package model;
 import java.util.*;
 
 /**
- * 
+ * A Replikátor modellbeli reprezentációjáért
+ * felelős osztály.
  */
-public class Replikator extends Moveable {
+public class Replikator extends Moveable{
 
     /**
      * Létrehoz egy replikátort a közepét a megadott
@@ -14,25 +15,23 @@ public class Replikator extends Moveable {
      * @param lab
      * @param kezdLocVec
      */
-    public Replikator(Labirintus lab,Vektor kezdLocVec) {
-    	super(lab,kezdLocVec);
-    	image = "replikator.jpg";
-    	name="Replikátor";
+    public Replikator(Labirintus lab,Vektor leftcorner, Vektor diagonal){
+    	super(lab,leftcorner,diagonal);
     }
     
-    /**
-     * Létrehoz egy replikátort a közepét a megadott elem
-     * középpontjára illesztve, default mérettel.
-     * Default constructor
-     * 
-     * @param lab
-     * @param startElem
-     */
-    public Replikator(Labirintus lab,Elem startElem) {
-    	super(lab,startElem);
-    	image = "replikator.jpg";
-    	name="Replikátor";
-    }
+//    /**
+//     * Létrehoz egy replikátort a közepét a megadott elem
+//     * középpontjára illesztve, default mérettel.
+//     * Default constructor
+//     * 
+//     * @param lab
+//     * @param startElem
+//     */
+//    public Replikator(Labirintus lab,Elem startElem) {
+//    	super(lab,startElem);
+//    	image = "replikator.jpg";
+//    	name="Replikátor";
+//    }
 
     /**
      * 

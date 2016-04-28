@@ -13,10 +13,8 @@ public class Oneil extends Karakter {
      * @param lab
      * @param startElem
      */
-    public Oneil(Labirintus lab,Elem startElem){
-    	super(lab,startElem);
-    	image = "oneil.jpg";
-    	name="oneil";
+    public Oneil(Labirintus lab,Vektor leftcorn, Vektor diagonal){
+    	super(lab,leftcorn,diagonal);
     }
 
 	/**

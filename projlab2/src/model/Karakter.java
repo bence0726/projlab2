@@ -8,7 +8,7 @@ public class Karakter extends Moveable{
     /**
      * 
      */
-    protected int ZPM;
+    protected int ZPM = 0;
 
     /**
      * 
@@ -27,16 +27,11 @@ public class Karakter extends Moveable{
      * @param lab
      * @param kezdLocVec
      */
-    public Karakter(Labirintus lab,Elem startElem){
-    	super(lab,startElem);
+    public Karakter(Labirintus lab,Vektor leftcorn, Vektor diagonal){
+    	super(lab,leftcorn, diagonal);
     	gundir.beEqualWith(new Vektor(0,1));
-    	image = "jaffa.jpg";
-    	name="jaffa";
     }
     
-    
-
-
     /**
      * Amerre a puskacső áll, arról vesz fel
      * valamit, ha van ott valami
@@ -78,7 +73,11 @@ public class Karakter extends Moveable{
      * @param szin
      */
     public void Fire(Szin szin) {
-    	lab.addMoveable(new Golyo(gundir,pos,szin));
+//    	lab.addMoveable(new Golyo(lab,gundir,pos,szin));
+    	lab.addMoveable(new Golyo(
+    			lab,Vektor.addVecToVec(
+    			pos.getKezd(), moveDir),
+    			moveDir, szin));
     }
 
     /**

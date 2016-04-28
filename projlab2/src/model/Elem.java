@@ -40,17 +40,17 @@ public abstract class Elem implements Interakcio {
     	this.pos = pos;
     }
     
-    /**
-     * Adott helyre(bal felső sarkát illesztve), 
-     * default mérettel létrehoz egy elemet
-     * @param locUpLeftCorner
-     * @param diagonal
-     */
-    public Elem(Vektor locUpLeftCorner){
-    	Vektor diagonal = defaultsize;
-    	pos.setKezd(locUpLeftCorner);
-    	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
-    }
+//    /**
+//     * Adott helyre(bal felső sarkát illesztve), 
+//     * default mérettel létrehoz egy elemet
+//     * @param locUpLeftCorner
+//     * @param diagonal
+//     */
+//    public Elem(Vektor locUpLeftCorner){
+//    	Vektor diagonal = defaultsize;
+//    	pos.setKezd(locUpLeftCorner);
+//    	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
+//    }
     
     /**
      * Létrehoz egy elemet, a bal felső sarkát locUpLeftCorner
