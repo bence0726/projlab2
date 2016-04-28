@@ -5,25 +5,22 @@ import java.util.*;
  * 
  */
 public abstract class Moveable extends Elem{
-    protected Vektor moveDir;
+    protected Vektor moveDir = new Vektor(0,0);
     protected Labirintus lab;
-    protected int suly;
+    protected int suly = 0;
     
     /**
      * Létrehoz egy moveable objektumot a közepét a 
      * megadott vektorra illesztve.
      * Default mérettel jön létre 10*10 pixel méretben.
-     * @param lab
-     * @param kezdLocVec
      */
-	public Moveable(Labirintus lab,Vektor locMiddleofArea) {
+	public Moveable(Labirintus labirintus,Vektor locMiddleofArea) {
 		Vektor diagonal = defaultsize ;
     	diagonal = Vektor.getHalfOf(diagonal);
     	pos.setKezd(Vektor.addVecToVec(locMiddleofArea, diagonal));
     	diagonal.invertThisVec();
     	pos.setVeg(Vektor.addVecToVec(locMiddleofArea, diagonal));
-		this.lab = lab;
-		moveDir = new Vektor(0,0);
+		lab = labirintus;
 	}
 
 	
@@ -50,10 +47,11 @@ public abstract class Moveable extends Elem{
      * Létrehoz egy Moveable elemet, a bal felső sarkát locUpLeftCorner
      * vektorra illesztve. A második paraméter az elem mérete.
      */
-    public Moveable(Labirintus lab, Vektor locUpLeftCorner,Vektor diagonal){
+    public Moveable(Labirintus labirintus, Vektor locUpLeftCorner,Vektor diagonal){
     	pos = new Terulet();
     	pos.setKezd(locUpLeftCorner);
     	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
+    	lab = labirintus;
     }
 	
 	public Moveable(){}
@@ -70,7 +68,9 @@ public abstract class Moveable extends Elem{
     	 * Miután ezek léptettek(avagy nem) , megint megnézzük, hogy hol vagyunk (Set C)
     	 * Ezután összehasonlítjuk A-t és C-t , ami nincs benn C-ben arra hívjuk a steppedoff-ot.
     	 */
-    	Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
+    	Vektor v1 = new Vektor(this.pos.getKezd().getVx(),this.pos.getKezd().getVy());
+    	Vektor v2 = new Vektor(this.pos.getVeg().getVx(),this.pos.getVeg().getVy());
+    	Terulet t = new Terulet(v1,v2);
     	t.addDirToArea(moveDir); 
     	    	
     	Set<Elem> itemsHere = lab.whatsThere(this.pos); //lépés előtt itt állunk
@@ -94,7 +94,9 @@ public abstract class Moveable extends Elem{
     	Iterator<Elem> iteratorThere = itemsThere.iterator();
     	
     	while(iteratorThere.hasNext()){
-    		iteratorThere.next().steppedon(this);
+    		if(iteratorThere.next().steppedon(this)){
+    			moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);
+    		}
     	}
     	
     	Set<Elem> itemsNewPlace = lab.whatsThere(this.pos);
@@ -107,7 +109,7 @@ public abstract class Moveable extends Elem{
     	
     	//megnézzük, hogy van-e különbség aközött, hogy hová szerettünk volna
     	//lépni és aközött, hogy most hol vagyunk (magyarán volt-e teleportálás)
-    	if(this.getPos().equals(t)){
+    	if(this.getPos().isEqualTo(t)){
     		moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
     		return;										//ha megegyezik, nincs további teendő.
     	}
@@ -119,7 +121,9 @@ public abstract class Moveable extends Elem{
     	
     	while(iteratorItemsNewPlace.hasNext()){
     		Elem temp = iteratorItemsNewPlace.next();
-    		temp.steppedon(this);
+    		if(temp.steppedon(this)){
+    			moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);
+    		}    		
     	}
     	moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
 	}

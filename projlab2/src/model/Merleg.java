@@ -50,10 +50,11 @@ public class Merleg extends Elem {
      * Rélépés a mérlegre.
      * @param m :Moveable
      */
-    public void steppedon(Moveable m) {
+    public boolean steppedon(Moveable m) {
     	massOnTheScale+=m.getSuly();
     	if (massOnTheScale >= massLimit)
     		ajto.setReachable(true);
+    	return true;
     }
     /**
      * Lelépés a mérlegről

@@ -25,8 +25,8 @@ public class Vektor {
      * @return
      */
     public void addVec(Vektor vec){
-    	this.vx=this.vx+vec.getVx();
-    	this.vy=this.vy+vec.getVy();
+    	this.vx = this.vx+vec.getVx();
+    	this.vy = this.vy+vec.getVy();
     }
     /**
      * Kivonja a vektorból(A) a paraméterül kapott vektort(B).Így az eredményvektor
@@ -133,9 +133,9 @@ public class Vektor {
     public static Vektor EnumToDirVec(MoveDirections direnum){
     	switch(direnum){
     	case MoveUp:
-    		return new Vektor(0,1);
-    	case MoveDown:
     		return new Vektor(0,-1);
+    	case MoveDown:
+    		return new Vektor(0,1);
     	case MoveRight:
     		return new Vektor(1,0);
     	case MoveLeft:

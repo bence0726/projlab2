@@ -83,7 +83,8 @@ public class TestManager {
 				kc.drop(pieces[2]);
 				TO.AddResultRow("BOX DROPPED BY " + pieces[2]);
 				break;
-			case "GETPOS":				
+			case "GETPOS":
+				
 				TO.AddResultRow(pieces[1] + " " + kc.getpos(pieces[1]));
 				break;
 			case "GETZPMS":
@@ -100,10 +101,10 @@ public class TestManager {
 				if(pieces[1].equals("YELLOW")){
 					sp = jm.pm.getPortalOfThisColor(Szin.Sarga);
 					Vektor tempMidleOfArea = sp.getPos().getMiddleOfArea();
-					specfalText = "YELLOWPORTAL "
-							+tempMidleOfArea.getVx()
-							+" " 
-							+ tempMidleOfArea.getVy();
+/*FIXME*/			specfalText = "YELLOWPORTAL "
+							+Math.round(tempMidleOfArea.getVx())//nem kéne hozzáadni azt az eltolást is?
+							+" "
+							+ Math.round(tempMidleOfArea.getVy());//teleportáláskor nem a specfalra kerül, onnan eltoljuk.. szóval?
 				}					
 				else{
 					sp = jm.pm.getPortalOfThisColor(Szin.Kek);

@@ -102,8 +102,8 @@ public abstract class Elem implements Interakcio {
     }
     
     
-    public void steppedon(Moveable x) {
-    //return egyből, nem lépünk ide.
+    public boolean steppedon(Moveable x) {
+    	return false;
     }
     public void steppedoff(Moveable x) {
 	//Alap implementációjában nem csinál semmit.

@@ -38,10 +38,11 @@ public class Fal extends Elem {
     		bullet.kill(); //egyébként beleütközik.
     }
 
-    public void steppedon(Moveable X) {
+    public boolean steppedon(Moveable X) {
         if(!reachable)
-        	return;
+        	return false;
         X.step();
+        return true;
     }
 
 	public void setReachable(boolean reachable) {

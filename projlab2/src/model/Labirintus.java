@@ -5,40 +5,14 @@ import java.util.*;
  * 
  */
 public class Labirintus {
-
-    /**
-     * Default constructor. Csak inicializál, értékeket később 
-     * kapnak az attribútumai.
-     */
-    public Labirintus() {
-    	objectsOnMap = new ArrayList<Elem>();
-    	moveableList = new ArrayList<Moveable>();
-    	osszZPM = 0;
-    }
-
-    /**
-     * 
-     */
+   
     private int osszZPM;
 
-
-	/**
-     * 
-     */
     private Elem startElem;
 
-    /**
-     * 
-     */
     private Elem endElem;
-    /**
-     * 
-     */
     
     private Karakter jaffa;
-    /**
-     * 
-     */
     
     private Karakter oneil;
 
@@ -54,6 +28,16 @@ public class Labirintus {
      * (karakterek, golyók, replikátorok, dobozok)
      */
     private ArrayList<Moveable> moveableList;
+    
+    /**
+     * Default constructor. Csak inicializál, értékeket később 
+     * kapnak az attribútumai.
+     */
+    public Labirintus() {
+    	objectsOnMap = new ArrayList<Elem>();
+    	moveableList = new ArrayList<Moveable>();
+    	osszZPM = 0;
+    }
     
     /**
      * Ad egy halmazt azokról az elemekről, amelyek 
@@ -91,7 +75,6 @@ public class Labirintus {
     			objectsOnMap.remove(temp);
     	}
     }
-
 
     /**
      * Mozgó elemet ad a labirintus mindkét listájához.
@@ -141,12 +124,9 @@ public class Labirintus {
     	this.addMoveable(oneil);
     }
     
-    
-    
     public ArrayList<Moveable>getMoveableList(){
     	return moveableList;
     }
-    
 
 	public int getOsszZPM() {
 		return osszZPM;
@@ -174,8 +154,4 @@ public class Labirintus {
     public Elem getstartElem() {
         return startElem;
     }
-//    public int size()//FIXME ennek semmi értelme sztem
-//    {
-//    	return objectsOnMap.size();
-//    }
 }

@@ -73,14 +73,15 @@ public class SpecFal extends Elem {
      * 
      * @param elem
      */
-    public void steppedon(Moveable m) {
+    public boolean steppedon(Moveable m) {
         if(!reachable || (m.getSuly() == 0))//ha 0 a súlya, nem teleportál. így replikátor nem tud teleportálni.
-        	return;
+        	return false;
         
         SpecFal otherSide = pm.getOtherSide(this);
         if(otherSide == null)			//ennek nem kéne teljesülnie, de ha mégis, visszatérünk
-        	return;
-        otherSide.teleport(m);		//a rálépett elemet teleportáljuk      
+        	return false;
+        otherSide.teleport(m);		//a rálépett elemet teleportáljuk
+        return true;
     }
 
     /**

@@ -30,8 +30,9 @@ public class Szakadek extends Elem {
      * Megöli az elemet ami rálép.
      * @param e
      */
-    public void steppedon(Moveable m) {
+    public boolean steppedon(Moveable m) {
         m.kill();
+        return true;
     }
     
 
