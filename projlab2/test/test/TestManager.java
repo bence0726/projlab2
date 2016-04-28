@@ -55,9 +55,9 @@ public class TestManager {
 	 * A paraméterül kapott tesztet futtatja.
 	 */
 	private void run(TestObject TO){
-		String command;
-		int beforeAdd;
-		int afterAdd;
+		String command = "";
+		int beforeAdd = 0;
+		int afterAdd = 0;
 		
 		while((command = TO.nextCommand()) != null){
 			List<Elem> list = jm.getLab().getList();

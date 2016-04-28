@@ -53,9 +53,9 @@ public class MapBuilder {
 	 *  és hozzáadja a Labirintushoz.
 	 * 
 	 */
-	public void addSpecFal(int x1, int y1, int x2, int y2, int px, int py){
+	public void addSpecFal(int x1, int y1, int d1, int d2, int px, int py){
 		SpecFal tmp = new SpecFal(new Terulet(new Vektor(x1,y1),
-				new Vektor(x2,y2)),
+				new Vektor(d1,d2)),
 				new Vektor(px, py), //a portál ide fogja kitenni a karaktert
 				pm);
 		lab.addElem(tmp);
@@ -65,8 +65,8 @@ public class MapBuilder {
 	 * a kapott paraméterekkel meghívja a ZPM
 	 *  konstruktorát és hozzáadja a Labirintushoz.
 	 */
-	public void addZPM(int x1, int y1, int x2, int y2){
-		ZPM tmp = new ZPM(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2)));
+	public void addZPM(int x1, int y1, int d1, int d2){
+		ZPM tmp = new ZPM(new Terulet(new Vektor(x1,y1), new Vektor(d1,d2)));
 		lab.addElem(tmp);
 	}
 	
@@ -74,8 +74,8 @@ public class MapBuilder {
 	 * a kapott paraméterekkel meghívja a VegeElem konstruktorát
 	 *  és hozzáadja a Labirintushoz.
 	 */
-	public void addEndElem(int x1, int y1, int x2, int y2){
-		Fal tmp = new Fal(new Vektor(x1,y1), new Vektor(x2,y2));
+	public void addEndElem(int x1, int y1, int d1, int d2){
+		Fal tmp = new Fal(new Vektor(x1,y1), new Vektor(d1,d2));
 		tmp.setReachable(true);
 		lab.addEndElem(tmp);
 	}
@@ -84,8 +84,8 @@ public class MapBuilder {
 	 * a kapott paraméterekkel meghívja a Szakadek konstruktorát
 	 *  és hozzáadja a Labirintushoz.
 	 */
-	public void addSzakadek(int x1, int y1, int x2, int y2){
-		Szakadek tmp = new Szakadek(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2)));
+	public void addSzakadek(int x1, int y1, int d1, int d2){
+		Szakadek tmp = new Szakadek(new Terulet(new Vektor(x1,y1), new Vektor(d1,d2)));
 		lab.addElem(tmp);
 	}
 	
@@ -95,14 +95,14 @@ public class MapBuilder {
 	 * A Merleg konstruktora a kapott paraméterekkel a hozzá tartozó
 	 *  ajtót is létrehozza, valamint beállítja annak súlyhatárát is.
 	 */
-	public void addMerleg(int mx1, int my1, int mx2, int my2, int ax1, int ay1, int ax2, int ay2, int limit){
+	public void addMerleg(int mx1, int my1, int md1, int md2, int ax1, int ay1, int ad1, int ad2, int limit){
 		Fal ajto = new Fal(new Terulet(
 				new Vektor(ax1,ay1),
-				new Vektor(ax2,ay2)));
+				new Vektor(ad1,ad2)));
 		ajto.setReachable(false);
 		lab.addElem(new Merleg(new Terulet(
 				new Vektor(mx1,my1),
-				new Vektor(mx2,my2)),
+				new Vektor(md1,md2)),
 				ajto, limit));
 	}	
 	
@@ -120,21 +120,21 @@ public class MapBuilder {
 	 * a kapott paraméterekkel a Labirintushoz Startelem attribútumát
 	 * állítja be.
 	 */
-	public void addStartElem(int x1, int y1, int x2, int y2){
-		Fal tmp = new Fal(new Vektor(x1,y1), new Vektor(x2,y2));
+	public void addStartElem(int x1, int y1, int d1, int d2){
+		Fal tmp = new Fal(new Vektor(x1,y1), new Vektor(d1,d2));
 		tmp.setReachable(true);
 		lab.addStartElem(tmp);
 	}
 
 	
-	/**
-	 *a kapott paraméterekkel meghívja a Replikator konstruktorát,
-	 * hozzáadja a Labirintushoz és a mozgatandok listához is.
-	 */
-	public void addReplikator(int x, int y){
-		Replikator tmp = new Replikator(lab, new Vektor(x,y));
-		lab.addMoveable(tmp);
-	}
+//	/**
+//	 *a kapott paraméterekkel meghívja a Replikator konstruktorát,
+//	 * hozzáadja a Labirintushoz és a mozgatandok listához is.
+//	 */
+//	public void addReplikator(int x, int y){
+//		Replikator tmp = new Replikator(lab, new Vektor(x,y));
+//		lab.addMoveable(tmp);
+//	}
 	/**
 	 * Replikátort ad a labirintushoz. Paraméter nélkül megadva
 	 * a kezdőpontra teszi le.
@@ -143,7 +143,7 @@ public class MapBuilder {
 	 * exception-t vált ki!
 	 */
 	public void addReplikator(){
-		Replikator tmp = new Replikator(lab, lab.getstartElem().getPos().getKezd());
+		Replikator tmp = new Replikator(lab, lab.getstartElem().getPos().getKezd(),new Vektor(3,3));
 		lab.addMoveable(tmp);
 	}
 
@@ -153,8 +153,9 @@ public class MapBuilder {
 	 * beállítani a labirintusban!
 	 */
 	public void addJaffa(){
-		Elem start = lab.getstartElem();
-		Karakter jaffa = new Karakter(lab, start);
+		Karakter jaffa = new Karakter(lab,
+				lab.getstartElem().getPos().getKezd(),
+				new Vektor(5,5));
 		lab.addMoveable(jaffa);
 		lab.addJaffa(jaffa);	
 	}
@@ -164,8 +165,9 @@ public class MapBuilder {
 	 * beállítani a labirintusban!
 	 */
 	public void addOneil(){
-		Elem start = lab.getstartElem();
-		Karakter oneil = new Oneil(lab, start);
+		Karakter oneil = new Oneil(lab,
+				lab.getstartElem().getPos().getKezd(),
+				new Vektor(5,5));
 		lab.addMoveable(oneil);
 		lab.addOneil(oneil);	
 	}

@@ -2,25 +2,19 @@ package model;
 import java.util.*;
 
 /**
- * 
+ * A lövedék modellbeli reprezentációjáért
+ * felelős osztály.
  */
 public class Golyo extends Moveable {
-
 	/**
     * A golyó színe
     */
     private Szin colour;
-    
-    /**
-     * Default constructor
-     */	
-	Vektor dir;
-    public Golyo(Vektor dir,Terulet area,Szin colour) {
-    	this.pos =area;
-    	this.dir = dir;
-    	this.colour = colour;
-    	image = "golyo.jpg";
-    	name="golyó";
+        
+    public Golyo(Labirintus lab, Vektor middleofArea, Vektor direction,Szin color){
+    	super(lab,middleofArea);
+    	colour = color;
+    	moveDir = direction;
     }
     
 	/**
