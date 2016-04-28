@@ -1,9 +1,0 @@
-ADD KEZDOPONT 0 5
-ADD DOBOZ 0 0 10 10 5
-PICK oneil right
-ADD MERLEG 15 15 45 35 55 55 75 65
-LISTKAR oneil
-MOVE oneil right 20
-DROP oneil right
-MOVE oneil down 30
-LISTKAR oneil
