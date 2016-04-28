@@ -39,6 +39,7 @@ public abstract class Moveable extends Elem{
 		Vektor locMiddleofArea = startElem.pos.getMiddleOfArea();
 		Vektor diagonal = defaultsize ;
     	diagonal = Vektor.getHalfOf(diagonal);
+    	pos = new Terulet();
     	pos.setKezd(Vektor.addVecToVec(locMiddleofArea, diagonal));
     	diagonal.invertThisVec();
     	pos.setVeg(Vektor.addVecToVec(locMiddleofArea, diagonal));

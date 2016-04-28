@@ -9,11 +9,11 @@ public class Terulet {
 	/**
 	 * balfelső sarka
 	 */
-	private Vektor kezd;
+	private Vektor kezd = new Vektor(0,0);//alap inicializálások nullptrexception elkerülése végett
 	/**
 	 * jobb alsó sarka
 	 */
-    private Vektor veg;
+    private Vektor veg = new Vektor(0,0);
     
     /**
      * Default, param nélküli constructor

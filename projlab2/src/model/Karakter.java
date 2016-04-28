@@ -18,7 +18,7 @@ public class Karakter extends Moveable{
     /**
      * 
      */
-    protected Vektor gundir;
+    protected Vektor gundir = new Vektor(0,0);
 
     /**
      * Létrehoz egy karakter(jaffa) objektumot az elem 
