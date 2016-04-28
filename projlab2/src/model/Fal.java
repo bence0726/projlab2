@@ -8,7 +8,7 @@ public class Fal extends Elem {
 	/**
      * 
      */
-    private boolean reachable;
+    private boolean reachable = false;
     
     /**
      * A megadott területre létrejön egy fal elem.

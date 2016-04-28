@@ -31,12 +31,13 @@ public class SpecFal extends Elem {
 	 * @param area
 	 * @param portalmanager
 	 */
-	public SpecFal(Terulet area, PortalManager portalmanager){
+	public SpecFal(Terulet area,Vektor dir, PortalManager portalmanager){
 		super(area);
-		reachable =false;
+		reachable = false;
 		image = "specfal.jpg";
 		pm = portalmanager;		
-		name="SpecFal";
+		direction = dir;
+		name = "SpecFal";
 	}
 	
 	/**

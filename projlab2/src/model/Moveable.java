@@ -46,6 +46,18 @@ public abstract class Moveable extends Elem{
 		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
 	}
 	
+	/**
+     * Létrehoz egy Moveable elemet, a bal felső sarkát locUpLeftCorner
+     * vektorra illesztve. A második paraméter az elem mérete.
+     * @param locUpLeftCorner
+     * @param diagonal
+     */
+    public Moveable(Labirintus lab, Vektor locUpLeftCorner,Vektor diagonal){
+    	pos = new Terulet();
+    	pos.setKezd(locUpLeftCorner);
+    	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
+    }
+	
 	public Moveable(){}
 
 	/**
@@ -78,6 +90,7 @@ public abstract class Moveable extends Elem{
     	    			temp.steppedoff(this);					//ami nincs benne, arról leléptünk
     	    	}
     		}
+    		moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
     		return;
     	}    	
     	Iterator<Elem> iteratorThere = itemsThere.iterator();
@@ -96,8 +109,11 @@ public abstract class Moveable extends Elem{
     	
     	//megnézzük, hogy van-e különbség aközött, hogy hová szerettünk volna
     	//lépni és aközött, hogy most hol vagyunk (magyarán volt-e teleportálás)
-    	if(this.getPos().equals(t))	
+    	if(this.getPos().equals(t)){
+    		moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
     		return;										//ha megegyezik, nincs további teendő.
+    	}
+    		
     	
     	//ha még itt járunk, volt teleportálás.
     	//megnézzük, hogy a másik oldalon mire léptünk rá. Ezeken steppedon()-t hívjuk    	
@@ -107,6 +123,7 @@ public abstract class Moveable extends Elem{
     		Elem temp = iteratorItemsNewPlace.next();
     		temp.steppedon(this);
     	}
+    	moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
 	}
     
     /**

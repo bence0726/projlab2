@@ -40,7 +40,6 @@ public class KarakterController {
 				break;
 				case "LEFT": jm.setJaffaMoveDir(MoveDirections.MoveLeft);
 			}
-			jm.moveEverything();			
 		}
 	}
 	
