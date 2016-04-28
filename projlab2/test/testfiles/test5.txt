@@ -1,8 +1,0 @@
-ADD KEZDOPONT 0 0
-ADD DOBOZ 0 0 10 10 5
-PICK oneil right
-LISTKAR oneil
-DROP oneil down
-DROP oneil left
-DROP oneil up
-LISTKAR oneil
