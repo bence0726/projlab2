@@ -19,7 +19,7 @@ import model.Vektor;
  * @author zsigatibor
  *
  */
-public class TestManagerr {
+public class TestManager {
 	
 	JatekMotor jm;
 	MapBuilder mb;
@@ -29,7 +29,7 @@ public class TestManagerr {
 	List<String> AllTestsOutput = new ArrayList<>();
 	ArrayList<String> OneTestOutput = new ArrayList<>();
 	
-	public TestManagerr(JatekMotor gameEngine){
+	public TestManager(JatekMotor gameEngine){
 		jm = gameEngine;
 		mb = new MapBuilder(jm);
 		kc = new KarakterController(jm);

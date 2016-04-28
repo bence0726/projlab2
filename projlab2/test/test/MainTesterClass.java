@@ -31,7 +31,7 @@ public class MainTesterClass {
 	
 	public static void main(String[] args) {
 		JatekMotor jm = new JatekMotor();
-		TestManagerr TM = new TestManagerr(jm);
+		TestManager TM = new TestManager(jm);
 		/*
 		 * Ez az if-ág akkor fog lefutni, ha parancssori
 		 * argumentumként megadtunk fájlnevet.
