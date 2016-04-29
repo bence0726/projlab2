@@ -15,11 +15,12 @@ public abstract class Moveable extends Elem{
      * Default mérettel jön létre 10*10 pixel méretben.
      */
 	public Moveable(Labirintus labirintus,Vektor locMiddleofArea) {
-		Vektor diagonal = defaultsize ;
+		Vektor diagonal = new Vektor(defaultsize);
     	diagonal = Vektor.getHalfOf(diagonal);
-    	pos.setKezd(Vektor.addVecToVec(locMiddleofArea, diagonal));
-    	diagonal.invertThisVec();
+    	pos =new Terulet();
     	pos.setVeg(Vektor.addVecToVec(locMiddleofArea, diagonal));
+    	diagonal.invertThisVec();
+    	pos.setKezd(Vektor.addVecToVec(locMiddleofArea, diagonal));
 		lab = labirintus;
 	}
 
@@ -146,7 +147,7 @@ public abstract class Moveable extends Elem{
 
     public void kill(){
     	this.alive = false;
-    	lab.refreshList();
+    	//lab.refreshList();
     }    
     public int getSuly() {
 		return suly;

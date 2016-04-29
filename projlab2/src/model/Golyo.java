@@ -29,12 +29,12 @@ public class Golyo extends Moveable {
     	 * azok közül az első olyan elemen, ami nem a golyó maga, azon
     	 * meghívjuk a shot() függvényt.
     	 */
-    	Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
+    	Terulet t = new Terulet(new Vektor(this.pos.getKezd()),new Vektor(this.pos.getVeg()));
     	t.addDirToArea(moveDir);     	    	
     	
     	Set<Elem> itemsThere = lab.whatsThere(t);		//ahová lépünk, ott ezek vannak
     	
-    	if(itemsThere.size() == 0){						//ha nincs ott semmi...
+    	if(itemsThere.size() == 1){						//ha nincs ott semmi...
     		step();										//...akkor lépés 
     		return;
     	}    										   		    		
@@ -43,7 +43,7 @@ public class Golyo extends Moveable {
     	while(iteratorThere.hasNext()){
     		Elem temp = iteratorThere.next();
     		if(temp != this){							//magát nem lövi meg a golyó
-    			shot(this);
+    			temp.shot(this);
     			return;									//csak egyvalamit találunk el vele
     		}    			
     	}   	

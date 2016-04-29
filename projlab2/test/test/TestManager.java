@@ -72,8 +72,8 @@ public class TestManager {
 				TO.AddResultRow(pieces[2] + " FIRED");
 				break;
 			case "ROTATEGUN":
-				kc.rotateGun(pieces[2], Double.parseDouble(pieces[3]));
-				TO.AddResultRow("GUN ROTATED WITH " + pieces[3]);
+				kc.rotateGun(pieces[1], Double.parseDouble(pieces[2]));
+				TO.AddResultRow("GUN ROTATED WITH " + pieces[2]);
 				break;
 			case "PICK":
 				kc.pick(pieces[2]);
@@ -100,6 +100,12 @@ public class TestManager {
 				String specfalText = "";
 				if(pieces[1].equals("YELLOW")){
 					sp = jm.pm.getPortalOfThisColor(Szin.Sarga);
+					if(sp == null)//ha null a referencia, akkor ez a szöveg kell
+					{
+						specfalText = "NO" + pieces[1];
+						TO.AddResultRow(specfalText);
+						break;
+					}
 					Vektor tempMidleOfArea = sp.getPos().getMiddleOfArea();
 /*FIXME*/			specfalText = "YELLOWPORTAL "
 							+Math.round(tempMidleOfArea.getVx())//nem kéne hozzáadni azt az eltolást is?
@@ -108,14 +114,18 @@ public class TestManager {
 				}					
 				else{
 					sp = jm.pm.getPortalOfThisColor(Szin.Kek);
+					if(sp == null)//ha null a referencia, akkor ez a szöveg kell
+					{
+						specfalText = "NO" + pieces[1];
+						TO.AddResultRow(specfalText);
+						break;
+					}
 					Vektor tempMidleOfArea = sp.getPos().getMiddleOfArea();
 					specfalText = "BLUEPORTAL "
 							+tempMidleOfArea.getVx()
 							+" " 
 							+ tempMidleOfArea.getVy();
 				}
-				if(sp == null)//ha null a referencia, akkor ez a szöveg kell
-					specfalText = "NO" + pieces[1];
 				TO.AddResultRow(specfalText);
 				break;
 			case "MOVEALL":

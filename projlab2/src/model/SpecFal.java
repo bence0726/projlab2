@@ -47,7 +47,7 @@ public class SpecFal extends Elem {
      * @param diagonal
      * @param pm
      */
-    public SpecFal(Vektor locUpLeftCorner,Vektor diagonal,PortalManager pm) {
+    public SpecFal(Vektor locUpLeftCorner,Vektor diagonal,Vektor dir,PortalManager pm) {
     	super(locUpLeftCorner,diagonal);
     	reachable =false;
 		this.pm=pm;
@@ -62,9 +62,14 @@ public class SpecFal extends Elem {
      */
     public void shot(Golyo bullet) {
     	Szin colour = bullet.getSzin();
-    	if(this == pm.getPortalOfThisColor(this.colour))
-    		pm.close(this.colour);
-    	pm.close(colour);
+    	SpecFal sf = null;
+    	if (this.colour != null){ //megnézzük, hogy van-e színe a falnak
+    		sf = pm.getPortalOfThisColor(this.colour); //ha igen, megkérdezzük, hogy az adott színnel van e portál nyitva 
+    		if(sf != null && sf == this )//ha van és ez a portál ezen a falon van nyitva
+    			pm.close(this.colour); //bezárjuk
+    	}
+    	if(pm.getPortalOfThisColor(colour) != null) //ha a lőtt szín valahol máshol letezik
+    		pm.close(colour); //bezárjuk
     	pm.open(this,colour);
     	bullet.kill();
     }

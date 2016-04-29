@@ -106,6 +106,7 @@ public class Labirintus {
     
     public void addEndElem(Elem endElem){
     	this.endElem=endElem;
+    	addElem(endElem);
     }
     /**
      * Hozzáadja a labirintushoz a jaffát.

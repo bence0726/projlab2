@@ -44,7 +44,7 @@ public class MapBuilder {
 	 * 
 	 */
 	public void addFal(int x1, int y1, int x2, int y2){
-		Fal tmp = new Fal(new Terulet(new Vektor(x1,y1), new Vektor(x2,y2)));
+		Fal tmp = new Fal(new Vektor(x1,y1), new Vektor(x2,y2));
 		lab.addElem(tmp);		
 	}
 		
@@ -54,10 +54,10 @@ public class MapBuilder {
 	 * 
 	 */
 	public void addSpecFal(int x1, int y1, int d1, int d2, int px, int py){
-		SpecFal tmp = new SpecFal(new Terulet(new Vektor(x1,y1),
-				new Vektor(d1,d2)),
-				new Vektor(px, py), //a portál ide fogja kitenni a karaktert
-				pm);
+		SpecFal tmp = new SpecFal(new Vektor(x1,y1),
+								new Vektor(d1,d2),
+								new Vektor(px, py), //a portál ide fogja kitenni a karaktert
+								pm);
 		lab.addElem(tmp);
 	}
 	
@@ -155,7 +155,7 @@ public class MapBuilder {
 	public void addJaffa(){
 		Karakter jaffa = new Karakter(lab,
 				lab.getstartElem().getPos().getKezd(),
-				new Vektor(5,5));
+				new Vektor(10,10));
 		lab.addMoveable(jaffa);
 		lab.addJaffa(jaffa);	
 	}
@@ -167,7 +167,7 @@ public class MapBuilder {
 	public void addOneil(){
 		Karakter oneil = new Oneil(lab,
 				lab.getstartElem().getPos().getKezd(),
-				new Vektor(5,5));
+				new Vektor(10,10));
 		lab.addMoveable(oneil);
 		lab.addOneil(oneil);	
 	}

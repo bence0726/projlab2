@@ -18,7 +18,7 @@ public class Karakter extends Moveable{
     /**
      * 
      */
-    protected Vektor gundir = new Vektor(0,0);
+    protected Vektor gundir = new Vektor(1,0);
 
     /**
      * Létrehoz egy karakter(jaffa) objektumot az elem 
@@ -29,7 +29,7 @@ public class Karakter extends Moveable{
      */
     public Karakter(Labirintus lab,Vektor leftcorn, Vektor diagonal){
     	super(lab,leftcorn, diagonal);
-    	gundir.beEqualWith(new Vektor(0,1));
+    	gundir.beEqualWith(new Vektor(1,0));
     }
     
     /**
@@ -71,13 +71,12 @@ public class Karakter extends Moveable{
     /**
      * A paraméterül kapott színnel elindít egy golyót.
      * @param szin
+     * FIXME pos.getkezd átírva getmiddleofareara
      */
     public void Fire(Szin szin) {
 //    	lab.addMoveable(new Golyo(lab,gundir,pos,szin));
     	lab.addMoveable(new Golyo(
-    			lab,Vektor.addVecToVec(
-    			pos.getKezd(), moveDir),
-    			moveDir, szin));
+    			this.lab,Vektor.addVecToVec(pos.getMiddleOfArea(), gundir),gundir, szin));
     }
 
     /**
@@ -88,8 +87,8 @@ public class Karakter extends Moveable{
         double currentAngle = Math.asin(gundir.getVy()/gundir.getVx()); //szöggel szemközti per átfogó arkuszszinusza. az érték radiánban
         addAngle = addAngle*Math.PI / 180; //fokokat lenormáljuk radiánná
         currentAngle+=addAngle; //összeadjuk a 2 szöget.
-        gundir.setVx((Math.round(Math.cos(currentAngle))*100));
-        gundir.setVy((Math.round(Math.sin(currentAngle))*100));
+        gundir.setVx((Math.round(Math.cos(currentAngle))));
+        gundir.setVy((Math.round(Math.sin(currentAngle))*-1));
         //ALERT a vektorok parametereit floatban kellett volna tarolni nem int... most mindenhol átkéne irni.
     }
     /**
