@@ -76,12 +76,12 @@ public class TestManager {
 				TO.AddResultRow("GUN ROTATED WITH " + pieces[2]);
 				break;
 			case "PICK":
-				kc.pick(pieces[2]);
-				TO.AddResultRow("PICKED BY  " + pieces[2]);
+				kc.pick(pieces[1]);
+				TO.AddResultRow("PICKED BY  " + pieces[1]);
 				break;
 			case "DROP":
-				kc.drop(pieces[2]);
-				TO.AddResultRow("BOX DROPPED BY " + pieces[2]);
+				kc.drop(pieces[1]);
+				TO.AddResultRow("BOX DROPPED BY " + pieces[1]);
 				break;
 			case "GETPOS":
 				
@@ -104,9 +104,9 @@ public class TestManager {
 					{
 						specfalText = "NO" + pieces[1];
 						TO.AddResultRow(specfalText);
-						break;
+						return;
 					}
-					Vektor tempMidleOfArea = sp.getPos().getMiddleOfArea();
+					Vektor tempMidleOfArea = sp.getPos().getKezd();
 /*FIXME*/			specfalText = "YELLOWPORTAL "
 							+Math.round(tempMidleOfArea.getVx())//nem kéne hozzáadni azt az eltolást is?
 							+" "
@@ -118,13 +118,13 @@ public class TestManager {
 					{
 						specfalText = "NO" + pieces[1];
 						TO.AddResultRow(specfalText);
-						break;
+						return;
 					}
-					Vektor tempMidleOfArea = sp.getPos().getMiddleOfArea();
+					Vektor tempMidleOfArea = sp.getPos().getKezd();
 					specfalText = "BLUEPORTAL "
-							+tempMidleOfArea.getVx()
+							+Math.round(tempMidleOfArea.getVx())
 							+" " 
-							+ tempMidleOfArea.getVy();
+							+ Math.round(tempMidleOfArea.getVy());
 				}
 				TO.AddResultRow(specfalText);
 				break;

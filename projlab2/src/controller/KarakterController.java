@@ -65,6 +65,25 @@ public class KarakterController {
 			default:
 				break;
 			}
+			return;
+		}
+		if(karakternev.equals("JAFFA")){
+			switch (szin) {
+			case "BLUE":
+				jm.jaffaFire(Szin.Kek);
+				break;
+			case "RED":
+				jm.jaffaFire(Szin.Piros);
+				break;
+			case "GREEN":
+				jm.jaffaFire(Szin.Zold);
+				break;
+			case "YELLOW":
+				jm.jaffaFire(Szin.Sarga);
+				break;
+			default:
+				break;
+			}
 		}
 	}	
 	/**

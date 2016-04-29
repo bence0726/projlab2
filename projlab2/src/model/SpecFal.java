@@ -49,10 +49,9 @@ public class SpecFal extends Elem {
      */
     public SpecFal(Vektor locUpLeftCorner,Vektor diagonal,Vektor dir,PortalManager pm) {
     	super(locUpLeftCorner,diagonal);
-    	reachable =false;
-		this.pm=pm;
-    	image = "specfal.jpg";
-    	name="SpecFal";
+    	reachable = false;
+		this.pm = pm;
+		direction = dir;
     }
     
 

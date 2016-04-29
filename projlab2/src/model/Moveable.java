@@ -95,6 +95,7 @@ public abstract class Moveable extends Elem{
     	Iterator<Elem> iteratorThere = itemsThere.iterator();
     	
     	while(iteratorThere.hasNext()){
+    		
     		if(iteratorThere.next().steppedon(this)){
     			moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);
     		}
@@ -147,7 +148,7 @@ public abstract class Moveable extends Elem{
 
     public void kill(){
     	this.alive = false;
-    	//lab.refreshList();
+    	lab.refreshList();
     }    
     public int getSuly() {
 		return suly;

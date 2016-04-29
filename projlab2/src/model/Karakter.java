@@ -30,6 +30,7 @@ public class Karakter extends Moveable{
     public Karakter(Labirintus lab,Vektor leftcorn, Vektor diagonal){
     	super(lab,leftcorn, diagonal);
     	gundir.beEqualWith(new Vektor(1,0));
+    	suly = 10;
     }
     
     /**
@@ -37,13 +38,15 @@ public class Karakter extends Moveable{
      * valamit, ha van ott valami
      */
     public void Pick() {
-    	Terulet T = new Terulet(pos.getMiddleOfArea(),gundir);
+    	Terulet T = new Terulet(new Vektor(this.pos.getKezd()),new Vektor(this.pos.getVeg()));
+    	T.addDirToArea(Vektor.VektorMultiplication(gundir, 5));
         Set<Elem> items = lab.whatsThere(T);
         
         Iterator<Elem> iterator = items.iterator();
         
         while(iterator.hasNext()){
         	if(iterator.next().picked(this)){
+        		
         		lab.refreshList();			//frissítjük a labirintus listáját
         		return;        	
         	}

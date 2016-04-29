@@ -66,8 +66,8 @@ public class MapBuilder {
 	 *  konstruktorát és hozzáadja a Labirintushoz.
 	 */
 	public void addZPM(int x1, int y1, int d1, int d2){
-		ZPM tmp = new ZPM(new Terulet(new Vektor(x1,y1), new Vektor(d1,d2)));
-		lab.addElem(tmp);
+		ZPM tmp = new ZPM(new Vektor(x1,y1), new Vektor(d1,d2));
+		lab.addZPM(tmp);
 	}
 	
 	/**
@@ -168,7 +168,6 @@ public class MapBuilder {
 		Karakter oneil = new Oneil(lab,
 				lab.getstartElem().getPos().getKezd(),
 				new Vektor(10,10));
-		lab.addMoveable(oneil);
-		lab.addOneil(oneil);	
+		lab.addOneil(oneil);
 	}
 }

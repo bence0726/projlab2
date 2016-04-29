@@ -61,19 +61,24 @@ public class Labirintus {
      */
     public void refreshList(){
     	Iterator<Moveable> itMoveable = moveableList.iterator();
+    	List<Moveable> removethesemoveable = new ArrayList<>();
+    	List<Elem> removetheseElem = new ArrayList<>();
+    	
     	while(itMoveable.hasNext()){
     		Moveable temp = itMoveable.next();
-    		if(!temp.isAlive())
-    			moveableList.remove(temp);	//töröljük a moveable listáról
-    			objectsOnMap.remove(temp);			//és az elemek listájáról is.
+    		if(!temp.isAlive() && !removethesemoveable.contains(temp))
+    			removethesemoveable.add(temp);
     	}
+    	moveableList.removeAll(removethesemoveable);
+    	objectsOnMap.removeAll(removethesemoveable);
     	
     	Iterator<Elem> iteratorElemek = objectsOnMap.iterator(); //végigmegyünk az elemek listáján is
     	while(iteratorElemek.hasNext()){
     		Elem temp = iteratorElemek.next();
-    		if(!temp.isAlive())
-    			objectsOnMap.remove(temp);
-    	}
+    		if(!temp.isAlive() && !removetheseElem.contains(temp))
+    			removetheseElem.add(temp);
+    	}    	
+    	objectsOnMap.removeAll(removetheseElem);    	
     }
 
     /**
@@ -91,6 +96,11 @@ public class Labirintus {
      */
     public void addElem(Elem elem) {
     	objectsOnMap.add(elem);
+    }
+    
+    public void addZPM(Elem zpm){
+    	addElem(zpm);
+    	osszZPM++;
     }
     /**
      * Hozzáadja a labirintushoz a kezdőelemet.

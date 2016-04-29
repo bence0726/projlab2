@@ -146,6 +146,13 @@ public class Vektor {
     		return new Vektor(0,0);
     	}
     }
+    
+    public static Vektor VektorMultiplication(Vektor vec1,int i){
+    	Vektor newvec = new Vektor(vec1);
+    	newvec.vx = newvec.vx*i;
+    	newvec.vy = newvec.vy*i;
+    	return newvec;
+    }
     //getterek, setterek:
     public void setVx(double val) {
     	vx=val; 

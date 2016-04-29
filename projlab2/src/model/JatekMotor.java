@@ -24,9 +24,10 @@ public class JatekMotor {
     * megmozgatja mind. 
     */
    public void moveEverything(){
-	   Iterator<Moveable> iterator = lab.getMoveableList().iterator();
-	   while(iterator.hasNext())
-		   iterator.next().move();
+	   ArrayList<Moveable> list = lab.getMoveableList();
+	   for(int i = 0; i < list.size(); i++){
+		   list.get(i).move();
+	   }
    }
 
     /**

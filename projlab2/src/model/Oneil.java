@@ -3,8 +3,7 @@ package model;
 /**
  * 
  */
-public class Oneil extends Karakter {
-	
+public class Oneil extends Karakter {	
 
 	/**
      * Létrehoz egy oneil(oneil) objektumot az elem 
@@ -31,20 +30,6 @@ public class Oneil extends Karakter {
         //ahol nincs semmi, addig hívogatjuk.
         while(lab.whatsThere(T) != null) 
         	T.randomArea(new Vektor(6,6),100);
-        lab.addElem(new ZPM(T)); //hozzáadjuk a labirintushoz
+        lab.addZPM(new ZPM(T)); //hozzáadjuk a labirintushoz
     }
-    
-//-------------------------------------------------------------------------------    
-//    /**
-//     * Létrehoz egy karakter(jaffa) objektumot az elem 
-//     * közepére illesztve a moveable objektumot.
-//     * Default mérettel jön létre 10*10 pixel méretben.
-//     * @param lab
-//     * @param kezdLocVec
-//     */
-//    public Karakter(Labirintus lab,Elem startElem){
-//    	super(lab,startElem);
-//    	image = "oneil.jpg";
-//    }
-
 }
