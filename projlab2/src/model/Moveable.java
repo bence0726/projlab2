@@ -79,14 +79,14 @@ public abstract class Moveable extends Elem{
     	
     	Iterator<Elem> iteratorHere = itemsHere.iterator();
     	
-    	if(itemsThere.size() == 0){						//ha nincs ott semmi...
+    	if(itemsThere.size() == 1){						//ha nincs ott semmi... FIXME ez megtalálja magát?
     		step();										//lépés
-    		if(itemsHere.size() != 0){
+    		if(itemsHere.size() != 1){
     			Set<Elem> itemsNewPlace = lab.whatsThere(this.pos);//megnézzük, kimindenkin vagyunk rajta most    			
     			while(iteratorHere.hasNext()){
     	    		Elem temp = iteratorHere.next();
     	    		if(!itemsNewPlace.contains(temp))
-    	    			temp.steppedoff(this);					//ami nincs benne, arról leléptünk
+    	    			temp.steppedoff(this);	//ami nincs benne, arról leléptünk
     	    	}
     		}
     		moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
