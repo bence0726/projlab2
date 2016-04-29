@@ -77,7 +77,7 @@ public class TestManager {
 				break;
 			case "PICK":
 				kc.pick(pieces[1]);
-				TO.AddResultRow("PICKED BY  " + pieces[1]);
+				TO.AddResultRow("PICKED BY " + pieces[1]);
 				break;
 			case "DROP":
 				kc.drop(pieces[1]);
