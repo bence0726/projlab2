@@ -1,7 +1,7 @@
 package model;
 
 /**
- * 
+ * A ZPM-modulok modellbeli reprezentációjáért felelős osztály.
  */
 public class ZPM extends Elem {
 
@@ -34,5 +34,4 @@ public class ZPM extends Elem {
         this.kill(null);
         return true;
     }
-
 }

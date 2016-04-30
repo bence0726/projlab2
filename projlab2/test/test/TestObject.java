@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Az egyes tesztesetek egy-egy TestObject objektumban
+ * reprezentálódnak. Tároljuk a teszt bemenetét, elvárt kimenetét
+ * és a bemenetre adott valós, tényleges kimenetet.
+ * Összeveti a kimenetet az elvárt kimenettel, ha az elvárt
+ * kimenetet nem tartalmazza a kimenet, a teszt nem lesz sikeres.
+ * 
+ * @author zsigatibor
+ */
 public class TestObject {
 	/**
 	 * Ha a teszt sikeres, true-ra billentjük.

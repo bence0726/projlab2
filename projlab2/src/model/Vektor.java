@@ -2,11 +2,19 @@ package model;
 import java.util.*;
 
 /**
- * 
+ * Ez a segédosztály pont-párok tárolására
+ * lett megalkotva.
  */
 public class Vektor {
 
+	/**
+	 * X koordináta
+	 */
     private double vx;
+    
+    /**
+     * Y koordináta
+     */
     private double vy;
 
     public Vektor(double x, double y) {
@@ -14,6 +22,9 @@ public class Vektor {
     	vy=y;
     }
 
+    /**
+     * A paraméterül kapott vektorból készít új vektort.
+     */
     public Vektor(Vektor vec) {
 		vx = vec.getVx();
 		vy = vec.getVy();
@@ -21,8 +32,6 @@ public class Vektor {
     
     /**
      * Hozzáadja a vektorhoz(A) paraméterként kapott vektort(B).
-     * @param dirVec
-     * @return
      */
     public void addVec(Vektor vec){
     	this.vx = this.vx+vec.getVx();
@@ -31,18 +40,14 @@ public class Vektor {
     /**
      * Kivonja a vektorból(A) a paraméterül kapott vektort(B).Így az eredményvektor
      * az A vektor végébe fog mutatni.
-     * @param vec
-     * @return
      */
     public void subVec(Vektor vec){
-    	this.vx=this.vx-vec.getVx();
-    	this.vy=this.vy-vec.getVy();
+    	this.vx = this.vx - vec.getVx();
+    	this.vy = this.vy - vec.getVy();
     }    
     
     /**
      * A vektort egyenlővé teszi a paraméterül kapott vektorral.
-     * @param vec
-     * @return
      */
     public void beEqualWith(Vektor vec){
     	this.vx = vec.getVx();
@@ -51,8 +56,6 @@ public class Vektor {
     
    /**
     * Visszaadja a vektor inverzét.
-    * @param vec
-    * @return newvec
     */
     public Vektor getInverseVec(){
     	Vektor newvec = new Vektor(this);
@@ -60,18 +63,19 @@ public class Vektor {
     	newvec.setVy(newvec.getVy()*-1);
     	return newvec;
     }
+    
     /**
      * Invertálja a vektort.
      */
     public void invertThisVec(){
-    	this.vx=this.vx*-1;
-    	this.vy=this.vy*-1;
+    	this.vx = this.vx * (-1);
+    	this.vy = this.vy * (-1);
     }    
     
     /**
-     * TODO FIXME írj hozzám leírást pls!
-     * @param v
-     * @return
+     * Megnézi, hogy a hívó objektum koordinátái
+     * megegyeznek-e a paraméterül kapott vektor
+     * koordinátáival.
      */
     public boolean isEqualTo(Vektor v){
     	Double d1= new Double(this.vx);
@@ -82,24 +86,20 @@ public class Vektor {
     }
     
     /**
-     * TODO: írj hozzám leírást pls!
-     * @param vec
-     * @return
+     * @return Egy olyan vektor, ami a paraméterül kapott
+     * vektor irányába mutat, hossza pedig fele akkora.
      */
     public static Vektor getHalfOf(Vektor vec){
     	Vektor temp = new Vektor(vec);
-    	temp.vx= temp.vx/2;
-    	temp.vy=temp.vy/2;
+    	temp.vx = temp.vx/2;
+    	temp.vy = temp.vy/2;
     	return temp;
     }
     
     /**
      * Összeadja a 2 paraméterül kapott vektort és visszatér
-     * az eredménnyel anélkül hogy 2 paraméterül kapott vektoron
+     * az eredménnyel anélkül, hogy 2 paraméterül kapott vektoron
      * vagy azon ami hívja a függvényt változtatna.
-     * @param vec1
-     * @param vec2
-     * @return newvec
      */
     public static Vektor addVecToVec(Vektor vec1,Vektor vec2){
     	Vektor newvec = new Vektor(vec1);
@@ -110,7 +110,6 @@ public class Vektor {
     /**
      * Visszatér egy Random vektorral.
      * @param justFourDir :True-Csak 4 irány ; False-bármennyi irány.
-     * @return
      */
     public static Vektor randomDir(boolean justFourDir){
     	Random rand = new Random();
@@ -126,8 +125,7 @@ public class Vektor {
     
     /**
      * A kapott enum értéke szerint készít egy 1 hosszú irányvektort.
-     * Ha az enum értéke Stay, helyben maradunk, 0,0 helyvektort ad át.
-     * @param direnum
+     * Ha az enum értéke Stay, helyben maradunk, (0,0) helyvektort ad át.
      * @return a kívánt irányvektor
      */
     public static Vektor EnumToDirVec(MoveDirections direnum){
@@ -147,19 +145,31 @@ public class Vektor {
     	}
     }
     
+    /**
+     * Ezzel a függvénnyel a kapott vektorból létrehoz egy 
+     * skálázott vektort.
+     * @param vec1 - a vektor, amelyből új vektort állítunk elő
+     * @param i - a vektor skálázásának mértéke.
+     * @return - egy új Vektor objektum, mely a paraméterül kapott
+     * vektort i-szeresére nyújtotta. 
+     */
     public static Vektor VektorMultiplication(Vektor vec1,int i){
     	Vektor newvec = new Vektor(vec1);
     	newvec.vx = newvec.vx*i;
     	newvec.vy = newvec.vy*i;
     	return newvec;
     }
-    //getterek, setterek:
+    
+    /*
+     * getterek, setterek:
+     */
+    
     public void setVx(double val) {
-    	vx=val; 
+    	vx = val; 
     }
 
     public void setVy(double val) {
-        vy =val;
+        vy = val;
     }
 
     public double getVx() {

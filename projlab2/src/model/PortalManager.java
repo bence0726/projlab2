@@ -26,8 +26,6 @@ public class PortalManager {
      */
     private SpecFal ZoldP=null;
 
-
-
 	/**
 	 * A paraméterben kapott specfalból kiolvassa a színét és
 	 * a megfelelő kapuhoz rendeli a specfalat. Továbbá beállítja a

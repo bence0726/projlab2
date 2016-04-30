@@ -5,18 +5,23 @@ import model.MoveDirections;
 import model.Szin;
 import model.Vektor;
 
+/**
+ * Az osztály segítségével tudja a tesztelő 
+ * elérni a modellt, azon változtatásokat végrehajtani.
+ * @author zsigatibor *
+ */
 public class KarakterController {
+	
 	JatekMotor jm;
 	
 	public KarakterController(JatekMotor gameEngine){
 		jm = gameEngine;
 	}
+	
 	/**
 	 * A karaktert kikeresi neve alapján majd a kapott vektorral
 	 * eltolja azt, ha nem ütközik olyan pályaelembe, amelyre
 	 * a rálépés nem megengedett.
-	 * A kész programban külön lesz a setmovedir és a move, de
-	 * ez a teszteléshez így jobb lesz.
 	 */
 	public void setKarDir(String karakternev, String irany){
 		if(karakternev.equals("ONEIL")){
@@ -30,7 +35,7 @@ public class KarakterController {
 				case "LEFT": jm.setOneilMoveDir(MoveDirections.MoveLeft);
 			}
 		}
-		else if(karakternev.equals("ONEIL")){
+		else if(karakternev.equals("JAFFA")){
 			switch(irany){
 				case "UP": jm.setJaffaMoveDir(MoveDirections.MoveUp);
 				break;
@@ -44,8 +49,9 @@ public class KarakterController {
 	}
 	
 	/**
-	 * A karaktert neve alapján kikeresi a mozgatandók
-	 * listáról és az adott irányba adott színnel elindít egy golyót.
+	 * Adott karakterrel adott színű golyót lő.
+	 * A fegyver irányát nem ez a függvény állítja be,
+	 * ez csupán a lövésért felel.
 	 */
 	public void fire(String karakternev, String szin){
 		if(karakternev.equals("ONEIL")){
@@ -86,6 +92,7 @@ public class KarakterController {
 			}
 		}
 	}	
+	
 	/**
 	 * Elfordítja a hivatkozott karakter fegyverét a 
 	 * paraméterül kapott szöggel.
@@ -96,8 +103,9 @@ public class KarakterController {
 			return;
 		}			
 		if(karakternev.equals("JAFFA"))
-			jm.setOneilGunDir(angle);	
+			jm.setJaffaGunDir(angle);	
 	}
+	
 	/**
 	 * Meghívja a karakter pick metódusát.
 	 */
@@ -109,6 +117,7 @@ public class KarakterController {
 		if(karakternev.equals("JAFFA"))
 			jm.jaffaPick();
 	}
+	
 	/**
 	 * Meghívja a karakter drop metódusát.
 	 */
@@ -120,10 +129,9 @@ public class KarakterController {
 		if(karakternev.equals("JAFFA"))
 			jm.jaffaDrop();
 	}
+	
 	/**
 	 * Stringgé parsolva visszaadja a karakter koordinátáit.
-	 * @param string
-	 * @return
 	 */
 	public String getpos(String karakternev) {
 		Vektor v = new Vektor(0,0);

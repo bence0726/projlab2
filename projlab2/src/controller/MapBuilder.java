@@ -114,8 +114,7 @@ public class MapBuilder {
 				new Vektor(d1,d2),suly);
 		lab.addMoveable(tmp);
 	}
-	
-	
+		
 	/**
 	 * a kapott paraméterekkel a Labirintushoz Startelem attribútumát
 	 * állítja be.
