@@ -35,7 +35,7 @@ public class Fal extends Elem {
     	if(reachable)
     		bullet.step(); //ha rá lehet lépni, akkor a golyó elmegy felette
     	else
-    		bullet.kill(); //egyébként beleütközik.
+    		bullet.kill(null); //egyébként beleütközik.
     }
 
     public boolean steppedon(Moveable X) {

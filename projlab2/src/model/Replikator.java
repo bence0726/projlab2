@@ -33,8 +33,8 @@ public class Replikator extends Moveable{
      * 
      */
     public void shot(Golyo bullet) {
-    	bullet.kill();
-        this.alive=false;
+    	bullet.kill(null);
+        this.alive = false;
         lab.refreshList();
     }
 
@@ -46,7 +46,7 @@ public class Replikator extends Moveable{
     public void move() {
     	//this.moveDir =  Vektor.randomDir(true); // Ez lesz az igazi programban
     	this.moveDir = new Vektor(1.0,0); //teszteléshez
-        Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
+        Terulet t = new Terulet(new Vektor(this.pos.getKezd()),new Vektor(this.pos.getVeg()));
         t.addDirToArea(moveDir);
         Set<Elem> items = lab.whatsThere(t);
         Iterator<Elem> iterator = items.iterator();
@@ -62,7 +62,11 @@ public class Replikator extends Moveable{
         iterator = items.iterator();
         
         while(iterator.hasNext()){
-        	iterator.next().steppedon(this);
+        	Elem temp = iterator.next();
+        	if (temp != this){
+        		if(temp.steppedon(this))
+        			moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);
+        	}
         }
         
         //szerintem itt kéne új moveDir-t beállítani a további mozgáshoz:
@@ -79,18 +83,10 @@ public class Replikator extends Moveable{
      * A problémát feloldottam a shot fv olyasféle megírásával hogy nem a killt hivja
      * hanem egy default kill fv-t.
      */
-    public void kill() {
+    public void kill(Elem e){
         alive = false;
-        Set<Elem> items = lab.whatsThere(pos);
-        Iterator<Elem> iterator = items.iterator();
-        while(iterator.hasNext()){
-        	Elem temp = iterator.next();
-        	if(temp != this){
-        		temp.kill();
-        		lab.refreshList();
-        		return;
-        	}        		
-        }
+        e.kill(null);
+        lab.refreshList();
     }
     public boolean steppedon(Moveable x){
     	x.step();

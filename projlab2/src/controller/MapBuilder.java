@@ -85,7 +85,7 @@ public class MapBuilder {
 	 *  és hozzáadja a Labirintushoz.
 	 */
 	public void addSzakadek(int x1, int y1, int d1, int d2){
-		Szakadek tmp = new Szakadek(new Terulet(new Vektor(x1,y1), new Vektor(d1,d2)));
+		Szakadek tmp = new Szakadek(new Vektor(x1,y1), new Vektor(d1,d2));
 		lab.addElem(tmp);
 	}
 	
@@ -144,7 +144,7 @@ public class MapBuilder {
 	 * exception-t vált ki!
 	 */
 	public void addReplikator(){
-		Replikator tmp = new Replikator(lab, lab.getstartElem().getPos().getKezd(),new Vektor(3,3));
+		Replikator tmp = new Replikator(lab, lab.getstartElem().getPos().getKezd(),new Vektor(10,10));
 		lab.addMoveable(tmp);
 	}
 

@@ -110,7 +110,7 @@ public abstract class Elem implements Interakcio {
     //Ha igen, alosztályban specifikáljuk.
     }
   
-    public void kill(){
+    public void kill(Elem e){
     	alive = false;
     }
 

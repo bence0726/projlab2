@@ -161,7 +161,7 @@ public abstract class Moveable extends Elem{
     	moveDir = dir;
     }    
 
-    public void kill(){
+    public void kill(Elem e){
     	this.alive = false;
     	lab.refreshList();
     }    
