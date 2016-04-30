@@ -26,7 +26,7 @@ public class Doboz extends Moveable {
      * @return true - mert történt felvétel
      */
     public boolean picked(Karakter k) {
-    	if (k.box != null){
+    	if (k.box == null){
     		this.kill();  //meg kell ölni, hogy  a labirintusbol kikerüljön és igy ne rajzolja fel a pályára
     		k.addBox(this);
         

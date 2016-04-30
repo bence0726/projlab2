@@ -78,7 +78,7 @@ public class Karakter extends Moveable{
 //    	box.pos.setn
     	
     	
-    }
+// }
 
     /**
      * A paraméterül kapott színnel elindít egy golyót.
