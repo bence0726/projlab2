@@ -13,6 +13,9 @@ public abstract class Moveable extends Elem{
      * Létrehoz egy moveable objektumot a közepét a 
      * megadott vektorra illesztve.
      * Default mérettel jön létre 10*10 pixel méretben.
+     * 
+     * FIXME: Egyelőre cska a golyó használja, lehet értelmesebb lenne oda átrakni, a defaultsize-al ami
+     * ráadásul az elemben van.
      */
 	public Moveable(Labirintus labirintus,Vektor locMiddleofArea) {
 		Vektor diagonal = new Vektor(defaultsize);
