@@ -17,11 +17,7 @@ public class Golyo extends Moveable {
     	moveDir = direction;
     }
     
-	/**
-	 * 
-     * @param dir
-     */
-    public void move() {
+	public void move() {
     	/*
     	 * Magyarázat
     	 * Kicsit egyszerűbb, mint a karakter és a replikátor mozgása.

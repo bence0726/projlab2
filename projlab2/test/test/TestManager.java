@@ -10,7 +10,6 @@ import model.Elem;
 import model.JatekMotor;
 import model.SpecFal;
 import model.Szin;
-import model.Terulet;
 import model.Vektor;
 
 /**

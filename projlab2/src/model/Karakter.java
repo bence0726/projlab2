@@ -46,8 +46,7 @@ public class Karakter extends Moveable{
         
         while(iterator.hasNext()){
         	if(iterator.next().picked(this)){
-        		lab.refreshList();			//frissítjük a labirintus listáját
-        		
+        		lab.refreshList();			//frissítjük a labirintus listáját        		
         		return;        	
         	}
         }

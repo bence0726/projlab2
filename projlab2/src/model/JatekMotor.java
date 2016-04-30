@@ -2,8 +2,8 @@ package model;
 import java.util.*;
 
 /**
- * Nyerés feltételei: nincs több ZPM a labirintusban ÉS annál a karakternél van több ZPM, aki a VégeElemre lép
- * TODO befejezni!
+ * a játék futásáért, szabályainak betartásáért felel.
+ * Ő lépteti a mozgatható karaktereket is.
  */
 public class JatekMotor {
     private Labirintus lab;    
@@ -13,8 +13,7 @@ public class JatekMotor {
      * JM konstruktor. Létrehoz egy labirintust
      * és egy portalmanagert.
      */
-    public JatekMotor() {
-    	
+    public JatekMotor() {    	
     	pm = new PortalManager();
     	lab = new Labirintus();    	
     }
@@ -31,7 +30,7 @@ public class JatekMotor {
    }
 
     /**
-     * 
+     * Megnézi, hogy teljesültek-e a nyerés feltételei.
      */
     public boolean isEndGame() {
     	Elem e=lab.getEndElem();

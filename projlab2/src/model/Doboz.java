@@ -34,6 +34,7 @@ public class Doboz extends Moveable {
     	}
     	return false;
     }
+    
     /**
      * Accessable = true, így tudunk rátenni dobozt,
      * de a steppedon() megvalósítása nem engedi, hogy rálépjünk.

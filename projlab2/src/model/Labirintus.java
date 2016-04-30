@@ -2,7 +2,7 @@ package model;
 import java.util.*;
 
 /**
- * 
+ * A labirintus modellbeli reprezentációjáért felelős osztály.
  */
 public class Labirintus {
    /**

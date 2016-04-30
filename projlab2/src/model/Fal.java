@@ -1,12 +1,12 @@
 package model;
 
 /**
- * 
+ * Fal, startelem, végeelem modellbeli reprezentációja.
  */
 public class Fal extends Elem {
 
 	/**
-     * 
+     * Rá lehet lépni az elemre? dinamikusan változhat.
      */
     private boolean reachable = false;
     

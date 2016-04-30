@@ -3,20 +3,11 @@ package test;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
-
 import model.JatekMotor;
 
 /**
@@ -43,7 +34,6 @@ public class MainTesterClass {
 		if(args.length != 0)			
 		try{
 			File fp = new File(workingDirectory,args[0]);
-			String[] name = args[0].split(".txt");
 			TM.addTestObject(readin(fp));		//odaadjuk a TestObject-et a TestManagernek
 		}			
 		catch(IOException e){
@@ -86,6 +76,7 @@ public class MainTesterClass {
 			e.printStackTrace();
 		}
 	}
+	
 	/**
 	 * Beolvassa a fájl tartalmát és TestObjectet csinál belőle.
 	 */
