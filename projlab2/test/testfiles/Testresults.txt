@@ -7,6 +7,7 @@ ONEIL ADDED
 DOBOZ ADDED
 DOBOZ ADDED
 ZPM ADDED
+ONEIL 50 50
 ZPMS IN LAB 1
 5 ELEM IN LAB
 PICKED BY ONEIL
@@ -21,8 +22,12 @@ ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
+ONEIL 50 60
+JAFFA ADDED
+JAFFA 50 60
 PICKED BY ONEIL
-4 ELEM IN LAB
+6 ELEM IN LAB
+ENDELEM ADDED
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
@@ -33,15 +38,16 @@ ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
+ONEIL 50 60
 PICKED BY ONEIL
-4 ELEM IN LAB
-Hibás sorok száma: 4
+ZPMS IN LAB 1
+7 ELEM IN LAB
+Hibás sorok száma: 3
 A teszt során a következő elvárt kimenetek nem teljesültek:
-3 ELEM IN LAB
-2 ELEM IN LAB
+ONEIL 50 70
 ZPMS IN LAB 0
-1 ELEM IN LAB
-A teszt során 8 feltételből 4 darab feltétel teljesült.
+3 ELEM IN LAB
+A teszt során 9 feltételből 6 darab feltétel teljesült.
 04_zpmdobozpicktest teszteset eredménye: UNSUCCESSFUL
 -----------------
 -----------------

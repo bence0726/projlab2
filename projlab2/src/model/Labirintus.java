@@ -102,6 +102,10 @@ public class Labirintus {
     	addElem(zpm);
     	osszZPM++;
     }
+    
+    public void deleteZPM(){
+    	osszZPM--;
+    }
     /**
      * Hozzáadja a labirintushoz a kezdőelemet.
      */
