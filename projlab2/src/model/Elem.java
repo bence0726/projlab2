@@ -60,7 +60,7 @@ public abstract class Elem implements Interakcio {
      */
     public Elem(Vektor locUpLeftCorner,Vektor diagonal){
     	pos = new Terulet();
-    	pos.setKezd(locUpLeftCorner);
+    	pos.setKezd(new Vektor(locUpLeftCorner));
     	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
     }
     

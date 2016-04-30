@@ -49,9 +49,7 @@ public abstract class Moveable extends Elem{
      * vektorra illesztve. A második paraméter az elem mérete.
      */
     public Moveable(Labirintus labirintus, Vektor locUpLeftCorner,Vektor diagonal){
-    	pos = new Terulet();
-    	pos.setKezd(locUpLeftCorner);
-    	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
+    	super(locUpLeftCorner,diagonal);
     	lab = labirintus;
     }
 	
