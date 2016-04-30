@@ -104,6 +104,7 @@ public class MapBuilder {
 				new Vektor(mx1,my1),
 				new Vektor(md1,md2)),
 				ajto, limit));
+		lab.addElem(ajto);
 	}	
 	
 	/**

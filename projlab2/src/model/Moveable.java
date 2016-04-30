@@ -24,7 +24,7 @@ public abstract class Moveable extends Elem{
 		lab = labirintus;
 	}
 
-	
+
 //    /**
 //     * Létrehoz egy moveable objektumot az elem 
 //     * közepére illesztve a moveable objektumot.
@@ -55,6 +55,19 @@ public abstract class Moveable extends Elem{
 	
 	public Moveable(){}
 
+	/**
+	 * Replikátor ráléphet karakterre, golyóra, replikátorra, dobozra is.
+	 */
+	public boolean steppedon(Moveable x){
+		if(x.getSuly() == 0){
+			x.step();
+			return true;
+		}			
+		else
+			return false;
+			
+	}
+	
 	/**
      * @param dir
      */
@@ -156,7 +169,7 @@ public abstract class Moveable extends Elem{
 		return suly;
 	}
     public boolean isAccessable(){
-    	return false;
+    	return true;
     }
     
     //--------------------------------------------------------------------

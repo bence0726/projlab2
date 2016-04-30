@@ -27,8 +27,6 @@ public class Merleg extends Elem {
     	super(area);
     	massLimit = masslimit;
     	this.ajto = ajto;
-    	image = "merleg.jpg";
-    	name="Mérleg";
     }
     
     /**

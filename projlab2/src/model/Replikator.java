@@ -92,4 +92,8 @@ public class Replikator extends Moveable{
         	}        		
         }
     }
+    public boolean steppedon(Moveable x){
+    	x.step();
+    	return true;    	
+    }
 }
