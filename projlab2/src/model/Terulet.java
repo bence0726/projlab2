@@ -127,6 +127,14 @@ public class Terulet {
     	return ((this.kezd.isEqualTo(t.getKezd())) && (this.veg.isEqualTo(t.getVeg())));	
     }
     
+    public double getHeight(){
+    	return this.getVeg().getVx() - this.getKezd().getVx();
+    }
+    
+    public double getWidth(){
+    	return this.getVeg().getVy() - this.getKezd().getVy();
+    }
+    
     /**
      * Beállítja a terület kezdopontjába mutató helyvektort.
      * @param val
