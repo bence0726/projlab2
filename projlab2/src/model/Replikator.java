@@ -50,13 +50,21 @@ public class Replikator extends Moveable{
         t.addDirToArea(moveDir);
         Set<Elem> items = lab.whatsThere(t);
         Iterator<Elem> iterator = items.iterator();
-        if(items.size() == 0){						//ha nincs ott semmi...
-    		step();					
-        while(iterator.hasNext()){
-        	Elem temp = iterator.next();
-        	temp.steppedon(this);
-        	}
+        
+        if(items.size() == 1){						//ha nincs ott semmi, csak a replikátor...
+    		step();	
+    		return;
         }
+    	while(iterator.hasNext()){
+    		if(!iterator.next().isAccessable()) // ha nem elérhető az a terület, ahová lépni szeretnénk,
+    			return;								// akkor visszatérünk.
+    	}
+        iterator = items.iterator();
+        
+        while(iterator.hasNext()){
+        	iterator.next().steppedon(this);
+        }
+        
         //szerintem itt kéne új moveDir-t beállítani a további mozgáshoz:
         setDir(Vektor.randomDir(false)); //így a következő lépésnél random irányba megy tovább
     }

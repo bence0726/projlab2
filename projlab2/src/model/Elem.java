@@ -138,6 +138,9 @@ public abstract class Elem implements Interakcio {
 	public boolean isAlive(){
 		return alive;
 	}
+	public boolean isAccessable(){
+		return false;
+	}
 	
 	/**
      * @return pos - az a terület, amelyet az objektum lefed.

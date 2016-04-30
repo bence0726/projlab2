@@ -40,4 +40,7 @@ public class Doboz extends Moveable {
     	}
     	return false;
     }
+    public boolean isAccessable(){
+    	return true;
+    }
 }

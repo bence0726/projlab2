@@ -34,6 +34,9 @@ public class Szakadek extends Elem {
         m.kill();
         return true;
     }
+    public boolean isAccessable(){
+    	return true;
+    }
     
 
 }

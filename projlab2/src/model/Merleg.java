@@ -65,5 +65,11 @@ public class Merleg extends Elem {
     	if (massOnTheScale < massLimit)
     		ajto.setReachable(false);
     }
-
+    
+    public boolean dropped(Doboz box){
+    	return true;
+    }
+    public boolean isAccessable(){
+    	return true;
+    }
 }

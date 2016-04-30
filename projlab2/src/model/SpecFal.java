@@ -124,4 +124,7 @@ public class SpecFal extends Elem {
 	public void setReachable(boolean reachable) {
 		this.reachable = reachable;
 	}
+	public boolean isAccessable(){
+		return reachable;
+	}
 }
