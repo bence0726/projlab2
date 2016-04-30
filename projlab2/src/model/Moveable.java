@@ -80,7 +80,7 @@ public abstract class Moveable extends Elem{
     	
     	Iterator<Elem> iteratorHere = itemsHere.iterator();
     	
-    	if(itemsThere.size() == 1){						//ha nincs ott semmi... FIXME ez megtalálja magát?
+    	if(itemsThere.size() == 1){						//ha nincs ott semmi... ez megtalálja magát? Igen!
     		step();										//lépés
     		if(itemsHere.size() != 1){
     			Set<Elem> itemsNewPlace = lab.whatsThere(this.pos);//megnézzük, kimindenkin vagyunk rajta most    			
@@ -93,10 +93,14 @@ public abstract class Moveable extends Elem{
     		moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
     		return;
     	}    	
-    	Iterator<Elem> iteratorThere = itemsThere.iterator();
-    	
+    	Iterator<Elem> iteratorThere = itemsThere.iterator();    	
     	while(iteratorThere.hasNext()){
-    		
+    		if(!iteratorThere.next().isAccessable()) // ha nem elérhető az a terület, ahová lépni szeretnénk,
+    			return;								// akkor visszatérünk.
+    	}
+    	iteratorThere = itemsThere.iterator(); // létrejön új iterátor, vagy a végigpörgetettet kapjuk meg??
+    	
+    	while(iteratorThere.hasNext()){    		
     		if(iteratorThere.next().steppedon(this)){
     			moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);
     		}
@@ -154,6 +158,9 @@ public abstract class Moveable extends Elem{
     public int getSuly() {
 		return suly;
 	}
+    public boolean isAccessable(){
+    	return false;
+    }
     
     //--------------------------------------------------------------------
 //	

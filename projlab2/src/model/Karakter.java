@@ -70,15 +70,33 @@ public class Karakter extends Moveable{
 //        							//max marad a karakter pozíciójában.
 //        box = null;					//nincs nálunk doboz, legyen null az értéke.
 //    }
-//    
-//    public void Drop(){
-//    	if(box == null){
-//    		return;
-//    	}
-//    	box.pos.setn
+    
+    public void Drop(){
+    	if(box == null){
+    		return;
+    	}
+    	Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
+    	Double szam = Math.sqrt((this.pos.getHeight()*this.pos.getHeight() + this.pos.getWidth()*this.pos.getWidth()));
+    	t.addDirToArea(Vektor.VektorMultiplication(gundir, (int) (Math.round(szam + 1))));
     	
+    	Set<Elem> items = lab.whatsThere(t);
+    	Iterator<Elem> it = items.iterator();
     	
-// }
+    	while(it.hasNext()){
+    		if(!it.next().isAccessable())
+    			return;
+    	}
+    	it = items.iterator();
+    	
+    	box.alive = true;
+    	lab.addMoveable(box);
+    	box.pos = t;
+    	while(it.hasNext()){
+    		it.next().steppedon(box);
+    	}
+    	
+    	box = null;
+    }
 
     /**
      * A paraméterül kapott színnel elindít egy golyót.

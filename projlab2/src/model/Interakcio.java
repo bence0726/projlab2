@@ -50,4 +50,6 @@ public interface Interakcio {
      * Az objektum törlése a térképről.
      */
     public void kill();
+    
+    public boolean isAccessable();
 }
