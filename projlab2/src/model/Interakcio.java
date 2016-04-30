@@ -48,8 +48,11 @@ public interface Interakcio {
 
     /**
      * Az objektum törlése a térképről.
+     * @param e - átadjuk a hívót is. Így pl
+     * replikátor szakadékba lépésekor a replikátor
+     * pontosan tudja, hogy kit kell megölnie.
      */
-    public void kill();
+    public void kill(Elem e);
     
     public boolean isAccessable();
 }

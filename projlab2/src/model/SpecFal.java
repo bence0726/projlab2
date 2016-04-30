@@ -70,7 +70,7 @@ public class SpecFal extends Elem {
     	if(pm.getPortalOfThisColor(colour) != null) //ha a lőtt szín valahol máshol letezik
     		pm.close(colour); //bezárjuk
     	pm.open(this,colour);
-    	bullet.kill();
+    	bullet.kill(null);
     }
 
     /**

@@ -31,7 +31,7 @@ public class Szakadek extends Elem {
      * @param e
      */
     public boolean steppedon(Moveable m) {
-        m.kill();
+        m.kill(this);
         return true;
     }
     public boolean isAccessable(){

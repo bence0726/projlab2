@@ -75,7 +75,7 @@ public class Karakter extends Moveable{
     	if(box == null){
     		return;
     	}
-    	Terulet t = new Terulet(this.pos.getKezd(),this.pos.getVeg());
+    	Terulet t = new Terulet(new Vektor(this.pos.getKezd()),new Vektor(this.pos.getVeg()));
     	Double szam = Math.sqrt((this.pos.getHeight()*this.pos.getHeight() + this.pos.getWidth()*this.pos.getWidth()));
     	t.addDirToArea(Vektor.VektorMultiplication(gundir, (int) (Math.round(szam + 1))));
     	

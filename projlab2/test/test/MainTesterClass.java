@@ -52,6 +52,8 @@ public class MainTesterClass {
 		else{
 			try {
 				for (File file : workingDirectory.listFiles()) {
+					if(file.getName().equals("Testresults.txt"))
+						continue;
 					TM.addTestObject(readin(file));
 				}
 			} catch (IOException e) {
