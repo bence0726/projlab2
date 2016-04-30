@@ -119,6 +119,11 @@ public abstract class Elem implements Interakcio {
     //így false értéket ad vissza (nem történt felvétel)
     	return false;
     }
+    
+    public boolean dropped(Doboz box){
+    	return false;
+    }
+   
         
     public void shot(Golyo bullet) {
 		bullet.step();//Default implementációjában továbbengedi a golyót.

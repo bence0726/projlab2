@@ -34,6 +34,7 @@ public class ZPM extends Elem {
      */
     public boolean picked(Karakter k) {
         k.addZPM();
+        k.lab.deleteZPM();
         this.kill();
         return true;
     }

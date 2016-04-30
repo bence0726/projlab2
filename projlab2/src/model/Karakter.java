@@ -52,22 +52,31 @@ public class Karakter extends Moveable{
         }
     }
 
-    /**
-     * Amerre a puskacső áll, arra 
-     * fogja letenni a dobozt.
-     */
-    public void Drop() {
-        if(box == null) 			//ha nincs nálunk doboz, nincs feladat
-        	return;
-        box.pos.setNewCornerLocation(this.pos.getKezd());//TODO: elkészült ez a függvény a Terulet osztályban? jó a paraméterezés?
-        box.alive = true;			//felélesztjük. :D
-        lab.addElem(box);			//hozzáadjuk a dobozt a listához
-        box.setDir(this.gundir);	//beállítjuk a doboz "lépési irányát"
-        box.move();					//ezzel letesszük a dobozt.
-        							//ha van ott valami, ahova lépne, és nem 
-        							//léphet oda, az objektumok lerendezik, 
-        							//max marad a karakter pozíciójában.
-        box = null;					//nincs nálunk doboz, legyen null az értéke.
+//    /**
+//     * Amerre a puskacső áll, arra 
+//     * fogja letenni a dobozt.
+//     */
+//    public void Drop() {
+//        if(box == null) 			//ha nincs nálunk doboz, nincs feladat
+//        	return;
+//        box.pos.setNewCornerLocation(this.pos.getKezd());
+//        box.alive = true;			//felélesztjük. :D
+//        lab.addElem(box);			//hozzáadjuk a dobozt a listához
+//        box.setDir(this.gundir);	//beállítjuk a doboz "lépési irányát"
+//        box.move();					//ezzel letesszük a dobozt.
+//        							//ha van ott valami, ahova lépne, és nem 
+//        							//léphet oda, az objektumok lerendezik, 
+//        							//max marad a karakter pozíciójában.
+//        box = null;					//nincs nálunk doboz, legyen null az értéke.
+//    }
+//    
+//    public void Drop(){
+//    	if(box == null){
+//    		return;
+//    	}
+//    	box.pos.setn
+    	
+    	
     }
 
     /**
@@ -119,6 +128,8 @@ public class Karakter extends Moveable{
     public int getZPM() {
         return ZPM;
     }
+
+
     
 //  /**
 //  * Létrehoz egy Karakter objektumot(jaffa) a megadott vektorral.

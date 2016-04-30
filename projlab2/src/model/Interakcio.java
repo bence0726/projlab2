@@ -32,6 +32,11 @@ public interface Interakcio {
      * @return false - ha nem történt felvétel (pl Fal, másik Karakter)
      */
     public boolean picked(Karakter k);
+    
+    /**
+     * 
+     */
+    public boolean dropped(Doboz box);
 
     /**
      * Ha lelépünk egy objektumról, ez a függvény hívódik meg.
