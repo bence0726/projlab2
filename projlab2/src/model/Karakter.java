@@ -100,9 +100,9 @@ public class Karakter extends Moveable{
      * @param newBox - a doboz, amit fel akarunk venni.
      */
     public void addBox(Doboz newBox){
-    	if(box != null){
-    		Drop(); 		//ha van nálunk doboz, lerakjuk, mielőtt felvennénk egy másikat
-    	}
+//    	if(box != null){
+//    		Drop(); 		//ha van nálunk doboz, lerakjuk, mielőtt felvennénk egy másikat
+//    	}
     	this.box = newBox;
     }
     
