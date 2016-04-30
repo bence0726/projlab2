@@ -10,8 +10,6 @@ public class ZPM extends Elem {
      */
     public ZPM(Terulet area) {
     	super(area);
-    	image = "zpm";
-    	name="ZPM";
     }
     
     /**
@@ -22,8 +20,6 @@ public class ZPM extends Elem {
      */
     public ZPM(Vektor locUpLeftCorner,Vektor diagonal) {
     	super(locUpLeftCorner,diagonal);
-    	image = "zpm.jpg";
-    	name="ZPM";
     }
 
     /**

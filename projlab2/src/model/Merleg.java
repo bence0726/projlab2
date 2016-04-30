@@ -1,22 +1,23 @@
 package model;
 
 /**
- * 
+ * Ebben az osztályban található a mérleg 
+ * modellbeli reprezentációja.
  */
 public class Merleg extends Elem {
 
 	/**
-     * 
+     * Tárol egy referenciát a hozzá tartozó ajtóra.
      */
     private Fal ajto;
 
     /**
-     * A mérlegen lévő súly.
+     * A mérlegen lévő súly ennyi.
      */    
     public int massOnTheScale = 0;
     
     /**
-     * A limit ami felett az ajtó kinyílik.
+     * A limit, ami felett az ajtó kinyílik.
      */    
     private int massLimit = 100;
     
@@ -31,22 +32,17 @@ public class Merleg extends Elem {
     
     /**
      * Létrehoz egy mérleget, a bal felső sarkát locUpLeftCorner
-     * vektorra illesztve. A második paraméter az elem mérete.
+     * vektorra illesztve. A második paraméter megadja, hogy
+     * a jobb alsó sarok a bal felsőhöz képest mennyivel van eltolva.
      * Kötelező összekapcsolni egy ajtóval amit nyit.
-     * @param locUpLeftCorner
-     * @param diagonal
-     * @param ajto
      */
     public Merleg(Vektor locUpLeftCorner,Vektor diagonal,Fal ajto) {
     	super(locUpLeftCorner,diagonal);
     	this.ajto = ajto;
-    	image = "merleg.jpg";
-    	name="Mérleg";
     }
 
     /**
      * Rélépés a mérlegre.
-     * @param m :Moveable
      */
     public boolean steppedon(Moveable m) {
     	massOnTheScale+=m.getSuly();
@@ -54,19 +50,16 @@ public class Merleg extends Elem {
     		ajto.setReachable(true);
     	return true;
     }
+    
     /**
      * Lelépés a mérlegről
-     * @param m :Moveable
      */
     public void steppedoff(Moveable m){
-    	massOnTheScale-=m.getSuly();
+    	massOnTheScale -= m.getSuly();
     	if (massOnTheScale < massLimit)
     		ajto.setReachable(false);
     }
     
-    public boolean dropped(Doboz box){
-    	return true;
-    }
     public boolean isAccessable(){
     	return true;
     }

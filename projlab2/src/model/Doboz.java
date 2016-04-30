@@ -2,15 +2,9 @@ package model;
 import java.util.*;
 
 /**
- * 
+ * A Doboz modellbeli reprezentációjáért felelős osztály.
  */
 public class Doboz extends Moveable {
-
-	
-//    public Doboz(Labirintus lab, Vektor upleftcorner, Vektor diagonal, int mass){
-//    	super(lab,upleftcorner,diagonal);
-//    	suly = mass;    	
-//    }
     /**
      * Létrehoz egy dobozt a közepét a megadott
      * vektorra illesztve, default mérettel.
@@ -27,7 +21,7 @@ public class Doboz extends Moveable {
      */
     public boolean picked(Karakter k) {
     	if (k.box == null){
-    		this.kill(null);  //meg kell ölni, hogy  a labirintusbol kikerüljön és igy ne rajzolja fel a pályára
+    		this.kill(null);  //meg kell ölni, hogy  a labirintusból kikerüljön és igy ne rajzolja fel a pályára
     		k.addBox(this);
         
     		Set<Elem> here = lab.whatsThere(this.getPos()); 
@@ -40,6 +34,12 @@ public class Doboz extends Moveable {
     	}
     	return false;
     }
+    /**
+     * Accessable = true, így tudunk rátenni dobozt,
+     * de a steppedon() megvalósítása nem engedi, hogy rálépjünk.
+     * Így dobozokat tudunk egymásra pakolni,ahogy a 
+     * specifikáció kéri, de nem tudunk rálépni.
+     */
     public boolean isAccessable(){
     	return true;
     }

@@ -34,10 +34,8 @@ public class SpecFal extends Elem {
 	public SpecFal(Terulet area,Vektor dir, PortalManager portalmanager){
 		super(area);
 		reachable = false;
-		image = "specfal.jpg";
 		pm = portalmanager;		
 		direction = dir;
-		name = "SpecFal";
 	}
 	
 	/**

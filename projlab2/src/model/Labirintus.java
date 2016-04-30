@@ -5,15 +5,32 @@ import java.util.*;
  * 
  */
 public class Labirintus {
-   
+   /**
+    * A labirintusban lévő összes ZPM száma.
+    * (nincs benne az, amit a karakterek már felvettek)
+    */
     private int osszZPM;
 
+    /**
+     * A labirintus kezdőpontja. Innen indul Jaffa, Oneil 
+     * és a replikátorok is.
+     */
     private Elem startElem;
 
+    /**
+     * A labirintus vége. Ha a nyerési feltételek teljesültek,
+     * ide lépve győz a játékos.
+     */
     private Elem endElem;
     
+    /**
+     * Jaffát külön is eltároljuk, nem csak a listákon.
+     */
     private Karakter jaffa;
     
+    /**
+     * Oneilt is külön tároljuk, nem csak a listákon.
+     */
     private Karakter oneil;
 
     /**

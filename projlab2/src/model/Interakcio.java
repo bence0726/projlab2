@@ -31,12 +31,7 @@ public interface Interakcio {
      * @return true -  ha valamit felvettünk (doboz, ZPM)
      * @return false - ha nem történt felvétel (pl Fal, másik Karakter)
      */
-    public boolean picked(Karakter k);
-    
-    /**
-     * 
-     */
-    public boolean dropped(Doboz box);
+    public boolean picked(Karakter k); 
 
     /**
      * Ha lelépünk egy objektumról, ez a függvény hívódik meg.
@@ -54,5 +49,8 @@ public interface Interakcio {
      */
     public void kill(Elem e);
     
+    /**
+	 * Megadja, hogy az elemre kerülhet-e másik elem.
+	 */
     public boolean isAccessable();
 }

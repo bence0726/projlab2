@@ -1,7 +1,6 @@
 package controller;
 
 import model.Doboz;
-import model.Elem;
 import model.Fal;
 import model.JatekMotor;
 import model.Karakter;
@@ -127,15 +126,6 @@ public class MapBuilder {
 		lab.addStartElem(tmp);
 	}
 
-	
-//	/**
-//	 *a kapott paraméterekkel meghívja a Replikator konstruktorát,
-//	 * hozzáadja a Labirintushoz és a mozgatandok listához is.
-//	 */
-//	public void addReplikator(int x, int y){
-//		Replikator tmp = new Replikator(lab, new Vektor(x,y));
-//		lab.addMoveable(tmp);
-//	}
 	/**
 	 * Replikátort ad a labirintushoz. Paraméter nélkül megadva
 	 * a kezdőpontra teszi le.
