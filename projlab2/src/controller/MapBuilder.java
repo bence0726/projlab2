@@ -1,5 +1,6 @@
 package controller;
 
+import gui.Map;
 import model.Doboz;
 import model.Fal;
 import model.JatekMotor;
@@ -16,8 +17,8 @@ import model.Vektor;
 import model.ZPM;
 
 /**
- * A pálya fájlból való felépítéséhez csináltam ezt az osztályt. 
- * Az ehhez szükséges függvényeket gyűjti egy csokorba ez az osztály.
+ * Pálya felépítéséhez készült. Az ehhez szükséges függvényeket
+ *  gyűjti egy csokorba ez az osztály.
  * @author zsigatibor
  *
  */
@@ -35,6 +36,10 @@ public class MapBuilder {
 		jm = gameEngine;
 		lab = jm.getLab();
 		pm = jm.getPortalManager();
+	}
+	
+	public void refreshView(){
+		
 	}
 	
 	/**
