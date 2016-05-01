@@ -14,6 +14,7 @@ public class KarakterController {
 	
 	JatekMotor jm;
 	
+	
 	public KarakterController(JatekMotor gameEngine){
 		jm = gameEngine;
 	}

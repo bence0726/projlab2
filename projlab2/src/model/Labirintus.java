@@ -175,7 +175,7 @@ public class Labirintus {
 	 * @return a labirintus azon listáját adja vissza,
 	 * amely az összes pályán lévő objektumot tartalmazza
 	 */
-	public ArrayList<Elem> getList() {
+	public ArrayList<Elem> getObjectsOnMapList() {
 		return objectsOnMap;
 	}
 	

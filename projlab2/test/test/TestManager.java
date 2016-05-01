@@ -61,7 +61,7 @@ public class TestManager {
 		int afterAdd = 0;
 		
 		while((command = TO.nextCommand()) != null){
-			List<Elem> list = jm.getLab().getList();
+			List<Elem> list = jm.getLab().getObjectsOnMapList();
 			String[] pieces = command.split(" ");
 			switch(pieces[0]){
 			case "SETKARDIR":
@@ -93,7 +93,7 @@ public class TestManager {
 						String.valueOf(jm.getLab().getOsszZPM()));
 				break;
 			case "GETNUMBEROFELEMS":
-				TO.AddResultRow(jm.getLab().getList().size()
+				TO.AddResultRow(jm.getLab().getObjectsOnMapList().size()
 						+ " ELEM IN LAB");
 				break;
 			case "PORTALPOS":

@@ -1,9 +1,7 @@
 package gui;
 
-import java.awt.Component;
-import java.awt.Label;
-
-import javax.swing.ComponentInputMap;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
 
 import model.Doboz;
 import model.Elem;
@@ -17,16 +15,16 @@ import model.Elem;
  * @author zsigatibor
  *
  */
-public class DobozFactory{
+public class DobozFactory implements Factory{
 
-	public static Component BoxMaker(Elem e){
-		Label picture;
-		if(e instanceof Doboz){
-			picture = new Label();
-			//picture.imageUpdate(img, infoflags, x, y, w, h) - valahogy beállítjuk a képét
-			return picture;
-		}
-		return null; //ha nem instanceof Doboz
+	public JComponent ComponentFactory(Elem e){
+		if(!(e instanceof Doboz))
+			return null;			//ha nem instanceof Doboz, akkor null-t ad vissza
+		
+		JLabel picture;
+		
+		picture = new JLabel();
+		//picture.imageUpdate(img, infoflags, x, y, w, h) - valahogy beállítjuk a képét
+		return picture;
 	}
-	
 }
