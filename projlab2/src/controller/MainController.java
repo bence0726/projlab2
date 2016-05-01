@@ -1,8 +1,9 @@
 package controller;
 
-import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import javax.swing.JComponent;
 
 import gui.DobozFactory;
 import gui.Factory;
@@ -33,23 +34,23 @@ public class MainController {
 		KarakterController kc = new KarakterController(gameEngine);
 		
 		buildMap(mb);							//pálya felépítése
-		addActionListeners(menu,window,kc);		//
+		addActionListeners(menu,window,kc);		//listenerek beállítása
 				
 		while(true){
 			//gameloop
 			Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 			Iterator<Factory> FactoryIt = componentFactories.iterator();
-			ArrayList<Component> CompList = new ArrayList<>();
+			ArrayList<JComponent> CompList = new ArrayList<>();
 			boolean done = false;
 			
-			while(ElemIt.hasNext()){
-				Elem tempElem = ElemIt.next();
-				while(FactoryIt.hasNext()){
+			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein..
+				Elem tempElem = ElemIt.next();	
+				while(FactoryIt.hasNext()){										//végigmegyünk a Factory listán...
 					Factory tempfact = FactoryIt.next();
-					Component tempComp =  tempfact.ComponentFactory(tempElem);	//elkészíttetjük a komponentst
-					if (tempComp != null && !done){
-						CompList.add(tempComp);									//ha ő nem készítette el, nem tesszük fel a listára
-						done = true;											//idk, később jól jöhet!
+					JComponent tempComp = tempfact.ComponentFactory(tempElem);	//az aktuális elemet odaadjuk az aktuális factory-nak, aki valamilyen komponenst gyárt belőle
+					if (tempComp != null && !done){								//ha elkészítette a komponenst (nem null)...
+						CompList.add(tempComp);									//...feltesszük a listára
+						done = true;											//ha már rajta van, nem tesszük fel többször (idk, később jól jöhet!)
 					}						
 				}					
 			}				

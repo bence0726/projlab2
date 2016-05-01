@@ -1,6 +1,5 @@
 package controller;
 
-import gui.Map;
 import model.Doboz;
 import model.Fal;
 import model.JatekMotor;

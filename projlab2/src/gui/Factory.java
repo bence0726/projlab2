@@ -1,6 +1,7 @@
 package gui;
 
-import java.awt.Component;
+
+import javax.swing.JComponent;
 
 import model.Elem;
 
@@ -10,5 +11,5 @@ import model.Elem;
  *
  */
 public interface Factory {
-	public Component ComponentFactory(Elem e);
+	public JComponent ComponentFactory(Elem e);
 }
