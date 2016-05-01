@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.util.Iterator;
 import java.util.List;
 
@@ -15,6 +16,8 @@ public class Map extends JPanel {
 	public Map() {
 		setLayout(null);
 		setSize(800,600);
+		setBackground(Color.WHITE);
+//		setBounds(0, 0, 800, 729);
 	}
 	/**
 	 * A kapott komponensListát felrajzolja a térképre.

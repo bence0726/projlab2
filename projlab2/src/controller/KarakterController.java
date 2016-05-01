@@ -12,7 +12,7 @@ import model.Vektor;
  */
 public class KarakterController {
 	
-	JatekMotor jm;
+	private JatekMotor jm;
 	
 	
 	public KarakterController(JatekMotor gameEngine){
