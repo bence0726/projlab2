@@ -1,7 +1,7 @@
 package model;
 
 /**
- * 
+ * SpecFal modellbeli reprezentációja.
  */
 public class SpecFal extends Elem {
 	
@@ -25,20 +25,6 @@ public class SpecFal extends Elem {
     * Ugyanarra a PM-re lesz beállítva az összes SpecFal.
     */
    private PortalManager pm;
-	/**
-	 * A megadott területre létrejön egy SpecFal elem.
-	 * Minden SpecFal elemnek ugyanazt a PortalManagert kell megkapnia.
-	 * @param area
-	 * @param portalmanager
-	 */
-	public SpecFal(Terulet area,Vektor dir, PortalManager portalmanager){
-		super(area);
-		reachable = false;
-		image = "specfal.jpg";
-		pm = portalmanager;		
-		direction = dir;
-		name = "SpecFal";
-	}
 	
 	/**
      * Létrehoz egy Specfalat, a bal felső sarkát locUpLeftCorner
@@ -54,11 +40,6 @@ public class SpecFal extends Elem {
 		direction = dir;
     }
     
-
-
-    /**
-     * @param bullet
-     */
     public void shot(Golyo bullet) {
     	Szin colour = bullet.getSzin();
     	SpecFal sf = null;
@@ -73,10 +54,6 @@ public class SpecFal extends Elem {
     	bullet.kill(null);
     }
 
-    /**
-     * 
-     * @param elem
-     */
     public boolean steppedon(Moveable m) {
         if(!reachable || (m.getSuly() == 0))//ha 0 a súlya, nem teleportál. így replikátor nem tud teleportálni.
         	return false;
@@ -100,9 +77,9 @@ public class SpecFal extends Elem {
      */
     public void kinyit(Szin colour) {
         reachable = true;
-        this.colour=colour;
-        
+        this.colour=colour;        
     }
+    
     /**
      * Az irany attribútum által kijelölt pontra állítjuk
      * az elem új helyét. Ez legyen valahol a portál előtt!
@@ -118,12 +95,6 @@ public class SpecFal extends Elem {
 		return colour;
 	}
 
-	public void setSzin(Szin colour) {
-		this.colour = colour;
-	}
-	public void setReachable(boolean reachable) {
-		this.reachable = reachable;
-	}
 	public boolean isAccessable(){
 		return reachable;
 	}

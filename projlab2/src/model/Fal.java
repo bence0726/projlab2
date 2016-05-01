@@ -1,12 +1,12 @@
 package model;
 
 /**
- * 
+ * Fal, startelem, végeelem modellbeli reprezentációja.
  */
 public class Fal extends Elem {
 
 	/**
-     * 
+     * Rá lehet lépni az elemre? dinamikusan változhat.
      */
     private boolean reachable = false;
     
@@ -15,8 +15,6 @@ public class Fal extends Elem {
      */
     public Fal(Terulet area) {
     	super(area);
-    	image = "fal.jpg";
-    	name="Fal";
     }
 
     /**
@@ -27,8 +25,6 @@ public class Fal extends Elem {
      */
     public Fal(Vektor locUpLeftCorner,Vektor diagonal) {
     	super(locUpLeftCorner,diagonal);
-    	image = "fal.jpg";
-    	name="Fal";
     }
     
     public void shot(Golyo bullet ) {

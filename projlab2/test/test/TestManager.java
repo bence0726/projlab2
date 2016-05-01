@@ -10,14 +10,13 @@ import model.Elem;
 import model.JatekMotor;
 import model.SpecFal;
 import model.Szin;
-import model.Terulet;
 import model.Vektor;
 
 /**
  * Ez az osztály tartalmazza a teszt-objektumokat. Ezeket
  * futtatja, majd kérésre statisztikát készít a futásukról.
+ * 
  * @author zsigatibor
- *
  */
 public class TestManager {
 	
@@ -53,6 +52,8 @@ public class TestManager {
 	}
 	/**
 	 * A paraméterül kapott tesztet futtatja.
+	 * A parancsok alapján a kontroller megfelelő függvényeit
+	 * hívja meg.
 	 */
 	private void run(TestObject TO){
 		String command = "";
@@ -107,10 +108,10 @@ public class TestManager {
 						return;
 					}
 					Vektor tempMidleOfArea = sp.getPos().getKezd();
-/*FIXME*/			specfalText = "YELLOWPORTAL "
-							+Math.round(tempMidleOfArea.getVx())//nem kéne hozzáadni azt az eltolást is?
+							specfalText = "YELLOWPORTAL "
+							+Math.round(tempMidleOfArea.getVx())
 							+" "
-							+ Math.round(tempMidleOfArea.getVy());//teleportáláskor nem a specfalra kerül, onnan eltoljuk.. szóval?
+							+ Math.round(tempMidleOfArea.getVy());
 				}					
 				else{
 					sp = jm.pm.getPortalOfThisColor(Szin.Kek);
@@ -273,14 +274,13 @@ public class TestManager {
 			default:
 				break;
 			}
-			}
-		
-		}
-//	}
+		}		
+	}
+	
 	/**
 	 * Visszaad egy statisztikát a futtatott tesztekről.
 	 */
-	public List<String>getStatistics(){
+	public List<String> getStatistics(){
 		ArrayList<String> text = new ArrayList<>();
 		text.add("Automatizált tesztelés\n");
 		
@@ -322,12 +322,5 @@ public class TestManager {
 						"sikeresen lezárult.":
 							"hibával zárult le."));
 		return text;
-	}
-	
-	/**
-	 * visszaadja, hogy hány db ZPM van a labirintusban.
-	 */
-	protected int getZPMinLab(){
-		return jm.getLab().getOsszZPM();
 	}
 }

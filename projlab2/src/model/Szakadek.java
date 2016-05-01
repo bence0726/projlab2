@@ -1,17 +1,14 @@
 package model;
 
 /**
- * 
+ * A szakadék modellbeli reprezentációja.
  */
 public class Szakadek extends Elem {
-
     /**
      * A megadott területre létrejön egy szakadék elem.
      */
     public Szakadek(Terulet area) {
     	super(area);
-    	image = "szakadek.jpg";
-    	name="szakadék";
     }
     
     /**
@@ -22,21 +19,13 @@ public class Szakadek extends Elem {
      */
     public Szakadek(Vektor locUpLeftCorner,Vektor diagonal) {
     	super(locUpLeftCorner,diagonal);
-    	image = "szakadek.jpg";
-    	name="szakadék";
     }
-    
-    /**
-     * Megöli az elemet ami rálép.
-     * @param e
-     */
+
     public boolean steppedon(Moveable m) {
-        m.kill(this);
+        m.kill(this);//Megöli az elemet ami rálép.
         return true;
     }
     public boolean isAccessable(){
     	return true;
     }
-    
-
 }

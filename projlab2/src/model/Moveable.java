@@ -2,7 +2,10 @@ package model;
 import java.util.*;
 
 /**
- * 
+ * A mozgó elemek közös ősosztálya.
+ * Absztrakt osztály, a leszármazó osztályokban
+ * egyes metódusok felül lettek írva, de vannak
+ * közös kódrészek is.
  */
 public abstract class Moveable extends Elem{
     protected Vektor moveDir = new Vektor(0,0);
@@ -26,26 +29,6 @@ public abstract class Moveable extends Elem{
     	pos.setKezd(Vektor.addVecToVec(locMiddleofArea, diagonal));
 		lab = labirintus;
 	}
-
-
-//    /**
-//     * Létrehoz egy moveable objektumot az elem 
-//     * közepére illesztve a moveable objektumot.
-//     * Default mérettel jön létre 10*10 pixel méretben.
-//     * @param lab
-//     * @param startElem
-//     */
-//	public Moveable(Labirintus lab,Elem startElem){
-//		Vektor locMiddleofArea = startElem.pos.getMiddleOfArea();
-//		Vektor diagonal = defaultsize ;
-//    	diagonal = Vektor.getHalfOf(diagonal);
-//    	pos = new Terulet();
-//    	pos.setKezd(Vektor.addVecToVec(locMiddleofArea, diagonal));
-//    	diagonal.invertThisVec();
-//    	pos.setVeg(Vektor.addVecToVec(locMiddleofArea, diagonal));
-//		this.lab = lab;
-//		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
-//	}
 	
 	/**
      * Létrehoz egy Moveable elemet, a bal felső sarkát locUpLeftCorner
@@ -55,8 +38,6 @@ public abstract class Moveable extends Elem{
     	super(locUpLeftCorner,diagonal);
     	lab = labirintus;
     }
-	
-	public Moveable(){}
 
 	/**
 	 * Replikátor ráléphet karakterre, golyóra, replikátorra, dobozra is.
@@ -67,20 +48,21 @@ public abstract class Moveable extends Elem{
 			return true;
 		}			
 		else
-			return false;
-			
+			return false;			
 	}
 	
 	/**
-     * @param dir
+     * Mozgáskor ez a move függvény hívódik meg, ha a 
+     * leszármazott osztály nem definiálja fölül.
      */
     public void move() {
     	/*
     	 * Magyarázat
     	 * MEgnézzük, hogy ahol állunk ott mi van. (Set A)
     	 * Utána megnézzük,hogy ahova menni akarunk ott mi van. (Set B)
-    	 * Azokra az elemekre hivjuk a steppedon-t ahová lépni fogunk
-    	 * Miután ezek léptettek(avagy nem) , megint megnézzük, hogy hol vagyunk (Set C)
+    	 * Azokra az elemekre hivjuk az isAccessable-t, ahová lépni fogunk,
+    	 * Ha B-ben lévő összes elem true-val tér vissza, mindenkin steppedon-t hívunk.
+    	 * Miután ezek léptettek(avagy nem), megint megnézzük, hogy hol vagyunk (Set C)
     	 * Ezután összehasonlítjuk A-t és C-t , ami nincs benn C-ben arra hívjuk a steppedoff-ot.
     	 */
     	Vektor v1 = new Vektor(this.pos.getKezd().getVx(),this.pos.getKezd().getVy());
@@ -88,30 +70,30 @@ public abstract class Moveable extends Elem{
     	Terulet t = new Terulet(v1,v2);
     	t.addDirToArea(moveDir); 
     	    	
-    	Set<Elem> itemsHere = lab.whatsThere(this.pos); //lépés előtt itt állunk
-    	Set<Elem> itemsThere = lab.whatsThere(t);		//ahová lépünk, ott ezek vannak
+    	Set<Elem> itemsHere = lab.whatsThere(this.pos); 			//lépés előtt itt állunk
+    	Set<Elem> itemsThere = lab.whatsThere(t);					//ahová lépünk, ott ezek vannak
     	
     	Iterator<Elem> iteratorHere = itemsHere.iterator();
     	
-    	if(itemsThere.size() == 1){						//ha nincs ott semmi... ez megtalálja magát? Igen!
-    		step();										//lépés
+    	if(itemsThere.size() == 1){									//ha nincs ott semmi... ez megtalálja magát? Igen!
+    		step();													//lépés
     		if(itemsHere.size() != 1){
-    			Set<Elem> itemsNewPlace = lab.whatsThere(this.pos);//megnézzük, kimindenkin vagyunk rajta most    			
+    			Set<Elem> itemsNewPlace = lab.whatsThere(this.pos);	//megnézzük, kimindenkin vagyunk rajta most    			
     			while(iteratorHere.hasNext()){
     	    		Elem temp = iteratorHere.next();
     	    		if(!itemsNewPlace.contains(temp))
-    	    			temp.steppedoff(this);	//ami nincs benne, arról leléptünk
+    	    			temp.steppedoff(this);						//ami nincs benne, arról leléptünk
     	    	}
     		}
-    		moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
+    		moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);		//lépés után (0,0)-a állítjuk a mozgásvektort
     		return;
     	}    	
     	Iterator<Elem> iteratorThere = itemsThere.iterator();    	
     	while(iteratorThere.hasNext()){
-    		if(!iteratorThere.next().isAccessable()) // ha nem elérhető az a terület, ahová lépni szeretnénk,
-    			return;								// akkor visszatérünk.
+    		if(!iteratorThere.next().isAccessable()) 				// ha nem elérhető az a terület, ahová lépni szeretnénk,
+    			return;												// akkor visszatérünk.
     	}
-    	iteratorThere = itemsThere.iterator(); // létrejön új iterátor, vagy a végigpörgetettet kapjuk meg??
+    	iteratorThere = itemsThere.iterator(); 						// létrejön új iterátor, vagy a végigpörgetettet kapjuk meg??
     	
     	while(iteratorThere.hasNext()){    		
     		if(iteratorThere.next().steppedon(this)){
@@ -124,14 +106,14 @@ public abstract class Moveable extends Elem{
     	while(iteratorHere.hasNext()){
     		Elem temp = iteratorHere.next();
     		if(!itemsNewPlace.contains(temp))
-    			temp.steppedoff(this);					//ami nincs benne, arról leléptünk
+    			temp.steppedoff(this);								//ami nincs benne, arról leléptünk
     	}    
     	
     	//megnézzük, hogy van-e különbség aközött, hogy hová szerettünk volna
     	//lépni és aközött, hogy most hol vagyunk (magyarán volt-e teleportálás)
     	if(this.getPos().isEqualTo(t)){
-    		moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
-    		return;										//ha megegyezik, nincs további teendő.
+    		moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);		//lépés után (0,0)-a állítjuk a mozgásvektort
+    		return;													//ha megegyezik, nincs további teendő.
     	}
     		
     	
@@ -156,9 +138,9 @@ public abstract class Moveable extends Elem{
     }
     
     /**
-     * Beallítja, hogy merre mozogjon a az objektum.
+     * Beallítja, hogy merre mozogjon az objektum.
      * Irányvektort kap.
-     * @param dir
+     * @param dir - az irányvektor, amerre a karakter mozogni fog.
      */
     public void setDir(Vektor dir){
     	moveDir = dir;
@@ -167,26 +149,15 @@ public abstract class Moveable extends Elem{
     public void kill(Elem e){
     	this.alive = false;
     	lab.refreshList();
-    }    
+    }
+    /**
+     * Megadja az objektum súlyát.
+     */
     public int getSuly() {
 		return suly;
 	}
+    
     public boolean isAccessable(){
     	return true;
     }
-    
-    //--------------------------------------------------------------------
-//	
-//	 /**
-//    * Létrehoz egy moveable objektumot a megadott vektorral.
-//    * A terület bal felső sarkát illeszti a vektorra.
-//    * A diagonalban megadott mérettel jön létre.
-//    * @param lab
-//    * @param kezdLocVec
-//    * @param diagonal
-//    */
-//	public Moveable(Labirintus lab,Vektor kezdLocVec,Vektor diagonal) {
-//		super(kezdLocVec,diagonal);
-//		moveDir = pos.getMiddleOfArea(); //csak inicializálás, később felülíródik
-//	}
 }

@@ -10,7 +10,7 @@ public interface Interakcio {
     /**
      * Ha egy objektumot meglövünk, ez a függvénye hívódik meg.
      * Minden Elem maga implementálhatja ezt a függvényt, 
-     * és lerendezi, hogy ő hogyan reagál egy ilyen eseményre.
+     * és lerendezi magában, hogy ő hogyan reagál egy ilyen eseményre.
      * @param bullet - a golyó, ami eltalálta az elemet
      */
     public void shot(Golyo bullet);
@@ -18,7 +18,7 @@ public interface Interakcio {
     /**
      * Ha rálépünk egy elemre, ez a függvény hívódik meg.
      * Minden Elem maga implementálhatja ezt a függvényt, 
-     * és lerendezi, hogy ő hogyan reagál egy ilyen eseményre.
+     * és lerendezi magában, hogy ő hogyan reagál egy ilyen eseményre.
      * @param x - a mozgó objektum, ami rálépett
      */
     public boolean steppedon(Moveable x);
@@ -31,17 +31,12 @@ public interface Interakcio {
      * @return true -  ha valamit felvettünk (doboz, ZPM)
      * @return false - ha nem történt felvétel (pl Fal, másik Karakter)
      */
-    public boolean picked(Karakter k);
-    
-    /**
-     * 
-     */
-    public boolean dropped(Doboz box);
+    public boolean picked(Karakter k); 
 
     /**
      * Ha lelépünk egy objektumról, ez a függvény hívódik meg.
      * Minden Elem maga implementálhatja ezt a függvényt, 
-     * és lerendezi, hogy ő hogyan reagál egy ilyen eseményre.
+     * és lerendezi magában, hogy ő hogyan reagál egy ilyen eseményre.
      * @param x - a mozgó objektum, ami lelépett róla
      */
     public void steppedoff(Moveable x);
@@ -50,9 +45,12 @@ public interface Interakcio {
      * Az objektum törlése a térképről.
      * @param e - átadjuk a hívót is. Így pl
      * replikátor szakadékba lépésekor a replikátor
-     * pontosan tudja, hogy kit kell megölnie.
+     * pontosan tudja, hogy kit kell megölnie. (a szakadékot)
      */
     public void kill(Elem e);
     
+    /**
+	 * Megadja, hogy az elemre kerülhet-e másik elem.
+	 */
     public boolean isAccessable();
 }

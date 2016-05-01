@@ -2,12 +2,13 @@ package model;
 import java.util.*;
 
 /**
- * 
+ * Ez az osztály segít az elemek területének,
+ *  pozíciójának menedzselésében.
  */
 public class Terulet {
 
 	/**
-	 * balfelső sarka
+	 * bal felső sarka
 	 */
 	private Vektor kezd = new Vektor(0,0);//alap inicializálások nullptrexception elkerülése végett
 	/**
@@ -18,8 +19,7 @@ public class Terulet {
     /**
      * Default, param nélküli constructor
      */	
-    public Terulet() {
-    }
+    public Terulet() {}
     
     /**
      * 
@@ -40,17 +40,17 @@ public class Terulet {
      */
     public Terulet randomArea(Vektor size,int mapsize){
     	Random rand = new Random();
-    	Vektor vecKezd = new Vektor(rand.nextInt(mapsize+1),rand.nextInt(mapsize+1)) ; //bal felső sarok random helyre
-    	Vektor vecVeg = new Vektor(vecKezd); // A jobb also sarok létrehozasa vecKezd koordinatakkal
-    	vecVeg.addVec(size); // hozzáadjuk a méretét , átló vektor
-    	Terulet t = new Terulet(vecKezd,vecVeg); //létrehozzuk a 2 vektorból a területet
-    	return t; //visszatérünk vele.
+    	Vektor vecKezd = new Vektor(rand.nextInt(mapsize+1),rand.nextInt(mapsize+1)) ; 	//bal felső sarok random helyre
+    	Vektor vecVeg = new Vektor(vecKezd); 											// A jobb also sarok létrehozasa vecKezd koordinatakkal
+    	vecVeg.addVec(size); 															// hozzáadjuk a méretét , átló vektor
+    	Terulet t = new Terulet(vecKezd,vecVeg); 										//létrehozzuk a 2 vektorból a területet
+    	return t; 																		//visszatérünk vele.
     }
     /**
      * Megnézi, hogy a kapott terület (T2) fedésben van-e
      * azzal a területtel(T1) ami hívta a függvényt.
      * @param t : A terulet amivel a fedést vizsgáljuk
-     * @return
+     * @return true, ha fedésben vannak.
      */
     public boolean isCoveredBy(Terulet t){
     	if (this.kezd.getVx() < t.veg.getVx() && 
@@ -58,15 +58,12 @@ public class Terulet {
     		this.kezd.getVy() < t.veg.getVy() &&
     		this.veg.getVy() > t.kezd.getVy() )
     		return true;
-    	
-    			
     	return false;
     }
     
     /**
      * Visszatér a Terulet átlójával.
      * Ami a bal felső sarokból mutat a jobb alsóba.
-     * @return
      */
     public Vektor getDiagonal(){
     	Vektor temp = new Vektor(veg);
@@ -76,7 +73,6 @@ public class Terulet {
     
     /**
      * Visszatér egy helyvektorral mely a Terület középpontjába mutat.
-     * @return
      */
     public Vektor getMiddleOfArea(){
     	Vektor temp = new Vektor(this.getDiagonal()); //lekérdezzük a terület átlóját
@@ -102,42 +98,50 @@ public class Terulet {
      * @param vec
      */
     public void setNewCornerLocation(Vektor vec){
-    	Vektor temp=this.getDiagonal(); //Lekérdezzük az átlóját
-    	kezd = vec; // a bal felső sarkat beallitjuk oda ahova mutatunk
-    	temp.addVec(kezd); //összeadjuk a kezdopont helyvektrát az átlóval
-    	veg=temp; //ezt a vektort beállítjuk a jobb also saroknak.
+    	Vektor temp=this.getDiagonal();	//Lekérdezzük az átlóját
+    	kezd = vec; 					// a bal felső sarkat beallitjuk oda ahova mutatunk
+    	temp.addVec(kezd); 				//összeadjuk a kezdopont helyvektrát az átlóval
+    	veg=temp; 						//ezt a vektort beállítjuk a jobb also saroknak.
     }
     
     /**
-     * A paraméterül kapott vektorhoz illeszti a terület
-     * közepét.
-     * @param vec
+     * A paraméterül kapott vektorhoz illeszti
+     *  a terület közepét.
      */
     public void setNewMiddleLocation(Vektor middle){
-    	Vektor temp = new Vektor(this.getDiagonal()); //lekérdezzük at átlóját
-    	temp.setVx(temp.getVx()/2);  //elfelezzük
+    	Vektor temp = new Vektor(this.getDiagonal()); 	//lekérdezzük at átlóját
+    	temp.setVx(temp.getVx()/2);  					//elfelezzük
     	temp.setVy(temp.getVy()/2);
-    	veg = Vektor.addVecToVec(middle, temp); //összadjuk a közép vektort és az átló felét
-    	temp.invertThisVec(); //megforditjuk az átló felét hogy a középpontból a bal felső sarokba mutasson
-    	kezd = Vektor.addVecToVec(middle, temp); //összeadjuk(az inverz miatt lényegében kivonjuk) a
-    										   //középből az átló felének forditottját
+    	veg = Vektor.addVecToVec(middle, temp); 		//összadjuk a közép vektort és az átló felét
+    	temp.invertThisVec(); 							//megforditjuk az átló felét hogy a középpontból a bal felső sarokba mutasson
+    	kezd = Vektor.addVecToVec(middle, temp);		//összeadjuk(az inverz miatt lényegében kivonjuk) a
+    										   			//középből az átló felének forditottját
     }
     
+    /**
+     * Megadja, hogy a hívó objektum megegyezik-e
+     * a paraméterül kapott területtel
+     * @return true, ha a kezdő- és végkoordináták megegyeznek.
+     */
     public boolean isEqualTo(Terulet t){
     	return ((this.kezd.isEqualTo(t.getKezd())) && (this.veg.isEqualTo(t.getVeg())));	
     }
     
+    /**
+     * Megadja a terület magasságát.
+     */
     public double getHeight(){
     	return this.getVeg().getVx() - this.getKezd().getVx();
     }
-    
+    /**
+     * Megadja a terület szélességét.
+     */
     public double getWidth(){
     	return this.getVeg().getVy() - this.getKezd().getVy();
     }
     
     /**
-     * Beállítja a terület kezdopontjába mutató helyvektort.
-     * @param val
+     * Beállítja a terület kezdőpontjába mutató helyvektort.
      */
     public void setKezd(Vektor vec) { 
     	kezd=vec;
@@ -145,7 +149,6 @@ public class Terulet {
     
     /**
      * Beállítja a terület végpontjába mutató helyvektort.
-     * @param vec
      */
     public void setVeg(Vektor vec) {
     	veg=vec;

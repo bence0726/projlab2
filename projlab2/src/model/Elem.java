@@ -1,7 +1,12 @@
 package model;
 
 /**
- * Az összes objektum ebből a közös 
+ * Az összes objektum ebből a közös ősből származik.
+ * Az Interakcio interfész metódusaira ad egy alap
+ * implementációt, ezáltal a kódduplikációt el tudtuk
+ * kerülni nagyon sok helyen. A játék különböző
+ * elemei ebből származnak és igény szerint felülírják
+ * ezen függvényeket.
  */
 public abstract class Elem implements Interakcio {
 
@@ -9,11 +14,7 @@ public abstract class Elem implements Interakcio {
      * Él az elem? Ha igen, true, egyébként false.
      */
     protected boolean alive = true;
-    /**
-     * Az elem képe ebben a fájlban lesz tárolva.
-     */
-    protected String image = "";
-
+    
     /**
      * Az elem pozíciója.
      */
@@ -23,34 +24,13 @@ public abstract class Elem implements Interakcio {
      * Az elem basic mérete.
      */
     protected Vektor defaultsize = new Vektor(10,10);
-    
-    /**
-     * 
-     */
-    public String name;
-	
-	public Elem(){}
-	
+    		
     /**
      * Adott területen létrehoz egy elemet.
      */
     public Elem(Terulet pos) {
-//    	this.pos.setKezd(pos.getKezd());
-//    	this.pos.setVeg(pos.getVeg());
     	this.pos = pos;
     }
-    
-//    /**
-//     * Adott helyre(bal felső sarkát illesztve), 
-//     * default mérettel létrehoz egy elemet
-//     * @param locUpLeftCorner
-//     * @param diagonal
-//     */
-//    public Elem(Vektor locUpLeftCorner){
-//    	Vektor diagonal = defaultsize;
-//    	pos.setKezd(locUpLeftCorner);
-//    	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
-//    }
     
     /**
      * Létrehoz egy elemet, a bal felső sarkát locUpLeftCorner
@@ -64,6 +44,8 @@ public abstract class Elem implements Interakcio {
     	pos.setVeg(Vektor.addVecToVec(locUpLeftCorner, diagonal));
     }
     
+    public Elem(){}
+    
     /**
      * Az elemet a megadott vektorral eltolja.
      * TODO: have a fresh look!
@@ -76,7 +58,6 @@ public abstract class Elem implements Interakcio {
     /**
      * A paraméterül kapott vektorhoz illeszti az elem
      * bal felső sarkát.
-     * @param locUpLeftCorner
      */
     public void newLocationByCorner(Vektor locUpLeftCorner){
     	pos.setNewCornerLocation(locUpLeftCorner);
@@ -85,7 +66,6 @@ public abstract class Elem implements Interakcio {
     /**
      * A paraméterül kapott vektorhoz illeszti az elem
      * közepét.
-     * @param locUpLeftCorner
      */
     public void newLocationByMiddle(Vektor locMiddleofArea){
     	pos.setNewCornerLocation(locMiddleofArea);
@@ -100,8 +80,7 @@ public abstract class Elem implements Interakcio {
     public boolean isCoveredByThis(Elem e){
     	return this.pos.isCoveredBy(e.pos);
     }
-    
-    
+        
     public boolean steppedon(Moveable x) {
     	return false;
     }
@@ -119,16 +98,10 @@ public abstract class Elem implements Interakcio {
     //így false értéket ad vissza (nem történt felvétel)
     	return false;
     }
-    
-    public boolean dropped(Doboz box){
-    	return false;
-    }
-   
-        
+         
     public void shot(Golyo bullet) {
 		bullet.step();//Default implementációjában továbbengedi a golyót.
 	}
-
     
     /**
      * Megadja, hogy az objektum él-e még.
@@ -137,7 +110,8 @@ public abstract class Elem implements Interakcio {
      */
 	public boolean isAlive(){
 		return alive;
-	}
+	}	
+	
 	public boolean isAccessable(){
 		return false;
 	}
@@ -148,13 +122,4 @@ public abstract class Elem implements Interakcio {
     public Terulet getPos() {
         return pos;
     }
-
-    /**
-     * @return image - megadja a fájl nevét, ami a grafikai 
-     * megjelenésért felel majd
-     */
-    public String getImage() {
-        return image;
-    }
-
 }

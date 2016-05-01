@@ -1,7 +1,9 @@
 package model;
 
 /**
- * 
+ * Oneil modellbeli reprezentációja. Kibővíti a Karakter(Jaffa)
+ * osztály tulajdonságait azzal, hogy ZPM felvételkor kicsit másképp
+ * viselkedik. Erről bővebb információ a metódusnál található.
  */
 public class Oneil extends Karakter {	
 
@@ -18,7 +20,8 @@ public class Oneil extends Karakter {
 
 	/**
      *  Növeli az ezredes ZPM számlálóját, továbbá
-     *  Valahol máshol generálódik egy új ZPM.
+     *  Valahol máshol generálódik egy új ZPM minden második
+     *  ZPM-modul felvételekor.
      */
     public void addZPM() {
         ZPM++;
