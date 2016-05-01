@@ -8,33 +8,26 @@ import javax.swing.JComponent;
 import gui.DobozFactory;
 import gui.Factory;
 import gui.GameWindow;
-import gui.Menu;
 import model.Elem;
 import model.JatekMotor;
 
 public class MainController {
-	JatekMotor gameEngine;
-	Menu menu;
-	GameWindow window;
-	static ArrayList<Factory> componentFactories;
+	
 	
 	public static void main(String[] args){
-		componentFactories = new ArrayList<>();
+		
+		ArrayList<Factory> componentFactories = new ArrayList<>();
 		componentFactories.add(new DobozFactory());
 		//komponensgyártók hozzáadása ehhez a listához...
 		
-		JatekMotor gameEngine = new JatekMotor();
-		Menu menu = new Menu();
-		GameWindow window = new GameWindow();
-		
-		menu.setVisible(true);
-		window.setVisible(false);
+		JatekMotor gameEngine = new JatekMotor();		
+		GameWindow window = new GameWindow();		
+		window.setVisible(true);
 		
 		MapBuilder mb = new MapBuilder(gameEngine);
 		KarakterController kc = new KarakterController(gameEngine);
 		
-		buildMap(mb);							//pálya felépítése
-		addActionListeners(menu,window,kc);		//listenerek beállítása
+//		mb.buildMap(new File(System.getProperty("user.dir")));	//pálya felépítése TODO még nincs kész, nem jó így, csak beírtam vmit..
 				
 		while(true){
 			//gameloop
@@ -54,43 +47,16 @@ public class MainController {
 					}						
 				}					
 			}				
-			window.map.refreshMap(CompList);									//map frissítése az új elemekkel
+			window.gp.map.refreshMap(CompList);									//map frissítése az új elemekkel
 			
-			window.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
-			window.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
-			window.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
+			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
+			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
+			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
 			
 			//Thread.sleep(500); - talán kell majd
 			
 			gameEngine.moveEverything(); //mozgó elemek megmozgatása
+//			window.repaint();
 		}
-	}
-	
-	/**
-	 * A metódus fogja beolvasni fájlból a térképet és 
-	 * hívogatni a MapBuilder metódusait
-	 * @param mb
-	 */
-	private static void buildMap(MapBuilder mb){
-		//...
-		//...
-		//...
-	}
-	
-	/**
-	 * Eseményfigyelők hozzáadása
-	 */
-	private static void addActionListeners(Menu menu, GameWindow window,KarakterController kc){
-		menu.startGameButton.addActionListener(e->{
-			menu.setVisible(false);
-			window.setVisible(true);
-		});
-		
-		//gombnyomásra alkalmazás bezárása
-		window.btnEndGame.addActionListener(e->{
-			System.exit(0);
-		});
-		
-		//további eseményfigyelők hozzáadása...
 	}
 }

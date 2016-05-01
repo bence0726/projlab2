@@ -1,92 +1,56 @@
 package gui;
 
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import java.awt.Font;
-import java.awt.Color;
+import javax.swing.border.EmptyBorder;
 
-@SuppressWarnings("serial")
-public class GameWindow extends JFrame{
+import controller.KarakterController;
 
-	public Map map;
-	public JLabel LabNumberOfZPMS;
-	public JLabel OneilNumberOfZPMS;
-	public JLabel JaffaNumberOfZPMS;
-	
-	public JButton btnEndGame;
+public class GameWindow extends JFrame {
+
+	public MenuPanel mp;
+	public GamePanel gp;
+
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public GameWindow() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
 		setType(Type.UTILITY);
 		setTitle("Bitang_PortalGame");
-		setBounds(100, 100, 542, 371);
+//		setBounds(100, 100, 542, 371);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1024, 768);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setResizable(false);
-		setVisible(false);
+		setVisible(true);
 		
-		JPanel mainPanel = new JPanel();
-		mainPanel.setBackground(Color.LIGHT_GRAY);
-		getContentPane().add(mainPanel, BorderLayout.CENTER);
-		mainPanel.setLayout(null);
-		map = new Map(); 								//pálya létrehozása
-		map.setBounds(0, 0, 800, 729);
-		map.setBackground(Color.WHITE);
-		mainPanel.add(map);
+		mp = new MenuPanel();		
+		add(mp);
+		gp = new GamePanel();		
+		add(gp);
+		addActionListeners();
 		
-		JLabel lblOneil = new JLabel("Oneil ZPM:");
-		lblOneil.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblOneil.setHorizontalAlignment(SwingConstants.LEFT);
-		lblOneil.setBounds(810, 124, 96, 56);
-		mainPanel.add(lblOneil);
 		
-		JLabel lblJaffa = new JLabel("Jaffa ZPM:");
-		lblJaffa.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblJaffa.setHorizontalAlignment(SwingConstants.LEFT);
-		lblJaffa.setBounds(810, 184, 96, 56);
-		mainPanel.add(lblJaffa);
 		
-		JLabel lblZPMinLab = new JLabel("Összes ZPM:");
-		lblZPMinLab.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblZPMinLab.setHorizontalAlignment(SwingConstants.LEFT);
-		lblZPMinLab.setBounds(810, 62, 96, 56);
-		mainPanel.add(lblZPMinLab);
+	}
+	
+	/**
+	 * Eseményfigyelők hozzáadása
+	 */
+	private void addActionListeners(){
+		mp.startGameButton.addActionListener(e->{
+			mp.setVisible(false);
+			gp.setVisible(true);
+		});
 		
-		btnEndGame = new JButton("Játék befejezése");
-		btnEndGame.setFont(new Font("Arial", Font.BOLD, 16));
-		btnEndGame.setBounds(810, 594, 188, 68);
-		mainPanel.add(btnEndGame);
+		//gombnyomásra alkalmazás bezárása
+		gp.btnEndGame.addActionListener(e->{
+			System.exit(0);
+		});
 		
-		LabNumberOfZPMS = new JLabel("42");
-		LabNumberOfZPMS.setHorizontalAlignment(SwingConstants.CENTER);
-		LabNumberOfZPMS.setFont(new Font("Arial", Font.BOLD, 14));
-		LabNumberOfZPMS.setBounds(928, 62, 46, 56);
-		mainPanel.add(LabNumberOfZPMS);
-		
-		OneilNumberOfZPMS = new JLabel("0");
-		OneilNumberOfZPMS.setHorizontalAlignment(SwingConstants.CENTER);
-		OneilNumberOfZPMS.setFont(new Font("Arial", Font.BOLD, 14));
-		OneilNumberOfZPMS.setBounds(928, 124, 46, 56);
-		mainPanel.add(OneilNumberOfZPMS);
-		
-		JaffaNumberOfZPMS = new JLabel("2");
-		JaffaNumberOfZPMS.setFont(new Font("Arial", Font.BOLD, 14));
-		JaffaNumberOfZPMS.setHorizontalAlignment(SwingConstants.CENTER);
-		JaffaNumberOfZPMS.setBounds(928, 184, 46, 56);
-		mainPanel.add(JaffaNumberOfZPMS);
-		
+		//további eseményfigyelők hozzáadása...
 	}
 }
