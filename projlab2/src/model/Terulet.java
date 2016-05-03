@@ -131,13 +131,13 @@ public class Terulet {
      * Megadja a terület magasságát.
      */
     public double getHeight(){
-    	return this.getVeg().getVx() - this.getKezd().getVx();
+    	return this.getVeg().getVy() - this.getKezd().getVy();
     }
     /**
      * Megadja a terület szélességét.
      */
     public double getWidth(){
-    	return this.getVeg().getVy() - this.getKezd().getVy();
+    	return this.getVeg().getVx() - this.getKezd().getVx();
     }
     
     /**
