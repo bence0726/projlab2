@@ -36,9 +36,10 @@ public class Merleg extends Elem {
      * a jobb alsó sarok a bal felsőhöz képest mennyivel van eltolva.
      * Kötelező összekapcsolni egy ajtóval amit nyit.
      */
-    public Merleg(Vektor locUpLeftCorner,Vektor diagonal,Fal ajto) {
+    public Merleg(Vektor locUpLeftCorner,Vektor diagonal,Fal ajto, int limit) {
     	super(locUpLeftCorner,diagonal);
     	this.ajto = ajto;
+    	massLimit = limit;
     }
 
     /**
