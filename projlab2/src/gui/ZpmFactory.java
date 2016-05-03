@@ -34,7 +34,7 @@ public class ZpmFactory implements Factory{
 		Image newimg = image.getScaledInstance((int)e.getPos().getWidth(),(int) e.getPos().getHeight(), java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
 		imageIcon = new ImageIcon(newimg);  // transform it back
 		JLabel picture =  new JLabel(imageIcon,JLabel.CENTER);
-		picture.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getVeg().getVy(), (int)e.getPos().getWidth(), (int)e.getPos().getHeight());
+		picture.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getKezd().getVy(), (int)e.getPos().getWidth(), (int)e.getPos().getHeight());
 		//picture.imageUpdate(img, infoflags, x, y, w, h) - valahogy beállítjuk a képét
 		return picture;
 	}

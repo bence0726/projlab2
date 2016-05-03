@@ -30,7 +30,7 @@ public class SzakadekFactory implements Factory{
 		int rows =(int)Math.round(e.getPos().getHeight()/20);
 		int columns =(int)Math.round(e.getPos().getWidth()/20);
 		JPanel panel = new JPanel(new GridLayout(rows,columns,0,0));
-		panel.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getVeg().getVy(), (int)e.getPos().getWidth(), (int)e.getPos().getHeight());
+		panel.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getKezd().getVy(), (int)e.getPos().getWidth(), (int)e.getPos().getHeight());
 		ImageIcon imageIcon = new ImageIcon("src/textures/Szakadek.jpg"); // load the image to a imageIcon
 		Image image = imageIcon.getImage(); // transform it 
 		Image newimg = image.getScaledInstance((int)e.getPos().getWidth()/columns,(int) e.getPos().getHeight()/rows, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
