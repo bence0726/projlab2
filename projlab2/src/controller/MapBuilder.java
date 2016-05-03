@@ -269,8 +269,7 @@ public class MapBuilder {
 	 *  ajtót is létrehozza, valamint beállítja annak súlyhatárát is.
 	 */
 	private void addMerleg(int mx1, int my1, int md1, int md2, int ax1, int ay1, int ad1, int ad2, int limit){
-		Fal ajto = new Fal(
-				new Vektor(ax1,ay1),
+		Fal ajto = new Fal(new Vektor(ax1,ay1),
 				new Vektor(ad1,ad2));
 		ajto.setReachable(false);
 		lab.addElem(new Merleg(

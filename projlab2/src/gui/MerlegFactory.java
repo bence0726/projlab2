@@ -1,14 +1,9 @@
 package gui;
 
-import java.awt.GridLayout;
 import java.awt.Image;
-import java.io.File;
-
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import model.Elem;
 import model.Merleg;
 
@@ -33,10 +28,13 @@ public class MerlegFactory implements Factory{
 		//Merleg
 		ImageIcon imageIcon = new ImageIcon("src/textures/Merleg.jpg"); // load the image to a imageIcon
 		Image image = imageIcon.getImage(); // transform it 
-		Image newimg = image.getScaledInstance((int)e.getPos().getWidth(),(int) e.getPos().getHeight(), java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+		Image newimg = image.getScaledInstance((int)Math.round(e.getPos().getWidth()),
+				(int) Math.round(e.getPos().getHeight()),
+				java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
 		imageIcon = new ImageIcon(newimg);  // transform it back
 		JLabel picture =  new JLabel(imageIcon,JLabel.CENTER);
-		picture.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getVeg().getVy(), (int)e.getPos().getWidth(), (int)e.getPos().getHeight());
+		picture.setBounds((int)Math.round(e.getPos().getKezd().getVx()), (int)Math.round(e.getPos().getVeg().getVy()),
+				(int)Math.round(e.getPos().getWidth()), (int)Math.round(e.getPos().getHeight()));
 		return picture;
 	}
 }

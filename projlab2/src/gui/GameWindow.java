@@ -1,6 +1,9 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 
 public class GameWindow extends JFrame {
@@ -12,7 +15,7 @@ public class GameWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public GameWindow() {
-		setType(Type.UTILITY);
+		setType(Type.NORMAL);
 		setTitle("Bitang_PortalGame");
 //		setBounds(100, 100, 542, 371);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,10 +28,8 @@ public class GameWindow extends JFrame {
 		add(mp);
 		gp = new GamePanel();		
 		add(gp);
-		addActionListeners();
 		
-		
-		
+		addActionListeners();		
 	}
 	
 	/**
