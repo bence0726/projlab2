@@ -33,7 +33,7 @@ public class MerlegFactory implements Factory{
 				java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
 		imageIcon = new ImageIcon(newimg);  // transform it back
 		JLabel picture =  new JLabel(imageIcon,JLabel.CENTER);
-		picture.setBounds((int)Math.round(e.getPos().getKezd().getVx()), (int)Math.round(e.getPos().getVeg().getVy()),
+		picture.setBounds((int)Math.round(e.getPos().getKezd().getVx()), (int)Math.round(e.getPos().getKezd().getVy()),
 				(int)Math.round(e.getPos().getWidth()), (int)Math.round(e.getPos().getHeight()));
 		return picture;
 	}

@@ -83,6 +83,7 @@ public class MainController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 			
 			gameEngine.moveEverything(); //mozgó elemek megmozgatása
 //			window.repaint();
