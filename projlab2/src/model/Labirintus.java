@@ -9,7 +9,7 @@ public class Labirintus {
     * A labirintusban lévő összes ZPM száma.
     * (nincs benne az, amit a karakterek már felvettek)
     */
-    private int osszZPM;
+    private int osszZPM = 0;
 
     /**
      * A labirintus kezdőpontja. Innen indul Jaffa, Oneil 
