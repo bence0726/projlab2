@@ -31,7 +31,7 @@ public class MainController {
 		KarakterController kc = new KarakterController(gameEngine);
 		
 		try {
-			mb.buildMap(new File("src/maps/demo.txt"));
+			mb.buildMap(new File("src/maps/Map2.txt"));
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,18 +45,19 @@ public class MainController {
 			Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 			Iterator<Factory> FactoryIt = componentFactories.iterator();
 			ArrayList<JComponent> CompList = new ArrayList<>();
-			boolean done = false;
 			
 			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein..
 				Elem tempElem = ElemIt.next();	
 				while(FactoryIt.hasNext()){										//végigmegyünk a Factory listán...
+					boolean done = false;					
 					Factory tempfact = FactoryIt.next();
 					JComponent tempComp = tempfact.ComponentFactory(tempElem);	//az aktuális elemet odaadjuk az aktuális factory-nak, aki valamilyen komponenst gyárt belőle
 					if (tempComp != null && !done){								//ha elkészítette a komponenst (nem null)...
 						CompList.add(tempComp);									//...feltesszük a listára
 						done = true;											//ha már rajta van, nem tesszük fel többször (idk, később jól jöhet!)
 					}						
-				}					
+				}
+				FactoryIt = componentFactories.iterator();		
 			}				
 			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
 			window.gp.repaint();
