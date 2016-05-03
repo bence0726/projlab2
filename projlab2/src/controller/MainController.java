@@ -41,7 +41,7 @@ public class MainController {
 		KarakterController kc = new KarakterController(gameEngine);
 		
 		try {
-			mb.buildMap(new File("src/maps/demo.txt"));
+			mb.buildMap(new File("src/maps/Map2.txt"));
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -78,7 +78,7 @@ public class MainController {
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
 			try {
-				Thread.sleep(100);
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
