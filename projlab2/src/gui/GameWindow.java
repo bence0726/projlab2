@@ -15,7 +15,7 @@ public class GameWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public GameWindow() {
-		setType(Type.UTILITY);
+		setType(Type.NORMAL);
 		setTitle("Bitang_PortalGame");
 //		setBounds(100, 100, 542, 371);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
