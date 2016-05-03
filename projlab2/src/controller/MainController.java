@@ -85,7 +85,7 @@ public class MainController {
 			}
 
 			
-			//gameEngine.moveEverything(); //mozgó elemek megmozgatása
+			gameEngine.moveEverything(); //mozgó elemek megmozgatása
 //			window.repaint();
 		}
 	}
