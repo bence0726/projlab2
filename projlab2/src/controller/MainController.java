@@ -56,6 +56,7 @@ public class MainController {
 			Iterator<Factory> FactoryIt = componentFactories.iterator();
 			ArrayList<JComponent> CompList = new ArrayList<>();
 			
+			
 			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein..
 				Elem tempElem = ElemIt.next();	
 				while(FactoryIt.hasNext()){										//végigmegyünk a Factory listán...
@@ -67,7 +68,7 @@ public class MainController {
 						done = true;											//ha már rajta van, nem tesszük fel többször (idk, később jól jöhet!)
 					}						
 				}
-				FactoryIt = componentFactories.iterator();		
+				FactoryIt = componentFactories.iterator();
 			}				
 			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
 			window.gp.repaint();
