@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import controller.KarakterController;
-import controller.MapBuilder;
+import test.TestMapBuilder;
 import model.Elem;
 import model.JatekMotor;
 import model.SpecFal;
@@ -21,14 +21,14 @@ import model.Vektor;
 public class TestManager {
 	
 	JatekMotor jm;
-	MapBuilder mb;
+	TestMapBuilder mb;
 	KarakterController kc;
 	
 	List<TestObject> TOList = new ArrayList<>();
 	
 	public TestManager(JatekMotor gameEngine){
 		jm = gameEngine;
-		mb = new MapBuilder(jm);
+		mb = new TestMapBuilder(jm);
 		kc = new KarakterController(jm);
 	}
 	
@@ -46,7 +46,7 @@ public class TestManager {
 		while(it.hasNext()){
 			run(it.next());
 			jm = new JatekMotor();
-			mb = new MapBuilder(jm);//mindenből új példány, tiszta tesztelés
+			mb = new TestMapBuilder(jm);//mindenből új példány, tiszta tesztelés
 			kc = new KarakterController(jm);
 		}
 	}

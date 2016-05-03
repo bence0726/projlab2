@@ -1,8 +1,14 @@
 package controller;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
 
 import model.Doboz;
+import model.Elem;
 import model.Fal;
 import model.JatekMotor;
 import model.Karakter;
@@ -45,9 +51,164 @@ public class MapBuilder {
 	 * sorokat, majd azok alapján felépíti 
 	 * a labirintust.
 	 * @param fp
+	 * @throws IOException 
+	 * @throws NumberFormatException 
 	 */
-	public void buildMap(File fp){
-		//...
+	public void buildMap(File fp) throws NumberFormatException, IOException{
+	
+	BufferedReader buffreader = new BufferedReader(new FileReader(fp));
+	//String testName = fp.getName();
+	//String[] piece = testName.split(".txt");
+	String line;				
+	while((line = buffreader.readLine()) != null){	
+		
+	//List<Elem> list = jm.getLab().getObjectsOnMapList();
+	String[] pieces = line.split(" ");
+	
+	switch(pieces[0]){
+	case "ADD":
+		switch (pieces[1]) {
+		case "FAL":
+			//beforeAdd = list.size();
+			addFal(Integer.parseInt(pieces[2]),
+					Integer.parseInt(pieces[3]),
+					Integer.parseInt(pieces[4]),
+					Integer.parseInt(pieces[5]));					
+			//afterAdd = list.size();					
+			//if(beforeAdd < afterAdd)//megvizsgáljuk, hogy nőtt-e a lista mérete
+			//	TO.AddResultRow("FAL ADDED");//(vagyis bekerült-e az elem)
+			//else
+			//	TO.AddResultRow("ADDING FAL FAILED");
+			break;
+		case "SPECFAL":
+			//beforeAdd = list.size();
+			addSpecFal(Integer.parseInt(pieces[2]),
+					Integer.parseInt(pieces[3]),
+					Integer.parseInt(pieces[4]),
+					Integer.parseInt(pieces[5]),
+					Integer.parseInt(pieces[6]),
+					Integer.parseInt(pieces[7]));					
+			//afterAdd = list.size();
+			//if(beforeAdd < afterAdd)
+			//	TO.AddResultRow("SPECFAL ADDED");
+			//else
+			//	TO.AddResultRow("ADDING SPECFAL FAILED");
+			break;
+		case "STARTELEM":
+			//beforeAdd = list.size();
+			addStartElem(Integer.parseInt(pieces[2]),
+					Integer.parseInt(pieces[3]),
+					Integer.parseInt(pieces[4]),
+					Integer.parseInt(pieces[5]));					
+			//afterAdd = list.size();
+			//if(beforeAdd < afterAdd)
+			//	TO.AddResultRow("STARTELEM ADDED");	
+			//else
+			//	TO.AddResultRow("ADDING STARTELEM FAILED");
+			break;
+		case "ENDELEM":
+			//beforeAdd = list.size();
+			addEndElem(Integer.parseInt(pieces[2]),
+					Integer.parseInt(pieces[3]),
+					Integer.parseInt(pieces[4]),
+					Integer.parseInt(pieces[5]));					
+			//afterAdd = list.size();
+			//if(beforeAdd < afterAdd)
+			//	TO.AddResultRow("ENDELEM ADDED");	
+			//else
+			//	TO.AddResultRow("ADDING ENDELEM FAILED");
+			break;
+		case "SZAKADEK":
+			//beforeAdd = list.size();
+			addSzakadek(Integer.parseInt(pieces[2]),
+					Integer.parseInt(pieces[3]),
+					Integer.parseInt(pieces[4]),
+					Integer.parseInt(pieces[5]));					
+			//6afterAdd = list.size();
+			//if(beforeAdd < afterAdd)
+			//	TO.AddResultRow("SZAKADEK ADDED");
+			//else
+			//	TO.AddResultRow("ADDING SZAKADEK FAILED");
+			break;
+		case "ZPM":
+			//beforeAdd = list.size();
+			addZPM(Integer.parseInt(pieces[2]),
+					Integer.parseInt(pieces[3]),
+					Integer.parseInt(pieces[4]),
+					Integer.parseInt(pieces[5]));					
+			//afterAdd = list.size();
+			//if(beforeAdd < afterAdd)
+			//	TO.AddResultRow("ZPM ADDED");
+			//else
+			//	TO.AddResultRow("ADDING ZPM FAILED");
+			break;					
+		case "REPLIKATOR":
+			//beforeAdd = list.size();
+			addReplikator();					
+			//afterAdd = list.size();
+			//if(beforeAdd < afterAdd)
+			//	TO.AddResultRow("REPLIKATOR ADDED");	
+			//else
+			//	TO.AddResultRow("ADDING REPLIKATOR FAILED");
+			break;
+		case "DOBOZ":
+			//beforeAdd = list.size();
+			addDoboz(Integer.parseInt(pieces[2]),
+					Integer.parseInt(pieces[3]),
+					Integer.parseInt(pieces[4]),
+					Integer.parseInt(pieces[5]),
+					Integer.parseInt(pieces[6]));					
+			//afterAdd = list.size();
+			//if(beforeAdd < afterAdd)
+			//	TO.AddResultRow("DOBOZ ADDED");
+			//else
+			//	TO.AddResultRow("ADDING DOBOZ FAILED");
+			break;
+		case "MERLEG":
+			//beforeAdd = list.size();
+			addMerleg(Integer.parseInt(pieces[2]),
+					Integer.parseInt(pieces[3]),
+					Integer.parseInt(pieces[4]),
+					Integer.parseInt(pieces[5]),
+					Integer.parseInt(pieces[6]),
+					Integer.parseInt(pieces[7]),
+					Integer.parseInt(pieces[8]),
+					Integer.parseInt(pieces[9]),
+					Integer.parseInt(pieces[10]));					
+			//afterAdd = list.size();
+			//if(beforeAdd < afterAdd)
+			//	TO.AddResultRow("MERLEG ADDED");
+			//else
+			//	TO.AddResultRow("ADDING MERLEG FAILED");
+			break;
+		case "JAFFA":
+			//beforeAdd = list.size();
+			addJaffa();					
+			//afterAdd = list.size();
+			//if(beforeAdd < afterAdd)
+			//	TO.AddResultRow("JAFFA ADDED");	
+			//else
+			//	TO.AddResultRow("ADDING JAFFA FAILED");
+			break;
+		case "ONEIL":
+			//beforeAdd = list.size();
+			addOneil();					
+			//afterAdd = list.size();
+			//if(beforeAdd < afterAdd)
+			//	TO.AddResultRow("ONEIL ADDED");	
+			//else
+			//	TO.AddResultRow("ADDING ONEIL FAILED");
+			break;
+		default:
+			break;
+		}
+	default:
+		break;
+	
+		
+	}	
+	}
+	buffreader.close();
 	}
 	
 	/**

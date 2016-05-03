@@ -21,7 +21,7 @@ import model.JatekMotor;
  * @author zsigatibor
  */
 public class MainTesterClass {
-	public static File workingDirectory = new File("test/testfiles/");
+	public static File testingDirectory = new File("test/testfiles/");
 	
 	
 	public static void main(String[] args) {
@@ -33,7 +33,7 @@ public class MainTesterClass {
 		 */
 		if(args.length != 0)			
 		try{
-			File fp = new File(workingDirectory,args[0]);
+			File fp = new File(testingDirectory,args[0]);
 			TM.addTestObject(readin(fp));		//odaadjuk a TestObject-et a TestManagernek
 		}			
 		catch(IOException e){
@@ -41,7 +41,7 @@ public class MainTesterClass {
 		}
 		else{
 			try {
-				for (File file : workingDirectory.listFiles()) {
+				for (File file : testingDirectory.listFiles()) {
 					if(file.getName().equals("Testresults.txt"))
 						continue;
 					TM.addTestObject(readin(file));
@@ -61,7 +61,7 @@ public class MainTesterClass {
 		try {
 			BufferedWriter bw = new BufferedWriter(
 					new	FileWriter(
-					new File(workingDirectory,outputfilename)));
+					new File(testingDirectory,outputfilename)));
 		
 			while(stat.hasNext()){
 				String text = stat.next();

@@ -9,8 +9,8 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import model.Doboz;
 import model.Elem;
+import model.Fal;
 
 /**
  * Az osztálynak majd átadunk egy Elem típusú objektumot,
@@ -21,16 +21,15 @@ import model.Elem;
  * @author zsigatibor
  *
  */
-public class DobozFactory implements Factory{
-	public static File TexturesDirectory = new File("src/Textures/");
+public class ZpmFactory implements Factory{
 
 	public JComponent ComponentFactory(Elem e){
-		if(!(e instanceof Doboz))
+		if(!(e instanceof Fal))
 			return null;			//ha nem instanceof Doboz, akkor null-t ad vissza
 		
 		
 		
-		ImageIcon imageIcon = new ImageIcon("src/textures/Fal.jpg"); // load the image to a imageIcon
+		ImageIcon imageIcon = new ImageIcon("src/textures/zpm.jpg"); // load the image to a imageIcon
 		Image image = imageIcon.getImage(); // transform it 
 		Image newimg = image.getScaledInstance((int)e.getPos().getWidth(),(int) e.getPos().getHeight(), java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
 		imageIcon = new ImageIcon(newimg);  // transform it back
@@ -40,3 +39,4 @@ public class DobozFactory implements Factory{
 		return picture;
 	}
 }
+

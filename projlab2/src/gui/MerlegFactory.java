@@ -9,8 +9,8 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import model.Doboz;
 import model.Elem;
+import model.Merleg;
 
 /**
  * Az osztálynak majd átadunk egy Elem típusú objektumot,
@@ -20,23 +20,24 @@ import model.Elem;
  * ReplikatorFactory-t, stb.
  * @author zsigatibor
  *
+ *FIXME: A hozzá tartozó ajtót is jó lenne itt beállíteni, de csak 1 visszatérési értéke van.
+ * 
  */
-public class DobozFactory implements Factory{
-	public static File TexturesDirectory = new File("src/Textures/");
+public class MerlegFactory implements Factory{
 
 	public JComponent ComponentFactory(Elem e){
-		if(!(e instanceof Doboz))
+		if(!(e instanceof Merleg))
 			return null;			//ha nem instanceof Doboz, akkor null-t ad vissza
 		
 		
-		
-		ImageIcon imageIcon = new ImageIcon("src/textures/Fal.jpg"); // load the image to a imageIcon
+		//Merleg
+		ImageIcon imageIcon = new ImageIcon("src/textures/merleg.jpg"); // load the image to a imageIcon
 		Image image = imageIcon.getImage(); // transform it 
 		Image newimg = image.getScaledInstance((int)e.getPos().getWidth(),(int) e.getPos().getHeight(), java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
 		imageIcon = new ImageIcon(newimg);  // transform it back
 		JLabel picture =  new JLabel(imageIcon,JLabel.CENTER);
 		picture.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getVeg().getVy(), (int)e.getPos().getWidth(), (int)e.getPos().getHeight());
-		//picture.imageUpdate(img, infoflags, x, y, w, h) - valahogy beállítjuk a képét
 		return picture;
 	}
 }
+

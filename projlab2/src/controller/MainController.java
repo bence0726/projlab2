@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -12,6 +14,7 @@ import model.Elem;
 import model.JatekMotor;
 
 public class MainController {
+	public static File mapsDirectory = new File("src/maps/");
 	
 	
 	public static void main(String[] args){
@@ -27,7 +30,15 @@ public class MainController {
 		MapBuilder mb = new MapBuilder(gameEngine);
 		KarakterController kc = new KarakterController(gameEngine);
 		
-//		mb.buildMap(new File(System.getProperty("user.dir")));	//pálya felépítése TODO még nincs kész, nem jó így, csak beírtam vmit..
+		try {
+			mb.buildMap(new File("src/maps/demo.txt"));
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	//pálya felépítése TODO még nincs kész, nem jó így, csak beírtam vmit..
 				
 		while(true){
 			//gameloop
@@ -47,12 +58,13 @@ public class MainController {
 					}						
 				}					
 			}				
-			window.gp.map.refreshMap(CompList);									//map frissítése az új elemekkel
+			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
+			window.gp.repaint();
+			window.repaint();
 			
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
-			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
-			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
-			
+			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
+			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
 			//Thread.sleep(500); - talán kell majd
 			
 			gameEngine.moveEverything(); //mozgó elemek megmozgatása

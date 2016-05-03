@@ -27,8 +27,9 @@ public class Map extends JPanel {
 		Iterator<JComponent> it = componentList.iterator();
 		removeAll();//letörlünk mindent
 		while(it.hasNext())	
-			add(it.next());								//hozzáadjuk a térképhez őket
+			add(it.next());//hozzáadjuk a térképhez őket
 														//FIXME jó helyre kerülnek?
+		this.repaint();
 	}
 
 }
