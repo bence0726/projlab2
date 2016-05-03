@@ -71,8 +71,8 @@ public class MainController {
 				FactoryIt = componentFactories.iterator();
 			}				
 			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
-			window.gp.repaint();
-			window.repaint();
+			//window.gp.repaint();
+			//window.repaint();
 			
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
@@ -85,7 +85,7 @@ public class MainController {
 			}
 
 			
-			gameEngine.moveEverything(); //mozgó elemek megmozgatása
+			//gameEngine.moveEverything(); //mozgó elemek megmozgatása
 //			window.repaint();
 		}
 	}
