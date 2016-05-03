@@ -63,7 +63,7 @@ public class MapBuilder {
 	while((line = buffreader.readLine()) != null){	
 		
 	//List<Elem> list = jm.getLab().getObjectsOnMapList();
-	String[] pieces = line.split(" ");
+	String[] pieces = line.split("");
 	
 	switch(pieces[0]){
 	case "ADD":
