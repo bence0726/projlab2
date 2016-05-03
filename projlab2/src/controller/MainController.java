@@ -9,7 +9,12 @@ import javax.swing.JComponent;
 
 import gui.DobozFactory;
 import gui.Factory;
+import gui.FalFactory;
 import gui.GameWindow;
+import gui.MerlegFactory;
+import gui.SpecFalFactory;
+import gui.StartElemFactory;
+import gui.SzakadekFactory;
 import model.Elem;
 import model.JatekMotor;
 
@@ -21,6 +26,11 @@ public class MainController {
 		
 		ArrayList<Factory> componentFactories = new ArrayList<>();
 		componentFactories.add(new DobozFactory());
+		componentFactories.add(new FalFactory());
+		componentFactories.add(new SpecFalFactory());
+		componentFactories.add(new MerlegFactory());
+		componentFactories.add(new StartElemFactory());
+		componentFactories.add(new SzakadekFactory());
 		//komponensgyártók hozzáadása ehhez a listához...
 		
 		JatekMotor gameEngine = new JatekMotor();		
