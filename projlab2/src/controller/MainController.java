@@ -56,11 +56,11 @@ public class MainController {
 			Iterator<Factory> FactoryIt = componentFactories.iterator();
 			ArrayList<JComponent> CompList = new ArrayList<>();
 			
-			
+			boolean done;
 			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein..
 				Elem tempElem = ElemIt.next();	
-				while(FactoryIt.hasNext()){										//végigmegyünk a Factory listán...
-					boolean done = false;					
+				done = false;
+				while(FactoryIt.hasNext() && !done){							//végigmegyünk a Factory listán...
 					Factory tempfact = FactoryIt.next();
 					JComponent tempComp = tempfact.ComponentFactory(tempElem);	//az aktuális elemet odaadjuk az aktuális factory-nak, aki valamilyen komponenst gyárt belőle
 					if (tempComp != null && !done){								//ha elkészítette a komponenst (nem null)...
@@ -71,8 +71,7 @@ public class MainController {
 				FactoryIt = componentFactories.iterator();
 			}				
 			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
-			//window.gp.repaint();
-			//window.repaint();
+			
 			
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));

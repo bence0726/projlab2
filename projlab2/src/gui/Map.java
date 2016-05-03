@@ -29,7 +29,8 @@ public class Map extends JPanel {
 		while(it.hasNext())	
 			add(it.next());//hozzáadjuk a térképhez őket
 														//FIXME jó helyre kerülnek?
-		this.repaint();
+		repaint();
+		updateUI();
 	}
 
 }
