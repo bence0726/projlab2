@@ -26,7 +26,7 @@ public class MerlegFactory implements Factory{
 		
 		
 		//Merleg
-		ImageIcon imageIcon = new ImageIcon("src/textures/merleg.jpg"); // load the image to a imageIcon
+		ImageIcon imageIcon = new ImageIcon("src/textures/Fal.jpg"); // load the image to a imageIcon
 		Image image = imageIcon.getImage(); // transform it 
 		Image newimg = image.getScaledInstance((int)Math.round(e.getPos().getWidth()),
 				(int) Math.round(e.getPos().getHeight()),

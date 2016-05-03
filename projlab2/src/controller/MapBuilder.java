@@ -272,9 +272,9 @@ public class MapBuilder {
 		Fal ajto = new Fal(new Vektor(ax1,ay1),
 				new Vektor(ad1,ad2));
 		ajto.setReachable(false);
-		lab.addElem(new Merleg(new Terulet(
+		lab.addElem(new Merleg(
 				new Vektor(mx1,my1),
-				new Vektor(md1,md2)),
+				new Vektor(md1,md2),
 				ajto, limit));
 		lab.addElem(ajto);
 	}	
