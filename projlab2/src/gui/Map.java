@@ -10,12 +10,14 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Map extends JPanel {
 
+	final int mapwidth = 800;
+	final int mapheight = 600;
 	/**
 	 * Create the panel.
 	 */
 	public Map() {
 		setLayout(null);
-		setSize(800,600);
+		setSize(mapwidth,mapheight);
 		setBackground(Color.WHITE);
 //		setBounds(0, 0, 800, 729);
 	}
