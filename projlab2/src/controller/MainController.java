@@ -15,12 +15,8 @@ import model.JatekMotor;
 public class MainController {
 	public static File mapsDirectory = new File("src/maps/");
 	
-	public static void main(String[] args){
-		
-		JatekMotor gameEngine = new JatekMotor();		
-		GameWindow window = new GameWindow();		
-		window.setVisible(true);
-		
+	public static void main(String[] args){		
+		JatekMotor gameEngine = new JatekMotor();
 		MapBuilder mb = new MapBuilder(gameEngine);
 		KarakterController kc = new KarakterController(gameEngine);
 		
@@ -34,6 +30,10 @@ public class MainController {
 			e.printStackTrace();
 		}	//pálya felépítése TODO még nincs kész, nem jó így, csak beírtam vmit..
 				
+		GameWindow window = new GameWindow();	//elég itt létrehozni	
+		window.setVisible(true);
+		window.addKeyListener(new MoveKeysListener(kc));
+		
 		int test = 0;
 		while(true){
 			//gameloop

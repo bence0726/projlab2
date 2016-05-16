@@ -13,7 +13,7 @@ public abstract class Elem implements Interakcio {
 	/**
 	 * Ha változott az objektum állapota, true-ra állítjuk.
 	 */
-	boolean isChanged = true;
+	protected boolean isChanged = true;
 	 /**
      * Él az elem? Ha igen, true, egyébként false.
      */
