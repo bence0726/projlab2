@@ -34,6 +34,7 @@ public class MainController {
 			e.printStackTrace();
 		}	//pálya felépítése TODO még nincs kész, nem jó így, csak beírtam vmit..
 				
+		int test = 0;
 		while(true){
 			//gameloop
 			Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
@@ -45,7 +46,7 @@ public class MainController {
 			}				
 			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
 			
-			
+			window.gp.LabNumberOfZPMS.setText(String.valueOf(test++));
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
