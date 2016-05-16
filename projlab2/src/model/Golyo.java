@@ -32,6 +32,7 @@ public class Golyo extends Moveable {
     	
     	if(itemsThere.size() == 1){						//ha nincs ott semmi...
     		step();										//...akkor lépés 
+    		isChanged = true;
     		return;
     	}    										   		    		
     	    	
@@ -40,6 +41,7 @@ public class Golyo extends Moveable {
     		Elem temp = iteratorThere.next();
     		if(temp != this){							//magát nem lövi meg a golyó
     			temp.shot(this);
+    			isChanged = true;
     			return;									//csak egyvalamit találunk el vele
     		}    			
     	}   	

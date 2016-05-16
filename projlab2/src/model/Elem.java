@@ -10,6 +10,10 @@ package model;
  */
 public abstract class Elem implements Interakcio {
 
+	/**
+	 * Ha változott az objektum állapota, true-ra állítjuk.
+	 */
+	boolean isChanged = true;
 	 /**
      * Él az elem? Ha igen, true, egyébként false.
      */
@@ -53,6 +57,7 @@ public abstract class Elem implements Interakcio {
      */
     public void elemShiftWithVec(Vektor dirVec) {
     	pos.addDirToArea(dirVec);
+    	isChanged = true;
 	}
     
     /**
@@ -61,6 +66,7 @@ public abstract class Elem implements Interakcio {
      */
     public void newLocationByCorner(Vektor locUpLeftCorner){
     	pos.setNewCornerLocation(locUpLeftCorner);
+    	isChanged = true;
     }
     
     /**
@@ -69,6 +75,7 @@ public abstract class Elem implements Interakcio {
      */
     public void newLocationByMiddle(Vektor locMiddleofArea){
     	pos.setNewCornerLocation(locMiddleofArea);
+    	isChanged = true;
     }
     
     /**
@@ -91,6 +98,7 @@ public abstract class Elem implements Interakcio {
   
     public void kill(Elem e){
     	alive = false;
+    	isChanged = true;
     }
 
     public boolean picked(Karakter k) {
@@ -121,5 +129,11 @@ public abstract class Elem implements Interakcio {
      */
     public Terulet getPos() {
         return pos;
+    }
+    public boolean is_changed(){
+    	return isChanged;
+    }
+    public void change(boolean value){
+    	isChanged = value;
     }
 }

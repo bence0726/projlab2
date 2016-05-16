@@ -23,6 +23,7 @@ public class Szakadek extends Elem {
 
     public boolean steppedon(Moveable m) {
         m.kill(this);//Megöli az elemet ami rálép.
+        isChanged = true;
         return true;
     }
     public boolean isAccessable(){

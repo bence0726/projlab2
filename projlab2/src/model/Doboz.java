@@ -30,6 +30,7 @@ public class Doboz extends Moveable {
     			Elem temp = itElem.next();
     			temp.steppedoff(this);
     		}
+    		isChanged = true;
     		return true;
     	}
     	return false;
