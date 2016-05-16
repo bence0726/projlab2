@@ -47,18 +47,16 @@ public class MainController {
 			Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 			ArrayList<JComponent> CompList = new ArrayList<>();
 			
-			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein..
+			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
 				Elem tempElem = ElemIt.next();	
 				CompList.add(ElemFactory.ComponentFactory(tempElem));
 			}				
 			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
-			
-			
-			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
+			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
 			try {
-				Thread.sleep(50);
+				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
