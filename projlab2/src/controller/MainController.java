@@ -3,6 +3,8 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 
 import javax.swing.JComponent;
@@ -29,7 +31,21 @@ public class MainController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	//pálya felépítése TODO még nincs kész, nem jó így, csak beírtam vmit..
-				
+		
+		//Igazából ez felesleges
+		//ArrayList<JComponent> CompList = new ArrayList<>();
+		
+		//Map amiben naprakészen tartjuk a változásokat
+		HashMap<Elem, JComponent> connected = new HashMap<>(); 
+		
+		Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
+		while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
+			Elem tempElem = ElemIt.next();
+			JComponent tempJcomp = ElemFactory.ComponentFactory(tempElem);
+			//CompList.add(tempJcomp); //igazából ez felesleges
+			connected.put(tempElem, tempJcomp);
+		}
+		
 		GameWindow window = new GameWindow();	//elég itt létrehozni	
 		window.setVisible(true);
 		window.addKeyListener(new MoveKeysListener(kc));
@@ -37,14 +53,15 @@ public class MainController {
 		int test = 0;
 		while(true){
 			//gameloop
-			Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
-			ArrayList<JComponent> CompList = new ArrayList<>();
-			
+			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
-				Elem tempElem = ElemIt.next();	
-				CompList.add(ElemFactory.ComponentFactory(tempElem));
-			}				
-			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
+				Elem tempElem = ElemIt.next();
+				if (tempElem.is_changed()){
+					JComponent tempJcomp = ElemFactory.ComponentFactory(tempElem);
+					connected.replace(tempElem, tempJcomp);
+				}
+			}
+			window.gp.map.refreshMap(new HashSet(connected.values())); //map frissítése az új elemekkel
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(test++));

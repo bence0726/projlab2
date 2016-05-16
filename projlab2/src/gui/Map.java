@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Color;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class Map extends JPanel {
 	 * A kapott komponensListát felrajzolja a térképre.
 	 * @param componentList
 	 */
-	public void refreshMap(List<JComponent> componentList){
+	public void refreshMap(HashSet<JComponent> componentList){
 		Iterator<JComponent> it = componentList.iterator();
 		removeAll();//letörlünk mindent
 		while(it.hasNext())	
