@@ -59,7 +59,7 @@ public class MainController {
 			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
 				Elem tempElem = ElemIt.next();
-				if (tempElem.is_changed()){
+				if (tempElem.is_changed() && tempElem.isAlive()){
 					JComponent tempJcomp = ElemFactory.ComponentFactory(tempElem);
 					connected.replace(tempElem, tempJcomp);
 				}
