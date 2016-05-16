@@ -36,8 +36,8 @@ public class MainController {
 			e.printStackTrace();
 		}	//pálya felépítése TODO még nincs kész, nem jó így, csak beírtam vmit..
 		
-		//A lista amit kirajzolunk
-		ArrayList<JComponent> CompList = new ArrayList<>();
+		//Igazából ez felesleges
+		//ArrayList<JComponent> CompList = new ArrayList<>();
 		
 		//Map amiben naprakészen tartjuk a változásokat
 		HashMap<Elem, JComponent> connected = new HashMap<>(); 
@@ -46,7 +46,7 @@ public class MainController {
 		while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
 			Elem tempElem = ElemIt.next();
 			JComponent tempJcomp = ElemFactory.ComponentFactory(tempElem);
-			CompList.add(tempJcomp);
+			//CompList.add(tempJcomp); //igazából ez felesleges
 			connected.put(tempElem, tempJcomp);
 		}
 		
