@@ -35,15 +35,24 @@ public class MainController {
 		}	//pálya felépítése TODO még nincs kész, nem jó így, csak beírtam vmit..
 				
 		int test = 0;
-		while(true){
-			//gameloop
-			Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
-			ArrayList<JComponent> CompList = new ArrayList<>();
-			
-			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
-				Elem tempElem = ElemIt.next();	
+		ArrayList<JComponent> CompList = new ArrayList<>();
+		Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
+		while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
+			Elem tempElem = ElemIt.next();
 				CompList.add(ElemFactory.ComponentFactory(tempElem));
-			}				
+				ElemFactory.ComponentFactory(tempElem).
+		}
+		
+		while(true){
+			gameEngine.moveEverything(); //mozgó elemek megmozgatása
+			//gameloop
+			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
+			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
+				Elem tempElem = ElemIt.next();
+				
+			}
+			ElemFactory.wallAlreadyDrew=true;
+			CompList.
 			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			
@@ -57,8 +66,6 @@ public class MainController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-			gameEngine.moveEverything(); //mozgó elemek megmozgatása
 //			window.repaint();
 		}
 	}

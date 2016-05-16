@@ -14,6 +14,7 @@ public class ElemFactory {
 	private static final double defaultMapScale = 1;
 	private static final double defaultImageScale = 2; //Azért kettő mert így néz ki jól.
 	private static final String textureFolder = "src/textures";
+	public static boolean wallAlreadyDrew = false;
 
 	//elemek képei:
 //	private static final ImageIcon nyitottAjtoImg =  new ImageIcon(textureFolder+"/nyitottajto.png");
@@ -59,10 +60,34 @@ public class ElemFactory {
 	private static final ImageIcon zpmImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
 	private static final ImageIcon karakter2Img =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
 	private static final ImageIcon falImg =  new ImageIcon(textureFolder+"/Zoldspecfal.jpg");
-
+	
+	
 	
 	
 	public static JComponent ComponentFactory(Elem e){
+		if(e instanceof ZPM)
+			return createComponent(zpmImg,defaultMapScale,1.5,e);
+		
+		if(e instanceof Szakadek)
+			return createComponent(szakadekImg,defaultMapScale,defaultImageScale,e);
+		
+		if(e instanceof SpecFal){
+			SpecFal specfal = (SpecFal)e;
+			if (!(specfal.isAccessable()))
+				return createComponent(specfalImg,defaultMapScale,1.8,e);
+			else
+				switch(specfal.getSzin()){
+				case Kek:
+					return createComponent(kekspecfalImg ,defaultMapScale,defaultImageScale,e);
+				case Piros:
+					return createComponent(pirosspecfalImg ,defaultMapScale,defaultImageScale,e);
+				case Sarga:
+					return createComponent(sargaspecfalImg ,defaultMapScale,defaultImageScale,e);
+				case Zold:
+					return createComponent(zoldspecfalImg ,defaultMapScale,defaultImageScale,e);
+				}	
+		}
+		
 		if(e instanceof Ajto)
 		{
 			Ajto door = (Ajto)e;
@@ -102,36 +127,16 @@ public class ElemFactory {
 		if(e instanceof Replikator)
 			return createComponent(replikatorImg,defaultMapScale,defaultImageScale,e);
 		
-		if(e instanceof SpecFal){
-			SpecFal specfal = (SpecFal)e;
-			if (!(specfal.isAccessable()))
-				return createComponent(specfalImg,defaultMapScale,1.8,e);
-			else
-				switch(specfal.getSzin()){
-				case Kek:
-					return createComponent(kekspecfalImg ,defaultMapScale,defaultImageScale,e);
-				case Piros:
-					return createComponent(pirosspecfalImg ,defaultMapScale,defaultImageScale,e);
-				case Sarga:
-					return createComponent(sargaspecfalImg ,defaultMapScale,defaultImageScale,e);
-				case Zold:
-					return createComponent(zoldspecfalImg ,defaultMapScale,defaultImageScale,e);
-				}	
-		}
+		
 		if(e instanceof StartElem)
 			return createComponent(startElemImg,defaultMapScale,defaultImageScale,e);
-		
-		if(e instanceof Szakadek)
-			return createComponent(szakadekImg,defaultMapScale,defaultImageScale,e);
-		
-		if(e instanceof ZPM)
-			return createComponent(zpmImg,defaultMapScale,1.5,e);
-		
+
 		if(e instanceof Karakter) //majd kell ide kicsit több logika, hogy arra nézzen, amerre mozog a karakter
 			return createComponent(karakter2Img,defaultMapScale,defaultImageScale,e);
 		
-		if(e instanceof Fal)
-			return createComponent(falImg,defaultMapScale,defaultImageScale,e);
+		//if (!wallAlreadyDrew)
+			if(e instanceof Fal)
+				return createComponent(falImg,defaultMapScale,defaultImageScale,e);
 		
 		return null;
 	}
