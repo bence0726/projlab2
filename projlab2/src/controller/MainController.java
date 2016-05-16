@@ -3,6 +3,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.swing.JComponent;
@@ -33,26 +34,33 @@ public class MainController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	//pálya felépítése TODO még nincs kész, nem jó így, csak beírtam vmit..
-				
-		int test = 0;
+		
+		//A lista amit kirajzolunk
 		ArrayList<JComponent> CompList = new ArrayList<>();
+		
+		//Map amiben naprakészen tartjuk a változásokat
+		HashMap<Elem, JComponent> connected = new HashMap<>(); 
+		
 		Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 		while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
 			Elem tempElem = ElemIt.next();
-				CompList.add(ElemFactory.ComponentFactory(tempElem));
-				ElemFactory.ComponentFactory(tempElem).
+			JComponent tempJcomp = ElemFactory.ComponentFactory(tempElem);
+			CompList.add(tempJcomp);
+			connected.put(tempElem, tempJcomp);
 		}
 		
+		int test = 0;
 		while(true){
-			gameEngine.moveEverything(); //mozgó elemek megmozgatása
 			//gameloop
 			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
 				Elem tempElem = ElemIt.next();
-				
+				if (tempElem.changed()){
+					JComponent tempJcomp = ElemFactory.ComponentFactory(tempElem);
+					connected.replace(tempElem, tempJcomp);
+				}
 			}
 			ElemFactory.wallAlreadyDrew=true;
-			CompList.
 			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			
@@ -66,6 +74,8 @@ public class MainController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
+			gameEngine.moveEverything(); //mozgó elemek megmozgatása
 //			window.repaint();
 		}
 	}
