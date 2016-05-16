@@ -2,8 +2,6 @@ package gui;
 
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.io.File;
-
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -15,7 +13,7 @@ public class ElemFactory {
 	
 	private static final double defaultMapScale = 1;
 	private static final double defaultImageScale = 2; //Azért kettő mert így néz ki jól.
-	private static final File textureFolder = new File("src/textures");
+	private static final String textureFolder = "src/textures";
 
 	public static JComponent ComponentFactory(Elem e){
 		if(e instanceof Ajto)
@@ -64,7 +62,7 @@ public class ElemFactory {
 		if((e instanceof ZPM))
 			return createComponent("zpm.jpg",defaultMapScale,defaultImageScale,e);
 		
-		if(!(e instanceof Karakter))
+		if(!(e instanceof Karakter)) //majd kell ide kicsit több logika, hogy arra nézzen, amerre mozog a karakter
 			return createComponent("karakter.jpg",defaultMapScale,defaultImageScale,e);
 		
 		if((e instanceof Fal))
@@ -79,7 +77,7 @@ public class ElemFactory {
 		int columns =(int)Math.round(e.getPos().getWidth()/20*mapscale);
 		JPanel panel = new JPanel(new GridLayout(rows,columns,0,0));
 		panel.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getKezd().getVy(), (int)(e.getPos().getWidth()*mapscale), (int)(e.getPos().getHeight()*mapscale));
-		ImageIcon imageIcon = new ImageIcon("src/textures/Fal.jpg"); // load the image to a imageIcon
+		ImageIcon imageIcon = new ImageIcon(textureFolder + "/" + imagestr); // load the image to a imageIcon
 		Image image = imageIcon.getImage(); // transform it 
 		Image newimg = image.getScaledInstance((int)(e.getPos().getWidth()/columns*imagescale),(int)(e.getPos().getHeight()/rows*imagescale), java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
 		imageIcon = new ImageIcon(newimg);  // transform it back
