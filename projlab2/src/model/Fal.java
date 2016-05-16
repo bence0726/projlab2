@@ -38,11 +38,13 @@ public class Fal extends Elem {
         if(!reachable)
         	return false;
         X.step();
+        isChanged = true;
         return true;
     }
 
 	public void setReachable(boolean reachable) {
 		this.reachable = reachable;
+		isChanged = true;
 	}
 	public boolean isAccessable(){
 		return reachable;

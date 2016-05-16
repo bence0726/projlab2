@@ -36,6 +36,7 @@ public class Replikator extends Moveable{
     	bullet.kill(null);
         this.alive = false;
         lab.refreshList();
+        isChanged = true;
     }
 
     /**
@@ -53,6 +54,7 @@ public class Replikator extends Moveable{
         
         if(items.size() == 1){						//ha nincs ott semmi, csak a replikátor...
     		step();	
+    		isChanged = true;
     		return;
         }
     	while(iterator.hasNext()){
@@ -70,6 +72,7 @@ public class Replikator extends Moveable{
         }
         //szerintem itt kéne új moveDir-t beállítani a további mozgáshoz:
         setDir(Vektor.randomDir(false)); //így a következő lépésnél random irányba megy tovább
+        isChanged = true;
     }
 
     /**
@@ -86,9 +89,11 @@ public class Replikator extends Moveable{
         alive = false;
         e.kill(null);
         lab.refreshList();
+        isChanged = true;
     }
     public boolean steppedon(Moveable x){
     	x.step();
+    	isChanged = true;
     	return true;    	
     }
 }

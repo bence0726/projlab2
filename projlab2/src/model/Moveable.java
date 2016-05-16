@@ -45,6 +45,7 @@ public abstract class Moveable extends Elem{
 	public boolean steppedon(Moveable x){
 		if(x.getSuly() == 0){
 			x.step();
+			isChanged = true;
 			return true;
 		}			
 		else
@@ -127,6 +128,7 @@ public abstract class Moveable extends Elem{
     			moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);
     		}    		
     	}
+    	isChanged = true;
     	moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
 	}
     
@@ -135,6 +137,7 @@ public abstract class Moveable extends Elem{
      */
     public void step(){
     	elemShiftWithVec(moveDir);
+    	isChanged = true;
     }
     
     /**
@@ -149,6 +152,7 @@ public abstract class Moveable extends Elem{
     public void kill(Elem e){
     	this.alive = false;
     	lab.refreshList();
+    	isChanged = true;
     }
     /**
      * Megadja az objektum súlyát.

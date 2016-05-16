@@ -32,6 +32,7 @@ public class ZPM extends Elem {
         k.addZPM();
         k.lab.deleteZPM();
         this.kill(null);
+        isChanged = true;
         return true;
     }
 }

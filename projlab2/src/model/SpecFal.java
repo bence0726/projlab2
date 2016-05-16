@@ -52,6 +52,7 @@ public class SpecFal extends Elem {
     		pm.close(colour); //bezárjuk
     	pm.open(this,colour);
     	bullet.kill(null);
+    	isChanged = true;
     }
 
     public boolean steppedon(Moveable m) {
@@ -62,6 +63,7 @@ public class SpecFal extends Elem {
         if(otherSide == null)			//ennek nem kéne teljesülnie, de ha mégis, visszatérünk
         	return false;
         otherSide.teleport(m);		//a rálépett elemet teleportáljuk
+        isChanged = true;
         return true;
     }
 
@@ -70,6 +72,7 @@ public class SpecFal extends Elem {
      */
     public void bezar() {
     	reachable = false;
+    	isChanged = true;
     }
 
     /**
@@ -78,6 +81,7 @@ public class SpecFal extends Elem {
     public void kinyit(Szin colour) {
         reachable = true;
         this.colour=colour;        
+        isChanged = true;
     }
     
     /**
