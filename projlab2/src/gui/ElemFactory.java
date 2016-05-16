@@ -20,52 +20,52 @@ public class ElemFactory {
 		{
 			Ajto door = (Ajto)e;
 			if (door.isAccessable())
-				return createComponent("nyitottajto.jpg",defaultMapScale,defaultImageScale,e);
+				return createComponent("nyitottajto.png",defaultMapScale,defaultImageScale,e);
 			else
-				return createComponent("csukottajto.jpg",defaultMapScale,defaultImageScale,e);
+				return createComponent("csukottajto.png",defaultMapScale,defaultImageScale,e);
 		}
 		
 		if(e instanceof Doboz)
-			return createComponent("doboz.jpg",defaultMapScale,defaultImageScale,e);
+			return createComponent("doboz.png",defaultMapScale,defaultImageScale,e);
 		
 		if((e instanceof EndElem))
-			return createComponent("endelem.jpg",defaultMapScale,defaultImageScale,e);
+			return createComponent("endelem.png",defaultMapScale,defaultImageScale,e);
 		
 		if(e instanceof Golyo)
 		{
 			Golyo bullet = (Golyo)e;
-			return createComponent(bullet.getSzin().toString()+"golyo.jpg",defaultMapScale,defaultImageScale,e);
+			return createComponent(bullet.getSzin().toString()+"golyo.png",defaultMapScale,defaultImageScale,e);
 		}
 		
-		if((e instanceof Merleg))
-			return createComponent("merleg.jpg",defaultMapScale,defaultImageScale,e);
+		if(e instanceof Merleg)
+			return createComponent("merleg.png",defaultMapScale,defaultImageScale,e);
 		
-		if((e instanceof Oneil))
-			return createComponent("oneil.jpg",defaultMapScale,defaultImageScale,e);
+		if(e instanceof Oneil)
+			return createComponent("karakter1.png",defaultMapScale,defaultImageScale,e);
 		
-		if((e instanceof Replikator))
-			return createComponent("replikator.jpg",defaultMapScale,defaultImageScale,e);
+		if(e instanceof Replikator)
+			return createComponent("replikator.png",defaultMapScale,defaultImageScale,e);
 		
-		if((e instanceof SpecFal)){
+		if(e instanceof SpecFal){
 			SpecFal specfal = (SpecFal)e;
 			if (!(specfal.isAccessable()))
-				return createComponent("specfal.jpg",defaultMapScale,defaultImageScale,e);
+				return createComponent("specfal.png",defaultMapScale,defaultImageScale,e);
 			else
-				return createComponent(specfal.getSzin().toString()+"specfal.jpg",defaultMapScale,defaultImageScale,e);
+				return createComponent(specfal.getSzin().toString()+"specfal.png",defaultMapScale,defaultImageScale,e);
 		}
-		if((e instanceof StartElem))
-			return createComponent("startelem.jpg",defaultMapScale,defaultImageScale,e);
+		if(e instanceof StartElem)
+			return createComponent("startelem.png",defaultMapScale,defaultImageScale,e);
 		
-		if((e instanceof Szakadek))
+		if(e instanceof Szakadek)
 			return createComponent("szakadek.jpg",defaultMapScale,defaultImageScale,e);
 		
-		if((e instanceof ZPM))
-			return createComponent("zpm.jpg",defaultMapScale,defaultImageScale,e);
+		if(e instanceof ZPM)
+			return createComponent("zpm.png",defaultMapScale,defaultImageScale,e);
 		
-		if(!(e instanceof Karakter)) //majd kell ide kicsit több logika, hogy arra nézzen, amerre mozog a karakter
-			return createComponent("karakter.jpg",defaultMapScale,defaultImageScale,e);
+		if(e instanceof Karakter) //majd kell ide kicsit több logika, hogy arra nézzen, amerre mozog a karakter
+			return createComponent("karakter2.png",defaultMapScale,defaultImageScale,e);
 		
-		if((e instanceof Fal))
+		if(e instanceof Fal)
 			return createComponent("fal.jpg",defaultMapScale,defaultImageScale,e);
 		
 		return null;
@@ -77,7 +77,8 @@ public class ElemFactory {
 		int columns =(int)Math.round(e.getPos().getWidth()/20*mapscale);
 		JPanel panel = new JPanel(new GridLayout(rows,columns,0,0));
 		panel.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getKezd().getVy(), (int)(e.getPos().getWidth()*mapscale), (int)(e.getPos().getHeight()*mapscale));
-		ImageIcon imageIcon = new ImageIcon(textureFolder + "/" + imagestr); // load the image to a imageIcon
+		String file = textureFolder + "/" + imagestr;
+		ImageIcon imageIcon = new ImageIcon(file); // load the image to a imageIcon
 		Image image = imageIcon.getImage(); // transform it 
 		Image newimg = image.getScaledInstance((int)(e.getPos().getWidth()/columns*imagescale),(int)(e.getPos().getHeight()/rows*imagescale), java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
 		imageIcon = new ImageIcon(newimg);  // transform it back
