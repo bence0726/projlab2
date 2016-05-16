@@ -17,12 +17,8 @@ import model.JatekMotor;
 public class MainController {
 	public static File mapsDirectory = new File("src/maps/");
 	
-	public static void main(String[] args){
-		
-		JatekMotor gameEngine = new JatekMotor();		
-		GameWindow window = new GameWindow();		
-		window.setVisible(true);
-		
+	public static void main(String[] args){		
+		JatekMotor gameEngine = new JatekMotor();
 		MapBuilder mb = new MapBuilder(gameEngine);
 		KarakterController kc = new KarakterController(gameEngine);
 		
@@ -49,6 +45,12 @@ public class MainController {
 			//CompList.add(tempJcomp); //igazából ez felesleges
 			connected.put(tempElem, tempJcomp);
 		}
+		
+		GameWindow window = new GameWindow();	//elég itt létrehozni	
+		window.setVisible(true);
+		window.addKeyListener(new MoveKeysListener(kc));//KeyListenerek beregisztrálása
+		window.addKeyListener(new FireKeysListener(kc));
+		window.addKeyListener(new PickandDropKeysListener(kc));
 		
 		int test = 0;
 		while(true){

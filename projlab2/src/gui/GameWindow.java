@@ -3,8 +3,11 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.plaf.basic.BasicSplitPaneUI.KeyboardUpLeftHandler;
 
 public class GameWindow extends JFrame {
 
@@ -38,14 +41,12 @@ public class GameWindow extends JFrame {
 	private void addActionListeners(){
 		mp.startGameButton.addActionListener(e->{
 			mp.setVisible(false);
-			gp.setVisible(true);
+			gp.setVisible(true);			
 		});
 		
 		//gombnyomásra alkalmazás bezárása
 		gp.btnEndGame.addActionListener(e->{
 			System.exit(0);
 		});
-		
-		//további eseményfigyelők hozzáadása...
-	}
+	}	
 }
