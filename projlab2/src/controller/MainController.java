@@ -7,21 +7,13 @@ import java.util.Iterator;
 
 import javax.swing.JComponent;
 
-import gui.DobozFactory;
 import gui.ElemFactory;
-import gui.Factory;
-import gui.FalFactory;
 import gui.GameWindow;
-import gui.MerlegFactory;
-import gui.SpecFalFactory;
-import gui.StartElemFactory;
-import gui.SzakadekFactory;
 import model.Elem;
 import model.JatekMotor;
 
 public class MainController {
 	public static File mapsDirectory = new File("src/maps/");
-	
 	
 	public static void main(String[] args){
 		

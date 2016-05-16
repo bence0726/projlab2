@@ -27,7 +27,7 @@ public class ElemFactory {
 	private static final ImageIcon merlegImg =  new ImageIcon(textureFolder+"/merleg.png");
 	private static final ImageIcon karakter1Img =  new ImageIcon(textureFolder+"/karakter1.png");
 	private static final ImageIcon replikatorImg =  new ImageIcon(textureFolder+"/replikator.png");
-	private static final ImageIcon specfalImg =  new ImageIcon(textureFolder+"/specfal.png");
+	private static final ImageIcon specfalImg =  new ImageIcon(textureFolder+"/fal2.png");
 	private static final ImageIcon kekspecfalImg =  new ImageIcon(textureFolder+"/Kekspecfal.png");
 	private static final ImageIcon sargaspecfalImg =  new ImageIcon(textureFolder+"/Sargaspecfal.png");
 	private static final ImageIcon pirosspecfalImg =  new ImageIcon(textureFolder+"/Pirosspecfal.png");
@@ -51,7 +51,7 @@ public class ElemFactory {
 		}
 		
 		if(e instanceof Doboz)
-			return createComponent(dobozImg,defaultMapScale,defaultImageScale,e);
+			return createComponent(dobozImg,defaultMapScale,1.8,e);
 		
 		if((e instanceof EndElem))
 			return createComponent(endElemImg,defaultMapScale,defaultImageScale,e);
@@ -72,7 +72,7 @@ public class ElemFactory {
 		}
 		
 		if(e instanceof Merleg)
-			return createComponent(merlegImg,defaultMapScale,defaultImageScale,e);
+			return createComponent(merlegImg,defaultMapScale,0.85,e);
 		
 		if(e instanceof Oneil)
 			return createComponent(karakter1Img,defaultMapScale,defaultImageScale,e);
@@ -83,7 +83,7 @@ public class ElemFactory {
 		if(e instanceof SpecFal){
 			SpecFal specfal = (SpecFal)e;
 			if (!(specfal.isAccessable()))
-				return createComponent(specfalImg,defaultMapScale,defaultImageScale,e);
+				return createComponent(specfalImg,defaultMapScale,1.8,e);
 			else
 				switch(specfal.getSzin()){
 				case Kek:
@@ -103,7 +103,7 @@ public class ElemFactory {
 			return createComponent(szakadekImg,defaultMapScale,defaultImageScale,e);
 		
 		if(e instanceof ZPM)
-			return createComponent(zpmImg,defaultMapScale,defaultImageScale,e);
+			return createComponent(zpmImg,defaultMapScale,1.5,e);
 		
 		if(e instanceof Karakter) //majd kell ide kicsit több logika, hogy arra nézzen, amerre mozog a karakter
 			return createComponent(karakter2Img,defaultMapScale,defaultImageScale,e);
