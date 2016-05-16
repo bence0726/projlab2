@@ -33,7 +33,7 @@ public class SzakadekFactory implements Factory{
 		panel.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getKezd().getVy(), (int)e.getPos().getWidth(), (int)e.getPos().getHeight());
 		ImageIcon imageIcon = new ImageIcon("src/textures/Szakadek.jpg"); // load the image to a imageIcon
 		Image image = imageIcon.getImage(); // transform it 
-		Image newimg = image.getScaledInstance((int)e.getPos().getWidth()/columns,(int) e.getPos().getHeight()/rows, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+		Image newimg = image.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
 		imageIcon = new ImageIcon(newimg);  // transform it back
 		for (int i=0;i<rows*columns;i++)
 		{

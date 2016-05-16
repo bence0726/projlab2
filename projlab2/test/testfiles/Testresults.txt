@@ -1,0 +1,278 @@
+Automatizált tesztelés
+
+Teszteset: 01_loadmaptest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+FAL ADDED
+SPECFAL ADDED
+ZPM ADDED
+ENDELEM ADDED
+SZAKADEK ADDED
+MERLEG ADDED
+REPLIKATOR ADDED
+DOBOZ ADDED
+Hibás sorok száma: 0
+A teszt során 0 feltételből 0 darab feltétel teljesült.
+01_loadmaptest teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 02_karmovetest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+ONEIL ADDED
+ONEIL 50 50
+ONEIL MOVED UP
+ONEIL 50 49
+ONEIL MOVED LEFT
+ONEIL 49 49
+ONEIL MOVED DOWN
+ONEIL 49 50
+ONEIL MOVED DOWN
+ONEIL 49 51
+ONEIL MOVED RIGHT
+ONEIL 50 51
+Hibás sorok száma: 0
+A teszt során 10 feltételből 10 darab feltétel teljesült.
+02_karmovetest teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 03_moveinteracttest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+SPECFAL ADDED
+SPECFAL ADDED
+ONEIL ADDED
+ONEIL 50 70
+YELLOW FIRED
+YELLOWPORTAL 65 70
+GUN ROTATED WITH 90
+BLUE FIRED
+BLUEPORTAL 50 30
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL 50 45
+FAL ADDED
+ZPM ADDED
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL 55 45
+Hibás sorok száma: 0
+A teszt során 4 feltételből 4 darab feltétel teljesült.
+03_moveinteracttest teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 04_zpmdobozpicktest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+ONEIL ADDED
+DOBOZ ADDED
+DOBOZ ADDED
+ZPM ADDED
+ONEIL 50 50
+ZPMS IN LAB 1
+5 ELEM IN LAB
+PICKED BY ONEIL
+4 ELEM IN LAB
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL 50 60
+PICKED BY ONEIL
+4 ELEM IN LAB
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL 50 70
+PICKED BY ONEIL
+ZPMS IN LAB 0
+3 ELEM IN LAB
+Hibás sorok száma: 0
+A teszt során 9 feltételből 9 darab feltétel teljesült.
+04_zpmdobozpicktest teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 05_dobozdroptest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+ONEIL ADDED
+DOBOZ ADDED
+PICKED BY ONEIL
+BOX DROPPED BY ONEIL
+Hibás sorok száma: 0
+A teszt során 2 feltételből 2 darab feltétel teljesült.
+05_dobozdroptest teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 06_ajtonyitastest1
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+ONEIL ADDED
+DOBOZ ADDED
+MERLEG ADDED
+PICKED BY ONEIL
+4 ELEM IN LAB
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL 60 50
+BOX DROPPED BY ONEIL
+ONEIL 60 50
+5 ELEM IN LAB
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL 60 55
+Hibás sorok száma: 0
+A teszt során 3 feltételből 3 darab feltétel teljesült.
+06_ajtonyitastest1 teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 06_ajtonyitastest2
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+ONEIL ADDED
+DOBOZ ADDED
+MERLEG ADDED
+PICKED BY ONEIL
+4 ELEM IN LAB
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL 60 50
+BOX DROPPED BY ONEIL
+ONEIL 60 50
+5 ELEM IN LAB
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL 60 55
+Hibás sorok száma: 0
+A teszt során 3 feltételből 3 darab feltétel teljesült.
+06_ajtonyitastest2 teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 07_lovestest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+FAL ADDED
+MERLEG ADDED
+ONEIL ADDED
+YELLOW FIRED
+NOYELLOW
+Hibás sorok száma: 0
+A teszt során 2 feltételből 2 darab feltétel teljesült.
+07_lovestest teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 08_teleportalastest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+SPECFAL ADDED
+SPECFAL ADDED
+ONEIL ADDED
+YELLOW FIRED
+YELLOWPORTAL 70 50
+GUN ROTATED WITH 90
+BLUE FIRED
+BLUEPORTAL 50 20
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL MOVED RIGHT
+ONEIL 50 35
+Hibás sorok száma: 0
+A teszt során 3 feltételből 3 darab feltétel teljesült.
+08_teleportalastest teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 09_szakadektest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+ONEIL ADDED
+SZAKADEK ADDED
+ONEIL MOVED RIGHT
+2 ELEM IN LAB
+Hibás sorok száma: 0
+A teszt során 0 feltételből 0 darab feltétel teljesült.
+09_szakadektest teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 10_karnyertest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+ONEIL ADDED
+JAFFA ADDED
+ENDELEM ADDED
+ONEIL MOVED RIGHT
+Hibás sorok száma: 0
+A teszt során 0 feltételből 0 darab feltétel teljesült.
+10_karnyertest teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 11_replikatorszakadekbatest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+REPLIKATOR ADDED
+SZAKADEK ADDED
+3 ELEM IN LAB
+1 ELEM IN LAB
+Hibás sorok száma: 0
+A teszt során 2 feltételből 2 darab feltétel teljesült.
+11_replikatorszakadekbatest teszteset eredménye: SUCCESSFUL
+-----------------
+Teszteset: 12_replikatorlovestest
+A teszt lefutása során létrejött kimenet:
+STARTELEM ADDED
+FAL ADDED
+ONEIL ADDED
+REPLIKATOR ADDED
+YELLOW FIRED
+3 ELEM IN LAB
+Hibás sorok száma: 0
+A teszt során 0 feltételből 0 darab feltétel teljesült.
+12_replikatorlovestest teszteset eredménye: SUCCESSFUL
+-----------------
+-----------------
+
+
+Összegzés:
+Összes teszteset száma: 13
+	Ebből sikeres: 13
+	Ebből sikertelen: 0
+Tehát a teszt sikeresen lezárult.
