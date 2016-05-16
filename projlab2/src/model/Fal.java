@@ -38,7 +38,7 @@ public class Fal extends Elem {
         if(!reachable)
         	return false;
         X.step();
-        isChanged = true;
+        //isChanged = true;
         return true;
     }
 

@@ -63,13 +63,12 @@ public class MainController {
 			}
 			window.gp.map.refreshMap(new HashSet(connected.values())); //map frissítése az új elemekkel
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
-			
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(test++));
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
 			try {
-				Thread.sleep(1);
+				Thread.sleep(5);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

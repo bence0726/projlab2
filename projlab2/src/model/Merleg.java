@@ -49,7 +49,7 @@ public class Merleg extends Elem {
     	massOnTheScale+=m.getSuly();
     	if (massOnTheScale >= massLimit)
     		ajto.setReachable(true);
-    		isChanged = true;
+    		//isChanged = true;
     	return true;
     }
     
@@ -60,7 +60,7 @@ public class Merleg extends Elem {
     	massOnTheScale -= m.getSuly();
     	if (massOnTheScale < massLimit){
     		ajto.setReachable(false);
-    		isChanged = true;
+    		//isChanged = true;
     	}
     }
     

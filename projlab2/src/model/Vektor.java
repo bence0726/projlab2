@@ -119,7 +119,7 @@ public class Vektor {
     		//mind a 4 irányba randomizáljon
     		temp = new Vektor(rand.nextDouble()*(double)rand.nextInt(2)-1,rand.nextDouble()*(double)rand.nextInt(2)-1);
     	else
-    		temp = new Vektor((double)rand.nextInt(2)-1,(double)rand.nextInt(2)-1);
+    		temp = new Vektor((double)rand.nextInt(3)-1,(double)rand.nextInt(3)-1);
     	return temp;
     }
     
