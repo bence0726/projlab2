@@ -7,21 +7,13 @@ import java.util.Iterator;
 
 import javax.swing.JComponent;
 
-import gui.DobozFactory;
 import gui.ElemFactory;
-import gui.Factory;
-import gui.FalFactory;
 import gui.GameWindow;
-import gui.MerlegFactory;
-import gui.SpecFalFactory;
-import gui.StartElemFactory;
-import gui.SzakadekFactory;
 import model.Elem;
 import model.JatekMotor;
 
 public class MainController {
 	public static File mapsDirectory = new File("src/maps/");
-	
 	
 	public static void main(String[] args){
 		
@@ -42,6 +34,7 @@ public class MainController {
 			e.printStackTrace();
 		}	//pálya felépítése TODO még nincs kész, nem jó így, csak beírtam vmit..
 				
+		int test = 0;
 		while(true){
 			//gameloop
 			Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
@@ -53,6 +46,9 @@ public class MainController {
 			}				
 			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
+			
+			window.gp.LabNumberOfZPMS.setText(String.valueOf(test++));
+			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
 			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
 			try {

@@ -16,28 +16,50 @@ public class ElemFactory {
 	private static final String textureFolder = "src/textures";
 
 	//elemek képei:
-	private static final ImageIcon nyitottAjtoImg =  new ImageIcon(textureFolder+"/nyitottajto.png");
-	private static final ImageIcon csukottAjtoImg =  new ImageIcon(textureFolder+"/csukottajto.png");
-	private static final ImageIcon dobozImg =  new ImageIcon(textureFolder+"/doboz.png");
-	private static final ImageIcon endElemImg =  new ImageIcon(textureFolder+"/endelem.png");
-	private static final ImageIcon sargagolyoImg =  new ImageIcon(textureFolder+"/Sargagolyo.png");
-	private static final ImageIcon kekgolyoImg =  new ImageIcon(textureFolder+"/Kekgolyo.png");
-	private static final ImageIcon pirosgolyoImg =  new ImageIcon(textureFolder+"/Pirosgolyo.png");
-	private static final ImageIcon zoldgolyoImg =  new ImageIcon(textureFolder+"/Zoldgolyo.png");
-	private static final ImageIcon merlegImg =  new ImageIcon(textureFolder+"/merleg.png");
-	private static final ImageIcon karakter1Img =  new ImageIcon(textureFolder+"/karakter1.png");
-	private static final ImageIcon replikatorImg =  new ImageIcon(textureFolder+"/replikator.png");
-	private static final ImageIcon specfalImg =  new ImageIcon(textureFolder+"/specfal.png");
-	private static final ImageIcon kekspecfalImg =  new ImageIcon(textureFolder+"/Kekspecfal.png");
-	private static final ImageIcon sargaspecfalImg =  new ImageIcon(textureFolder+"/Sargaspecfal.png");
-	private static final ImageIcon pirosspecfalImg =  new ImageIcon(textureFolder+"/Pirosspecfal.png");
-	private static final ImageIcon zoldspecfalImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
-	private static final ImageIcon startElemImg =  new ImageIcon(textureFolder+"/startelem.png");
-	private static final ImageIcon szakadekImg =  new ImageIcon(textureFolder+"/szakadek.jpg");
-	private static final ImageIcon zpmImg =  new ImageIcon(textureFolder+"/zpm.png");
-	private static final ImageIcon karakter2Img =  new ImageIcon(textureFolder+"/karakter2.png");
-	private static final ImageIcon falImg =  new ImageIcon(textureFolder+"/fal.jpg");
+//	private static final ImageIcon nyitottAjtoImg =  new ImageIcon(textureFolder+"/nyitottajto.png");
+//	private static final ImageIcon csukottAjtoImg =  new ImageIcon(textureFolder+"/csukottajto.png");
+//	private static final ImageIcon dobozImg =  new ImageIcon(textureFolder+"/doboz.png");
+//	private static final ImageIcon endElemImg =  new ImageIcon(textureFolder+"/endelem.png");
+//	private static final ImageIcon sargagolyoImg =  new ImageIcon(textureFolder+"/Sargagolyo.png");
+//	private static final ImageIcon kekgolyoImg =  new ImageIcon(textureFolder+"/Kekgolyo.png");
+//	private static final ImageIcon pirosgolyoImg =  new ImageIcon(textureFolder+"/Pirosgolyo.png");
+//	private static final ImageIcon zoldgolyoImg =  new ImageIcon(textureFolder+"/Zoldgolyo.png");
+//	private static final ImageIcon merlegImg =  new ImageIcon(textureFolder+"/merleg.png");
+//	private static final ImageIcon karakter1Img =  new ImageIcon(textureFolder+"/karakter1.png");
+//	private static final ImageIcon replikatorImg =  new ImageIcon(textureFolder+"/replikator.png");
+//	private static final ImageIcon specfalImg =  new ImageIcon(textureFolder+"/fal2.png");
+//	private static final ImageIcon kekspecfalImg =  new ImageIcon(textureFolder+"/Kekspecfal.png");
+//	private static final ImageIcon sargaspecfalImg =  new ImageIcon(textureFolder+"/Sargaspecfal.png");
+//	private static final ImageIcon pirosspecfalImg =  new ImageIcon(textureFolder+"/Pirosspecfal.png");
+//	private static final ImageIcon zoldspecfalImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+//	private static final ImageIcon startElemImg =  new ImageIcon(textureFolder+"/startelem.png");
+//	private static final ImageIcon szakadekImg =  new ImageIcon(textureFolder+"/szakadek.jpg");
+//	private static final ImageIcon zpmImg =  new ImageIcon(textureFolder+"/zpm.png");
+//	private static final ImageIcon karakter2Img =  new ImageIcon(textureFolder+"/karakter2.png");
+//	private static final ImageIcon falImg =  new ImageIcon(textureFolder+"/fal.jpg");
 	
+	private static final ImageIcon nyitottAjtoImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon csukottAjtoImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon dobozImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon endElemImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon sargagolyoImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon kekgolyoImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon pirosgolyoImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon zoldgolyoImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon merlegImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon karakter1Img =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon replikatorImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon specfalImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon kekspecfalImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon sargaspecfalImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon pirosspecfalImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon zoldspecfalImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon startElemImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon szakadekImg =  new ImageIcon(textureFolder+"/Zoldspecfal.jpg");
+	private static final ImageIcon zpmImg =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon karakter2Img =  new ImageIcon(textureFolder+"/Zoldspecfal.png");
+	private static final ImageIcon falImg =  new ImageIcon(textureFolder+"/Zoldspecfal.jpg");
+
 	
 	
 	public static JComponent ComponentFactory(Elem e){
@@ -51,7 +73,7 @@ public class ElemFactory {
 		}
 		
 		if(e instanceof Doboz)
-			return createComponent(dobozImg,defaultMapScale,defaultImageScale,e);
+			return createComponent(dobozImg,defaultMapScale,1.8,e);
 		
 		if((e instanceof EndElem))
 			return createComponent(endElemImg,defaultMapScale,defaultImageScale,e);
@@ -72,7 +94,7 @@ public class ElemFactory {
 		}
 		
 		if(e instanceof Merleg)
-			return createComponent(merlegImg,defaultMapScale,defaultImageScale,e);
+			return createComponent(merlegImg,defaultMapScale,0.85,e);
 		
 		if(e instanceof Oneil)
 			return createComponent(karakter1Img,defaultMapScale,defaultImageScale,e);
@@ -83,7 +105,7 @@ public class ElemFactory {
 		if(e instanceof SpecFal){
 			SpecFal specfal = (SpecFal)e;
 			if (!(specfal.isAccessable()))
-				return createComponent(specfalImg,defaultMapScale,defaultImageScale,e);
+				return createComponent(specfalImg,defaultMapScale,1.8,e);
 			else
 				switch(specfal.getSzin()){
 				case Kek:
@@ -103,7 +125,7 @@ public class ElemFactory {
 			return createComponent(szakadekImg,defaultMapScale,defaultImageScale,e);
 		
 		if(e instanceof ZPM)
-			return createComponent(zpmImg,defaultMapScale,defaultImageScale,e);
+			return createComponent(zpmImg,defaultMapScale,1.5,e);
 		
 		if(e instanceof Karakter) //majd kell ide kicsit több logika, hogy arra nézzen, amerre mozog a karakter
 			return createComponent(karakter2Img,defaultMapScale,defaultImageScale,e);
