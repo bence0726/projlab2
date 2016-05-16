@@ -154,6 +154,7 @@ public class ElemFactory {
 			JLabel label = new JLabel(new ImageIcon(newimg),JLabel.CENTER);
 			panel.add(label);
 		}
+		e.change(false);
 		return panel;
 	}
 	

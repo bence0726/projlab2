@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 
 import javax.swing.JComponent;
@@ -55,13 +56,12 @@ public class MainController {
 			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
 				Elem tempElem = ElemIt.next();
-				if (tempElem.changed()){
+				if (tempElem.is_changed()){
 					JComponent tempJcomp = ElemFactory.ComponentFactory(tempElem);
 					connected.replace(tempElem, tempJcomp);
 				}
 			}
-			ElemFactory.wallAlreadyDrew=true;
-			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
+			window.gp.map.refreshMap(new HashSet(connected.values())); //map frissítése az új elemekkel
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(test++));
