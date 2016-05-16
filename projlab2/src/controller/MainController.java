@@ -47,8 +47,7 @@ public class MainController {
 		}
 		
 		GameWindow window = new GameWindow();	//elég itt létrehozni	
-		window.setVisible(true);
-		window.setFocusable(true);
+		window.setVisible(true);		
 		window.addKeyListener(new MoveKeysListener(kc));//KeyListenerek beregisztrálása
 		window.addKeyListener(new FireKeysListener(kc));
 		window.addKeyListener(new PickandDropKeysListener(kc));
@@ -56,6 +55,7 @@ public class MainController {
 		int test = 0;
 		while(true){
 			//gameloop
+			
 			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
 				Elem tempElem = ElemIt.next();
@@ -76,7 +76,7 @@ public class MainController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
+			
 			gameEngine.moveEverything(); //mozgó elemek megmozgatása
 //			window.repaint();
 		}
