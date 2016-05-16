@@ -8,6 +8,7 @@ import java.util.Iterator;
 import javax.swing.JComponent;
 
 import gui.DobozFactory;
+import gui.ElemFactory;
 import gui.Factory;
 import gui.FalFactory;
 import gui.GameWindow;
@@ -23,15 +24,6 @@ public class MainController {
 	
 	
 	public static void main(String[] args){
-		
-		ArrayList<Factory> componentFactories = new ArrayList<>();
-		componentFactories.add(new DobozFactory());
-		componentFactories.add(new FalFactory());
-		componentFactories.add(new SpecFalFactory());
-		componentFactories.add(new MerlegFactory());
-		componentFactories.add(new StartElemFactory());
-		componentFactories.add(new SzakadekFactory());
-		//komponensgyártók hozzáadása ehhez a listához...
 		
 		JatekMotor gameEngine = new JatekMotor();		
 		GameWindow window = new GameWindow();		
@@ -53,22 +45,11 @@ public class MainController {
 		while(true){
 			//gameloop
 			Iterator<Elem> ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
-			Iterator<Factory> FactoryIt = componentFactories.iterator();
 			ArrayList<JComponent> CompList = new ArrayList<>();
 			
-			boolean done;
 			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein..
 				Elem tempElem = ElemIt.next();	
-				done = false;
-				while(FactoryIt.hasNext() && !done){							//végigmegyünk a Factory listán...
-					Factory tempfact = FactoryIt.next();
-					JComponent tempComp = tempfact.ComponentFactory(tempElem);	//az aktuális elemet odaadjuk az aktuális factory-nak, aki valamilyen komponenst gyárt belőle
-					if (tempComp != null && !done){								//ha elkészítette a komponenst (nem null)...
-						CompList.add(tempComp);									//...feltesszük a listára
-						done = true;											//ha már rajta van, nem tesszük fel többször (idk, később jól jöhet!)
-					}						
-				}
-				FactoryIt = componentFactories.iterator();
+				CompList.add(ElemFactory.ComponentFactory(tempElem));
 			}				
 			window.gp.map.refreshMap(CompList); //map frissítése az új elemekkel
 			
@@ -83,7 +64,6 @@ public class MainController {
 				e.printStackTrace();
 			}
 
-			
 			gameEngine.moveEverything(); //mozgó elemek megmozgatása
 //			window.repaint();
 		}
