@@ -27,8 +27,7 @@ public class MoveKeysListener implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()){
 		case KeyEvent.VK_W:
-			ctrl.setKarDir("JAFFA", "UP");
-			
+			ctrl.setKarDir("JAFFA", "UP");			
 			return;
 		case KeyEvent.VK_S:
 			ctrl.setKarDir("JAFFA", "DOWN");
@@ -54,53 +53,28 @@ public class MoveKeysListener implements KeyListener {
 			ctrl.setKarDir("ONEIL", "DOWN");
 			return;
 		case KeyEvent.VK_LEFT:
+			if(e.getKeyLocation() == KeyEvent.KEY_LOCATION_RIGHT && e.isShiftDown()){
+				ctrl.rotateGun("ONEIL", 30);//Ha a shift le van nyomva, forgatjuk a fegyvert
+				return;
+			}
 			ctrl.setKarDir("ONEIL", "LEFT");
 			return;
 		case KeyEvent.VK_RIGHT:
+			if(e.getKeyLocation() == KeyEvent.KEY_LOCATION_RIGHT && e.isShiftDown()){
+				ctrl.rotateGun("ONEIL", -30);//Ha a shift le van nyomva, forgatjuk a fegyvert
+				return;
+			}
 			ctrl.setKarDir("ONEIL", "RIGHT");
 			return;
-			
-			break;
-
 		default:
 			break;
 		}
-		
-			ctrl.setKarDir("JAFFA", "UP");
-			return;
-		}
-		if(e.getKeyChar() == 'w'){
-			ctrl.setKarDir("JAFFA", "UP");
-			return;
-		}
-		if(e.getKeyChar() == 'w'){
-			ctrl.setKarDir("JAFFA", "UP");
-			return;
-		}
-		if(e.getKeyChar() == 'w'){
-			ctrl.setKarDir("JAFFA", "UP");
-			return;
-		}
-			
-
 	}
-
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
-	 */
-	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-
+		// nothing to do here
 	}
-
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
-	 */
-	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-
+		// nothing to do here
 	}
 
 }

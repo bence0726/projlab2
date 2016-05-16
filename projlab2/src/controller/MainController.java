@@ -48,7 +48,9 @@ public class MainController {
 		
 		GameWindow window = new GameWindow();	//elég itt létrehozni	
 		window.setVisible(true);
-		window.addKeyListener(new MoveKeysListener(kc));
+		window.addKeyListener(new MoveKeysListener(kc));//KeyListenerek beregisztrálása
+		window.addKeyListener(new FireKeysListener(kc));
+		window.addKeyListener(new PickandDropKeysListener(kc));
 		
 		int test = 0;
 		while(true){
