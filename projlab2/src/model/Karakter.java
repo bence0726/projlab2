@@ -96,11 +96,11 @@ public class Karakter extends Moveable{
      * @param double Szog //fokban
      */
     public void rotateGunDir(double addAngle) {
-        double currentAngle = Math.asin(gundir.getVy()/gundir.getVx()); //szöggel szemközti per átfogó arkuszszinusza. az érték radiánban
-        addAngle = addAngle*Math.PI / 180; 								//fokokat lenormáljuk radiánná
+        double currentAngle = Math.atan(gundir.getVy()/gundir.getVx()); //szöggel szemközti per átfogó arkuszszinusza. az érték radiánban
+        addAngle = (addAngle*Math.PI) / 180.0; 								//fokokat lenormáljuk radiánná
         currentAngle+=addAngle; 										//összeadjuk a 2 szöget.
-        gundir.setVx((Math.round(Math.cos(currentAngle))));
-        gundir.setVy((Math.round(Math.sin(currentAngle))*-1));
+        gundir.setVx((Math.round(Math.cos(currentAngle)*5)));
+        gundir.setVy((Math.round(Math.sin(currentAngle)*5)));
     }
     
     /**
@@ -126,5 +126,8 @@ public class Karakter extends Moveable{
      */
     public int getZPM() {
         return ZPM;
+    }
+    public double getrotategundir(){
+    	return  (Math.atan(gundir.getVy()/gundir.getVx())*180)/Math.PI;
     }
 }

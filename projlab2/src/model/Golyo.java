@@ -14,7 +14,7 @@ public class Golyo extends Moveable {
     public Golyo(Labirintus lab, Vektor middleofArea, Vektor direction,Szin color){
     	super(lab,middleofArea);
     	colour = color;
-    	moveDir = direction;
+    	moveDir = new Vektor(direction);
     }
     
 	public void move() {

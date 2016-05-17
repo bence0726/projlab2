@@ -89,7 +89,7 @@ public class MainController {
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			
 			window.gp.CiklusszamlaloErtek.setText(String.valueOf(ciklusszamlalo++));
-			
+			window.gp.oneilgundirlabel.setText(String.valueOf(gameEngine.getLab().getOneil().getrotategundir()));			
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			window.gp.OneilNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
 			//window.gp.JaffaNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
@@ -106,37 +106,51 @@ public class MainController {
 	}
 	
 	private static void getMoveKeys(MoveKeysListener mv, KarakterController kc){
-		Set<Integer> oneil = mv.oneilslastkey;
-		Set<Integer> jaffa = mv.jaffaslastkey;
+		int oneil = mv.oneilslastkey;
+		int jaffa = mv.jaffaslastkey;
 		
 		//Oneil lépése:
-		if(!oneil.isEmpty()){
-			if(oneil.contains(KeyEvent.VK_UP)){
+		if(oneil != -1){
+			switch (oneil) {
+			case KeyEvent.VK_UP:
 				kc.setKarDir("ONEIL", "UP");
-			}
-			else if(oneil.contains(KeyEvent.VK_DOWN)){
+				break;
+			case KeyEvent.VK_DOWN:
 				kc.setKarDir("ONEIL", "DOWN");
-			}
-			else if(oneil.contains(KeyEvent.VK_LEFT)){
-					kc.setKarDir("ONEIL", "LEFT");
-			}
-			else if(oneil.contains(KeyEvent.VK_RIGHT)){
-					kc.setKarDir("ONEIL", "RIGHT");
+				break;
+			case KeyEvent.VK_LEFT:
+				kc.setKarDir("ONEIL", "LEFT");
+				break;
+			case KeyEvent.VK_RIGHT:
+				kc.setKarDir("ONEIL", "RIGHT");
+				break;			
+			case KeyEvent.VK_L:
+				kc.rotateGun("ONEIL", 1.0);	
+				return;
+			default:
+				break;
 			}
 		}
-		//Jaffa lépése:
-		if(!jaffa.isEmpty()){
-			if(jaffa.contains(KeyEvent.VK_W)){
+		//jaffa lépése
+		if(jaffa != -1){
+			switch (jaffa) {
+			case KeyEvent.VK_W:
 				kc.setKarDir("JAFFA", "UP");
-			}
-			if(jaffa.contains(KeyEvent.VK_S)){
+				break;
+			case KeyEvent.VK_S:
 				kc.setKarDir("JAFFA", "DOWN");
-			}
-			if(jaffa.contains(KeyEvent.VK_A)){
-					kc.setKarDir("JAFFA", "LEFT");
-			}
-			if(jaffa.contains(KeyEvent.VK_D)){
-					kc.setKarDir("JAFFA", "RIGHT");
+				break;
+			case KeyEvent.VK_A:
+				kc.setKarDir("JAFFA", "LEFT");
+				break;
+			case KeyEvent.VK_D:
+				kc.setKarDir("JAFFA", "RIGHT");
+				break;
+			case KeyEvent.VK_CAPS_LOCK:
+				kc.rotateGun("JAFFA", 1.0);	
+				return;
+			default:
+				break;
 			}
 		}
 	}
@@ -146,24 +160,25 @@ public class MainController {
 		int jaffa = fk.jaffaslastkey;
 		
 		if(oneil != -1){
-			if(oneil ==KeyEvent.VK_O){//ez itt egy 'o' betű (o mint Olga)
+			switch(oneil){
+			case KeyEvent.VK_O:    //ez itt egy 'o' betű (o mint Olga)
 				kc.fire("ONEIL", "BLUE");
-			}
-			else if(oneil == KeyEvent.VK_P){
+				break;
+			case KeyEvent.VK_P:
 				kc.fire("ONEIL", "YELLOW");
-			}
-			if(oneil == KeyEvent.VK_SHIFT)//elforgatjuk a gundirt
-				kc.rotateGun("ONEIL", 30);
+				break;
+			}			
 		}
 		if(jaffa != -1){
-			if(jaffa == KeyEvent.VK_Q){
-				kc.fire("ONEIL", "RED");
-			}
-			else if(jaffa == KeyEvent.VK_E){
-				kc.fire("ONEIL", "GREEN");
-			}
-			else if(jaffa == KeyEvent.VK_CAPS_LOCK)//elforgatjuk a gundirt
-				kc.rotateGun("JAFFA", 30);
+			switch(jaffa){
+			case KeyEvent.VK_Q:
+				kc.fire("JAFFA", "BLUE");
+				break;
+			case KeyEvent.VK_E:
+				kc.fire("JAFFA", "YELLOW");
+				break;
+			}		
+			
 		}
 	}
 	private static void getPickAndDropKeys(PickandDropKeysListener pdk, KarakterController kc){
@@ -171,19 +186,27 @@ public class MainController {
 		int jaffa = pdk.jaffaslastkey;
 		
 		if(oneil != -1){
-			if(oneil == KeyEvent.VK_U){
+			switch (oneil) {
+			case KeyEvent.VK_U:
 				kc.pick("ONEIL");
-			}
-			else if(oneil == KeyEvent.VK_I){
+				break;
+			case KeyEvent.VK_I:
 				kc.drop("ONEIL");
+				break;
+			default:
+				break;
 			}
 		}
 		if(jaffa != -1){
-			if(jaffa == KeyEvent.VK_0){//ez itt egy nulla
+			switch (oneil) {
+			case KeyEvent.VK_0://ez itt egy nulla
 				kc.pick("JAFFA");
-			}
-			else if(jaffa == KeyEvent.VK_1){
+				break;
+			case KeyEvent.VK_1:
 				kc.drop("JAFFA");
+				break;
+			default:
+				break;
 			}
 		}
 	}

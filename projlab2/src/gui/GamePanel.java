@@ -18,7 +18,8 @@ public class GamePanel extends JPanel{
 	public JLabel CiklusszamlaloErtek;
 	
 	public JButton btnEndGame;
-	private JLabel label;
+	private JLabel lblOneilGundir;
+	public JLabel oneilgundirlabel;
 	/**
 	 * Create the application.
 	 */
@@ -92,6 +93,14 @@ public class GamePanel extends JPanel{
 		CiklusszamlaloErtek = new JLabel("");
 		CiklusszamlaloErtek.setBounds(908, 251, 70, 30);
 		mainPanel.add(CiklusszamlaloErtek);
+		
+		lblOneilGundir = new JLabel("Oneil gundir");
+		lblOneilGundir.setBounds(810, 292, 96, 30);
+		mainPanel.add(lblOneilGundir);
+		
+		oneilgundirlabel = new JLabel("");
+		oneilgundirlabel.setBounds(918, 286, 53, 36);
+		mainPanel.add(oneilgundirlabel);
 		
 	}
 }

@@ -24,10 +24,7 @@ public class FireKeysListener implements KeyListener {
 		case KeyEvent.VK_P:
 			oneilslastkey = keycode;				
 			return;
-		case KeyEvent.VK_CAPS_LOCK:
-			jaffaslastkey = keycode;
-		case KeyEvent.VK_SHIFT:
-			oneilslastkey = keycode;
+		
 		}
 	}
 	

@@ -5,10 +5,6 @@ package controller;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.HashSet;
-import java.util.Set;
-
-import model.MoveDirections;
 
 /**
  * A mozgáshoz szükséges billentyűket figyelő 
@@ -17,34 +13,41 @@ import model.MoveDirections;
  * @author zsigatibor
  */
 public class MoveKeysListener implements KeyListener {
-	Set<Integer> jaffaslastkey = new HashSet<>();
-	Set<Integer> oneilslastkey = new HashSet<>();
+	int jaffaslastkey = -1;
+	int oneilslastkey = -1;
+	
 	public void keyPressed(KeyEvent e) {
 		int keycode = e.getKeyCode();
 		switch(keycode){
 		case KeyEvent.VK_W:
-			jaffaslastkey.add(keycode);			
+			jaffaslastkey = keycode;			
 			return;
 		case KeyEvent.VK_S:
-			jaffaslastkey.add(keycode);	
+			jaffaslastkey = keycode;	
 			return;
 		case KeyEvent.VK_A:
-			jaffaslastkey.add(keycode);	
+			jaffaslastkey = keycode;	
 			return;
 		case KeyEvent.VK_D:
-			jaffaslastkey.add(keycode);	
+			jaffaslastkey = keycode;	
 			return;
 		case KeyEvent.VK_UP:
-			oneilslastkey.add(keycode);	
+			oneilslastkey = keycode;	
 			return;
 		case KeyEvent.VK_DOWN:
-			oneilslastkey.add(keycode);	
+			oneilslastkey = keycode;	
 			return;
 		case KeyEvent.VK_LEFT:
-			oneilslastkey.add(keycode);	
+			oneilslastkey = keycode;	
 			return;
 		case KeyEvent.VK_RIGHT:
-			oneilslastkey.add(keycode);	
+			oneilslastkey = keycode;	
+			return;
+		case KeyEvent.VK_CAPS_LOCK:
+			jaffaslastkey = keycode;	
+			return;
+		case KeyEvent.VK_L:
+			oneilslastkey = keycode;
 			return;
 		default:
 			return;
@@ -54,28 +57,34 @@ public class MoveKeysListener implements KeyListener {
 		int keycode = e.getKeyCode();
 		switch(keycode){
 		case KeyEvent.VK_W:
-			jaffaslastkey.remove(keycode);			
+			jaffaslastkey = -1;			
 			return;
 		case KeyEvent.VK_S:
-			jaffaslastkey.remove(keycode);	
+			jaffaslastkey = -1;	
 			return;
 		case KeyEvent.VK_A:
-			jaffaslastkey.remove(keycode);	
+			jaffaslastkey = -1;	
 			return;
 		case KeyEvent.VK_D:
-			jaffaslastkey.remove(keycode);	
+			jaffaslastkey = -1;	
 			return;
 		case KeyEvent.VK_UP:
-			oneilslastkey.remove(keycode);	
+			oneilslastkey = -1;	
 			return;
 		case KeyEvent.VK_DOWN:
-			oneilslastkey.remove(keycode);	
+			oneilslastkey = -1;	
 			return;
 		case KeyEvent.VK_LEFT:
-			oneilslastkey.remove(keycode);	
+			oneilslastkey = -1;	
 			return;
 		case KeyEvent.VK_RIGHT:
-			oneilslastkey.remove(keycode);	
+			oneilslastkey = -1;	
+			return;
+		case KeyEvent.VK_CAPS_LOCK:
+			jaffaslastkey = -1;	
+			return;
+		case KeyEvent.VK_L:
+			oneilslastkey = -1;
 			return;
 		default:
 			break;
