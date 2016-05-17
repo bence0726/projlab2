@@ -2,14 +2,10 @@ package controller;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
-
 import model.Ajto;
 import model.Doboz;
-import model.Elem;
 import model.EndElem;
 import model.Fal;
 import model.JatekMotor;
@@ -22,7 +18,6 @@ import model.Replikator;
 import model.SpecFal;
 import model.StartElem;
 import model.Szakadek;
-import model.Terulet;
 import model.Vektor;
 import model.ZPM;
 
