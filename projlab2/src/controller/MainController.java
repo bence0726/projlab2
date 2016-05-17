@@ -124,9 +124,7 @@ public class MainController {
 			case KeyEvent.VK_RIGHT:
 				kc.setKarDir("ONEIL", "RIGHT");
 				break;			
-			case KeyEvent.VK_L:
-				kc.rotateGun("ONEIL", 1.0);	
-				return;
+			
 			default:
 				break;
 			}
@@ -145,10 +143,7 @@ public class MainController {
 				break;
 			case KeyEvent.VK_D:
 				kc.setKarDir("JAFFA", "RIGHT");
-				break;
-			case KeyEvent.VK_CAPS_LOCK:
-				kc.rotateGun("JAFFA", 1.0);	
-				return;
+				break;			
 			default:
 				break;
 			}
@@ -167,6 +162,9 @@ public class MainController {
 			case KeyEvent.VK_P:
 				kc.fire("ONEIL", "YELLOW");
 				break;
+			case KeyEvent.VK_L:
+				kc.rotateGun("ONEIL", 15.0);	
+				return;
 			}			
 		}
 		if(jaffa != -1){
@@ -177,6 +175,9 @@ public class MainController {
 			case KeyEvent.VK_E:
 				kc.fire("JAFFA", "YELLOW");
 				break;
+			case KeyEvent.VK_CAPS_LOCK:
+				kc.rotateGun("JAFFA", 15.0);	
+				return;
 			}		
 			
 		}

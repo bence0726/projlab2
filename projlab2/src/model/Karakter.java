@@ -39,7 +39,7 @@ public class Karakter extends Moveable{
      */
     public void Pick() {
     	Terulet T = new Terulet(new Vektor(this.pos.getKezd()),new Vektor(this.pos.getVeg()));
-    	T.addDirToArea(Vektor.VektorMultiplication(gundir, 5));
+    	T.addDirToArea(Vektor.VektorMultiplication(gundir, 50));
         Set<Elem> items = lab.whatsThere(T);
         
         Iterator<Elem> iterator = items.iterator();
@@ -101,10 +101,11 @@ public class Karakter extends Moveable{
 //        currentAngle+=addAngle; 										//összeadjuk a 2 szöget.
 //        gundir.setVx((Math.round(Math.cos(currentAngle)*5)));
 //        gundir.setVy((Math.round(Math.sin(currentAngle)*5)));
-        double currentAngle = Math.toDegrees(Math.atan((gundir.getVy()/gundir.getVx())));
+        double currentAngle = Math.atan((gundir.getVy()/gundir.getVx()));
+        addAngle = Math.toRadians(addAngle);
         currentAngle += addAngle;
-        gundir.setVx(Math.toRadians(Math.cos(currentAngle))*50.0);
-        gundir.setVy(Math.toRadians(Math.sin(currentAngle))*50.0);
+        gundir.setVx(Math.toRadians(Math.cos(currentAngle))*200.0);
+        gundir.setVy(Math.toRadians(Math.sin(currentAngle))*200.0);
     }
     
     /**
