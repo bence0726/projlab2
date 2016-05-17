@@ -316,7 +316,7 @@ public class MapBuilder {
 	private void addJaffa(){
 		Karakter jaffa = new Karakter(lab,
 				lab.getstartElem().getPos().getKezd(),
-				new Vektor(10,10));
+				new Vektor(20,20));
 		lab.addMoveable(jaffa);
 		lab.addJaffa(jaffa);	
 	}
@@ -328,7 +328,7 @@ public class MapBuilder {
 	private void addOneil(){
 		Karakter oneil = new Oneil(lab,
 				lab.getstartElem().getPos().getKezd(),
-				new Vektor(10,10));
+				new Vektor(15,15));
 		lab.addOneil(oneil);
 	}
 }

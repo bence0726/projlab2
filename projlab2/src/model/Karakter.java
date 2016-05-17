@@ -41,7 +41,7 @@ public class Karakter extends Moveable{
      */
     public void Pick() {
     	Terulet T = new Terulet(new Vektor(this.pos.getKezd()),new Vektor(this.pos.getVeg()));
-    	T.addDirToArea(Vektor.VektorMultiplication(gundir, 50));
+    	T.addDirToArea(Vektor.VektorMultiplication(gundir,5));
         Set<Elem> items = lab.whatsThere(T);
         
         Iterator<Elem> iterator = items.iterator();
@@ -104,10 +104,11 @@ public class Karakter extends Moveable{
 //        gundir.setVx((Math.round(Math.cos(currentAngle)*5)));
 //        gundir.setVy((Math.round(Math.sin(currentAngle)*5)));
     	
-//        
-    	currentAngle += addAngle;
-      gundir.setVx(Math.toRadians(Math.cos(currentAngle)));
-      gundir.setVy(Math.toRadians(Math.sin(currentAngle)));
+//       
+    	//addAngle = addAngle * Math.PI / 180; //addAngle eddig fokban volt , itt radiánt csináltunk belőle
+    	currentAngle += addAngle; // ez itt 
+      gundir.setVx(Math.cos(Math.toRadians(currentAngle)));
+      gundir.setVy(Math.sin(Math.toRadians(currentAngle)));
       if(currentAngle >= 360)
     	  currentAngle = 0; //túlcsordulásvédelem
     	
