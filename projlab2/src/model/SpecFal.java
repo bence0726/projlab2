@@ -92,7 +92,7 @@ public class SpecFal extends Elem {
     	// a teleportálando elemet középpontját a másik kapu középpontjára illeszti
     	m.pos.setNewMiddleLocation(this.pos.getMiddleOfArea());
     	//eztuán az elemet kitolja a kapubol a megadott irányban
-    	m.elemShiftWithVec(direction);
+    	m.elemShiftWithVec(Vektor.VektorMultiplication(direction, 20));
     }
     
     public Szin getSzin() {
