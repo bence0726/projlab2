@@ -25,7 +25,7 @@ public class MainController {
 		KarakterController kc = new KarakterController(gameEngine);
 		
 		try {
-			mb.buildMap(new File("src/maps/Map2.txt"));
+			mb.buildMap(new File("src/maps/Map1.txt"));
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
