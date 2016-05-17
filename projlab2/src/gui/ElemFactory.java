@@ -22,11 +22,11 @@ public class ElemFactory {
 	private static final Image dobozImg 		=  (new ImageIcon(textureFolder+"/doboz.png")).getImage();
 	private static final Image endElemImg		=  (new ImageIcon(textureFolder+"/endelem.jpg")).getImage();
 	private static final Image sargagolyoImg 	=  (new ImageIcon(textureFolder+"/Sargagolyo.png")).getImage();
-	private static final Image kekgolyoImg 		=  (new ImageIcon(textureFolder+"/Kekgolyo.png")).getImage();
+	private static final Image kekgolyoImg 		=  (new ImageIcon(textureFolder+"/Kekgolyonkicsi.png")).getImage();
 	private static final Image pirosgolyoImg 	=  (new ImageIcon(textureFolder+"/Pirosgolyo.png")).getImage();
 	private static final Image zoldgolyoImg 	=  (new ImageIcon(textureFolder+"/Zoldgolyo.png")).getImage();
 	private static final Image merlegImg 		=  (new ImageIcon(textureFolder+"/merleg.png")).getImage();
-	private static final Image karakter1Img		=  (new ImageIcon(textureFolder+"/karakter1.jpg")).getImage();
+	private static final Image karakter1Img		=  (new ImageIcon(textureFolder+"/kekspecfal6.jpg")).getImage();
 	private static final Image replikatorImg 	=  (new ImageIcon(textureFolder+"/replikator.jpg")).getImage();
 	private static final Image specfalImg 		=  (new ImageIcon(textureFolder+"/fal2.png")).getImage();
 	private static final Image kekspecfalImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal.png")).getImage();
@@ -37,7 +37,7 @@ public class ElemFactory {
 	private static final Image szakadekImg 		=  (new ImageIcon(textureFolder+"/szakadek.jpg")).getImage();
 	private static final Image zpmImg			=  (new ImageIcon(textureFolder+"/zpm2.jpg")).getImage();
 	private static final Image karakter2Img 	=  (new ImageIcon(textureFolder+"/karakter2.png")).getImage();
-	private static final Image falImg 			=  (new ImageIcon(textureFolder+"/fal.jpg")).getImage();
+	private static final Image falImg 			=  (new ImageIcon(textureFolder+"/Fal.jpg")).getImage();
 	
 //	private static final Image nyitottAjtoImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal.png")).getImage();
 //	private static final Image csukottAjtoImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal1.png")).getImage();

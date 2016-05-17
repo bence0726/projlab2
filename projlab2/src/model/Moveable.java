@@ -45,7 +45,7 @@ public abstract class Moveable extends Elem{
 	public boolean steppedon(Moveable x){
 		if(x.getSuly() == 0){
 			x.step();
-			isChanged = true;
+			//isChanged = true;
 			return true;
 		}			
 		else
@@ -142,7 +142,7 @@ public abstract class Moveable extends Elem{
      */
     public void step(){
     	elemShiftWithVec(moveDir);
-    	isChanged = true;
+    	//isChanged = true;
     }
     
     /**
@@ -157,7 +157,7 @@ public abstract class Moveable extends Elem{
     public void kill(Elem e){
     	this.alive = false;
     	lab.refreshList();
-    	isChanged = true;
+    	//isChanged = true;
     }
     /**
      * Megadja az objektum súlyát.

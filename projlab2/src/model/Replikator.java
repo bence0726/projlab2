@@ -45,8 +45,8 @@ public class Replikator extends Moveable{
      * @param dir
      */
     public void move() {
-    	//this.moveDir =  Vektor.randomDir(true); // Ez lesz az igazi programban
-    	this.moveDir = new Vektor(1.0,0); //teszteléshez
+    	this.moveDir =  Vektor.randomDir(true); // Ez lesz az igazi programban
+    	//this.moveDir = new Vektor(1.0,0); //teszteléshez
         Terulet t = new Terulet(new Vektor(this.pos.getKezd()),new Vektor(this.pos.getVeg()));
         t.addDirToArea(moveDir);
         Set<Elem> items = lab.whatsThere(t);
@@ -89,11 +89,11 @@ public class Replikator extends Moveable{
         alive = false;
         e.kill(null);
         lab.refreshList();
-        isChanged = true;
+        //isChanged = true;
     }
     public boolean steppedon(Moveable x){
     	x.step();
-    	isChanged = true;
+    	//isChanged = true;
     	return true;    	
     }
 }

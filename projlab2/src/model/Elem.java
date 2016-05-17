@@ -98,7 +98,7 @@ public abstract class Elem implements Interakcio {
   
     public void kill(Elem e){
     	alive = false;
-    	isChanged = true;
+    	//isChanged = true;
     }
 
     public boolean picked(Karakter k) {
