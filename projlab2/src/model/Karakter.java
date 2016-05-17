@@ -137,7 +137,7 @@ public class Karakter extends Moveable{
     public int getZPM() {
         return ZPM;
     }
-    public double getrotategundir(){
-    	return  (Math.atan(gundir.getVy()/gundir.getVx())*180)/Math.PI;
+    public double getgundirAngle(){
+    	return  currentAngle;
     }
 }

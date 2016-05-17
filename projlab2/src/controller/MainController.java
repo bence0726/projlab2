@@ -1,6 +1,7 @@
 package controller;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -53,9 +54,11 @@ public class MainController {
 		MoveKeysListener mv = new MoveKeysListener();
 		FireKeysListener fk = new FireKeysListener();
 		PickandDropKeysListener pdk = new PickandDropKeysListener(); 
+		RotateKeyListener rtk = new RotateKeyListener();
 		window.addKeyListener(mv);//KeyListenerek beregisztrálása
 		window.addKeyListener(fk);
 		window.addKeyListener(pdk);
+		window.addKeyListener(rtk);
 		
 		int ciklusszamlalo = 0;
 		while(true){
@@ -66,6 +69,8 @@ public class MainController {
 			getPickAndDropKeys(pdk, kc);
 			if(ciklusszamlalo % 25 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
 				getFireKeys(fk, kc);
+			if(ciklusszamlalo %5 == 0)
+				getrotation(rtk, kc);
 			
 			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 			if(!connected.keySet().containsAll(gameEngine.getLab().getObjectsOnMapList())){
@@ -89,7 +94,7 @@ public class MainController {
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			
 			window.gp.CiklusszamlaloErtek.setText(String.valueOf(ciklusszamlalo++));
-			window.gp.oneilgundirlabel.setText(String.valueOf(gameEngine.getLab().getOneil().getrotategundir()));			
+			window.gp.oneilgundirlabel.setText(String.valueOf(gameEngine.getLab().getOneil().getgundirAngle()));			
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			window.gp.OneilNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
 			//window.gp.JaffaNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
@@ -124,7 +129,9 @@ public class MainController {
 			case KeyEvent.VK_RIGHT:
 				kc.setKarDir("ONEIL", "RIGHT");
 				break;			
-			
+//			case KeyEvent.VK_L:
+//				kc.rotateGun("ONEIL", 1.0);	
+//				return;			
 			default:
 				break;
 			}
@@ -144,6 +151,9 @@ public class MainController {
 			case KeyEvent.VK_D:
 				kc.setKarDir("JAFFA", "RIGHT");
 				break;			
+//			case KeyEvent.VK_CAPS_LOCK:
+//				kc.rotateGun("JAFFA", 1.0);	
+//				return;
 			default:
 				break;
 			}
@@ -162,9 +172,9 @@ public class MainController {
 			case KeyEvent.VK_P:
 				kc.fire("ONEIL", "YELLOW");
 				break;
-			case KeyEvent.VK_L:
-				kc.rotateGun("ONEIL", 15.0);	
-				return;
+//			case KeyEvent.VK_L:
+//				kc.rotateGun("ONEIL", 15.0);	
+//				return;
 			}			
 		}
 		if(jaffa != -1){
@@ -175,9 +185,9 @@ public class MainController {
 			case KeyEvent.VK_E:
 				kc.fire("JAFFA", "YELLOW");
 				break;
-			case KeyEvent.VK_CAPS_LOCK:
-				kc.rotateGun("JAFFA", 15.0);	
-				return;
+//			case KeyEvent.VK_CAPS_LOCK:
+//				kc.rotateGun("JAFFA", 15.0);	
+//				return;
 			}		
 			
 		}
@@ -211,4 +221,18 @@ public class MainController {
 			}
 		}
 	}
+	
+	private static void getrotation(RotateKeyListener rk, KarakterController kc){
+		int oneil = rk.oneilangle;
+		int jaffa = rk.jaffaangle;
+		
+		if(oneil == KeyEvent.VK_L){			
+				kc.rotateGun("ONEIL", 1.0);	
+		}
+		if(jaffa == KeyEvent.VK_CAPS_LOCK){			
+			kc.rotateGun("VK_CAPS_LOCK", 1.0);	
+		}
+	}
+	
+	
 }
