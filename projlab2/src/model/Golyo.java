@@ -34,7 +34,8 @@ public class Golyo extends Moveable {
     	 * meghívjuk a shot() függvényt.
     	 */
     	Terulet t = new Terulet(new Vektor(this.pos.getKezd()),new Vektor(this.pos.getVeg()));
-    	t.addDirToArea(moveDir);     	    	
+    	//moveDir=Vektor.VektorMultiplication(moveDir, 100);
+    	t.addDirToArea(moveDir);    	    	
     	
     	Set<Elem> itemsThere = lab.whatsThere(t);		//ahová lépünk, ott ezek vannak
     	
