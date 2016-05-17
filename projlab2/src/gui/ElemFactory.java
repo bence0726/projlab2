@@ -145,6 +145,10 @@ public class ElemFactory {
 	private static JComponent createComponent(Image image,double mapscale,double imagescale,Elem e){
 		int rows =(int)Math.round(e.getPos().getHeight()/20*mapscale);
 		int columns =(int)Math.round(e.getPos().getWidth()/20*mapscale);
+		if (rows == 0 )
+			rows=1;
+		if (columns == 0)
+			columns=1;
 		JPanel panel = new JPanel(new GridLayout(rows,columns,0,0));
 		panel.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getKezd().getVy(), (int)(e.getPos().getWidth()*mapscale), (int)(e.getPos().getHeight()*mapscale));
 		Image newimg = image.getScaledInstance((int)(e.getPos().getWidth()/columns*imagescale),(int)(e.getPos().getHeight()/rows*imagescale), java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
