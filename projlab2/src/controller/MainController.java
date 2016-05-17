@@ -64,7 +64,7 @@ public class MainController {
 			//billentyűlenyomások fogadása
 			getMoveKeys(mv, kc);
 			getPickAndDropKeys(pdk, kc);
-			if(ciklusszamlalo % 10 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
+			if(ciklusszamlalo % 1 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
 				getFireKeys(fk, kc);
 			
 			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();

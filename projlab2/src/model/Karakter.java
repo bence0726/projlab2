@@ -19,6 +19,8 @@ public class Karakter extends Moveable{
      * A karakter fegyverének irányvektora.
      */
     protected Vektor gundir = new Vektor(1,0);
+    
+    protected double currentAngle = 0.0;
 
     /**
      * Létrehoz egy karakter(jaffa) objektumot
@@ -101,11 +103,14 @@ public class Karakter extends Moveable{
 //        currentAngle+=addAngle; 										//összeadjuk a 2 szöget.
 //        gundir.setVx((Math.round(Math.cos(currentAngle)*5)));
 //        gundir.setVy((Math.round(Math.sin(currentAngle)*5)));
-        double currentAngle = Math.atan((gundir.getVy()/gundir.getVx()));
-        addAngle = Math.toRadians(addAngle);
-        currentAngle += addAngle;
-        gundir.setVx(Math.toRadians(Math.cos(currentAngle))*200.0);
-        gundir.setVy(Math.toRadians(Math.sin(currentAngle))*200.0);
+    	
+//        
+    	currentAngle += addAngle;
+      gundir.setVx(Math.toRadians(Math.cos(currentAngle))*20.0);
+      gundir.setVy(Math.toRadians(Math.sin(currentAngle))*20.0);
+      if(currentAngle >= 360)
+    	  currentAngle = 0; //túlcsordulásvédelem
+    	
     }
     
     /**
