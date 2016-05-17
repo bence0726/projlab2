@@ -21,12 +21,12 @@ public class ElemFactory {
 	private static final Image csukottAjtoImg 	=  (new ImageIcon(textureFolder+"/csukottajto.png")).getImage();
 	private static final Image dobozImg 		=  (new ImageIcon(textureFolder+"/doboz.png")).getImage();
 	private static final Image endElemImg		=  (new ImageIcon(textureFolder+"/endelem.jpg")).getImage();
-	private static final Image sargagolyoImg 	=  (new ImageIcon(textureFolder+"/Sargagolyo.png")).getImage();
+	private static final Image sargagolyoImg 	=  (new ImageIcon(textureFolder+"/Sargagolyokicsi.png")).getImage();
 	private static final Image kekgolyoImg 		=  (new ImageIcon(textureFolder+"/Kekgolyonkicsi.png")).getImage();
 	private static final Image pirosgolyoImg 	=  (new ImageIcon(textureFolder+"/Pirosgolyo.png")).getImage();
 	private static final Image zoldgolyoImg 	=  (new ImageIcon(textureFolder+"/Zoldgolyo.png")).getImage();
 	private static final Image merlegImg 		=  (new ImageIcon(textureFolder+"/merleg.png")).getImage();
-	private static final Image karakter1Img		=  (new ImageIcon(textureFolder+"/kekspecfal6.jpg")).getImage();
+	private static final Image karakter1Img		=  (new ImageIcon(textureFolder+"/kekspecfal6.png")).getImage();
 	private static final Image replikatorImg 	=  (new ImageIcon(textureFolder+"/replikator.jpg")).getImage();
 	private static final Image specfalImg 		=  (new ImageIcon(textureFolder+"/fal2.png")).getImage();
 	private static final Image kekspecfalImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal.png")).getImage();
