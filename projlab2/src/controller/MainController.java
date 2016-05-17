@@ -24,7 +24,7 @@ public class MainController {
 		KarakterController kc = new KarakterController(gameEngine);
 		
 		try {
-			mb.buildMap(new File("src/maps/Map1.txt"));
+			mb.buildMap(new File("src/maps/Map2.txt"));
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,7 +64,7 @@ public class MainController {
 			//billentyűlenyomások fogadása
 			getMoveKeys(mv, kc);
 			getPickAndDropKeys(pdk, kc);
-			if(ciklusszamlalo % 1 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
+			if(ciklusszamlalo % 25 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
 				getFireKeys(fk, kc);
 			
 			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
