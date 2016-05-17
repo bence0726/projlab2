@@ -106,8 +106,8 @@ public class Karakter extends Moveable{
     	
 //        
     	currentAngle += addAngle;
-      gundir.setVx(Math.toRadians(Math.cos(currentAngle))*20.0);
-      gundir.setVy(Math.toRadians(Math.sin(currentAngle))*20.0);
+      gundir.setVx(Math.toRadians(Math.cos(currentAngle))*200.0);
+      gundir.setVy(Math.toRadians(Math.sin(currentAngle))*200.0);
       if(currentAngle >= 360)
     	  currentAngle = 0; //túlcsordulásvédelem
     	
