@@ -125,7 +125,7 @@ public class MainController {
 				kc.setKarDir("ONEIL", "RIGHT");
 				break;			
 			case KeyEvent.VK_L:
-				kc.rotateGun("ONEIL", 1.0);	
+				kc.rotateGun("ONEIL", 20.0);	
 				return;
 			default:
 				break;

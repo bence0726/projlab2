@@ -14,6 +14,8 @@ public class Karakter extends Moveable{
      * A karakternél levő dobozt tároljuk itt.
      */
     protected Doboz box; 
+    
+    protected double currentAngle;
 
     /**
      * A karakter fegyverének irányvektora.
@@ -99,8 +101,8 @@ public class Karakter extends Moveable{
         double currentAngle = Math.atan(gundir.getVy()/gundir.getVx()); //szöggel szemközti per átfogó arkuszszinusza. az érték radiánban
         addAngle = (addAngle*Math.PI) / 180.0; 								//fokokat lenormáljuk radiánná
         currentAngle+=addAngle; 										//összeadjuk a 2 szöget.
-        gundir.setVx((Math.round(Math.cos(currentAngle)*5)));
-        gundir.setVy((Math.round(Math.sin(currentAngle)*5)));
+        gundir.setVx(((Math.cos(currentAngle)*3)));
+        gundir.setVy(((Math.sin(currentAngle)*3)));
     }
     
     /**
