@@ -150,6 +150,7 @@ public class ElemFactory {
 		if (columns == 0)
 			columns=1;
 		JPanel panel = new JPanel(new GridLayout(rows,columns,0,0));
+		panel.setOpaque(false);
 		panel.setBounds((int)e.getPos().getKezd().getVx(), (int)e.getPos().getKezd().getVy(), (int)(e.getPos().getWidth()*mapscale), (int)(e.getPos().getHeight()*mapscale));
 		Image newimg = image.getScaledInstance((int)(e.getPos().getWidth()/columns*imagescale),(int)(e.getPos().getHeight()/rows*imagescale), java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
 //		imageIcon = new ImageIcon(newimg);  // transform it back

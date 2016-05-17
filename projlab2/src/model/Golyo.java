@@ -18,8 +18,11 @@ public class Golyo extends Moveable {
     }
     
     public void shot(Golyo bullet) {
+    	if(bullet == this)
+    		return;
 		bullet.kill(null);
 		this.kill(null);
+		
 	}
     
 	public void move() {
