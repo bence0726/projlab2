@@ -131,13 +131,13 @@ public class Vektor {
     public static Vektor EnumToDirVec(MoveDirections direnum){
     	switch(direnum){
     	case MoveUp:
-    		return new Vektor(0,-1);
+    		return new Vektor(0,-2);
     	case MoveDown:
-    		return new Vektor(0,1);
+    		return new Vektor(0,2);
     	case MoveRight:
-    		return new Vektor(1,0);
+    		return new Vektor(2,0);
     	case MoveLeft:
-    		return new Vektor(-1,0);
+    		return new Vektor(-2,0);
     	case Stay:
     		return new Vektor(0,0);
     	default:
