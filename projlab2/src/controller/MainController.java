@@ -118,36 +118,24 @@ public class MainController {
 				kc.setKarDir("ONEIL", "DOWN");
 			}
 			else if(oneil.contains(KeyEvent.VK_LEFT)){
-				if(oneil.contains(KeyEvent.VK_SHIFT))
-					kc.rotateGun("ONEIL", 30);
-				else
 					kc.setKarDir("ONEIL", "LEFT");
 			}
 			else if(oneil.contains(KeyEvent.VK_RIGHT)){
-				if(oneil.contains(KeyEvent.VK_SHIFT))
-					kc.rotateGun("ONEIL", -30);
-				else
 					kc.setKarDir("ONEIL", "RIGHT");
 			}
 		}
 		//Jaffa lépése:
 		if(!jaffa.isEmpty()){
-			if(jaffa.contains(KeyEvent.VK_UP)){
+			if(jaffa.contains(KeyEvent.VK_W)){
 				kc.setKarDir("JAFFA", "UP");
 			}
-			if(jaffa.contains(KeyEvent.VK_DOWN)){
+			if(jaffa.contains(KeyEvent.VK_S)){
 				kc.setKarDir("JAFFA", "DOWN");
 			}
-			if(jaffa.contains(KeyEvent.VK_LEFT)){
-				if(jaffa.contains(KeyEvent.VK_CAPS_LOCK))
-					kc.rotateGun("JAFFA", 30);
-				else
+			if(jaffa.contains(KeyEvent.VK_A)){
 					kc.setKarDir("JAFFA", "LEFT");
 			}
-			if(jaffa.contains(KeyEvent.VK_RIGHT)){
-				if(jaffa.contains(KeyEvent.VK_CAPS_LOCK))
-					kc.rotateGun("JAFFA", -30);
-				else
+			if(jaffa.contains(KeyEvent.VK_D)){
 					kc.setKarDir("JAFFA", "RIGHT");
 			}
 		}
@@ -164,6 +152,8 @@ public class MainController {
 			else if(oneil == KeyEvent.VK_P){
 				kc.fire("ONEIL", "YELLOW");
 			}
+			if(oneil == KeyEvent.VK_SHIFT)//elforgatjuk a gundirt
+				kc.rotateGun("ONEIL", 30);
 		}
 		if(jaffa != -1){
 			if(jaffa == KeyEvent.VK_Q){
@@ -172,6 +162,8 @@ public class MainController {
 			else if(jaffa == KeyEvent.VK_E){
 				kc.fire("ONEIL", "GREEN");
 			}
+			else if(jaffa == KeyEvent.VK_CAPS_LOCK)//elforgatjuk a gundirt
+				kc.rotateGun("JAFFA", 30);
 		}
 	}
 	private static void getPickAndDropKeys(PickandDropKeysListener pdk, KarakterController kc){

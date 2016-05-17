@@ -46,14 +46,8 @@ public class MoveKeysListener implements KeyListener {
 		case KeyEvent.VK_RIGHT:
 			oneilslastkey.add(keycode);	
 			return;
-		case KeyEvent.VK_CAPS_LOCK:
-			jaffaslastkey.add(keycode);
-			return;
-		case KeyEvent.VK_SHIFT:
-			oneilslastkey.add(keycode);
-			return;
 		default:
-			break;
+			return;
 		}
 	}
 	public void keyReleased(KeyEvent e) {
@@ -82,12 +76,6 @@ public class MoveKeysListener implements KeyListener {
 			return;
 		case KeyEvent.VK_RIGHT:
 			oneilslastkey.remove(keycode);	
-			return;
-		case KeyEvent.VK_CAPS_LOCK:
-			jaffaslastkey.remove(keycode);
-			return;
-		case KeyEvent.VK_SHIFT:
-			oneilslastkey.remove(keycode);
 			return;
 		default:
 			break;
