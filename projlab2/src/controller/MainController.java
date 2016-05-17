@@ -57,14 +57,16 @@ public class MainController {
 		window.addKeyListener(fk);
 		window.addKeyListener(pdk);
 		
-		int test = 0;
+		int ciklusszamlalo = 0;
 		while(true){
 			//gameloop
 			
 			//billentyűlenyomások fogadása
 			getMoveKeys(mv, kc);
-			getFireKeys(fk, kc);
 			getPickAndDropKeys(pdk, kc);
+			if(ciklusszamlalo % 10 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
+				getFireKeys(fk, kc);
+			
 			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
 			if(!connected.keySet().containsAll(gameEngine.getLab().getObjectsOnMapList())){
 				while(ElemIt.hasNext()){
@@ -85,10 +87,12 @@ public class MainController {
 			
 			window.gp.map.refreshMap(new HashSet(connected.values())); //map frissítése az új elemekkel
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
-			window.gp.LabNumberOfZPMS.setText(String.valueOf(test++));
-			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
-			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
-			//window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
+			
+			window.gp.CiklusszamlaloErtek.setText(String.valueOf(ciklusszamlalo++));
+			
+			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
+			window.gp.OneilNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
+			//window.gp.JaffaNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
 			try {
 				Thread.sleep(5);
 			} catch (InterruptedException e) {
@@ -150,43 +154,43 @@ public class MainController {
 	}
 	
 	private static void getFireKeys(FireKeysListener fk, KarakterController kc){
-		Set<Integer> oneil = fk.oneilslastkey;
-		Set<Integer> jaffa = fk.jaffaslastkey;
+		int oneil = fk.oneilslastkey;
+		int jaffa = fk.jaffaslastkey;
 		
-		if(!oneil.isEmpty()){
-			if(oneil.contains(KeyEvent.VK_O)){//ez itt egy 'o' betű (o mint Olga)
+		if(oneil != -1){
+			if(oneil ==KeyEvent.VK_O){//ez itt egy 'o' betű (o mint Olga)
 				kc.fire("ONEIL", "BLUE");
 			}
-			else if(oneil.contains(KeyEvent.VK_P)){
+			else if(oneil == KeyEvent.VK_P){
 				kc.fire("ONEIL", "YELLOW");
 			}
 		}
-		if(!jaffa.isEmpty()){
-			if(jaffa.contains(KeyEvent.VK_Q)){
+		if(jaffa != -1){
+			if(jaffa == KeyEvent.VK_Q){
 				kc.fire("ONEIL", "RED");
 			}
-			else if(jaffa.contains(KeyEvent.VK_E)){
+			else if(jaffa == KeyEvent.VK_E){
 				kc.fire("ONEIL", "GREEN");
 			}
 		}
 	}
 	private static void getPickAndDropKeys(PickandDropKeysListener pdk, KarakterController kc){
-		Set<Integer> oneil = pdk.oneilslastkey;
-		Set<Integer> jaffa = pdk.jaffaslastkey;
+		int oneil = pdk.oneilslastkey;
+		int jaffa = pdk.jaffaslastkey;
 		
-		if(!oneil.isEmpty()){
-			if(oneil.contains(KeyEvent.VK_U)){//ez itt egy 'o' betű (o mint Olga)
+		if(oneil != -1){
+			if(oneil == KeyEvent.VK_U){
 				kc.pick("ONEIL");
 			}
-			else if(oneil.contains(KeyEvent.VK_I)){
+			else if(oneil == KeyEvent.VK_I){
 				kc.drop("ONEIL");
 			}
 		}
-		if(!jaffa.isEmpty()){
-			if(jaffa.contains(KeyEvent.VK_0)){//ez itt egy nulla
+		if(jaffa != -1){
+			if(jaffa == KeyEvent.VK_0){//ez itt egy nulla
 				kc.pick("JAFFA");
 			}
-			else if(jaffa.contains(KeyEvent.VK_1)){
+			else if(jaffa == KeyEvent.VK_1){
 				kc.drop("JAFFA");
 			}
 		}

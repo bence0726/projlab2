@@ -2,7 +2,9 @@ package test;
 
 import java.io.File;
 
+import model.Ajto;
 import model.Doboz;
+import model.EndElem;
 import model.Fal;
 import model.JatekMotor;
 import model.Karakter;
@@ -12,6 +14,7 @@ import model.Oneil;
 import model.PortalManager;
 import model.Replikator;
 import model.SpecFal;
+import model.StartElem;
 import model.Szakadek;
 import model.Terulet;
 import model.Vektor;
@@ -87,7 +90,7 @@ public class TestMapBuilder {
 	 *  és hozzáadja a Labirintushoz.
 	 */
 	public void addEndElem(int x1, int y1, int d1, int d2){
-		Fal tmp = new Fal(new Vektor(x1,y1), new Vektor(d1,d2));
+		EndElem tmp = new EndElem(new Vektor(x1,y1), new Vektor(d1,d2));
 		tmp.setReachable(true);
 		lab.addEndElem(tmp);
 	}
@@ -108,7 +111,7 @@ public class TestMapBuilder {
 	 *  ajtót is létrehozza, valamint beállítja annak súlyhatárát is.
 	 */
 	public void addMerleg(int mx1, int my1, int md1, int md2, int ax1, int ay1, int ad1, int ad2, int limit){
-		Fal ajto = new Fal(new Terulet(
+		Ajto ajto = new Ajto(new Terulet(
 				new Vektor(ax1,ay1),
 				new Vektor(ad1,ad2)));
 		ajto.setReachable(false);
@@ -133,7 +136,7 @@ public class TestMapBuilder {
 	 * állítja be.
 	 */
 	public void addStartElem(int x1, int y1, int d1, int d2){
-		Fal tmp = new Fal(new Vektor(x1,y1), new Vektor(d1,d2));
+		StartElem tmp = new StartElem(new Vektor(x1,y1), new Vektor(d1,d2));
 		tmp.setReachable(true);
 		lab.addStartElem(tmp);
 	}

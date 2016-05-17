@@ -15,8 +15,10 @@ public class GamePanel extends JPanel{
 	public JLabel LabNumberOfZPMS;
 	public JLabel OneilNumberOfZPMS;
 	public JLabel JaffaNumberOfZPMS;
+	public JLabel CiklusszamlaloErtek;
 	
 	public JButton btnEndGame;
+	private JLabel label;
 	/**
 	 * Create the application.
 	 */
@@ -82,6 +84,14 @@ public class GamePanel extends JPanel{
 		JaffaNumberOfZPMS.setHorizontalAlignment(SwingConstants.CENTER);
 		JaffaNumberOfZPMS.setBounds(928, 184, 46, 56);
 		mainPanel.add(JaffaNumberOfZPMS);
+		
+		JLabel lblCiklusszmll = new JLabel("Ciklusszámláló");
+		lblCiklusszmll.setBounds(810, 251, 88, 30);
+		mainPanel.add(lblCiklusszmll);
+		
+		CiklusszamlaloErtek = new JLabel("");
+		CiklusszamlaloErtek.setBounds(908, 251, 70, 30);
+		mainPanel.add(CiklusszamlaloErtek);
 		
 	}
 }
