@@ -160,6 +160,13 @@ public class Vektor {
     	return newvec;
     }
     
+    public static Vektor VektorMultiplicationWithDouble(Vektor vec1,double i){
+    	Vektor newvec = new Vektor(vec1);
+    	newvec.vx = Math.round(newvec.vx*i);
+    	newvec.vy = Math.round(newvec.vy*i);
+    	return newvec;
+    }
+    
     /*
      * getterek, setterek:
      */
