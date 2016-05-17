@@ -25,7 +25,7 @@ public class MainController {
 		KarakterController kc = new KarakterController(gameEngine);
 		
 		try {
-			mb.buildMap(new File("src/maps/Map2.txt"));
+			mb.buildMap(new File("src/maps/Map1.txt"));
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -67,9 +67,9 @@ public class MainController {
 			//billentyűlenyomások fogadása
 			getMoveKeys(mv, kc);
 			getPickAndDropKeys(pdk, kc);
-			if(ciklusszamlalo % 25 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
+			if(ciklusszamlalo % 10 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
 				getFireKeys(fk, kc);
-			if(ciklusszamlalo %5 == 0)
+			if(ciklusszamlalo % 5 == 0)
 				getrotation(rtk, kc);
 			
 			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
@@ -227,10 +227,10 @@ public class MainController {
 		int jaffa = rk.jaffaangle;
 		
 		if(oneil == KeyEvent.VK_L){			
-				kc.rotateGun("ONEIL", 1.0);	
+				kc.rotateGun("ONEIL", 10.0);	
 		}
 		if(jaffa == KeyEvent.VK_CAPS_LOCK){			
-			kc.rotateGun("VK_CAPS_LOCK", 1.0);	
+			kc.rotateGun("VK_CAPS_LOCK", 10.0);	
 		}
 	}
 	

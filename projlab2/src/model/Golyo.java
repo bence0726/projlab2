@@ -17,6 +17,11 @@ public class Golyo extends Moveable {
     	moveDir = new Vektor(direction);
     }
     
+    public void shot(Golyo bullet) {
+		bullet.kill(null);
+		this.kill(null);
+	}
+    
 	public void move() {
     	/*
     	 * Magyarázat
