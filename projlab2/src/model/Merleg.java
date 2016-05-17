@@ -50,6 +50,7 @@ public class Merleg extends Elem {
     	if (massOnTheScale >= massLimit)
     		ajto.setReachable(true);
     		//isChanged = true;
+    	m.step(); //FIXME valtoztatas
     	return true;
     }
     

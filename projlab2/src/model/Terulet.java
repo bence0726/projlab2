@@ -43,8 +43,9 @@ public class Terulet {
     	Vektor vecKezd = new Vektor(rand.nextInt(mapsize+1),rand.nextInt(mapsize+1)) ; 	//bal felső sarok random helyre
     	Vektor vecVeg = new Vektor(vecKezd); 											// A jobb also sarok létrehozasa vecKezd koordinatakkal
     	vecVeg.addVec(size); 															// hozzáadjuk a méretét , átló vektor
-    	Terulet t = new Terulet(vecKezd,vecVeg); 										//létrehozzuk a 2 vektorból a területet
-    	return t; 																		//visszatérünk vele.
+    	this.setKezd(vecKezd);
+    	this.setVeg(vecVeg);															//FIXME visszatérés mellett ennek is be kell állítani mert nem a visszatérési értéket használtuk
+    	return this;
     }
     /**
      * Megnézi, hogy a kapott terület (T2) fedésben van-e

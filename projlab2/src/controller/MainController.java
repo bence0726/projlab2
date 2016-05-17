@@ -65,15 +65,24 @@ public class MainController {
 			getMoveKeys(mv, kc);
 			getFireKeys(fk, kc);
 			getPickAndDropKeys(pdk, kc);
-			
 			ElemIt = gameEngine.getLab().getObjectsOnMapList().iterator();
+			if(!connected.keySet().containsAll(gameEngine.getLab().getObjectsOnMapList())){
+				while(ElemIt.hasNext()){
+					Elem tempElem0 = ElemIt.next();
+					if (!connected.keySet().contains(tempElem0))
+						connected.put(tempElem0, ElemFactory.ComponentFactory(tempElem0));
+				}
+			}
 			while(ElemIt.hasNext()){											//végigmegyünk a labirintus elemein...
 				Elem tempElem = ElemIt.next();
-				if (tempElem.is_changed() && tempElem.isAlive()){
+				if (tempElem.is_changed()){
 					JComponent tempJcomp = ElemFactory.ComponentFactory(tempElem);
 					connected.replace(tempElem, tempJcomp);
 				}
 			}
+			if (!gameEngine.getLab().getObjectsOnMapList().containsAll(connected.keySet()))
+				connected.keySet().retainAll(gameEngine.getLab().getObjectsOnMapList());
+			
 			window.gp.map.refreshMap(new HashSet(connected.values())); //map frissítése az új elemekkel
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(test++));

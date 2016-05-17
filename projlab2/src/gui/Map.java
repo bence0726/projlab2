@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -26,7 +27,7 @@ public class Map extends JPanel {
 	 * A kapott komponensListát felrajzolja a térképre.
 	 * @param componentList
 	 */
-	public void refreshMap(HashSet<JComponent> componentList){
+	public void refreshMap(Set<JComponent> componentList){
 		Iterator<JComponent> it = componentList.iterator();
 		removeAll();//letörlünk mindent
 		while(it.hasNext())	

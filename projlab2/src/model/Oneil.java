@@ -28,11 +28,11 @@ public class Oneil extends Karakter {
         if((ZPM % 2) != 0) //csak minden másodikra kell random ZPM-et generálni.
         	return;
         Terulet T = new Terulet();
-        T.randomArea(new Vektor(6,6),100);
+        T.randomArea(new Vektor(20,20),600); //FIXME: paraméterek átírva new Vektor(6,6),100) ról (4 sorral lejjebb is)
         //amíg nem sorsol olyan területet, 
         //ahol nincs semmi, addig hívogatjuk.
-        while(lab.whatsThere(T) != null) 
-        	T.randomArea(new Vektor(6,6),100);
+        while(lab.whatsThere(T).size() != 0) 
+        	T.randomArea(new Vektor(20,20),600);
         lab.addZPM(new ZPM(T)); //hozzáadjuk a labirintushoz
     }
 }

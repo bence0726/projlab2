@@ -94,11 +94,13 @@ public abstract class Moveable extends Elem{
     		if(!iteratorThere.next().isAccessable()) 				// ha nem elérhető az a terület, ahová lépni szeretnénk,
     			return;												// akkor visszatérünk.
     	}
+    	
+    	itemsThere.removeAll(itemsHere);	//FIXME: kitörlöm azokat a jövbeli lepes helyeről amiken már állun igy nem hivodik a steppedonjuk
     	iteratorThere = itemsThere.iterator(); 						// létrejön új iterátor, vagy a végigpörgetettet kapjuk meg??
     	
-    	while(iteratorThere.hasNext()){    		
-    		if(iteratorThere.next().steppedon(this)){
-    			moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);
+    	while(iteratorThere.hasNext()){
+    			if(iteratorThere.next().steppedon(this)){
+    				moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);                                         
     		}
     	}
     	
@@ -112,8 +114,11 @@ public abstract class Moveable extends Elem{
     	
     	//megnézzük, hogy van-e különbség aközött, hogy hová szerettünk volna
     	//lépni és aközött, hogy most hol vagyunk (magyarán volt-e teleportálás)
-    	if(this.getPos().isEqualTo(t)){
+    	Terulet temp1 = new Terulet(this.getPos().getKezd(),this.getPos().getVeg());
+    	temp1.addDirToArea(moveDir);   //FIXME valtoztatas: valamiért az előző this.getpos() hoz nem voll még hozzáadva a moveDir igy a 
+    	if(temp1.isEqualTo(t)){			// FIXME feltétel: this.getpos().isEqualto(t) soha nem volt egyenlő így most jonak tünik
     		moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);		//lépés után (0,0)-a állítjuk a mozgásvektort
+    		isChanged = true;
     		return;													//ha megegyezik, nincs további teendő.
     	}
     		
