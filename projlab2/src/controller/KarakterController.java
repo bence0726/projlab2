@@ -25,7 +25,7 @@ public class KarakterController {
 	 * a rálépés nem megengedett.
 	 */
 	public void setKarDir(String karakternev, String irany){
-		if(karakternev.equals("ONEIL")){
+		if(karakternev.equals("ONEIL") && jm.getLab().getOneil().isAlive()){
 			switch(irany){
 				case "UP": jm.setOneilMoveDir(MoveDirections.MoveUp);
 				break;
@@ -36,7 +36,7 @@ public class KarakterController {
 				case "LEFT": jm.setOneilMoveDir(MoveDirections.MoveLeft);
 			}
 		}
-		else if(karakternev.equals("JAFFA")){
+		else if(karakternev.equals("JAFFA")&& jm.getLab().getJaffa().isAlive()){
 			switch(irany){
 				case "UP": jm.setJaffaMoveDir(MoveDirections.MoveUp);
 				break;
@@ -55,7 +55,7 @@ public class KarakterController {
 	 * ez csupán a lövésért felel.
 	 */
 	public void fire(String karakternev, String szin){
-		if(karakternev.equals("ONEIL")){
+		if(karakternev.equals("ONEIL")&& jm.getLab().getOneil().isAlive()){
 			switch (szin) {
 			case "BLUE":
 				jm.OneilFire(Szin.Kek);
@@ -74,7 +74,7 @@ public class KarakterController {
 			}
 			return;
 		}
-		if(karakternev.equals("JAFFA")){
+		if(karakternev.equals("JAFFA")&& jm.getLab().getJaffa().isAlive()){
 			switch (szin) {
 			case "BLUE":
 				jm.jaffaFire(Szin.Kek);
@@ -111,7 +111,7 @@ public class KarakterController {
 	 * Meghívja a karakter pick metódusát.
 	 */
 	public void pick(String karakternev) {
-		if(karakternev.equals("ONEIL")){
+		if(karakternev.equals("ONEIL") && jm.getLab().getOneil().isAlive()){
 			jm.oneilPick();
 			return;
 		}			
@@ -123,11 +123,11 @@ public class KarakterController {
 	 * Meghívja a karakter drop metódusát.
 	 */
 	public void drop(String karakternev) {
-		if(karakternev.equals("ONEIL")){
+		if(karakternev.equals("ONEIL")&& jm.getLab().getOneil().isAlive()){
 			jm.oneilDrop();
 			return;
 		}			
-		if(karakternev.equals("JAFFA"))
+		if(karakternev.equals("JAFFA")&& jm.getLab().getJaffa().isAlive())
 			jm.jaffaDrop();
 	}
 	
