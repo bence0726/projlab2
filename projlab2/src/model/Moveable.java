@@ -104,7 +104,8 @@ public abstract class Moveable extends Elem{
     		}
     	}
     	
-    	Set<Elem> itemsNewPlace = lab.whatsThere(this.pos);
+    	Set<Elem> itemsNewPlace = lab.whatsThere(t);
+    	iteratorHere = itemsHere.iterator(); //FIXME JAVITAS
     	
     	while(iteratorHere.hasNext()){
     		Elem temp = iteratorHere.next();
