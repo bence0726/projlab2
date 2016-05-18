@@ -33,7 +33,7 @@ public abstract class Elem implements Interakcio {
      * Adott területen létrehoz egy elemet.
      */
     public Elem(Terulet pos) {
-    	this.pos = pos;
+    	this.pos = new Terulet(new Vektor(pos.getKezd()),new Vektor(pos.getVeg()));
     }
     
     /**
