@@ -181,10 +181,10 @@ public class MainController {
 		if(jaffa != -1){
 			switch(jaffa){
 			case KeyEvent.VK_Q:
-				kc.fire("JAFFA", "BLUE");
+				kc.fire("JAFFA", "RED");
 				break;
 			case KeyEvent.VK_E:
-				kc.fire("JAFFA", "YELLOW");
+				kc.fire("JAFFA", "GREEN");
 				break;
 //			case KeyEvent.VK_CAPS_LOCK:
 //				kc.rotateGun("JAFFA", 15.0);	
