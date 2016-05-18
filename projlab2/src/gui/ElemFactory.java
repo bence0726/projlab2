@@ -26,7 +26,7 @@ public class ElemFactory {
 	private static final Image pirosgolyoImg 	=  (new ImageIcon(textureFolder+"/Pirosgolyo.png")).getImage();
 	private static final Image zoldgolyoImg 	=  (new ImageIcon(textureFolder+"/Zoldgolyo.png")).getImage();
 	private static final Image merlegImg 		=  (new ImageIcon(textureFolder+"/merleg.png")).getImage();
-	private static final Image karakter1Img		=  (new ImageIcon(textureFolder+"/kekspecfal6.png")).getImage();
+	private static final Image karakter1Img		=  (new ImageIcon(textureFolder+"/oneil.png")).getImage();
 	private static final Image replikatorImg 	=  (new ImageIcon(textureFolder+"/replikator.jpg")).getImage();
 	private static final Image specfalImg 		=  (new ImageIcon(textureFolder+"/fal2.png")).getImage();
 	private static final Image kekspecfalImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal.png")).getImage();
@@ -36,7 +36,7 @@ public class ElemFactory {
 	private static final Image startElemImg 	=  (new ImageIcon(textureFolder+"/startelem.png")).getImage();
 	private static final Image szakadekImg 		=  (new ImageIcon(textureFolder+"/szakadek.jpg")).getImage();
 	private static final Image zpmImg			=  (new ImageIcon(textureFolder+"/zpm2.jpg")).getImage();
-	private static final Image karakter2Img 	=  (new ImageIcon(textureFolder+"/karakter2.png")).getImage();
+	private static final Image karakter2Img 	=  (new ImageIcon(textureFolder+"/jaffa2.png")).getImage();
 	private static final Image falImg 			=  (new ImageIcon(textureFolder+"/Fal.jpg")).getImage();
 	
 //	private static final Image nyitottAjtoImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal.png")).getImage();
@@ -122,7 +122,7 @@ public class ElemFactory {
 			return createComponent(merlegImg,defaultMapScale,0.85,e);
 		
 		if(e instanceof Oneil)
-			return createComponent(karakter1Img,defaultMapScale,defaultImageScale,e);
+			return createComponent(karakter1Img,defaultMapScale,1.5,e);
 		
 		if(e instanceof Replikator)
 			return createComponent(replikatorImg,defaultMapScale,defaultImageScale,e);
@@ -132,7 +132,7 @@ public class ElemFactory {
 			return createComponent(startElemImg,defaultMapScale,defaultImageScale,e);
 
 		if(e instanceof Karakter) //majd kell ide kicsit több logika, hogy arra nézzen, amerre mozog a karakter
-			return createComponent(karakter2Img,defaultMapScale,defaultImageScale,e);
+			return createComponent(karakter2Img,defaultMapScale,1,e);
 		
 		//if (!wallAlreadyDrew)
 			if(e instanceof Fal)
