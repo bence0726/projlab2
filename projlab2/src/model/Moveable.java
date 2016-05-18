@@ -127,21 +127,21 @@ public abstract class Moveable extends Elem{
     	//ha még itt járunk, volt teleportálás.
     	//megnézzük, hogy a másik oldalon mire léptünk rá. Ezeken steppedon()-t hívjuk    	
     	Iterator<Elem> iteratorItemsNewPlace = itemsNewPlace.iterator();
-    	
     	while(iteratorItemsNewPlace.hasNext()){
     		Elem temp = iteratorItemsNewPlace.next();
     		if(temp.steppedon(this)){
     			moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);
     		}    		
     	}
-    	//FIXME UJITAS
-    	iteratorItemsNewPlace = itemsNewPlace.iterator();
-    	iteratorHere = itemsHere.iterator(); //FIXME JAVITAS
-    	while(iteratorHere.hasNext()){
-    		Elem temp = iteratorHere.next();
-    		if(!itemsNewPlace.contains(temp))
-    			temp.steppedoff(this);								//ami nincs benne, arról leléptünk
-    	}
+//    	//FIXME UJITAS
+//    	itemsNewPlace = lab.whatsThere(this.getPos());
+//    	iteratorItemsNewPlace = itemsNewPlace.iterator();
+//    	iteratorHere = itemsHere.iterator(); //FIXME JAVITAS
+//    	while(iteratorHere.hasNext()){
+//    		Elem temp = iteratorHere.next();
+//    		if(!itemsNewPlace.contains(temp))
+//    			temp.steppedoff(this);								//ami nincs benne, arról leléptünk
+//    	}
     	isChanged = true;
     	moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
 	}
