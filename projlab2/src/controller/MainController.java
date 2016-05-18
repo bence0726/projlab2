@@ -61,7 +61,7 @@ public class MainController {
 		window.addKeyListener(rtk);
 		
 		int ciklusszamlalo = 0;
-		while(true){
+		while(!gameEngine.isEndGame()){
 			//gameloop
 			
 			//billentyűlenyomások fogadása
@@ -209,7 +209,7 @@ public class MainController {
 			}
 		}
 		if(jaffa != -1){
-			switch (oneil) {
+			switch (jaffa) {
 			case KeyEvent.VK_0://ez itt egy nulla
 				kc.pick("JAFFA");
 				break;

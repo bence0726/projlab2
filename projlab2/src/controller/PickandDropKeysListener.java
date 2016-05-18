@@ -12,7 +12,7 @@ public class PickandDropKeysListener implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		int keycode = e.getKeyCode();
 		switch(keycode){		
-		case KeyEvent.VK_0:
+		case KeyEvent.VK_0://ez egy nulla
 			jaffaslastkey = keycode;		
 			return;
 		case KeyEvent.VK_1:
