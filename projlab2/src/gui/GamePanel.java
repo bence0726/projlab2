@@ -7,6 +7,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.SystemColor;
 
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel{
@@ -22,6 +23,8 @@ public class GamePanel extends JPanel{
 	public JLabel oneilgundirlabel;
 	private JLabel lblJaffaGundir;
 	public JLabel jaffagundirvalue;
+	public JLabel jatekvegelabel;
+	public JLabel nyerteslabel;
 	/**
 	 * Create the application.
 	 */
@@ -40,7 +43,7 @@ public class GamePanel extends JPanel{
 		setVisible(false);
 		
 		JPanel mainPanel = new JPanel();
-		mainPanel.setBackground(Color.LIGHT_GRAY);
+		mainPanel.setBackground(SystemColor.activeCaption);
 		add(mainPanel, BorderLayout.CENTER);
 		mainPanel.setLayout(null);
 		
@@ -67,7 +70,7 @@ public class GamePanel extends JPanel{
 		
 		btnEndGame = new JButton("Játék befejezése");
 		btnEndGame.setFont(new Font("Arial", Font.BOLD, 16));
-		btnEndGame.setBounds(810, 594, 188, 68);
+		btnEndGame.setBounds(810, 645, 188, 68);
 		mainPanel.add(btnEndGame);
 		
 		LabNumberOfZPMS = new JLabel("42");
@@ -90,10 +93,12 @@ public class GamePanel extends JPanel{
 		
 		JLabel lblCiklusszmll = new JLabel("Ciklusszámláló");
 		lblCiklusszmll.setBounds(810, 251, 88, 30);
+		lblCiklusszmll.setVisible(false);
 		mainPanel.add(lblCiklusszmll);
 		
 		CiklusszamlaloErtek = new JLabel("");
 		CiklusszamlaloErtek.setBounds(908, 251, 70, 30);
+		CiklusszamlaloErtek.setVisible(false);
 		mainPanel.add(CiklusszamlaloErtek);
 		
 		lblOneilGundir = new JLabel("Oneil gundir");
@@ -111,5 +116,17 @@ public class GamePanel extends JPanel{
 		jaffagundirvalue = new JLabel("");
 		jaffagundirvalue.setBounds(908, 338, 70, 22);
 		mainPanel.add(jaffagundirvalue);
+		
+		jatekvegelabel = new JLabel("Vége a játéknak.");
+		jatekvegelabel.setFont(new Font("Consolas", Font.PLAIN, 50));
+		jatekvegelabel.setBounds(174, 611, 440, 56);
+		jatekvegelabel.setVisible(false);
+		mainPanel.add(jatekvegelabel);
+		
+		nyerteslabel = new JLabel("A nyertes: ");
+		nyerteslabel.setFont(new Font("Consolas", Font.PLAIN, 50));
+		nyerteslabel.setBounds(166, 671, 549, 73);
+		nyerteslabel.setVisible(false);
+		mainPanel.add(nyerteslabel);
 	}
 }
