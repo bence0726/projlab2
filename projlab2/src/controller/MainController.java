@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 
 import gui.ElemFactory;
 import gui.GameWindow;
@@ -61,7 +62,8 @@ public class MainController {
 		window.addKeyListener(rtk);
 		
 		int ciklusszamlalo = 0;
-		while(!gameEngine.isEndGame()){
+		while(!gameEngine.isEndGame() && (gameEngine.getLab().getOneil().isAlive() || gameEngine.getLab().getJaffa().isAlive())){
+			try{
 			//gameloop
 			
 			//billentyűlenyomások fogadása
@@ -108,7 +110,39 @@ public class MainController {
 			
 			gameEngine.moveEverything(); //mozgó elemek megmozgatása
 //			window.repaint();
+			}catch(ClassCastException cs){
+				
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
 		}
+		
+		
+		try {
+			window.gp.jatekvegelabel.setVisible(true);
+			Thread.sleep(800);
+			
+			JLabel temp = window.gp.nyerteslabel;
+			temp.setVisible(true);
+			Thread.sleep(800);
+			String nyertesszoveg = temp.getText();
+			temp.setText(nyertesszoveg + "3");
+			Thread.sleep(800);
+			temp.setText(nyertesszoveg + "2");//hatásszünet :DD
+			Thread.sleep(800);
+			temp.setText(nyertesszoveg + "1");
+			Thread.sleep(800);
+			temp.setText(nyertesszoveg + gameEngine.nyertes);			
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
 	}
 	
 	private static void getMoveKeys(MoveKeysListener mv, KarakterController kc){

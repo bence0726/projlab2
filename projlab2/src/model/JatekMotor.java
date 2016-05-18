@@ -8,6 +8,7 @@ import java.util.*;
 public class JatekMotor {
     private Labirintus lab;    
     public PortalManager pm;
+    public String nyertes = "nincs.";
     
     /**
      * JM konstruktor. Létrehoz egy labirintust
@@ -34,10 +35,15 @@ public class JatekMotor {
      */
     public boolean isEndGame() {
     	Elem e=lab.getEndElem();
-    	if (e.isCoveredByThis(lab.getOneil()) && (lab.getOneil().getZPM() > lab.getJaffa().getZPM()) && lab.getOsszZPM()==0)
-    			return true;
-    	if (e.isCoveredByThis(lab.getJaffa()) && (lab.getOneil().getZPM() < lab.getJaffa().getZPM()) && lab.getOsszZPM()==0)
-			return true;
+    	if (e.isCoveredByThis(lab.getOneil()) && (lab.getOneil().getZPM() > lab.getJaffa().getZPM()) && lab.getOsszZPM() == 0){
+    		nyertes = "O'neill";
+    		return true;
+    	}
+    			
+    	if (e.isCoveredByThis(lab.getJaffa()) && (lab.getOneil().getZPM() < lab.getJaffa().getZPM()) && lab.getOsszZPM()== 0){
+    		nyertes = "Jaffa";
+    		return true;
+    	}
     	return false;
     }
     
