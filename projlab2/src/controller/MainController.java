@@ -94,10 +94,11 @@ public class MainController {
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			
 			window.gp.CiklusszamlaloErtek.setText(String.valueOf(ciklusszamlalo++));
-			window.gp.oneilgundirlabel.setText(String.valueOf(gameEngine.getLab().getOneil().getgundirAngle()));			
+			window.gp.oneilgundirlabel.setText(String.valueOf(gameEngine.getLab().getOneil().getgundirAngle()));
+			window.gp.jaffagundirvalue.setText(String.valueOf(gameEngine.getLab().getJaffa().getgundirAngle()));
 			window.gp.LabNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOsszZPM()));			//ZPM számlálók frissítése
 			window.gp.OneilNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getOneil().getZPM()));
-			//window.gp.JaffaNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
+			window.gp.JaffaNumberOfZPMS.setText(String.valueOf(gameEngine.getLab().getJaffa().getZPM()));
 			try {
 				Thread.sleep(5);
 			} catch (InterruptedException e) {
@@ -230,7 +231,7 @@ public class MainController {
 				kc.rotateGun("ONEIL", 10.0);	
 		}
 		if(jaffa == KeyEvent.VK_CAPS_LOCK){			
-			kc.rotateGun("VK_CAPS_LOCK", 10.0);	
+			kc.rotateGun("JAFFA", 10.0);	
 		}
 	}
 	

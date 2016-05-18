@@ -20,6 +20,8 @@ public class GamePanel extends JPanel{
 	public JButton btnEndGame;
 	private JLabel lblOneilGundir;
 	public JLabel oneilgundirlabel;
+	private JLabel lblJaffaGundir;
+	public JLabel jaffagundirvalue;
 	/**
 	 * Create the application.
 	 */
@@ -102,5 +104,12 @@ public class GamePanel extends JPanel{
 		oneilgundirlabel.setBounds(918, 286, 53, 36);
 		mainPanel.add(oneilgundirlabel);
 		
+		lblJaffaGundir = new JLabel("jaffa gundir");
+		lblJaffaGundir.setBounds(810, 330, 80, 30);
+		mainPanel.add(lblJaffaGundir);		
+		
+		jaffagundirvalue = new JLabel("");
+		jaffagundirvalue.setBounds(908, 338, 70, 22);
+		mainPanel.add(jaffagundirvalue);
 	}
 }
