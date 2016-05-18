@@ -134,6 +134,14 @@ public abstract class Moveable extends Elem{
     			moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);
     		}    		
     	}
+    	//FIXME UJITAS
+    	iteratorItemsNewPlace = itemsNewPlace.iterator();
+    	iteratorHere = itemsHere.iterator(); //FIXME JAVITAS
+    	while(iteratorHere.hasNext()){
+    		Elem temp = iteratorHere.next();
+    		if(!itemsNewPlace.contains(temp))
+    			temp.steppedoff(this);								//ami nincs benne, arról leléptünk
+    	}
     	isChanged = true;
     	moveDir = Vektor.EnumToDirVec(MoveDirections.Stay);//lépés után (0,0)-a állítjuk a mozgásvektort
 	}
