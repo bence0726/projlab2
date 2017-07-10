@@ -43,12 +43,6 @@ public class MoveKeysListener implements KeyListener {
 		case KeyEvent.VK_RIGHT:
 			oneilslastkey = keycode;	
 			return;
-//		case KeyEvent.VK_CAPS_LOCK:
-//			jaffaslastkey = keycode;	
-//			return;
-//		case KeyEvent.VK_L:
-//			oneilslastkey = keycode;
-//			return;	
 		default:
 			return;
 		}

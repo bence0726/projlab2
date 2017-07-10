@@ -22,12 +22,6 @@ public class FireKeysListener implements KeyListener {
 		case KeyEvent.VK_P:
 			oneilslastkey = keycode;				
 			return;
-//		case KeyEvent.VK_CAPS_LOCK:
-//			jaffaslastkey = keycode;	
-//			return;
-//		case KeyEvent.VK_L:
-//			oneilslastkey = keycode;
-//			return;		
 		}
 	}
 	
@@ -53,13 +47,10 @@ public class FireKeysListener implements KeyListener {
 			oneilslastkey = -1;
 			return;
 		}
-
 	}
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// nothing to do here
-
 	}
-
 }

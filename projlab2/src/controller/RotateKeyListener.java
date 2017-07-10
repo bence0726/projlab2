@@ -20,6 +20,7 @@ public class RotateKeyListener implements KeyListener{
 		break;
 		}			
 	}		
+	
 	public void keyReleased(KeyEvent e) {
 		int keycode = e.getKeyCode();
 		switch (keycode) {
@@ -32,13 +33,9 @@ public class RotateKeyListener implements KeyListener{
 		default:
 		break;
 		}	
-		
 	}
-
 	
 	public void keyTyped(KeyEvent e) {
 		// nothing to do here
-		
 	}
-	
 }

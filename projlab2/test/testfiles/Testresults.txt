@@ -21,18 +21,24 @@ STARTELEM ADDED
 ONEIL ADDED
 ONEIL 50 50
 ONEIL MOVED UP
-ONEIL 50 49
+ONEIL 50 48
 ONEIL MOVED LEFT
-ONEIL 49 49
+ONEIL 48 48
 ONEIL MOVED DOWN
-ONEIL 49 50
+ONEIL 48 50
 ONEIL MOVED DOWN
-ONEIL 49 51
+ONEIL 48 52
 ONEIL MOVED RIGHT
+ONEIL 50 52
+Hibás sorok száma: 5
+A teszt során a következő elvárt kimenetek nem teljesültek:
+ONEIL 50 49
+ONEIL 49 49
+ONEIL 49 50
+ONEIL 49 51
 ONEIL 50 51
-Hibás sorok száma: 0
-A teszt során 10 feltételből 10 darab feltétel teljesült.
-02_karmovetest teszteset eredménye: SUCCESSFUL
+A teszt során 10 feltételből 5 darab feltétel teljesült.
+02_karmovetest teszteset eredménye: UNSUCCESSFUL
 -----------------
 Teszteset: 03_moveinteracttest
 A teszt lefutása során létrejött kimenet:
@@ -76,26 +82,28 @@ ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
-ONEIL 50 60
-PICKED BY ONEIL
-4 ELEM IN LAB
-ONEIL MOVED DOWN
-ONEIL MOVED DOWN
-ONEIL MOVED DOWN
-ONEIL MOVED DOWN
-ONEIL MOVED DOWN
-ONEIL MOVED DOWN
-ONEIL MOVED DOWN
-ONEIL MOVED DOWN
-ONEIL MOVED DOWN
-ONEIL MOVED DOWN
 ONEIL 50 70
+PICKED BY ONEIL
+3 ELEM IN LAB
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL MOVED DOWN
+ONEIL 50 90
 PICKED BY ONEIL
 ZPMS IN LAB 0
 3 ELEM IN LAB
-Hibás sorok száma: 0
-A teszt során 9 feltételből 9 darab feltétel teljesült.
-04_zpmdobozpicktest teszteset eredménye: SUCCESSFUL
+Hibás sorok száma: 1
+A teszt során a következő elvárt kimenetek nem teljesültek:
+ONEIL 50 60
+A teszt során 9 feltételből 8 darab feltétel teljesült.
+04_zpmdobozpicktest teszteset eredménye: UNSUCCESSFUL
 -----------------
 Teszteset: 05_dobozdroptest
 A teszt lefutása során létrejött kimenet:
@@ -126,19 +134,21 @@ ONEIL MOVED RIGHT
 ONEIL MOVED RIGHT
 ONEIL MOVED RIGHT
 ONEIL MOVED RIGHT
-ONEIL 60 50
+ONEIL 70 50
 BOX DROPPED BY ONEIL
-ONEIL 60 50
+ONEIL 70 50
 5 ELEM IN LAB
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
+ONEIL 70 60
+Hibás sorok száma: 1
+A teszt során a következő elvárt kimenetek nem teljesültek:
 ONEIL 60 55
-Hibás sorok száma: 0
-A teszt során 3 feltételből 3 darab feltétel teljesült.
-06_ajtonyitastest1 teszteset eredménye: SUCCESSFUL
+A teszt során 3 feltételből 2 darab feltétel teljesült.
+06_ajtonyitastest1 teszteset eredménye: UNSUCCESSFUL
 -----------------
 Teszteset: 06_ajtonyitastest2
 A teszt lefutása során létrejött kimenet:
@@ -158,19 +168,21 @@ ONEIL MOVED RIGHT
 ONEIL MOVED RIGHT
 ONEIL MOVED RIGHT
 ONEIL MOVED RIGHT
-ONEIL 60 50
+ONEIL 70 50
 BOX DROPPED BY ONEIL
-ONEIL 60 50
+ONEIL 70 50
 5 ELEM IN LAB
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
 ONEIL MOVED DOWN
-ONEIL 60 55
-Hibás sorok száma: 0
-A teszt során 3 feltételből 3 darab feltétel teljesült.
-06_ajtonyitastest2 teszteset eredménye: SUCCESSFUL
+ONEIL 70 60
+Hibás sorok száma: 1
+A teszt során a következő elvárt kimenetek nem teljesültek:
+ONEIL 60 50
+A teszt során 3 feltételből 2 darab feltétel teljesült.
+06_ajtonyitastest2 teszteset eredménye: UNSUCCESSFUL
 -----------------
 Teszteset: 07_lovestest
 A teszt lefutása során létrejött kimenet:
@@ -230,10 +242,12 @@ STARTELEM ADDED
 REPLIKATOR ADDED
 SZAKADEK ADDED
 3 ELEM IN LAB
+3 ELEM IN LAB
+Hibás sorok száma: 1
+A teszt során a következő elvárt kimenetek nem teljesültek:
 1 ELEM IN LAB
-Hibás sorok száma: 0
-A teszt során 2 feltételből 2 darab feltétel teljesült.
-11_replikatorszakadekbatest teszteset eredménye: SUCCESSFUL
+A teszt során 2 feltételből 1 darab feltétel teljesült.
+11_replikatorszakadekbatest teszteset eredménye: UNSUCCESSFUL
 -----------------
 Teszteset: 12_replikatorlovestest
 A teszt lefutása során létrejött kimenet:
@@ -252,6 +266,6 @@ A teszt során 0 feltételből 0 darab feltétel teljesült.
 
 Összegzés:
 Összes teszteset száma: 13
-	Ebből sikeres: 11
-	Ebből sikertelen: 2
+	Ebből sikeres: 6
+	Ebből sikertelen: 7
 Tehát a teszt hibával zárult le.
