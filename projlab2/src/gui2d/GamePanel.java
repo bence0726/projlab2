@@ -1,4 +1,4 @@
-package gui;
+package gui2d;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;

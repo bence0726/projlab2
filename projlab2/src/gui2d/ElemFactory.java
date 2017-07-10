@@ -1,4 +1,4 @@
-package gui;
+package gui2d;
 
 import java.awt.GridLayout;
 import java.awt.Image;

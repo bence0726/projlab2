@@ -1,4 +1,4 @@
-package gui;
+package gui2d;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;

@@ -12,8 +12,8 @@ import java.util.Set;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
-import gui.ElemFactory;
-import gui.GameWindow;
+import gui2d.ElemFactory;
+import gui2d.GameWindow;
 import model.Elem;
 import model.JatekMotor;
 
