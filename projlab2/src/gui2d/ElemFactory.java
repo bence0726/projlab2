@@ -39,30 +39,6 @@ public class ElemFactory {
 	private static final Image karakter2Img 	=  (new ImageIcon(textureFolder+"/jaffa2.png")).getImage();
 	private static final Image falImg 			=  (new ImageIcon(textureFolder+"/Fal.jpg")).getImage();
 	
-//	private static final Image nyitottAjtoImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal.png")).getImage();
-//	private static final Image csukottAjtoImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal1.png")).getImage();
-//	private static final Image dobozImg 		=  (new ImageIcon(textureFolder+"/Kekspecfal2.png")).getImage();
-//	private static final Image endElemImg		=  (new ImageIcon(textureFolder+"/Kekspecfal3.png")).getImage();
-//	private static final Image sargagolyoImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal4.png")).getImage();
-//	private static final Image kekgolyoImg 		=  (new ImageIcon(textureFolder+"/Kekspecfal5.png")).getImage();
-//	private static final Image pirosgolyoImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal6.png")).getImage();
-//	private static final Image zoldgolyoImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal7.png")).getImage();
-//	private static final Image merlegImg 		=  (new ImageIcon(textureFolder+"/Kekspecfal8.png")).getImage();
-//	private static final Image karakter1Img		=  (new ImageIcon(textureFolder+"/Kekspecfal9.png")).getImage();
-//	private static final Image replikatorImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal10.png")).getImage();
-//	private static final Image specfalImg 		=  (new ImageIcon(textureFolder+"/Kekspecfal11.png")).getImage();
-//	private static final Image kekspecfalImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal12.png")).getImage();
-//	private static final Image sargaspecfalImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal13.png")).getImage();
-//	private static final Image pirosspecfalImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal14.png")).getImage();
-//	private static final Image zoldspecfalImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal15.png")).getImage();
-//	private static final Image startElemImg 	=  (new ImageIcon(textureFolder+"/Kekspecfal16.png")).getImage();
-//	private static final Image szakadekImg 		=  (new ImageIcon(textureFolder+"/Kekspecfal17.png")).getImage();
-//	private static final Image zpmImg			=  (new ImageIcon(textureFolder+"/Kekspecfal18.png")).getImage();
-//	private static final Image karakter2Img 	=  (new ImageIcon(textureFolder+"/Kekspecfal19.png")).getImage();
-//	private static final Image falImg 			=  (new ImageIcon(textureFolder+"/Kekspecfal20.png")).getImage();
-	
-	
-	
 	
 	public static JComponent ComponentFactory(Elem e){
 		if(e instanceof ZPM)
