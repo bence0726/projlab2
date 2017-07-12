@@ -126,6 +126,9 @@ public class MainController3D {
 		group.getChildren().addAll(objects3D);
 	}
 	
-	private static void moveCharacter(){}
+	private static void moveCharacters(){
+		
+		
+	}
 	
 }
