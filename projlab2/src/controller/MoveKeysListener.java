@@ -5,6 +5,10 @@ package controller;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.HashMap;
+import java.util.Map;
+
+import model.MoveDirections;
 
 /**
  * A mozgáshoz szükséges billentyűket figyelő 
@@ -13,51 +17,62 @@ import java.awt.event.KeyListener;
  * @author zsigatibor
  */
 public class MoveKeysListener implements KeyListener {
-	int jaffaslastkey = -1;
-	int oneilslastkey = -1;
+	private MoveDirections oneilsLastDir;
+	private MoveDirections jaffasLastDir;
+	
+	/**
+	 * Kulcs: billentyű szám-reprezentációja
+	 * Érték: hozzá tartozó moveDirections enum
+	 */
+	private Map<Integer, MoveDirections> oneilsKeys;
+	private Map<Integer, MoveDirections> jaffasKeys;
+	
+	public MoveKeysListener(){
+		oneilsLastDir = MoveDirections.Stay;
+		jaffasLastDir = MoveDirections.Stay;
+		
+		oneilsKeys = new HashMap<>();
+		jaffasKeys = new HashMap<>();
+		
+		//Oneil's keys:
+		oneilsKeys.put(KeyEvent.VK_UP, MoveDirections.MoveUp);
+		oneilsKeys.put(KeyEvent.VK_DOWN, MoveDirections.MoveDown);
+		oneilsKeys.put(KeyEvent.VK_LEFT, MoveDirections.MoveLeft);
+		oneilsKeys.put(KeyEvent.VK_RIGHT, MoveDirections.MoveRight);
+		
+		//Jaffa's keys:
+		jaffasKeys.put(KeyEvent.VK_W, MoveDirections.MoveUp);
+		jaffasKeys.put(KeyEvent.VK_S, MoveDirections.MoveDown);
+		jaffasKeys.put(KeyEvent.VK_A, MoveDirections.MoveLeft);
+		jaffasKeys.put(KeyEvent.VK_D, MoveDirections.MoveRight);
+	}
 	
 	public void keyPressed(KeyEvent e) {
-		int keycode = e.getKeyCode();
-		switch(keycode){
-		case KeyEvent.VK_W:
-		case KeyEvent.VK_S:
-		case KeyEvent.VK_A:
-		case KeyEvent.VK_D:
-			jaffaslastkey = keycode;	
-			return;
-		case KeyEvent.VK_UP:
-		case KeyEvent.VK_DOWN:
-		case KeyEvent.VK_LEFT:
-		case KeyEvent.VK_RIGHT:
-			oneilslastkey = keycode;	
-			return;
-		default:
-			return;
-		}
+		int keyCode = e.getKeyCode();
+		if(oneilsKeys.containsKey(keyCode))
+			oneilsLastDir = oneilsKeys.get(keyCode);
+		
+		else if(jaffasKeys.containsKey(keyCode))
+			jaffasLastDir = jaffasKeys.get(keyCode);
 	}
 	public void keyReleased(KeyEvent e) {
-		int keycode = e.getKeyCode();
-		switch(keycode){
-		case KeyEvent.VK_W:
-		case KeyEvent.VK_S:
-		case KeyEvent.VK_A:
-		case KeyEvent.VK_D:
-		case KeyEvent.VK_CAPS_LOCK:
-			jaffaslastkey = -1;	
-			return;
-		case KeyEvent.VK_UP:
-		case KeyEvent.VK_DOWN:
-		case KeyEvent.VK_LEFT:
-		case KeyEvent.VK_RIGHT:
-		case KeyEvent.VK_L:
-			oneilslastkey = -1;
-			return;	
-		default:
-			return;
-		}
+		int keyCode = e.getKeyCode();
+		if(oneilsKeys.containsKey(keyCode))
+			oneilsLastDir = MoveDirections.Stay;
+		
+		else if(jaffasKeys.containsKey(keyCode))
+			jaffasLastDir = MoveDirections.Stay;
 	}
 	public void keyTyped(KeyEvent e) {
 		// nothing to do here
+	}
+
+	public MoveDirections getOneilsLastDir() {
+		return oneilsLastDir;
+	}
+
+	public MoveDirections getJaffasLastDir() {
+		return jaffasLastDir;
 	}
 
 }

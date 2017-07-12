@@ -148,47 +148,10 @@ public class MainController {
 	}
 	
 	private static void getMoveKeys(MoveKeysListener mv, KarakterController kc){
-		int oneil = mv.oneilslastkey;
-		int jaffa = mv.jaffaslastkey;
-		
-		//Oneil lépése:
-		if(oneil != -1){
-			switch (oneil) {
-			case KeyEvent.VK_UP:
-				kc.setKarDir("ONEIL", MoveDirections.MoveUp);
-				break;
-			case KeyEvent.VK_DOWN:
-				kc.setKarDir("ONEIL", MoveDirections.MoveDown);
-				break;
-			case KeyEvent.VK_LEFT:
-				kc.setKarDir("ONEIL", MoveDirections.MoveLeft);
-				break;
-			case KeyEvent.VK_RIGHT:
-				kc.setKarDir("ONEIL", MoveDirections.MoveRight);
-				break;			
-			default:
-				break;
-			}
-		}
+		//oneil lépése
+		kc.setKarDir("ONEIL", mv.getOneilsLastDir());
 		//jaffa lépése
-		if(jaffa != -1){
-			switch (jaffa) {
-			case KeyEvent.VK_W:
-				kc.setKarDir("JAFFA", MoveDirections.MoveUp);
-				break;
-			case KeyEvent.VK_S:
-				kc.setKarDir("JAFFA", MoveDirections.MoveDown);
-				break;
-			case KeyEvent.VK_A:
-				kc.setKarDir("JAFFA", MoveDirections.MoveLeft);
-				break;
-			case KeyEvent.VK_D:
-				kc.setKarDir("JAFFA", MoveDirections.MoveRight);
-				break;			
-			default:
-				return;
-			}
-		}
+		kc.setKarDir("JAFFA", mv.getJaffasLastDir());
 	}
 	
 	private static void getFireKeys(FireKeysListener fk, KarakterController kc){

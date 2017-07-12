@@ -36,20 +36,20 @@ public class MainController3D {
 	public static void main(String[] args) {
 		initializeGame();
 		
-		//TODO find a better name pls
-		boolean runGameWhileThisBooleanVariableIsTrue = true;
-		
-		gameLoop(runGameWhileThisBooleanVariableIsTrue);
+		gameLoop();
 		
 		
 		
 	}
 
-	private static void gameLoop(boolean gameEndCondition) {
-		while(gameEndCondition){
-			moveCharacters();
+	private static void gameLoop() {
+		int index = 0;
+		
+		while(true){
+			moveCharacters(index);
 			
 			
+			index++;
 		}
 		
 	}
@@ -126,8 +126,35 @@ public class MainController3D {
 		group.getChildren().addAll(objects3D);
 	}
 	
-	private static void moveCharacters(){
+	private static void moveCharacters(int index){
+		//billentyűlenyomások fogadása
+		getMoveKeys(mv, kc);
+		getPickAndDropKeys(pdk, kc);
+		if(index % 10 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
+			getFireKeys(fk, kc);
+		if(index % 5 == 0)
+			getrotation(rtk, kc);
+
 		
+	}
+
+	private static void getrotation(RotateKeyListener rtk2, KarakterController kc2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void getFireKeys(FireKeysListener fk2, KarakterController kc2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void getPickAndDropKeys(PickandDropKeysListener pdk2, KarakterController kc2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void getMoveKeys(MoveKeysListener mv2, KarakterController kc2) {
+		// TODO Auto-generated method stub
 		
 	}
 	
