@@ -20,6 +20,8 @@ public class MainController3D {
 	
 	private static Group group;	
 	private static Scene scene;
+	private static PerspectiveCamera camera;
+	
 	private static JatekMotor gameEngine;
 	
 	private static MapBuilder mb;
@@ -34,14 +36,19 @@ public class MainController3D {
 	public static void main(String[] args) {
 		initializeGame();
 		
-		gameLoop();
+		//TODO find a better name pls
+		boolean runGameWhileThisBooleanVariableIsTrue = true;
+		
+		gameLoop(runGameWhileThisBooleanVariableIsTrue);
 		
 		
 		
 	}
 
-	private static void gameLoop() {
-		while(true){
+	private static void gameLoop(boolean gameEndCondition) {
+		while(gameEndCondition){
+			moveCharacters();
+			
 			
 		}
 		
@@ -119,6 +126,6 @@ public class MainController3D {
 		group.getChildren().addAll(objects3D);
 	}
 	
-	private static void moveCharacter(KarakterController kc, PerspectiveCamera cam){}
+	private static void moveCharacter(){}
 	
 }
