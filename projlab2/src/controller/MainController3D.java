@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.JComponent;
 
+import enums.PickAndDrop;
 import enums.Szin;
 import gui2d.ElemFactory;
 import javafx.scene.Group;
@@ -157,8 +158,30 @@ public class MainController3D {
 		
 	}
 
-	private static void getPickAndDropKeys(PickandDropKeysListener pdk2, KarakterController kc2) {
-		// TODO Auto-generated method stub
+	private static void getPickAndDropKeys() {
+		PickAndDrop oneilsLast = pdk.getOneilsLast();
+		PickAndDrop jaffasLast = pdk.getJaffasLast();
+		
+		switch (oneilsLast) {
+		case PICKED:
+			kc.pick("ONEIL");
+			break;
+		case DROPPED:
+			kc.drop("ONEIL");
+			break;
+		default:
+			break;
+		}
+		switch (jaffasLast) {
+		case PICKED:
+			kc.pick("JAFFA");
+			break;
+		case DROPPED:
+			kc.drop("JAFFA");
+			break;
+		default:
+			break;
+		}
 		
 	}
 
