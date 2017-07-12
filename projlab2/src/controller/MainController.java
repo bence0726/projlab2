@@ -16,6 +16,8 @@ import gui2d.ElemFactory;
 import gui2d.GameWindow;
 import model.Elem;
 import model.JatekMotor;
+import model.MoveDirections;
+import model.Szin;
 
 public class MainController {
 	public static File mapsDirectory = new File("src/maps/");
@@ -153,20 +155,17 @@ public class MainController {
 		if(oneil != -1){
 			switch (oneil) {
 			case KeyEvent.VK_UP:
-				kc.setKarDir("ONEIL", "UP");
+				kc.setKarDir("ONEIL", MoveDirections.MoveUp);
 				break;
 			case KeyEvent.VK_DOWN:
-				kc.setKarDir("ONEIL", "DOWN");
+				kc.setKarDir("ONEIL", MoveDirections.MoveDown);
 				break;
 			case KeyEvent.VK_LEFT:
-				kc.setKarDir("ONEIL", "LEFT");
+				kc.setKarDir("ONEIL", MoveDirections.MoveLeft);
 				break;
 			case KeyEvent.VK_RIGHT:
-				kc.setKarDir("ONEIL", "RIGHT");
+				kc.setKarDir("ONEIL", MoveDirections.MoveRight);
 				break;			
-//			case KeyEvent.VK_L:
-//				kc.rotateGun("ONEIL", 1.0);	
-//				return;			
 			default:
 				break;
 			}
@@ -175,22 +174,19 @@ public class MainController {
 		if(jaffa != -1){
 			switch (jaffa) {
 			case KeyEvent.VK_W:
-				kc.setKarDir("JAFFA", "UP");
+				kc.setKarDir("JAFFA", MoveDirections.MoveUp);
 				break;
 			case KeyEvent.VK_S:
-				kc.setKarDir("JAFFA", "DOWN");
+				kc.setKarDir("JAFFA", MoveDirections.MoveDown);
 				break;
 			case KeyEvent.VK_A:
-				kc.setKarDir("JAFFA", "LEFT");
+				kc.setKarDir("JAFFA", MoveDirections.MoveLeft);
 				break;
 			case KeyEvent.VK_D:
-				kc.setKarDir("JAFFA", "RIGHT");
+				kc.setKarDir("JAFFA", MoveDirections.MoveRight);
 				break;			
-//			case KeyEvent.VK_CAPS_LOCK:
-//				kc.rotateGun("JAFFA", 1.0);	
-//				return;
 			default:
-				break;
+				return;
 			}
 		}
 	}
@@ -202,27 +198,21 @@ public class MainController {
 		if(oneil != -1){
 			switch(oneil){
 			case KeyEvent.VK_O:    //ez itt egy 'o' betű (o mint Olga)
-				kc.fire("ONEIL", "BLUE");
+				kc.fire("ONEIL", Szin.Kek);
 				break;
 			case KeyEvent.VK_P:
-				kc.fire("ONEIL", "YELLOW");
+				kc.fire("ONEIL", Szin.Sarga);
 				break;
-//			case KeyEvent.VK_L:
-//				kc.rotateGun("ONEIL", 15.0);	
-//				return;
 			}			
 		}
 		if(jaffa != -1){
 			switch(jaffa){
 			case KeyEvent.VK_Q:
-				kc.fire("JAFFA", "RED");
+				kc.fire("JAFFA", Szin.Piros);
 				break;
 			case KeyEvent.VK_E:
-				kc.fire("JAFFA", "GREEN");
+				kc.fire("JAFFA", Szin.Zold);
 				break;
-//			case KeyEvent.VK_CAPS_LOCK:
-//				kc.rotateGun("JAFFA", 15.0);	
-//				return;
 			}		
 			
 		}

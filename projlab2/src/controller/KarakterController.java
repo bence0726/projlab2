@@ -24,28 +24,13 @@ public class KarakterController {
 	 * eltolja azt, ha nem ütközik olyan pályaelembe, amelyre
 	 * a rálépés nem megengedett.
 	 */
-	public void setKarDir(String karakternev, String irany){
+	public void setKarDir(String karakternev, MoveDirections moveDir){
 		if(karakternev.equals("ONEIL") && jm.getLab().getOneil().isAlive()){
-			switch(irany){
-				case "UP": jm.setOneilMoveDir(MoveDirections.MoveUp);
-				break;
-				case "DOWN": jm.setOneilMoveDir(MoveDirections.MoveDown);
-				break;
-				case "RIGHT": jm.setOneilMoveDir(MoveDirections.MoveRight);
-				break;
-				case "LEFT": jm.setOneilMoveDir(MoveDirections.MoveLeft);
-			}
+			jm.setOneilMoveDir(moveDir);
+			return;
 		}
-		else if(karakternev.equals("JAFFA")&& jm.getLab().getJaffa().isAlive()){
-			switch(irany){
-				case "UP": jm.setJaffaMoveDir(MoveDirections.MoveUp);
-				break;
-				case "DOWN": jm.setJaffaMoveDir(MoveDirections.MoveDown);
-				break;
-				case "RIGHT": jm.setJaffaMoveDir(MoveDirections.MoveRight);
-				break;
-				case "LEFT": jm.setJaffaMoveDir(MoveDirections.MoveLeft);
-			}
+		if(karakternev.equals("JAFFA") && jm.getLab().getJaffa().isAlive()){
+			jm.setJaffaMoveDir(moveDir);
 		}
 	}
 	
@@ -54,44 +39,13 @@ public class KarakterController {
 	 * A fegyver irányát nem ez a függvény állítja be,
 	 * ez csupán a lövésért felel.
 	 */
-	public void fire(String karakternev, String szin){
+	public void fire(String karakternev, Szin szin){
 		if(karakternev.equals("ONEIL")&& jm.getLab().getOneil().isAlive()){
-			switch (szin) {
-			case "BLUE":
-				jm.OneilFire(Szin.Kek);
-				break;
-			case "RED":
-				jm.OneilFire(Szin.Piros);
-				break;
-			case "GREEN":
-				jm.OneilFire(Szin.Zold);
-				break;
-			case "YELLOW":
-				jm.OneilFire(Szin.Sarga);
-				break;
-			default:
-				break;
-			}
+			jm.OneilFire(szin);
 			return;
 		}
-		if(karakternev.equals("JAFFA")&& jm.getLab().getJaffa().isAlive()){
-			switch (szin) {
-			case "BLUE":
-				jm.jaffaFire(Szin.Kek);
-				break;
-			case "RED":
-				jm.jaffaFire(Szin.Piros);
-				break;
-			case "GREEN":
-				jm.jaffaFire(Szin.Zold);
-				break;
-			case "YELLOW":
-				jm.jaffaFire(Szin.Sarga);
-				break;
-			default:
-				break;
-			}
-		}
+		if(karakternev.equals("JAFFA")&& jm.getLab().getJaffa().isAlive())
+			jm.jaffaFire(szin);
 	}	
 	
 	/**
