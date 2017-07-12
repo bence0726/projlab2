@@ -135,14 +135,15 @@ public class MainController3D {
 		if(index % 10 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
 			getFireKeys();
 		if(index % 5 == 0)
-			getrotation(rtk, kc);
-
-		
+			getrotation();
 	}
 
-	private static void getrotation(RotateKeyListener rtk2, KarakterController kc2) {
-		// TODO Auto-generated method stub
+	private static void getrotation() {
+		if(rtk.DoesOneilRotated())
+			kc.rotateGun("ONEIL", 10.0);	
 		
+		if(rtk.DoesJaffaRotated())			
+			kc.rotateGun("JAFFA", 10.0);	
 	}
 
 	private static void getFireKeys() {
