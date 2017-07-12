@@ -128,7 +128,7 @@ public class MainController3D {
 	
 	private static void moveCharacters(int index){
 		//billentyűlenyomások fogadása
-		getMoveKeys(mv, kc);
+		getMoveKeys();
 		getPickAndDropKeys(pdk, kc);
 		if(index % 10 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
 			getFireKeys(fk, kc);
@@ -153,8 +153,9 @@ public class MainController3D {
 		
 	}
 
-	private static void getMoveKeys(MoveKeysListener mv2, KarakterController kc2) {
-		// TODO Auto-generated method stub
+	private static void getMoveKeys() {
+		kc.setKarDir("ONEIL", mv.getOneilsLastDir());
+		kc.setKarDir("JAFFA", mv.getJaffasLastDir());
 		
 	}
 	

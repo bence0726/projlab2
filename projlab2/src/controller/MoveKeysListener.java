@@ -27,6 +27,10 @@ public class MoveKeysListener implements KeyListener {
 	private Map<Integer, MoveDirections> oneilsKeys;
 	private Map<Integer, MoveDirections> jaffasKeys;
 	
+	/**
+	 * Konstruktor, amiben összeköttetik a billentyű
+	 * az enum értékével
+	 */
 	public MoveKeysListener(){
 		oneilsLastDir = MoveDirections.Stay;
 		jaffasLastDir = MoveDirections.Stay;
