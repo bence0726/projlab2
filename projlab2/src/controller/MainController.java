@@ -155,31 +155,16 @@ public class MainController {
 	}
 	
 	private static void getFireKeys(FireKeysListener fk, KarakterController kc){
-		int oneil = fk.oneilslastkey;
-		int jaffa = fk.jaffaslastkey;
+		Szin oneilsLast = fk.getOneilsLastSzin();
+		Szin jaffasLast = fk.getJaffasLastSzin();
 		
-		if(oneil != -1){
-			switch(oneil){
-			case KeyEvent.VK_O:    //ez itt egy 'o' betű (o mint Olga)
-				kc.fire("ONEIL", Szin.Kek);
-				break;
-			case KeyEvent.VK_P:
-				kc.fire("ONEIL", Szin.Sarga);
-				break;
-			}			
-		}
-		if(jaffa != -1){
-			switch(jaffa){
-			case KeyEvent.VK_Q:
-				kc.fire("JAFFA", Szin.Piros);
-				break;
-			case KeyEvent.VK_E:
-				kc.fire("JAFFA", Szin.Zold);
-				break;
-			}		
-			
-		}
+		if(oneilsLast != null)
+			kc.fire("ONEIL", oneilsLast);
+		
+		if(jaffasLast != null)
+			kc.fire("JAFFA", jaffasLast);
 	}
+	
 	private static void getPickAndDropKeys(PickandDropKeysListener pdk, KarakterController kc){
 		int oneil = pdk.oneilslastkey;
 		int jaffa = pdk.jaffaslastkey;
