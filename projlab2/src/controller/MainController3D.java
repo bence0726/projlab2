@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.swing.JComponent;
 
+import enums.Szin;
 import gui2d.ElemFactory;
 import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
@@ -131,7 +132,7 @@ public class MainController3D {
 		getMoveKeys();
 		getPickAndDropKeys(pdk, kc);
 		if(index % 10 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
-			getFireKeys(fk, kc);
+			getFireKeys();
 		if(index % 5 == 0)
 			getrotation(rtk, kc);
 
@@ -143,8 +144,16 @@ public class MainController3D {
 		
 	}
 
-	private static void getFireKeys(FireKeysListener fk2, KarakterController kc2) {
-		// TODO Auto-generated method stub
+	private static void getFireKeys() {
+		Szin oneilsLast = fk.getOneilsLastSzin();
+		Szin jaffasLast = fk.getJaffasLastSzin();
+		
+		if(oneilsLast != null)
+			kc.fire("ONEIL", oneilsLast);
+		
+		if(jaffasLast != null)
+			kc.fire("JAFFA", jaffasLast);
+
 		
 	}
 

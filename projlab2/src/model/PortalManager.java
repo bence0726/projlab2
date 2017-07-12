@@ -1,5 +1,7 @@
 package model;
 
+import enums.Szin;
+
 /**
  * Ez az osztály tartja nyilván a pályán lévő portálokat. Segítségével
  * adott színű portált nyithatunk, zárhatunk, vagy akár adott portál

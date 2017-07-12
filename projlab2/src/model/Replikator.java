@@ -1,6 +1,8 @@
 package model;
 import java.util.*;
 
+import enums.MoveDirections;
+
 /**
  * A Replikátor modellbeli reprezentációjáért
  * felelős osztály.

@@ -1,5 +1,7 @@
 package model;
 
+import enums.Szin;
+
 /**
  * SpecFal modellbeli reprezentációja.
  */

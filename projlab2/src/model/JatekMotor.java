@@ -1,6 +1,9 @@
 package model;
 import java.util.*;
 
+import enums.MoveDirections;
+import enums.Szin;
+
 /**
  * a játék futásáért, szabályainak betartásáért felel.
  * Ő lépteti a mozgatható karaktereket is.

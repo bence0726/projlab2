@@ -1,8 +1,8 @@
 package controller;
 
+import enums.MoveDirections;
+import enums.Szin;
 import model.JatekMotor;
-import model.MoveDirections;
-import model.Szin;
 import model.Vektor;
 
 /**

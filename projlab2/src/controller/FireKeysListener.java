@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import model.Szin;
+import enums.Szin;
 
 public class FireKeysListener implements KeyListener {
 	private Szin oneilsLastSzin;

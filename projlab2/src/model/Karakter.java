@@ -1,6 +1,8 @@
 package model;
 import java.util.*;
 
+import enums.Szin;
+
 /**
  * Jaffa reprezentációja a modellben.
  */

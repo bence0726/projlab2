@@ -1,6 +1,8 @@
 package model;
 import java.util.*;
 
+import enums.MoveDirections;
+
 /**
  * A mozgó elemek közös ősosztálya.
  * Absztrakt osztály, a leszármazó osztályokban

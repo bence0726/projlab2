@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import model.MoveDirections;
+import enums.MoveDirections;
 
 /**
  * A mozgáshoz szükséges billentyűket figyelő 

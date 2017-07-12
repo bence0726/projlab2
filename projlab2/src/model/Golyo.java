@@ -1,6 +1,8 @@
 package model;
 import java.util.*;
 
+import enums.Szin;
+
 /**
  * A lövedék modellbeli reprezentációjáért
  * felelős osztály.

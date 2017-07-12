@@ -1,4 +1,4 @@
-package model;
+package enums;
 /**
  * Golyók és portálok színei ezek lehetnek.
  */

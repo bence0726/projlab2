@@ -5,11 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import controller.KarakterController;
+import enums.Szin;
 import test.TestMapBuilder;
 import model.Elem;
 import model.JatekMotor;
 import model.SpecFal;
-import model.Szin;
 import model.Vektor;
 
 /**

@@ -12,12 +12,13 @@ import java.util.Set;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
+import enums.MoveDirections;
+import enums.PickAndDrop;
+import enums.Szin;
 import gui2d.ElemFactory;
 import gui2d.GameWindow;
 import model.Elem;
 import model.JatekMotor;
-import model.MoveDirections;
-import model.Szin;
 
 public class MainController {
 	public static File mapsDirectory = new File("src/maps/");
@@ -166,32 +167,28 @@ public class MainController {
 	}
 	
 	private static void getPickAndDropKeys(PickandDropKeysListener pdk, KarakterController kc){
-		int oneil = pdk.oneilslastkey;
-		int jaffa = pdk.jaffaslastkey;
+		PickAndDrop oneilsLast = pdk.getOneilsLast();
+		PickAndDrop jaffasLast = pdk.getJaffasLast();
 		
-		if(oneil != -1){
-			switch (oneil) {
-			case KeyEvent.VK_U:
-				kc.pick("ONEIL");
-				break;
-			case KeyEvent.VK_I:
-				kc.drop("ONEIL");
-				break;
-			default:
-				break;
-			}
+		switch (oneilsLast) {
+		case PICKED:
+			kc.pick("ONEIL");
+			break;
+		case DROPPED:
+			kc.drop("ONEIL");
+			break;
+		default:
+			break;
 		}
-		if(jaffa != -1){
-			switch (jaffa) {
-			case KeyEvent.VK_0://ez itt egy nulla
-				kc.pick("JAFFA");
-				break;
-			case KeyEvent.VK_1:
-				kc.drop("JAFFA");
-				break;
-			default:
-				break;
-			}
+		switch (jaffasLast) {
+		case PICKED:
+			kc.pick("JAFFA");
+			break;
+		case DROPPED:
+			kc.drop("JAFFA");
+			break;
+		default:
+			break;
 		}
 	}
 	

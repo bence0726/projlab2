@@ -1,6 +1,8 @@
 package model;
 import java.util.*;
 
+import enums.MoveDirections;
+
 /**
  * Ez a segédosztály pont-párok tárolására
  * lett megalkotva.
