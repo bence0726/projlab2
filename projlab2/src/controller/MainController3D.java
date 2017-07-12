@@ -131,7 +131,7 @@ public class MainController3D {
 	private static void moveCharacters(int index){
 		//billentyűlenyomások fogadása
 		getMoveKeys();
-		getPickAndDropKeys(pdk, kc);
+		getPickAndDropKeys();
 		if(index % 10 == 0) //csak minden 10. ciklusban nézzük meg, hogy van-e lövés
 			getFireKeys();
 		if(index % 5 == 0)

@@ -193,15 +193,11 @@ public class MainController {
 	}
 	
 	private static void getrotation(RotateKeyListener rk, KarakterController kc){
-		int oneil = rk.oneilangle;
-		int jaffa = rk.jaffaangle;
+		if(rk.DoesOneilRotated())
+			kc.rotateGun("ONEIL", 10.0);	
 		
-		if(oneil == KeyEvent.VK_L){			
-				kc.rotateGun("ONEIL", 10.0);	
-		}
-		if(jaffa == KeyEvent.VK_CAPS_LOCK){			
+		if(rk.DoesJaffaRotated())			
 			kc.rotateGun("JAFFA", 10.0);	
-		}
 	}
 	
 	

@@ -4,38 +4,46 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class RotateKeyListener implements KeyListener{
-	int oneilangle = 0;
-	int jaffaangle = 0;
+	private boolean doesOneilRotated = false;
+	private boolean doesJaffaRotated = false;
 	
 	public void keyPressed(KeyEvent e) {
-		int keycode = e.getKeyCode();
-		switch (keycode) {
-		case KeyEvent.VK_CAPS_LOCK:
-			jaffaangle = keycode;	
-			return;
+		int keyCode = e.getKeyCode();
+		switch (keyCode) {
 		case KeyEvent.VK_L:
-			oneilangle = keycode;
+			doesOneilRotated = true;
 			return;	
+		case KeyEvent.VK_CAPS_LOCK:
+			doesJaffaRotated = true;
+			return;
 		default:
-		break;
+			return;
 		}			
 	}		
 	
 	public void keyReleased(KeyEvent e) {
-		int keycode = e.getKeyCode();
-		switch (keycode) {
-		case KeyEvent.VK_CAPS_LOCK:
-			jaffaangle = -1;	
-			return;
+		int keyCode = e.getKeyCode();
+		switch (keyCode) {
 		case KeyEvent.VK_L:
-			oneilangle = -1;
-			return;	
+			doesOneilRotated = false;
+			return;
+		case KeyEvent.VK_CAPS_LOCK:
+			doesJaffaRotated = false;
+			return;
 		default:
-		break;
+			return;
 		}	
 	}
 	
 	public void keyTyped(KeyEvent e) {
 		// nothing to do here
+	}
+
+	public boolean DoesOneilRotated() {
+		return doesOneilRotated;
+	}
+
+	public boolean DoesJaffaRotated() {
+		return doesJaffaRotated;
 	}
 }
