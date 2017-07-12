@@ -47,6 +47,11 @@ public class MainController3D {
 		
 	}
 
+	/**
+	 * inicializálja a játék futásához szükséges objektumokat,
+	 * beolvassa fájlból a pályát és felépíti a 3D világot,
+	 * valamint példányosítja az eventListener-eket.
+	 */
 	private static void initializeGame() {
 		gameEngine = new JatekMotor();
 		mb = new MapBuilder(gameEngine);
@@ -61,6 +66,9 @@ public class MainController3D {
 		
 	}
 
+	/**
+	 * Példányosítja az EventListener-eket
+	 */
 	private static void createListeners() {
 		mv = new MoveKeysListener();
 		fk = new FireKeysListener();
@@ -68,6 +76,9 @@ public class MainController3D {
 		rtk = new RotateKeyListener();
 	}
 
+	/**
+	 * Beolvassa fájlból a térképet és felépíti belőle a pálya modelljét
+	 */
 	private static void buildMapFromFile(MapBuilder mb) {
 		try {
 			mb.buildMap(new File("src/maps/Map2.txt"));
@@ -80,6 +91,9 @@ public class MainController3D {
 		}
 	}
 
+	/**
+	 * Létrehozza a modell felhasználásával a 3D világot
+	 */
 	private static void create3DWorld(JatekMotor gameEngine) {
 		List<Shape3D> objects3D = new LinkedList<>();
 		
