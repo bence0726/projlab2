@@ -1,4 +1,4 @@
-package controller;
+package controller3D;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,6 +8,12 @@ import java.util.List;
 
 import javax.swing.JComponent;
 
+import controller.FireKeysListener;
+import controller.KarakterController;
+import controller.MapBuilder;
+import controller.MoveKeysListener;
+import controller.PickandDropKeysListener;
+import controller.RotateKeyListener;
 import enums.PickAndDrop;
 import enums.Szin;
 import gui2d.ElemFactory;
